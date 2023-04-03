@@ -1,0 +1,63 @@
+.back {
+    height: 700px;
+    width: 100%;
+    background-color: grey;
+} 
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+h1 {
+    background-color: white;
+    width: 150px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1em;
+} 
+
+.form-group {
+    min-height: 550px;
+    width: 250px;
+    background-color: rgb(5, 5, 5, .4);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    // padding-bottom: 20px;
+}
+
+.form-group .input label {
+    color: white;
+    font-weight: bold;
+    text-align: left;
+}
+
+.form-control input {
+    height: 20px;
+    width: 200px;
+    border-radius: 10px;
+}
+
+.form-btn {
+    background-color: white;
+    border-radius: 10px;
+    width: 150px;
+    font-size: 1em;
+    margin-top: 10px;
+} 
+
+.test {
+    color: red;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-align: center;
+}
+
+

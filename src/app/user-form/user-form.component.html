@@ -1,0 +1,187 @@
+<div class="back">
+
+  <div class="form">
+
+    <h1 class="form-title">Création de compte</h1>
+
+    <form [formGroup]="form">
+
+      <div class="form-group">
+
+        <!-- Nom -->
+
+        <div class="input">
+          <label for="nom">Nom</label>
+          <div class="form-control">
+            <input type="text" name="nom" placeholder="Nom" formControlName="nom">
+          </div>
+
+          <div *ngIf="form.get('nom')?.invalid && (form.get('nom')?.dirty || form.get('nom')?.touched)">
+
+            <div *ngIf="form.get('nom')?.hasError('required')" class="test">
+              Ce champs est requis.
+            </div>
+
+            <div *ngIf="form.get('nom')?.hasError('invalidFormat')" class="test">
+              Première lettre en majuscule. <br> Pas de caractères spéciaux <br> ni de chiffres.
+            </div>
+
+            <div *ngIf="form.get('nom')?.hasError('maxlength')" class="test">
+              Maximum 20 caractères.
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Prénom -->
+
+        <div class="input">
+          <label for="prenom">Prénom</label>
+          <div class="form-control">
+            <input type="text" name="prenom" placeholder="Prénom" formControlName="prenom">
+          </div>
+
+          <div *ngIf="form.get('prenom')?.invalid && (form.get('prenom')?.dirty || form.get('prenom')?.touched)">
+
+            <div *ngIf="form.get('prenom')?.hasError('required')" class="test">
+              Ce champs est requis.
+            </div>
+
+            <div *ngIf="form.get('prenom')?.hasError('invalidFormat')" class="test">
+              Première lettre en majuscule. <br> Pas de caractères spéciaux <br> ni de chiffres.
+            </div>
+
+            <div *ngIf="form.get('prenom')?.hasError('maxlength')" class="test">
+              Maximum 20 caractères.
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Pseudo -->
+
+        <div class="input">
+          <label for="pseudo">Pseudo</label>
+          <div class="form-control">
+            <input type="text" name="pseudo" placeholder="Pseudo" formControlName="pseudo">
+          </div>
+
+          <div *ngIf="form.get('pseudo')?.invalid && (form.get('pseudo')?.dirty || form.get('pseudo')?.touched)">
+
+            <div *ngIf="form.get('pseudo')?.hasError('required')" class="test">
+              Ce champs est requis.
+            </div>
+
+            <div *ngIf="form.get('pseudo')?.hasError('username')" class="test">
+              Pas de caractères spéciaux.
+            </div>
+
+            <div *ngIf="form.get('pseudo')?.hasError('maxlength')" class="test">
+              Maximum 10 caractères.
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Email -->
+
+        <div class="input">
+          <label for="email">Email</label>
+          <div class="form-control">
+            <input type="email" name="email" placeholder="Email" formControlName="email">
+          </div>
+
+          <div *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched)">
+
+            <div *ngIf="form.get('email')?.hasError('required')" class="test">
+              Ce champs est requis.
+            </div>
+
+            <div *ngIf="form.get('email')?.hasError('email')" class="test">
+              Renseigner une adresse mail valide.
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Photo -->
+
+        <div class="input">
+          <label for="photo">Photo</label>
+          <div class="form-control">
+            <input type="text" name="photo" placeholder="Photo" formControlName="photo">
+          </div>
+        </div>
+
+        <!-- Mot de passe -->
+
+        <div class="input">
+          <label for="motDePasse">Mot de passe</label>
+          <div class="form-control">
+            <input type="password" name="motDePasse" placeholder="Mot de passe" formControlName="motDePasse">
+          </div>
+
+          <div
+            *ngIf="form.get('motDePasse')?.invalid && (form.get('motDePasse')?.dirty || form.get('motDePasse')?.touched)">
+
+            <div *ngIf="form.get('motDePasse')?.hasError('required')" class="test">
+              Ce champs est requis.
+            </div>
+
+            <div *ngIf="form.get('motDePasse')?.hasError('invalidPassword')" class="test">
+              Au moins une majuscule, <br> un caractère spécial et un chiffre.
+            </div>
+
+            <div *ngIf="form.get('motDePasse')?.hasError('minlength')" class="test">
+              Minimum 12 caractères.
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Confirmation mot de passe -->
+
+        <div class="input">
+          <label for="confirm">Confirmer mot de passe</label>
+          <div class="form-control">
+            <input type="password" name="confirm" placeholder="Confirmer mot de passe" formControlName="confirm">
+          </div>
+
+          <div *ngIf="form.get('confirm')?.invalid && (form.get('confirm')?.dirty || form.get('confirm')?.touched)">
+
+            <div *ngIf="form.get('confirm')?.hasError('required')" class="test">
+              Ce champs est requis.
+            </div>
+
+            <div *ngIf="form.get('confirm')?.hasError('invalidPassword')" class="test">
+              Au moins une majuscule, <br> un caractère spécial et un chiffre.
+            </div>
+
+            <div *ngIf="form.get('confirm')?.hasError('minlength')" class="test">
+              Minimum 12 caractères.
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </form>
+
+    <button class="form-btn" type="submit" (click)="onSubmitForm()" [disabled]="form.invalid">Créer mon compte</button>
+    <!-- Pour empêcher l'utilisateur d'envoyer le formulaire s'il n'est pas valable, je lie l'attribut  disabled  
+    du bouton Créer mon compte à l'attribut  invalid  du FormGroup. Si le formulaire n'est pas valable, le bouton 
+    sera désactivé. -->
+
+  </div>
+
+</div>
+
+<!-- Le fait d'avoir importé ReactiveFormsModule dans le app.module.ts me permet de lier un objet de type FormGroup à 
+  un  <form>  avec l'attribut  formGroup  . -->
