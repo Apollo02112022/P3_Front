@@ -1,0 +1,20 @@
+.form{
+    height: 100%;
+    gap: 10px;
+    color: rgb(187, 235, 198);
+    font-size:1.1rem;
+    font-weight: 600;
+}
+input{
+    max-width: 60%;
+    width: 300px;
+    height: 20px;
+}
+button{
+    height: 2.5rem;
+    width: 8rem;
+}
+.alert{
+    color: rgb(175, 29, 29);
+    font-weight: 800;
+}
