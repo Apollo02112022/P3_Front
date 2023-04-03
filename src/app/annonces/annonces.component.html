@@ -1,0 +1,23 @@
+<p>
+  annonces works!
+</p>
+    <div class="container">
+        <div class="card shadow mb-4">
+          <div class="card-body">
+              <table >
+                  <thead>
+                    <tr> <th>Id</th><th>Image</th><th>Description</th> <th>Date Création</th> </tr>
+                    
+                   </thead>
+                  <tbody *ngFor="let annonce of annonces">
+                      <tr >
+                          <td>{{annonce.idAnnonce}}</td>
+                          <td>{{annonce.imageAnnonce}}</td>
+                          <td>{{annonce.description}}</td>
+                          <td>{{annonce.dateCreation | date:"dd/MM/yyyy"}}</td>
+                      </tr>
+                  </tbody>
+                </table>
+          </div>
+       </div>
+      </div>
