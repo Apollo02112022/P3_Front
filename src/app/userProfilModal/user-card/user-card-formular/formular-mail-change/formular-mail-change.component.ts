@@ -11,7 +11,7 @@ export class FormularMailChangeComponent {
 
   constructor(private formBuilder: FormBuilder) {
     this.mailChange = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]]
+      mail: ['', [Validators.required, Validators.email]]
     });
   }
 
