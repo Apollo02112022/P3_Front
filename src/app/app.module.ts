@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { AnnoncesComponent } from './annonces/annonces.component';
 import { AddAnnonceComponent } from './add-annonce/add-annonce.component';
 import { FormsModule } from '@angular/forms';
+import { UpdateAnnonceComponent } from './update-annonce/update-annonce.component';
 @NgModule({
-  declarations: [		
+  declarations: [			
     AppComponent,
     AnnoncesComponent,
-      AddAnnonceComponent
+      AddAnnonceComponent,
+      UpdateAnnonceComponent
    ],
   imports: [
       BrowserModule,

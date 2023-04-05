@@ -1,23 +1,28 @@
 <p>
   annonces works!
 </p>
-    <div class="container">
-        <div class="card shadow mb-4">
-          <div class="card-body">
-              <table >
-                  <thead>
-                    <tr> <th>Id</th><th>Image</th><th>Description</th> <th>Date Création</th> </tr>
-                    
-                   </thead>
-                  <tbody *ngFor="let annonce of annonces">
-                      <tr >
-                          <td>{{annonce.idAnnonce}}</td>
-                          <td>{{annonce.imageAnnonce}}</td>
-                          <td>{{annonce.description}}</td>
-                          <td>{{annonce.dateCreation | date:"dd/MM/yyyy"}}</td>
-                      </tr>
-                  </tbody>
-                </table>
-          </div>
-       </div>
+<div class="container">
+
+  <div class="card-body">
+    <div class = "card" *ngFor="let annonce of annonces">
+
+      <h3>Id</h3>
+      <p>{{annonce.idAnnonce}}</p>
+      <h3>Image</h3>
+      <p>{{annonce.imageAnnonce}}</p>
+      <div class="description"><h3>Description :</h3>
+      <p>{{annonce.description}}</p>
       </div>
+      <div class="category"  ><h3>Categorie : </h3>
+      <span>{{annonce.category.nomCat}}</span></div>
+      <h3>Date Création :</h3>
+      <p>{{annonce.dateCreation | date:"dd/MM/yyyy"}}</p>
+
+      <p> <button (click)="supprimerAnnonce(annonce)">Supprimer</button></p>
+      <button [routerLink]="['/updateAnnonce', annonce.idAnnonce]">Modifier</button>
+
+    </div>
+
+  </div>
+
+</div>
