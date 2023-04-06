@@ -1,187 +1,255 @@
-<div class="back">
+<div class="form">
 
-  <div class="form">
+  <h1 class="form-title">Création de compte</h1>
 
-    <h1 class="form-title">Création de compte</h1>
+  <form [formGroup]="form">
 
-    <form [formGroup]="form">
+    <div class="form-group">
 
-      <div class="form-group">
+      <!-- Nom -->
 
-        <!-- Nom -->
-
-        <div class="input">
-          <label for="nom">Nom</label>
-          <div class="form-control">
-            <input type="text" name="nom" placeholder="Nom" formControlName="nom">
-          </div>
-
-          <div *ngIf="form.get('nom')?.invalid && (form.get('nom')?.dirty || form.get('nom')?.touched)">
-
-            <div *ngIf="form.get('nom')?.hasError('required')" class="test">
-              Ce champs est requis.
-            </div>
-
-            <div *ngIf="form.get('nom')?.hasError('invalidFormat')" class="test">
-              Première lettre en majuscule. <br> Pas de caractères spéciaux <br> ni de chiffres.
-            </div>
-
-            <div *ngIf="form.get('nom')?.hasError('maxlength')" class="test">
-              Maximum 20 caractères.
-            </div>
-
-          </div>
-
+      <div class="input">
+        <label for="lastname">Nom</label>
+        <div class="form-control">
+          <input type="text" name="lastname" placeholder="Nom" formControlName="lastname">
         </div>
 
-        <!-- Prénom -->
+        <div *ngIf="form.get('lastname')?.invalid && (form.get('lastname')?.dirty || form.get('lastname')?.touched)">
 
-        <div class="input">
-          <label for="prenom">Prénom</label>
-          <div class="form-control">
-            <input type="text" name="prenom" placeholder="Prénom" formControlName="prenom">
+          <div *ngIf="form.get('lastname')?.hasError('required')" class="error">
+            Ce champs est requis.
           </div>
 
-          <div *ngIf="form.get('prenom')?.invalid && (form.get('prenom')?.dirty || form.get('prenom')?.touched)">
-
-            <div *ngIf="form.get('prenom')?.hasError('required')" class="test">
-              Ce champs est requis.
-            </div>
-
-            <div *ngIf="form.get('prenom')?.hasError('invalidFormat')" class="test">
-              Première lettre en majuscule. <br> Pas de caractères spéciaux <br> ni de chiffres.
-            </div>
-
-            <div *ngIf="form.get('prenom')?.hasError('maxlength')" class="test">
-              Maximum 20 caractères.
-            </div>
-
+          <div *ngIf="form.get('lastname')?.hasError('invalidFormat')" class="error">
+            Première lettre en majuscule. <br> Pas de caractères spéciaux <br> ni de chiffres.
           </div>
 
-        </div>
-
-        <!-- Pseudo -->
-
-        <div class="input">
-          <label for="pseudo">Pseudo</label>
-          <div class="form-control">
-            <input type="text" name="pseudo" placeholder="Pseudo" formControlName="pseudo">
-          </div>
-
-          <div *ngIf="form.get('pseudo')?.invalid && (form.get('pseudo')?.dirty || form.get('pseudo')?.touched)">
-
-            <div *ngIf="form.get('pseudo')?.hasError('required')" class="test">
-              Ce champs est requis.
-            </div>
-
-            <div *ngIf="form.get('pseudo')?.hasError('username')" class="test">
-              Pas de caractères spéciaux.
-            </div>
-
-            <div *ngIf="form.get('pseudo')?.hasError('maxlength')" class="test">
-              Maximum 10 caractères.
-            </div>
-
-          </div>
-
-        </div>
-
-        <!-- Email -->
-
-        <div class="input">
-          <label for="email">Email</label>
-          <div class="form-control">
-            <input type="email" name="email" placeholder="Email" formControlName="email">
-          </div>
-
-          <div *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched)">
-
-            <div *ngIf="form.get('email')?.hasError('required')" class="test">
-              Ce champs est requis.
-            </div>
-
-            <div *ngIf="form.get('email')?.hasError('email')" class="test">
-              Renseigner une adresse mail valide.
-            </div>
-
-          </div>
-
-        </div>
-
-        <!-- Photo -->
-
-        <div class="input">
-          <label for="photo">Photo</label>
-          <div class="form-control">
-            <input type="text" name="photo" placeholder="Photo" formControlName="photo">
-          </div>
-        </div>
-
-        <!-- Mot de passe -->
-
-        <div class="input">
-          <label for="motDePasse">Mot de passe</label>
-          <div class="form-control">
-            <input type="password" name="motDePasse" placeholder="Mot de passe" formControlName="motDePasse">
-          </div>
-
-          <div
-            *ngIf="form.get('motDePasse')?.invalid && (form.get('motDePasse')?.dirty || form.get('motDePasse')?.touched)">
-
-            <div *ngIf="form.get('motDePasse')?.hasError('required')" class="test">
-              Ce champs est requis.
-            </div>
-
-            <div *ngIf="form.get('motDePasse')?.hasError('invalidPassword')" class="test">
-              Au moins une majuscule, <br> un caractère spécial et un chiffre.
-            </div>
-
-            <div *ngIf="form.get('motDePasse')?.hasError('minlength')" class="test">
-              Minimum 12 caractères.
-            </div>
-
-          </div>
-
-        </div>
-
-        <!-- Confirmation mot de passe -->
-
-        <div class="input">
-          <label for="confirm">Confirmer mot de passe</label>
-          <div class="form-control">
-            <input type="password" name="confirm" placeholder="Confirmer mot de passe" formControlName="confirm">
-          </div>
-
-          <div *ngIf="form.get('confirm')?.invalid && (form.get('confirm')?.dirty || form.get('confirm')?.touched)">
-
-            <div *ngIf="form.get('confirm')?.hasError('required')" class="test">
-              Ce champs est requis.
-            </div>
-
-            <div *ngIf="form.get('confirm')?.hasError('invalidPassword')" class="test">
-              Au moins une majuscule, <br> un caractère spécial et un chiffre.
-            </div>
-
-            <div *ngIf="form.get('confirm')?.hasError('minlength')" class="test">
-              Minimum 12 caractères.
-            </div>
-
+          <div *ngIf="form.get('lastname')?.hasError('maxlength')" class="error">
+            Maximum 20 caractères.
           </div>
 
         </div>
 
       </div>
 
-    </form>
+      <!-- Prénom -->
 
-    <button class="form-btn" type="submit" (click)="onSubmitForm()" [disabled]="form.invalid">Créer mon compte</button>
-    <!-- Pour empêcher l'utilisateur d'envoyer le formulaire s'il n'est pas valable, je lie l'attribut  disabled  
+      <div class="input">
+        <label for="firstname">Prénom</label>
+        <div class="form-control">
+          <input type="text" name="firstname" placeholder="Prénom" formControlName="firstname">
+        </div>
+
+        <div *ngIf="form.get('firstname')?.invalid && (form.get('firstname')?.dirty || form.get('firstname')?.touched)">
+
+          <div *ngIf="form.get('firstname')?.hasError('required')" class="error">
+            Ce champs est requis.
+          </div>
+
+          <div *ngIf="form.get('firstname')?.hasError('invalidFormat')" class="error">
+            Première lettre en majuscule. <br> Pas de caractères spéciaux <br> ni de chiffres.
+          </div>
+
+          <div *ngIf="form.get('firstname')?.hasError('maxlength')" class="error">
+            Maximum 20 caractères.
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Pseudo -->
+
+      <div class="input">
+        <label for="username">Pseudo</label>
+        <div class="form-control">
+          <input type="text" name="username" placeholder="Pseudo" formControlName="username">
+        </div>
+
+        <div *ngIf="form.get('username')?.invalid && (form.get('username')?.dirty || form.get('username')?.touched)">
+
+          <div *ngIf="form.get('username')?.hasError('required')" class="error">
+            Ce champs est requis.
+          </div>
+
+          <div *ngIf="form.get('username')?.hasError('username')" class="error">
+            Pas de caractères spéciaux.
+          </div>
+
+          <div *ngIf="form.get('username')?.hasError('maxlength')" class="error">
+            Maximum 10 caractères.
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Photo -->
+
+      <div class="input">
+        <label for="picture">Photo</label>
+        <div class="form-control">
+          <input type="text" name="picture" placeholder="Photo" formControlName="picture">
+        </div>
+
+        <div *ngIf="form.get('picture')?.invalid && (form.get('picture')?.dirty || form.get('picture')?.touched)">
+
+            <div *ngIf="form.get('picture')?.hasError('required')" class="error">
+              Ce champs est requis.
+            </div>
+
+            <!-- <div *ngIf="form.get('picture')?.hasError('invalidFileType')" class="error">
+              Format JPG seulement accepté.
+            </div> -->
+
+          </div>
+
+      </div>
+
+      <!-- Ville -->
+
+      <div class="input">
+        <label for="city">Ville</label>
+        <div class="form-control">
+          <input type="text" name="city" placeholder="Ville" formControlName="city">
+        </div>
+
+        <div *ngIf="form.get('city')?.invalid && (form.get('city')?.dirty || form.get('city')?.touched)">
+
+          <div *ngIf="form.get('city')?.hasError('required')" class="error">
+            Ce champs est requis.
+          </div>
+
+          <div *ngIf="form.get('city')?.hasError('invalidFormat')" class="error">
+            Première lettre en majuscule. <br> Pas de caractères spéciaux <br> ni de chiffres.
+          </div>
+
+        </div>  
+
+      </div>
+
+      <!-- Département -->
+
+      <div class="input">
+        <label for="county">Département</label>
+        <div class="form-control">
+          <input type="text" name="county" placeholder="Département" formControlName="county">
+        </div>
+
+        <div *ngIf="form.get('county')?.invalid && (form.get('county')?.dirty || form.get('county')?.touched)">
+
+          <div *ngIf="form.get('county')?.hasError('required')" class="error">
+            Ce champs est requis.
+          </div>
+
+          <div *ngIf="form.get('county')?.hasError('numberOnly')" class="error">
+            Uniquement des chiffres.
+          </div> 
+
+          <div *ngIf="form.get('county')?.hasError('minlength')" class="error">
+            Minimum 5 caractères.
+          </div> 
+
+          <div *ngIf="form.get('county')?.hasError('maxlength')" class="error">
+            Maximum 5 caractères.
+          </div>
+
+        </div>  
+
+
+      </div>
+
+      <!-- Email -->
+
+      <div class="input">
+        <label for="email">Email</label>
+        <div class="form-control">
+          <input type="email" name="email" placeholder="Email" formControlName="email">
+        </div>
+
+        <div *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched)">
+
+          <div *ngIf="form.get('email')?.hasError('required')" class="error">
+            Ce champs est requis.
+          </div>
+
+          <div *ngIf="form.get('email')?.hasError('email')" class="error">
+            Renseigner une adresse mail valide.
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Mot de passe -->
+
+      <div class="input">
+        <label for="password">Mot de passe</label>
+        <div class="form-control">
+          <input type="password" name="password" placeholder="Mot de passe" formControlName="password">
+        </div>
+
+        <div
+          *ngIf="form.get('password')?.invalid && (form.get('password')?.dirty || form.get('password')?.touched)">
+
+          <div *ngIf="form.get('password')?.hasError('required')" class="error">
+            Ce champs est requis.
+          </div>
+
+          <div *ngIf="form.get('password')?.hasError('invalidPassword')" class="error">
+            Au moins une majuscule, <br> un caractère spécial et un chiffre.
+          </div>
+
+          <div *ngIf="form.get('password')?.hasError('minlength')" class="error">
+            Minimum 12 caractères.
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Confirmation mot de passe -->
+
+      <div class="input">
+        <label for="confirmation">Confirmer mot de passe</label>
+        <div class="form-control">
+          <input type="password" name="confirmation" placeholder="Confirmer mot de passe"
+            formControlName="confirmation">
+        </div>
+
+        <div
+          *ngIf="form.get('confirmation')?.invalid && (form.get('confirmation')?.dirty || form.get('confirmation')?.touched)">
+
+          <div *ngIf="form.get('confirmation')?.hasError('required')" class="error">
+            Ce champs est requis.
+          </div>
+
+          <div *ngIf="form.get('confirmation')?.hasError('invalidPassword')" class="error">
+            Au moins une majuscule, <br> un caractère spécial et un chiffre.
+          </div>
+
+          <div *ngIf="form.get('confirmation')?.hasError('minlength')" class="error">
+            Minimum 12 caractères.
+          </div>
+
+          <div *ngIf="form.get('confirmation')?.hasError('passwordMismatch')" class="error">
+            Les mots de passe <br> ne correspondent pas.
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </form>
+
+  <button class="form-btn" type="submit" (click)="onSubmitForm()" [disabled]="form.invalid">Créer <br> mon compte</button>
+  <!-- Pour empêcher l'utilisateur d'envoyer le formulaire s'il n'est pas valable, je lie l'attribut  disabled  
     du bouton Créer mon compte à l'attribut  invalid  du FormGroup. Si le formulaire n'est pas valable, le bouton 
     sera désactivé. -->
-
-  </div>
 
 </div>
 
 <!-- Le fait d'avoir importé ReactiveFormsModule dans le app.module.ts me permet de lier un objet de type FormGroup à 
-  un  <form>  avec l'attribut  formGroup  . -->
+  un  <form>  avec l'attribut  formGroup  . --> 

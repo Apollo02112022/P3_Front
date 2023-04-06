@@ -14,6 +14,7 @@ export function passwordValidator(control: AbstractControl): ValidationErrors | 
   return valid ? null : { invalidPassword: true };
 } 
 
+
 // La fonction importe les classes AbstractControl et ValidationErrors depuis le module @angular/forms, qui sont utilisées pour 
 // définir et valider les contrôles de formulaire. 
 
