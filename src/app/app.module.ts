@@ -9,6 +9,7 @@ import { UserCardButtonComponent } from './userProfilModal/user-card/user-card-b
 import { FormularPasswordChangeComponent } from './userProfilModal/user-card/user-card-formular/formular-password-change/formular-password-change.component';
 import { FormularMailChangeComponent } from './userProfilModal/user-card/user-card-formular/formular-mail-change/formular-mail-change.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormularDeleteAccountComponent } from './userProfilModal/user-card/user-card-formular/formular-delete-account/formular-delete-account.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UserCardFormularComponent,
     UserCardButtonComponent,
     FormularPasswordChangeComponent,
-    FormularMailChangeComponent
+    FormularMailChangeComponent,
+    FormularDeleteAccountComponent
   ],
   imports: [
     BrowserModule,
