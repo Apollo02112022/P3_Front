@@ -7,6 +7,8 @@ import { AnnoncesComponent } from './annonces/annonces.component';
 import { AddAnnonceComponent } from './add-annonce/add-annonce.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateAnnonceComponent } from './update-annonce/update-annonce.component';
+import { HttpClientModule } from '@angular/common/http'
+
 @NgModule({
   declarations: [			
     AppComponent,
@@ -17,7 +19,8 @@ import { UpdateAnnonceComponent } from './update-annonce/update-annonce.componen
   imports: [
       BrowserModule,
       AppRoutingModule,
-      FormsModule
+      FormsModule,
+      HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]

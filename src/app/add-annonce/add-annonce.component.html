@@ -5,21 +5,21 @@
   
   
   <form>
-    <div class="col-sm-2 col-md-2 col-lg-2">
+    <div hidden class="">
       <label>ID Annonce</label>
-      <input type="text" [(ngModel)]="newAnnonce.idAnnonce" name="idAnnonce" class="form-control">
+      <input type="text" [(ngModel)]="newAnnonce.id" name="idAnnonce" class="form-control">
     </div>
-    <div class="col-sm-4 col-md-4 col-lg-4">
+    <div class="">
       <label>Image</label>
-      <input type="file" [(ngModel)]="newAnnonce.imageAnnonce" name="Image" class="form-control">
+      <input type="file" [(ngModel)]="newAnnonce.announcement_picture" name="Image" class="form-control">
 
     </div>
 
-    <div class="col-sm-2 col-md-2 col-lg-2">
+    <div class="">
       <label>Description Annonce</label>
       <input type="text" [(ngModel)]="newAnnonce.description" name="description" class="form-control">
     </div>
-    <div class="col-sm-4 col-md-4 col-lg-4">
+    <!-- <div class="">
       <label>Categorie</label>
       <select class="form-control form-control-lg" id="idCat" name="idCat"
       [(ngModel)]="newIdCat">
@@ -27,14 +27,14 @@
        {{cat.nomCat}}
       </option>
       </select>
-      </div>
+      </div> -->
 
-    <div class="col-sm-4 col-md-4 col-lg-4">
+    <!-- <div class="">
       <label>Date création</label>
       <input type="date" [(ngModel)]="newAnnonce.dateCreation" name="dateCreation" class="form-control">
-    </div>
+    </div> -->
 
-    <div class="mt-2">
+    <div class="">
       <button type="submit" (click)="addAnnonce()" class="">Ajouter</button>
       <div>
         <h3>{{message}}</h3>

@@ -23,7 +23,7 @@ export class UpdateAnnonceComponent implements OnInit {
     // console.log(this.activatedRoute.snapshot.params["id"]);
     this.currentAnnonce = this.annonceService.consultAnnonce(this.activatedRoute.snapshot.params['id']);
     console.log(this.currentAnnonce);
-    this.category = this.annonceService.listeCategory();//rempli le tableau avec toutes les categories listés
+    // this.category = this.annonceService.listeCategory();//rempli le tableau avec toutes les categories listés
     this.currentAnnonce = this.annonceService.consultAnnonce(this.activatedRoute.snapshot.params['id']);
     this.updatedCatId = this.currentAnnonce.category.idCat;// updateCategory recupere l 'id de la categorie current
 
@@ -32,11 +32,11 @@ export class UpdateAnnonceComponent implements OnInit {
   updateAnnonce() {
     // console.log(this.currentAnnonce)
     this.annonceService.updateAnnonce(this.currentAnnonce);
-    this.router.navigate(["annonces"]);// retour a la page d'annonce après modification
+    this.router.navigate(["barters"]);// retour a la page d'annonce après modification
 
-    this.currentAnnonce.category = this.annonceService.consulterCategory(this.updatedCatId);
-    this.annonceService.updateAnnonce(this.currentAnnonce);
-    this.router.navigate(['annonces']);
+    // this.currentAnnonce.category = this.annonceService.consulterCategory(this.updatedCatId);
+    // this.annonceService.updateAnnonce(this.currentAnnonce);
+    // this.router.navigate(['barters']);
 
     
 
