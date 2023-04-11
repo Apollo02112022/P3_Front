@@ -10,6 +10,7 @@ import { FormularPasswordChangeComponent } from './userProfilModal/user-card/use
 import { FormularMailChangeComponent } from './userProfilModal/user-card/user-card-formular/formular-mail-change/formular-mail-change.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormularDeleteAccountComponent } from './userProfilModal/user-card/user-card-formular/formular-delete-account/formular-delete-account.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FormularDeleteAccountComponent } from './userProfilModal/user-card/user
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

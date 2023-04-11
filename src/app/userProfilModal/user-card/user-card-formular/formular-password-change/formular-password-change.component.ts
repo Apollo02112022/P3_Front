@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { ChangePasswordService } from './change-password.service';
 
 @Component({
   selector: 'app-formular-password-change',
@@ -10,12 +11,13 @@ export class FormularPasswordChangeComponent implements OnInit {
 
   passwordForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+
+  constructor(private fb: FormBuilder, private changePasswordService: ChangePasswordService) { }
 
   ngOnInit(): void {
     // construction du formulaire reactif grâce à FormBuilder
     this.passwordForm = this.fb.group({
-      oldPassword: ['', [Validators.required,this.passwordValidator()]],
+      currentPassword: ['', [Validators.required, this.passwordValidator()]],
       newPassword: ['', [Validators.required, this.passwordValidator()]],
       confirmPassword: ['', Validators.required]
     }
@@ -23,7 +25,7 @@ export class FormularPasswordChangeComponent implements OnInit {
       {
         validators: this.matchingPasswordsValidator()
       });
-    console.log("@@@@OnInit@@@@", this.passwordForm)
+    console.log("@@@@OnInit@@@@", this.passwordForm, "123!A@azer")
   }
 
   // Validateur personnalisé pour le champ "newPassword"
@@ -66,6 +68,19 @@ export class FormularPasswordChangeComponent implements OnInit {
     }
 
     // Traitement de la soumission du formulaire ici
-    console.log("@@@@OnSUBMIT@@@", this.passwordForm.value);
+    // console.log("@@@@OnSUBMIT@@@", this.passwordForm.value);
+    const currentPassword = this.passwordForm.get('currentPassword')?.value;
+    const newPassword = this.passwordForm.get('newPassword')?.value;
+  
+    this.changePasswordService.checkCurrentPassword(currentPassword).subscribe(check => {
+      if (check) {
+        this.changePasswordService.updatePassword(newPassword).subscribe(() => {
+          console.log('password changed');
+        });
+      }else{
+
+        console.log('password is false')
+      }
+    });
   }
 }
