@@ -21,11 +21,11 @@ export class UpdateAnnonceComponent implements OnInit {
 
   ngOnInit() {
     // console.log(this.activatedRoute.snapshot.params["id"]);
-    this.currentAnnonce = this.annonceService.consultAnnonce(this.activatedRoute.snapshot.params['id']);
-    console.log(this.currentAnnonce);
-    // this.category = this.annonceService.listeCategory();//rempli le tableau avec toutes les categories listés
-    this.currentAnnonce = this.annonceService.consultAnnonce(this.activatedRoute.snapshot.params['id']);
-    this.updatedCatId = this.currentAnnonce.category.idCat;// updateCategory recupere l 'id de la categorie current
+    // this.currentAnnonce = this.annonceService.consultAnnonce(this.activatedRoute.snapshot.params['id']);
+    // console.log(this.currentAnnonce);
+    // // this.category = this.annonceService.listeCategory();//rempli le tableau avec toutes les categories listés
+    // this.currentAnnonce = this.annonceService.consultAnnonce(this.activatedRoute.snapshot.params['id']);
+    // this.updatedCatId = this.currentAnnonce.category.idCat;// updateCategory recupere l 'id de la categorie current
 
 
   }

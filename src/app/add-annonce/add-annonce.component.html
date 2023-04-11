@@ -4,7 +4,7 @@
   </div>
   
   
-  <form>
+  <form (submit)="addAnnonce()">
     <div hidden class="">
       <label>ID Annonce</label>
       <input type="text" [(ngModel)]="newAnnonce.id" name="idAnnonce" class="form-control">
@@ -35,7 +35,7 @@
     </div> -->
 
     <div class="">
-      <button type="submit" (click)="addAnnonce()" class="">Ajouter</button>
+      <button type="submit" class="">Ajouter</button>
       <div>
         <h3>{{message}}</h3>
       </div>

@@ -8,13 +8,17 @@ import { AddAnnonceComponent } from './add-annonce/add-annonce.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateAnnonceComponent } from './update-annonce/update-annonce.component';
 import { HttpClientModule } from '@angular/common/http'
+import { DetailsAnnonceComponent } from './details-annonce/details-annonce.component';
+import { PropositionTrocComponent } from './proposition-troc/proposition-troc.component';
 
 @NgModule({
-  declarations: [			
+  declarations: [						
     AppComponent,
     AnnoncesComponent,
       AddAnnonceComponent,
-      UpdateAnnonceComponent
+      UpdateAnnonceComponent,
+      DetailsAnnonceComponent,
+      PropositionTrocComponent
    ],
   imports: [
       BrowserModule,

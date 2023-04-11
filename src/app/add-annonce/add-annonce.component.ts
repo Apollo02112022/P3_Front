@@ -32,7 +32,7 @@ export class AddAnnonceComponent implements OnInit {
 
     this.annonceService.addOneAnnonce(this.newAnnonce).subscribe(ann => {
       console.log(ann);
-      // this.router.navigate(['barters']);
+      this.router.navigate(['barters']);
     });
   }
   // this.message = "Annonce " + this.newAnnonce.description +" ajoutée avec succes"
