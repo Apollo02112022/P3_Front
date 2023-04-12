@@ -1,5 +1,5 @@
-/* Validator utilisé pour le mot de passe. Le mot de passe doit comporter au minimum 12 caractères, une majuscule, un chiffre, un 
-caractère spécial et aucun espace.*/
+// Validator utilisé pour le mot de passe. Le mot de passe doit comporter au minimum une majuscule, un chiffre, un 
+// caractère spécial et aucun espace.
 
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
