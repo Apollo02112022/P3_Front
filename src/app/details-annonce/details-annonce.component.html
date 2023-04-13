@@ -1,3 +1,10 @@
+<div class="detailAnnContainer">
+  <div class="textAnnDesktop">
+    <h2 class="titreAnn">Sur Trocoeurs,
+      consultez toutes nos offres de trocs, échangez  
+      ou postez !</h2>
+  </div>
+
 <div *ngIf="annonceId">
   <div class="card-body">
     <div class="cardDetailAnnonce">
@@ -5,8 +12,8 @@
       <h3>Id</h3>
       <p>{{annonceId.id}}</p>
     </div>
-      <div class="imageDetailAnnonce"><img src="{{annonceId.announcement_picture}}    " alt="image annonce">
-      </div>
+      <div class="imageDetailAnnonce"><img src="assets/bell-peppers.jpg" alt="image annonce">
+      </div>                                  
       <div class="descriptionDetailAnnonce">
         <h3>Description :</h3>
         <p>{{annonceId.description}}</p>

@@ -3,7 +3,6 @@
   grid-template-rows: 2fr 3fr 1fr;
   grid-template-columns: 1fr;
   justify-items: center;
-  gap: 0px;
   height: 100%;
   width: 300px;
   height: 500px;
@@ -13,48 +12,67 @@
   border-radius: 25px;
 }
 
-.cardDetailAnnonce .descriptionDetailAnnonce {
-  padding: 10px;
+.descriptionDetailAnnonce {
   text-align: center;
-
+  line-height: 24px;
+  font-size: 20px;
   padding: 15px 20px;
   box-sizing: border-box;
-  overflow: hidden;
+ 
 }
-.descriptionDetailAnnonce{
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 24px;
 
-color: #000000;
 
-}
-.imageDetailAnnonce .img {
-  width: 100px;
-  height: 250px;
+.imageDetailAnnonce{
+  width: 200px;
+  height: auto;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
+  margin: 15px;
+  border: 2px solid black;
 }
-.btnDeal{
+
+.btnDeal {
   display: flex;
   justify-content: center;
-  font-style: normal;
-font-weight: 700;
-font-size: 20px;
-line-height: 24px;
 
-color: #000000;
 }
+
 .btnTroc {
-  
+
   width: 161px;
   height: 56px;
   background: #FFFFFF;
   border-radius: 20px;
   font-style: normal;
-  font-weight: 700;
   font-size: 20px;
   line-height: 24px;
   color: #000000;
+}
+
+.textAnnDesktop {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  color: white;
+  border-radius: 25px;
+  background: rgba(33, 23, 23, 0.4);
+  margin: 25px 200px 25px 200px;
+}
+
+/* //////////MEDIA QUERIES//////////*/
+
+@media only screen and (max-width: 768px) {
+  .textAnnDesktop {
+    display: none;
+
+  }
+
+
+}
+
+@media only screen and (min-width: 768px) {
+
+  .cardDetailAnnonce {
+    width: 500px;
+  }
 }

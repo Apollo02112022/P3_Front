@@ -4,6 +4,7 @@ import { AnnonceService } from '../services/annonce.service';
 import { Category } from '../models/category.model';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-annonces',
   templateUrl: './annonces.component.html',
