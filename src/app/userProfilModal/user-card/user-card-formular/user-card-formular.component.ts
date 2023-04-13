@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ComponentHiddenService } from '../component-hidden.service';
 
 @Component({
   selector: 'app-user-card-formular',

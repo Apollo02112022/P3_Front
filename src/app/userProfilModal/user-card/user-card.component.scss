@@ -4,6 +4,7 @@
     border-radius: 10px;
     height: 80vh;
     width: 70vw;
+    overflow: scroll;
 }
 
 .user-picture{
@@ -36,4 +37,9 @@ img{
 height: 100%;
 width: 100%;
 min-height: 200px;
+}
+.button{
+    width: 10rem;
+    margin-top: 3rem;
+    border-radius: 8px;
 }

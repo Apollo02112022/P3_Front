@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ComponentHiddenService } from '../component-hidden.service';
 
 @Component({
   selector: 'app-user-card-button',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-card-button.component.scss']
 })
 export class UserCardButtonComponent {
+userid = 1;
+
 
 }

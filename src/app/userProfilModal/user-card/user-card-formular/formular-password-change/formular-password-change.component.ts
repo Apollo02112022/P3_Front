@@ -68,19 +68,18 @@ export class FormularPasswordChangeComponent implements OnInit {
     }
 
     // Traitement de la soumission du formulaire ici
-    // console.log("@@@@OnSUBMIT@@@", this.passwordForm.value);
     const currentPassword = this.passwordForm.get('currentPassword')?.value;
     const newPassword = this.passwordForm.get('newPassword')?.value;
   
     this.changePasswordService.checkCurrentPassword(currentPassword).subscribe(check => {
       if (check) {
         this.changePasswordService.updatePassword(newPassword).subscribe(() => {
-          console.log('password changed');
-        });
+          alert('password changed');
+        })
       }else{
 
-        console.log('password is false')
+        alert('password is false')
       }
-    });
+    })
   }
 }

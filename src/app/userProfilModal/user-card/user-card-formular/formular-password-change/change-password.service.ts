@@ -24,7 +24,7 @@ export class ChangePasswordService {
   checkCurrentPassword(currentPassword: string): Observable<boolean> {
     return this.http.post<boolean>(`${this.url}/check-password`, { password: currentPassword }, this.httpOptions);
   }
-  
+  // Méthode pour changer le mot de passe dans la base de données
   updatePassword(newPassword: string): Observable<boolean> {  
     return this.http.put<boolean>(`${this.url}/update-password`, { password: newPassword }, this.httpOptions);
   }
