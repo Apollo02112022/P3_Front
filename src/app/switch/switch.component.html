@@ -1,0 +1,59 @@
+<section class="switch">
+    <div class="switch-button">
+        <div  class="switch-button-checkbox" type="checkbox">
+        </div>
+        <!-- [ngClass]="{'up': toggle}" -->
+        <div  (click)="switch()" class="switch-button-label" for="">
+            <span class="switch-button-label-span">{{exchange}}</span>
+            <span class="switch-button-label-span">{{recover}}</span>       
+        </div>
+        <div class="picture">
+            <section class="ok">
+                <div class="picture__annonce">
+                    <img src="../assets/photo_annonce.jpg"/>
+                </div>
+                <p>{{takePicture}}</p>
+            </section>
+            <section class="ok">
+                <div class="picture__sms">
+                    <img src="../assets/sms.jpg" />
+                </div>
+                <p>{{message}}</p>
+            </section>
+            <section class="ok">
+                <div class="picture__deal">
+                    <img src="../assets/deal_ok.jpg" />
+                </div>
+                <p>{{deal}}</p>
+            </section>
+        </div>
+    </div>
+</section>
+    <!-- <div *ngIf="toggle"> -->
+        <!-- <div [ngClass]="{'up': toggle}" (click)="switch()" class="switch-button-label" for="">
+            <span class="switch-button-label-span">{{exchange}}</span>
+        </div> -->
+   
+    <div ngIf="toggle()" class="picture">
+        <section class="ok">
+            <div class="picture__annonce">
+                <img src="../assets/recherche.jpg" />
+            </div>
+            <p>{{search}}</p>
+        </section>
+        <section class="ok">
+            <div class="picture__sms">
+                <img src="../assets/appel.jpg" />
+            </div>
+            <p>{{proposal}}</p>
+        </section>
+        <section class="ok">
+            <div class="picture__deal">
+                <img src="../assets/panier.jpg" />
+            </div>
+            <p>{{retrieve}}</p>
+        </section>
+    </div>
+      
+      
+      

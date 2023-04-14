@@ -1,0 +1,261 @@
+.switch {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-style: normal;
+    margin-top: 97px;
+}
+  
+.switch-button-checkbox {
+    height: 50px;
+    width: 240px;
+    background-color: RGB(0, 0, 0, 0.35);
+    border-radius: 30px;
+    position: absolute;
+    margin: auto 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 122px;
+    
+}
+
+.switch-button-label {
+    height: 50px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#A6D1BD;
+    color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 20px;
+    border-radius: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    position: relative;
+    margin-right: 120px;
+}
+
+.up {
+    left: 120px;
+}
+
+
+// .switch-button {
+//     margin: 20px 0;
+//     background: RGB(0, 0, 0, 0.35);
+//     border-radius: 30px;
+//     overflow: hidden;
+//     height: 50px;
+//     width: 200px;
+//     text-align: center;
+//     font-size: 18px;
+//     letter-spacing: 1px;
+//     color: white;
+//     position: relative;
+//     padding-right: 120px;
+   
+  
+//     &:before {
+//       content: "Je récupère";
+//       position: absolute;
+//       top: 0;
+//       bottom: 0;
+//       right: 0;
+//       width: 120px;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       z-index: 3;
+//       pointer-events: none;
+//       opacity: 0;
+//     }
+  
+//     &-checkbox {
+//       cursor: pointer;
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       bottom: 0;
+//       width: 100%;
+//       height: 100%;
+//       opacity: 0;
+//       z-index: 2;
+  
+//       &:checked + .switch-button-label:before {
+//         transform: translateX(120px);
+//         transition: transform 300ms linear;
+//       }
+
+  
+//       & + .switch-button-label {
+//         position: relative;
+//         padding: 15px 0;
+//         display: block;
+//         user-select: none;
+//         pointer-events: none;
+        
+        
+  
+//         &:before {
+//           content: "";
+//           background: RGB(166, 209, 189);
+//           height: 100%;
+//           width: 100%;
+//           position: absolute;
+//           left: 0;
+//           top: 0;
+//           border-radius: 30px;
+//           transform: translateX(0);
+//           transition: transform 300ms;
+          
+//         }
+  
+//         .switch-button-label-span {
+//           position: relative;
+          
+          
+//         }
+//       }
+//     }
+// }
+
+img {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.ok {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-top: 29px;   
+}
+
+.picture {
+    // position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+    &__annonce {
+        width: 218px;
+        height: 90px;
+        left: 85px;
+        top: 203px;
+        align-items: center;
+    }
+
+    &__sms {
+        width: 218px;
+        height: 90px;
+        left: 85px;
+        top: 203px;
+        align-items: center;
+    }
+
+    &__deal {                    
+        width: 218px;
+        height: 90px;
+        left: 85px;
+        top: 203px;
+        align-items: center;
+    }   
+}
+
+p {
+    height: 70px;
+    width: 290px;
+    border-radius: 20px;
+    background: rgba(49, 48, 48, 0.4);
+    color:white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+}
+
+
+
+
+
+
+
+
+// .monthyear {
+//     height: 30px;
+//     width: 250px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     gap: 5px;
+//     background-color: hsl(229, 24%, 87%);
+//     border-radius: 5px;
+//     margin-top: 20px;
+// }
+
+// .month {
+//     color: hsl(213, 96%, 18%);
+// }
+
+// .checkbox {
+//     display: none;
+// }
+
+// label {
+//     height: 20px;
+//     width: 40px;
+//     border-radius: 10px;
+//     background-color: hsl(213, 96%, 18%);
+//     position: relative;
+//     transition: all .3s;
+// } 
+
+// label:after {
+//     content: "";
+//     height: 14px;
+//     width: 14px;
+//     border-radius: 50%;
+//     background-color: hsl(0, 0%, 100%);
+//     position: absolute;
+//     top: 3px;
+//     left: 3px;
+//     transition: all .3s;
+// } 
+
+// .checkbox:checked + label:after {
+//     transform: translateX(20px);
+// } 
+
+// .greyColor {
+//     color: hsl(231, 11%, 63%);
+// }
+
+// .blueColor {
+//     color: hsl(213, 96%, 18%);
+// }
+
+// .invisible {
+//     display: none;
+// }
+
+// .visible {
+//     display: initial;
+// } 
+
+// .disapear {
+//     display: none;
+// }
+
+// span {
+//     color: hsl(213, 96%, 18%);
+// }
+
+// .change {
+//     background-color: hsl(228, 100%, 84%);
+//     border-color: hsl(243, 100%, 62%);
+// }
