@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 
 import { AnnoncesComponent } from './annonces/annonces.component';
 import { AddAnnonceComponent } from './add-annonce/add-annonce.component';
-import { UpdateAnnonceComponent } from './update-annonce/update-annonce.component';
 import { UserCardComponent } from './userProfilModal/user-card/user-card.component';
 import { UserCardFormularComponent } from './userProfilModal/user-card/user-card-formular/user-card-formular.component';
 import { UserCardButtonComponent } from './userProfilModal/user-card/user-card-button/user-card-button.component';
@@ -23,7 +22,6 @@ import { PropositionTrocComponent } from './proposition-troc/proposition-troc.co
     AppComponent,
     AnnoncesComponent,
     AddAnnonceComponent,
-    UpdateAnnonceComponent,
     DetailsAnnonceComponent,
     PropositionTrocComponent,
     UserCardComponent,
