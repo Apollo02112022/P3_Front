@@ -7,12 +7,14 @@ import { UserFormComponent } from './user-form/user-form.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserFormComponent,
+    FileUploadComponent,
   ],
   imports: [
     BrowserModule,

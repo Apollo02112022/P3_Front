@@ -1,33 +1,13 @@
 // Validator utilisé pour la photo. La photo doit être au format JPG. 
 
-import { FormControl } from "@angular/forms";
 
-// import { AbstractControl } from '@angular/forms'; 
+import { AbstractControl } from '@angular/forms'; 
 
-// export function pictureValidator(control: AbstractControl): {[key: string]: any} | null {
-//     const file = control.value;
-//     const valid = /\.jpg$/i.test(file.name);
-//     return valid ? null : { invalidFileType: { valid: false, value: file.type } };
-//   }
-
-
-export function requiredFileType( type: string ) {
-  return function (control: FormControl) {
+export function pictureValidator(control: AbstractControl): {[key: string]: any} | null {
     const file = control.value;
-    if ( file ) {
-      const extension = file.name.split('.')[1].toLowerCase();
-      if ( type.toLowerCase() !== extension.toLowerCase() ) {
-        return {
-          requiredFileType: true
-        };
-      }
-      
-      return null;
-    }
-
-    return null;
-  };
-}
+    const valid = /\.png$/i.test(file.name);
+    return valid ? null : { invalidFileType: { valid: false, value: file.type } };
+  }
 
 
   // Cette fonction permet de vérifier si le fichier sélectionné par l'utilisateur est un fichier JPEG.

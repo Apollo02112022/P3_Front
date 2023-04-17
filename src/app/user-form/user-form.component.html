@@ -137,7 +137,10 @@
             <label for="picture">Photo</label>
 
             <div class="form-control">
-              <input type="text" name="picture" placeholder="Photo" formControlName="picture">
+
+              <app-file-upload formControlName="picture"></app-file-upload>
+              <!-- Injection de mon composant file-upload permettant de télécharger des images pour les envoyer dans la BDD.  -->
+
             </div>
 
           </div>
@@ -150,9 +153,9 @@
             *Ce champs est requis.
           </div>
 
-          <!-- <div *ngIf="form.get('picture')?.hasError('invalidFileType')" class="error">
-              Format JPG seulement accepté.
-            </div> -->
+          <div *ngIf="form.get('picture')?.hasError('invalidFileType')" class="error">
+              *Format PNG seulement accepté.
+            </div>
 
         </div>
 
@@ -354,7 +357,7 @@
 
   </form>
 
-  <button class="form-btn" type="submit" (click)="addUser()" [disabled]="form.invalid">Créer mon
+  <button class="form-btn" type="submit" (click)="onSubmitForm()" [disabled]="form.invalid">Créer mon
     compte</button>
   <!-- Pour empêcher l'utilisateur d'envoyer le formulaire s'il n'est pas valable, je lie l'attribut  disabled  
     du bouton Créer mon compte à l'attribut  invalid  du FormGroup. Si le formulaire n'est pas valable, le bouton 
@@ -376,7 +379,7 @@
 </div>
 
 
-<div [ngClass]="{'disappear': close}" *ngIf="notRegistered">
+<div [ngClass]="{'disappear': close}">
 
   <div class="wrong" *ngIf="notRegistered">
 
