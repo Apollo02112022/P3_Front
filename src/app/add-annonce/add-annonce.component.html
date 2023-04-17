@@ -6,7 +6,7 @@
 
   <form (submit)="addAnnonce()">
     <div class="createCards">
-        <img class="addImg" src="assets/bell-peppers.jpg" alt="">
+      <img class="addImg" src="assets/bell-peppers.jpg" alt="">
       <div class="createImage">
         <h3 class="addTitre">Image:</h3>
         <input class="addFile" type="file" [(ngModel)]="newAnnonce.announcement_picture" name="Image">
@@ -15,7 +15,9 @@
 
       <div class="createDescription">
         <h3 class="addTitre">Description Annonce</h3>
-        <textarea wrap="hard" type="text" [(ngModel)]="newAnnonce.description" name="description" class="descriptionAnnonce" placeholder="Saisissez votre annonce ici...maximum 250 caractères" maxlength="250" minlength="10"></textarea>
+        <textarea wrap="hard" type="text" [(ngModel)]="newAnnonce.description" name="description"
+          class="descriptionAnnonce" placeholder="Saisissez votre annonce ici...maximum 250 caractères" maxlength="250"
+          minlength="10"></textarea>
       </div>
     </div>
 

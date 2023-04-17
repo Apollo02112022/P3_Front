@@ -11,21 +11,21 @@ import { Router } from '@angular/router';
 export class AddAnnonceComponent implements OnInit {
 
   newAnnonce = new Annonce();
-  id!:number;
+  id!: number;
   annoucement_picture!: string;
-  description!: string; 
-  message!:string;              // ajout d'attribut 
+  description!: string;
+  message!: string;              // ajout d'attribut 
 
-  
+
 
   constructor(private annonceService: AnnonceService, private router: Router) { }
 
   ngOnInit() {
- 
-  }
-  
 
-  addAnnonce() { 
+  }
+
+
+  addAnnonce() {
     if (!this.checkDescriptionLength()) {
       return;
     }
@@ -34,7 +34,7 @@ export class AddAnnonceComponent implements OnInit {
       this.router.navigate(['barters']);// retour a la page annonces après ajout d'une annonce
     });
   }
-  
+
   //methode pour valider la longueur requis max min du champs description
   checkDescriptionLength(): boolean {
     if (this.newAnnonce.description.length < 10) {
@@ -48,7 +48,7 @@ export class AddAnnonceComponent implements OnInit {
       return true;
     }
   }
-  
+
   // this.message = "Annonce " + this.newAnnonce.description +" ajoutée avec succes"
 
 }

@@ -3,26 +3,29 @@
   grid-template-rows: 2fr 3fr 1fr;
   grid-template-columns: 1fr;
   justify-items: center;
-  height: 100%;
   width: 300px;
   height: 500px;
   margin: 50px auto;
   background-color: white;
   box-shadow: 0px 5px 20px #555;
   border-radius: 25px;
+  overflow: hidden;
+
 }
 
 .descriptionDetailAnnonce {
+  width: 300px;
   text-align: center;
   line-height: 24px;
   font-size: 20px;
   padding: 15px 20px;
   box-sizing: border-box;
- 
+
+
 }
 
 
-.imageDetailAnnonce{
+.imageDetailAnnonce {
   width: 200px;
   height: auto;
   position: relative;
@@ -73,6 +76,10 @@
 @media only screen and (min-width: 768px) {
 
   .cardDetailAnnonce {
+    width: 500px;
+  }
+
+  .descriptionDetailAnnonce {
     width: 500px;
   }
 }
