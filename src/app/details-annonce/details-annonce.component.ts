@@ -7,7 +7,7 @@ import { throwError } from 'rxjs';
 @Component({
   selector: 'app-details-annonce',
   templateUrl: './details-annonce.component.html',
-  styleUrls: ['./details-annonce.component.css']
+  styleUrls: ['./details-annonce.component.scss']
 })
 export class DetailsAnnonceComponent implements OnInit {
   // variable "annonceId" de type "Annonce" utilisée pour stocker les détails de l'annonce sélectionnée.

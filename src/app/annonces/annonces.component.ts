@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-annonces',
   templateUrl: './annonces.component.html',
-  styleUrls: ['./annonces.component.css']
+  styleUrls: ['./annonces.component.scss']
 })
 export class AnnoncesComponent implements OnInit {
 

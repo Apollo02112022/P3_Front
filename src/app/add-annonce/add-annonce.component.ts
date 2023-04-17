@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-annonce',
   templateUrl: './add-annonce.component.html',
-  styleUrls: ['./add-annonce.component.css']
+  styleUrls: ['./add-annonce.component.scss']
 })
 export class AddAnnonceComponent implements OnInit {
 
