@@ -1,0 +1,15 @@
+<form class="form flex column " [formGroup]="deleteAccount" (ngSubmit)="onSubmit()">
+    <div class="form flex column ai-center">
+        <label for="actualPassword">Supprimer mon compte:</label>
+        <input type="password" formControlName="actualPassword" id="actualPassword" 
+            placeholder="Entrez votre mot de passe" required>
+        <div *ngIf="deleteAccount.get('actualPassword')?.invalid && (deleteAccount.get('actualPassword')?.dirty || deleteAccount.get('actualPassword')?.touched)"
+            class="alert">
+            <div *ngIf="deleteAccount.get('actualPassword')?.errors?.['required']">*Le mot de passe est obligatoire.</div>
+            <div *ngIf="deleteAccount.get('actualPassword')?.errors?.['actualPassword']">*Le mot de passe est  invalide.</div>
+        </div>
+    </div>
+    <div class="flex ai-center jc-center">
+        <button type="submit" class="btn btn-primary" [disabled]="!deleteAccount.valid">Supprimer mon compte</button>
+    </div>
+</form>
