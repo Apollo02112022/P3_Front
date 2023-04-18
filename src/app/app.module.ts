@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { UserFormComponent } from './user-form/user-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 import { AnnoncesComponent } from './annonces/annonces.component';
 import { AddAnnonceComponent } from './add-annonce/add-annonce.component';
 import { UpdateAnnonceComponent } from './update-annonce/update-annonce.component';
@@ -19,6 +21,7 @@ import { DetailsAnnonceComponent } from './details-annonce/details-annonce.compo
 import { PropositionTrocComponent } from './proposition-troc/proposition-troc.component';
 
 @NgModule({
+
   declarations: [						
     AppComponent,
     AnnoncesComponent,
@@ -31,7 +34,9 @@ import { PropositionTrocComponent } from './proposition-troc/proposition-troc.co
     UserCardButtonComponent,
     FormularPasswordChangeComponent,
     FormularMailChangeComponent,
-    FormularDeleteAccountComponent
+    FormularDeleteAccountComponent,
+    UserFormComponent,
+    FileUploadComponent
    ],
   imports: [
       BrowserModule,
