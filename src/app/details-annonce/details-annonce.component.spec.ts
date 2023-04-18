@@ -11,9 +11,9 @@ describe('DetailsAnnonceComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DetailsAnnonceComponent ]
+      declarations: [DetailsAnnonceComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

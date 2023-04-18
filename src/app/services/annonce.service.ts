@@ -70,19 +70,6 @@ export class AnnonceService {
     });
   }
 
-  updateAnnonce(ann: Annonce) {
-    // console.log(p);
-    this.deleteAnnonce(ann);
-    this.addOneAnnonce(ann);
-    this.trierAnnonces();
-  }
-  // listeCategory():Category[] {
-  //   return this.category;
-
-  // }
-  // consulterCategory(id:number): Category{
-  //   return this.category.find(cat => cat.idCat == id)!;
-  //   }
 
 
 }
