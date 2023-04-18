@@ -1,3 +1,4 @@
+
 .cardAnnonceList {
   display: flex;
   width: 300px;
@@ -29,15 +30,14 @@
 }
 
 
-/* //////////MEDIA QUERIES//////////*/
-/* styles pour mode mobile */
-@media only screen and (max-width: 768px) {
+ /* //////////MEDIA QUERIES//////////*/
+ /* styles pour mode mobile */
+ @media only screen and (max-width: 768px) {
   .textAnnDesktop {
     display: none;
 
   }
 }
-
 /* styles pour mode desktop */
 @media only screen and (min-width: 768px) {
   .card-body {
@@ -65,5 +65,5 @@
     margin: 25px 200px 25px 200px;
   }
 
-
+ 
 }
