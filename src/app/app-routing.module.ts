@@ -15,7 +15,7 @@ const routes: Routes = [
   {path :"barters/:id", component : DetailsAnnonceComponent},
   {path :"proposal_deal/:id", component :PropositionTrocComponent},
   {path: 'users/:userid/profil', component: UserCardComponent },
-  {path: 'users/:userid/profil/update', component: UserCardComponent }
+  {path: 'users/:userid/profil/update', component: UserCardComponent },
   {path: 'signup', component: UserFormComponent}
 ];
 

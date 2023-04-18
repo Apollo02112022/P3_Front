@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserFormComponent } from './user-form/user-form.component';import { HttpClientModule } from '@angular/common/http';
+import { UserFormComponent } from './user-form/user-form.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { AnnoncesComponent } from './annonces/annonces.component';
 import { AddAnnonceComponent } from './add-annonce/add-annonce.component';
