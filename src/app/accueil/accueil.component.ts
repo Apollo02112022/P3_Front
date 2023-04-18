@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-accueil',
@@ -10,5 +12,9 @@ export class AccueilComponent {
   how: string = "Comment ça marche ?";
   consult : string = "Consultez nos offres";
 
+  constructor (private router: Router) {}
 
+  select() {
+    this.router.navigate(["/barters"])
+  }
 }

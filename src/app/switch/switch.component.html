@@ -1,13 +1,9 @@
 <section class="switch">
     <div class="switch-button">
-        <div  class="switch-button-checkbox" type="checkbox">
-        </div>
-        <!-- [ngClass]="{'up': toggle}" -->
-        <div  (click)="switch()" class="switch-button-label" for="">
-            <span class="switch-button-label-span">{{exchange}}</span>
-            <span class="switch-button-label-span">{{recover}}</span>       
-        </div>
-        <div class="picture">
+         <input (click)="switch()" class="switch-button-checkbox" type="checkbox">
+         <label class="switch-button-label" for=""><span class="switch-button-label-span">{{exchange}}</span></label>
+    </div>
+        <div *ngIf="toggle" class="picture">
             <section class="ok">
                 <div class="picture__annonce">
                     <img src="../assets/photo_annonce.jpg"/>
@@ -27,14 +23,7 @@
                 <p>{{deal}}</p>
             </section>
         </div>
-    </div>
-</section>
-    <!-- <div *ngIf="toggle"> -->
-        <!-- <div [ngClass]="{'up': toggle}" (click)="switch()" class="switch-button-label" for="">
-            <span class="switch-button-label-span">{{exchange}}</span>
-        </div> -->
-   
-    <div ngIf="toggle()" class="picture">
+    <div *ngIf="!toggle" class="picture">
         <section class="ok">
             <div class="picture__annonce">
                 <img src="../assets/recherche.jpg" />
@@ -54,6 +43,7 @@
             <p>{{retrieve}}</p>
         </section>
     </div>
+</section>
       
       
       
