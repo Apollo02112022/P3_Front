@@ -1,4 +1,4 @@
-import { Picture } from "./picture.model";
+// import { Picture } from "./picture.model";
 
 export class User {
     lastname?: string;

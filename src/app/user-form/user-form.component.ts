@@ -14,8 +14,6 @@ import { passwordValidator } from './validators/password.validator'; /*J'importe
 
 import { UserService } from './services/user.service'; /*J'importe mon service.*/
 
-
-import { HttpClient, HttpEventType } from '@angular/common/http';
 import { toFormData } from '../formData';
 
 
@@ -38,7 +36,7 @@ export class UserFormComponent {
   close = false;
 
 
-  constructor(private userService: UserService, private http: HttpClient) {
+  constructor(private userService: UserService) {
 
     // J'utilise la méthode group, en lui passant un objet :
 
@@ -88,13 +86,12 @@ export class UserFormComponent {
 
   }
 
-  //Méthode qui envoie le contenu du formulaire sur la console. L'attribut value permet d'accéder au contenu du formulaire.
+  // Méthode qui envoie envoie une requête POST pour créer le profil d'un utilisateur.
 
   onSubmitForm() {
   console.log(this.form.value);
 
     this.userService.createUser(toFormData(this.form.value)).subscribe(
-    
 
       {
         next: (res) => {
@@ -111,46 +108,11 @@ export class UserFormComponent {
     );
   }
 
-  // Méthode qui envoie envoie une requête POST pour créer le profil d'un utilisateur.
-
-  // addUser(): void {
-
-  //   this.userService.createUser(this.form.value).subscribe(
-
-  //     {
-  //       next: (res) => {
-  //         console.log(res);
-  //         this.registered = true;
-  //       },
-  //       error: (e) => {
-  //         console.error(e);
-  //         this.notRegistered = true;
-  //         this.close = false;
-  //       }
-  //     }
-
-  //   );
-
-  // }
-
   // Méthode pour fermer la fenêtre d'avertissement en cas de doublon du pseudo et/ou de l'adresse mail. 
 
   closeBtn() {
     this.close = true;
     this.notRegistered = false;
   }
-
-  // submit() {
-  //   this.http.post('http://localhost:8080/api/signup', toFormData(this.form.value), {
-  //     observe: 'events'
-  //   }).subscribe(event => {
-
-  //     if ( event.type === HttpEventType.Response ) {
-  //       console.log(event.body);
-  //       this.form.reset();
-  //     }
-      
-  //   });
-  // }
   
 }

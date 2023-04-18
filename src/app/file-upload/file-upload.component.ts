@@ -61,24 +61,3 @@ export class FileUploadComponent {
   }
 
 }
-
-
-
-
-
-  // selectedFile: any;
-
-  // onFileSelected(event: any) {
-  //   this.selectedFile = event.target.files[0];
-  // }
-
-  // addPicture() {
-
-  //   const formData = new FormData();
-  //         formData.append('file', this.selectedFile);
-  
-  //   this.userService.sendPicture().subscribe(response => {
-  //     console.log(response);
-  //   });
-    
-  // }
