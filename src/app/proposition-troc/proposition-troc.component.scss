@@ -1,4 +1,4 @@
-// utilisation encapsulation: ViewEncapsulation.None dans details annaonce component pour pouvoir modifier css du composant enfant
+// utilisation encapsulation: ViewEncapsulation.None dans details annonce component pour pouvoir modifier css du composant enfant
 :host ::ng-deep .cardDetailAnnonce {
   display: flex;
   width: 300px;
@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
+  overflow: scroll;
   padding: 10px;
 
 }
@@ -41,7 +41,14 @@
   display: none;
 }
 
-
+body{
+  background:url("/assets/background_mains.jpg");
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  position: relative;
+  background-repeat: repeat;
+}
 .propositon-Cards {
   display: flex;
   flex-direction: column;
@@ -95,7 +102,7 @@ input + span {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  margin-left: 180px;
+  margin-left: 200px;
   }
 //source mdn
 input:invalid+span:after {
@@ -115,7 +122,15 @@ input:valid+span:after {
 
 
 @media only screen and (min-width: 768px) {
-
+  body{
+    background:url("/assets/background_mains.jpg");
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    position: relative;
+    background-repeat: repeat;
+    filter: grayscale(100%);
+  }
   :host ::ng-deep .cardDetailAnnonce {
     width: 500px;
   }
