@@ -8,8 +8,11 @@ import { UserCardFormularComponent } from './userProfilModal/user-card/user-card
 import { AddAnnonceComponent } from './add-annonce/add-annonce.component';
 import { DetailsAnnonceComponent } from './details-annonce/details-annonce.component';
 import { PropositionTrocComponent } from './proposition-troc/proposition-troc.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 const routes: Routes = [
+  {path:'', component: AccueilComponent},
+  {path:'accueil', component: AccueilComponent},
   {path :"barters", component : AnnoncesComponent},
   {path :"offer-a-barter", component : AddAnnonceComponent},
   {path :"barters/:id", component : DetailsAnnonceComponent},
