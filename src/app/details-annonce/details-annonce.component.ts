@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AnnonceService } from '../services/annonce.service';
 import { Annonce } from '../models/annonce.model';
@@ -7,7 +7,8 @@ import { throwError } from 'rxjs';
 @Component({
   selector: 'app-details-annonce',
   templateUrl: './details-annonce.component.html',
-  styleUrls: ['./details-annonce.component.css']
+  styleUrls: ['./details-annonce.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DetailsAnnonceComponent implements OnInit {
   // variable "annonceId" de type "Annonce" utilisée pour stocker les détails de l'annonce sélectionnée.

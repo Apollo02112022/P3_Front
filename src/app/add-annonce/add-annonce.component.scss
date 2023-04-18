@@ -23,10 +23,10 @@
 }
 
 .addFile {
-    margin:15px;
-    background-color:#0d99ff; /* Couleur bleue */
-    border: 1px solid #0d99ff; /* Bordure bleue */
-    color: #fff; /* Texte blanc */
+    margin: 15px;
+    background-color: #0d99ff;
+    border: 1px solid #0d99ff;
+    color: #fff;
     border-radius: 15px;
 }
 
@@ -35,7 +35,8 @@
     flex-direction: column;
     margin-top: 15px;
 }
-.addTitre{
+
+.addTitre {
     text-align: center;
     width: 200px;
     padding: 5px;
@@ -44,31 +45,35 @@
     background: #FFFFFF;
     border-radius: 20px;
 }
+
 .descriptionAnnonce {
     margin: 15px;
-    top:10px;
+    top: 10px;
     width: auto;
     height: 200px;
     padding: 10px;
     font-size: 16px;
     border: 1px solid black;
     border-radius: 15px;
-    /* empêcher le redimensionnement */
+
 }
-.addImg{
-    margin:15px;
+
+.addImg {
+    margin: 15px;
     width: 150px;
     height: auto;
     border: 1px solid black;
     border-radius: 15px;
 }
-.btnValid{
+
+.btnValid {
     display: flex;
     justify-content: center;
     margin: 15px;
 }
-.btnValidez{
-  
+
+.btnValidez {
+
     width: 161px;
     height: 56px;
     background: #FFFFFF;
@@ -77,19 +82,20 @@
     font-size: 20px;
     line-height: 24px;
     color: #000000;
-  }
-  @media only screen and (max-width: 768px) {
+}
+
+@media only screen and (max-width: 768px) {
     .textAnnDesktop {
-      display: none;
-  
+        display: none;
+
     }
-  
-  
-  }
-  
-  @media only screen and (min-width: 768px) {
-  
+
+
+}
+
+@media only screen and (min-width: 768px) {
+
     .createCards {
-      width: 500px;
+        width: 500px;
     }
 }

@@ -1,36 +1,26 @@
 <div class="detailAnnContainer">
   <div class="textAnnDesktop">
     <h2 class="titreAnn">Sur Trocoeurs,
-      consultez toutes nos offres de trocs, échangez  
+      consultez toutes nos offres de trocs, échangez
       ou postez !</h2>
   </div>
 
-<div *ngIf="annonceId">
-  <div class="card-body">
-    <div class="cardDetailAnnonce">
-      <div hidden class="id">
-      <h3>Id</h3>
-      <p>{{annonceId.id}}</p>
-    </div>
-      <div class="imageDetailAnnonce"><img src="assets/bell-peppers.jpg" alt="image annonce">
-      </div>                                  
-      <div class="descriptionDetailAnnonce">
-        <h3>Description :</h3>
-        <p>{{annonceId.description}}</p>
+  <div *ngIf="annonceId">
+    <div class="card-body">
+      <div class="cardDetailAnnonce">
+        <div hidden class="id">
+          <h3>Id</h3>
+          <p>{{annonceId.id}}</p>
+        </div>
+        <div class="imageDetailAnnonce"><img src="assets/bell-peppers.jpg" alt="image annonce">
+        </div>
+        <div class="descriptionDetailAnnonce">
+          <h3>Description :</h3>
+          <p class=" descriptionDetailAnnonce__des">{{annonceId.description}}</p>
+        </div>
       </div>
-      <!-- <div class="category">
-      <h3>Categorie : </h3>
-      <span>{{annonce.category.nomCat}}</span>
-    </div> -->
-      <!-- <div class="date">
-      <h3>Date Création :</h3>
-      <p>{{annonce.dateCreation | date:"dd/MM/yyyy"}}</p>
-    </div> -->
-   
-
-    </div>
-    <div class="btnDeal">
-      <button class="btnTroc" [routerLink]="['/proposal_deal', annonceId.id]">Je troc!</button>
+      <div class="btnDeal">
+        <button class="btnTroc" [routerLink]="['/proposal_deal', annonceId.id]">Je troc!</button>
+      </div>
     </div>
   </div>
-</div>
