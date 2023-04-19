@@ -1,0 +1,140 @@
+// utilisation encapsulation: ViewEncapsulation.None dans details annonce component pour pouvoir modifier css du composant enfant
+
+:host ::ng-deep .cardDetailAnnonce {
+  display: flex;
+  width: 300px;
+  height: 200px;
+  margin: 15px auto 15px auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 5px 20px #555;
+  border-radius: 25px;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-direction: row;
+  z-index: 2;
+}
+
+:host ::ng-deep .descriptionDetailAnnonce {
+  width: 60%;
+  height: 129%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+  padding: 10px;
+
+}
+
+:host ::ng-deep .imageDetailAnnonce {
+  width: 40%;
+  height: 80%;
+  border-radius: 15px;
+  border: 2px solid;
+  overflow: hidden;
+  ;
+}
+
+:host ::ng-deep h3 {
+  display: none;
+}
+
+:host ::ng-deep .btnTroc {
+  display: none;
+}
+
+body{
+  background:url("/assets/background_mains_grey.jpg");
+  width: 100%;
+  background-size: 100%;
+  background-repeat: repeat;
+}
+.propositon-Cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // grid-template-rows: 2fr 3fr 1fr;
+  // grid-template-columns: 1fr;
+  justify-items: center;
+  width: 300px;
+  height: 370px;
+  margin: 5px auto;
+  background-color: white;
+  box-shadow: 0px 5px 20px #555;
+  border-radius: 25px;
+  overflow: hidden;
+  z-index: 2;
+
+}
+
+.description-Proposition {
+  margin: 10px;
+  width: auto;
+  height: 150px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+
+
+.btnValid {
+  display: flex;
+  padding: 15px;
+  justify-content: center;
+}
+
+.btnPropose {
+
+  width: 161px;
+  height: 56px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+}
+input {
+  border: 2px solid black
+}
+input + span {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-left: 200px;
+  }
+//source mdn
+input:invalid+span:after {
+  position: absolute; content: '✖';
+  padding-left: 5px;
+  color: #8b0000;
+}
+
+input:valid+span:after {
+  position: absolute;
+  content: '✓';
+  padding-left: 5px;
+  color: #009000;
+}
+
+/* //////////MEDIA QUERIES//////////*/
+
+
+@media only screen and (min-width: 768px) {
+  body{
+    background:url("/assets/background_grey.jpg");
+    width: 100%;
+    background-size: 100%;
+    background-repeat: repeat;
+    
+  }
+  :host ::ng-deep .cardDetailAnnonce {
+    width: 500px;
+  }
+
+  .propositon-Cards {
+    width: 500px;
+  }
+}

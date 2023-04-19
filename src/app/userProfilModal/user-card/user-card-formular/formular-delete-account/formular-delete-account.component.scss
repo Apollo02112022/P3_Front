@@ -9,13 +9,20 @@ input{
     max-width: 60%;
     width: 300px;
     height: 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
 }
 button{
-    height: 2.5rem;
+    height: 3rem;
     width: 8rem;
+    border-radius: 8px;
 }
 .alert{
     color: rgb(245, 138, 138);
     font-weight: 800;
     font-size: small;
+}
+
+input{
+    border-radius: 8px;
 }
