@@ -48,7 +48,7 @@ export class UserFormComponent {
 
       lastname: new FormControl("Simmons", [Validators.required, Validators.maxLength(20), userValidator()]),
       firstname: new FormControl("Al", [Validators.required, Validators.maxLength(20), userValidator()]),
-      username: new FormControl("Spawn", [Validators.required, Validators.maxLength(10), usernameValidator]),
+      pseudo: new FormControl("Spawn", [Validators.required, Validators.maxLength(10), usernameValidator]),
       picture: new FormControl("", [Validators.required, pictureValidator]),
       mail: new FormControl("sam_twicht@hotmail.us", [Validators.required, Validators.email]),
       city: new FormControl("New York", [Validators.required, userValidator()]),
