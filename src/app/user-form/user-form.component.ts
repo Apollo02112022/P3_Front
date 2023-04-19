@@ -54,7 +54,7 @@ export class UserFormComponent {
       city: new FormControl("", [Validators.required, userValidator()]),
       county: new FormControl("", [Validators.required, Validators.minLength(5), Validators.maxLength(5), numberValidator()]),
       password: new FormControl("", [Validators.required, Validators.minLength(8), passwordValidator]),
-      confirmation: new FormControl("", [Validators.required, Validators.minLength(12), passwordValidator])
+      confirmation: new FormControl("", [Validators.required, Validators.minLength(8), passwordValidator])
     },
 
       { validators: this.mustMatch("password", "confirmation") })
