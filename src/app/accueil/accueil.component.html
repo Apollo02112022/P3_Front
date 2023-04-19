@@ -1,4 +1,3 @@
-
 <div class="head">
     <img class="head__citrouille" src="assets/citrouille_mains.jpg" alt="">
     <img class="head__fraise" src="assets/fraises_mains.jpg" alt="">
@@ -12,10 +11,22 @@
         <div class="home__welcome">{{welcome}}</div>        
     </section> 
     <section class="suite">
+        <div class="suite__how">{{how}}</div> 
+        <div class="suite__consult">{{consult}}</div>
+    </section> 
+    <!-- <section class="btn"> -->
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+          
+        <!-- <div class="btn-container"></div>
+        <div class="btn-container_bis"></div>     -->
+    <!-- </section> -->
+</main>
         <h1 class="suite__consult" (click)="select()">{{consult}}</h1> 
         <h1 class="suite__how">{{how}}</h1>
     </section>
 </main>
 <app-switch></app-switch>
-
 
