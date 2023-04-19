@@ -9,6 +9,8 @@ input{
     max-width: 60%;
     width: 300px;
     height: 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
 }
 button{
     height: 3rem;
@@ -19,4 +21,8 @@ button{
     color: rgb(245, 138, 138);
     font-weight: 800;
     font-size: small;
+}
+
+input{
+    border-radius: 8px;
 }
