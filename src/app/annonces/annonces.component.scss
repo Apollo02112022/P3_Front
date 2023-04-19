@@ -1,4 +1,12 @@
-
+body{
+  background:url("/assets/background_mains_grey.jpg");
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  position: relative;
+  background-repeat: repeat;
+ 
+}
 .cardAnnonceList {
   display: flex;
   width: 300px;
@@ -14,10 +22,10 @@
 
 .imageAnnonce {
   width: 40%;
-  height: 80%;
+  // height: 80%;
   border-radius: 15px;
   border: 2px solid;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .descriptionAnnonce {
@@ -40,11 +48,21 @@
 }
 /* styles pour mode desktop */
 @media only screen and (min-width: 768px) {
+  body{
+    background:url("/assets/background_grey.jpg");
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    position: relative;
+    background-repeat: repeat;
+
+  }
   .card-body {
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
     row-gap: 40px;
+    column-gap: 10px;
 
   }
 

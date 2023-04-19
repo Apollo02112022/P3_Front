@@ -2,7 +2,7 @@
     <div class="form flex column ai-center">
         <label for="mail">Nouvelle adresse e-mail :</label>
         <input type="email" formControlName="mail" id="mail" class="form-control"
-            placeholder="Entrez votre nouvelle adresse e-mail" required>
+            placeholder="Entrez votre nouveau mail" required>
         <div *ngIf="mailChange.get('mail')?.invalid && (mailChange.get('mail')?.dirty || mailChange.get('mail')?.touched)"
             class="alert">
             <div *ngIf="mailChange.get('mail')?.errors?.['required']">*L'adresse e-mail est obligatoire.</div>
@@ -10,7 +10,6 @@
         </div>
     </div>
     <div class="flex ai-center jc-center">
-        <button type="submit" class="btn btn-primary" [disabled]="!mailChange.valid">Changer d'adresse
-            e-mail</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!mailChange.valid">Changer de mail</button>
     </div>
 </form>

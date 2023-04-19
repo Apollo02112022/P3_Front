@@ -8,8 +8,8 @@ import { throwError } from 'rxjs';
   selector: 'app-details-annonce',
   templateUrl: './details-annonce.component.html',
   styleUrls: ['./details-annonce.component.scss'],
-  encapsulation: ViewEncapsulation.None
-})
+  encapsulation: ViewEncapsulation.None //permet de modifier le css du composant 
+})                                      //si il est utiliser dans un autre en tant qu'enfant 
 export class DetailsAnnonceComponent implements OnInit {
   // variable "annonceId" de type "Annonce" utilisée pour stocker les détails de l'annonce sélectionnée.
   annonceId!: Annonce;
