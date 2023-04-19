@@ -96,27 +96,27 @@
 
           <div class="input">
 
-            <label for="username">Pseudo</label>
+            <label for="pseudo">Pseudo</label>
 
             <div class="form-control">
-              <input type="text" name="username" placeholder="Pseudo" formControlName="username">
+              <input type="text" name="pseudo" placeholder="Pseudo" formControlName="pseudo">
             </div>
 
           </div>
 
         </div>
 
-        <div *ngIf="form.get('username')?.invalid && (form.get('username')?.dirty || form.get('username')?.touched)">
+        <div *ngIf="form.get('pseudo')?.invalid && (form.get('pseudo')?.dirty || form.get('pseudo')?.touched)">
 
-          <div *ngIf="form.get('username')?.hasError('required')" class="error">
+          <div *ngIf="form.get('pseudo')?.hasError('required')" class="error">
             *Ce champs est requis.
           </div>
 
-          <div *ngIf="form.get('username')?.hasError('username')" class="error">
+          <div *ngIf="form.get('pseudo')?.hasError('username')" class="error">
             *Pas de caractères spéciaux, pas d'espace.
           </div>
 
-          <div *ngIf="form.get('username')?.hasError('maxlength')" class="error">
+          <div *ngIf="form.get('pseudo')?.hasError('maxlength')" class="error">
             *Maximum 10 caractères.
           </div>
 
@@ -302,7 +302,7 @@
           </div>
 
           <div *ngIf="form.get('password')?.hasError('minlength')" class="error">
-            *Minimum 12 caractères.
+            *Minimum 8 caractères.
           </div>
 
         </div>

@@ -46,15 +46,15 @@ export class UserFormComponent {
 
     this.form = new FormGroup({
 
-      lastname: new FormControl("Simmons", [Validators.required, Validators.maxLength(20), userValidator()]),
-      firstname: new FormControl("Al", [Validators.required, Validators.maxLength(20), userValidator()]),
-      username: new FormControl("Spawn", [Validators.required, Validators.maxLength(10), usernameValidator]),
+      lastname: new FormControl("", [Validators.required, Validators.maxLength(20), userValidator()]),
+      firstname: new FormControl("", [Validators.required, Validators.maxLength(20), userValidator()]),
+      pseudo: new FormControl("", [Validators.required, Validators.maxLength(10), usernameValidator]),
       picture: new FormControl("", [Validators.required, pictureValidator]),
-      mail: new FormControl("sam_twicht@hotmail.us", [Validators.required, Validators.email]),
-      city: new FormControl("New York", [Validators.required, userValidator()]),
-      county: new FormControl("10000", [Validators.required, Validators.minLength(5), Validators.maxLength(5), numberValidator()]),
-      password: new FormControl("A7&abcdefghi", [Validators.required, Validators.minLength(12), passwordValidator]),
-      confirmation: new FormControl("A7&abcdefghi", [Validators.required, Validators.minLength(12), passwordValidator])
+      mail: new FormControl("", [Validators.required, Validators.email]),
+      city: new FormControl("", [Validators.required, userValidator()]),
+      county: new FormControl("", [Validators.required, Validators.minLength(5), Validators.maxLength(5), numberValidator()]),
+      password: new FormControl("", [Validators.required, Validators.minLength(8), passwordValidator]),
+      confirmation: new FormControl("", [Validators.required, Validators.minLength(12), passwordValidator])
     },
 
       { validators: this.mustMatch("password", "confirmation") })
