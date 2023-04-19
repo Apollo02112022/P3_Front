@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -8,6 +10,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+
+
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
     registerForm = new FormGroup({
       pseudo: new FormControl("", [Validators.required, Validators.maxLength(10)]),
@@ -29,9 +34,10 @@ export class LoginComponent {
         const { token } = response;
         localStorage.setItem("token", token);
         console.log(token, "Connecté avec Success !")
+        this.change();
       })
-      .catch(err => console.log(err))
-  }
+      .catch(err => console.log(err));
+    }
 
    testWithToken = () => {
     const token = localStorage.getItem("token");
@@ -39,10 +45,15 @@ export class LoginComponent {
     const options = {
       headers: header,
     };
-    fetch("http://localhost:8080/try", options)
+    fetch("http://localhost:8080/test", options)
       .then(res => res.json())
       .then(response => console.log(response))
       .catch(err => console.log(err))
+  }
+
+
+  change() {
+    this.router.navigate(["/"]);
   }
 
 }

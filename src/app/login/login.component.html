@@ -24,6 +24,8 @@
               </div>
     
         </div>
-        <button [disabled]="registerForm.invalid" class="btn">Se connecter</button>
+        <button [disabled]="registerForm.invalid" (click)="login()" class="btn">Se connecter</button>
     </main>
 </form>
+
+<button (click)="testWithToken()">TTTEEESSSTTTT</button>
