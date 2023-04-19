@@ -1,8 +1,29 @@
-<main class="main">
-    <div class="connexion">Connexion</div>
-    <div class="login">
-        <input class="login__pseudo" type="text" placeholder=" Pseudo" >
-        <input class="login__mdp" type="text" placeholder=" Mot de passe">
-    </div>
-    <button class="btn">Se connecter</button>
-</main>
+<form [formGroup]="registerForm">
+    <main class="main">
+        <div class="connexion">Connexion</div>
+        <div class="login">
+    
+            <input formControlName="pseudo" class="login__pseudo" type="text" placeholder=" Pseudo" >
+            <div *ngIf="registerForm.get('pseudo')?.invalid && (registerForm.get('pseudo')?.dirty || registerForm.get('pseudo')?.touched)">
+                <div *ngIf="registerForm.get('pseudo')?.hasError('required')" class="main__error">
+                  *Ce champs est requis.
+                </div>
+                <div *ngIf="registerForm.get('pseudo')?.hasError('maxlength')" class="main__error">
+                  *Maximum 10 caractères.
+                </div>
+              </div>
+    
+            <input formControlName="password" class="login__mdp" type="password" placeholder=" Mot de passe">
+            <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
+                <div *ngIf="registerForm.get('password')?.hasError('required')" class="main__error">
+                  *Ce champs est requis.
+                </div>
+                <div *ngIf="registerForm.get('password')?.hasError('minlength')" class="main__error">
+                  *Minimum 8 caractères.
+                </div>
+              </div>
+    
+        </div>
+        <button [disabled]="registerForm.invalid" class="btn">Se connecter</button>
+    </main>
+</form>
