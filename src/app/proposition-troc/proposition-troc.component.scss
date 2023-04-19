@@ -1,4 +1,5 @@
 // utilisation encapsulation: ViewEncapsulation.None dans details annonce component pour pouvoir modifier css du composant enfant
+
 :host ::ng-deep .cardDetailAnnonce {
   display: flex;
   width: 300px;
@@ -11,6 +12,7 @@
   box-sizing: border-box;
   overflow: hidden;
   flex-direction: row;
+  z-index: 2;
 }
 
 :host ::ng-deep .descriptionDetailAnnonce {
@@ -44,9 +46,7 @@
 body{
   background:url("/assets/background_mains.jpg");
   width: 100%;
-  height: 100%;
   background-size: 100%;
-  position: relative;
   background-repeat: repeat;
 }
 .propositon-Cards {
@@ -63,6 +63,7 @@ body{
   box-shadow: 0px 5px 20px #555;
   border-radius: 25px;
   overflow: hidden;
+  z-index: 2;
 
 }
 
@@ -123,13 +124,11 @@ input:valid+span:after {
 
 @media only screen and (min-width: 768px) {
   body{
-    background:url("/assets/background_mains.jpg");
+    background:url("/assets/background_mains_grey.jpg");
     width: 100%;
-    height: 100%;
     background-size: 100%;
-    position: relative;
     background-repeat: repeat;
-    filter: grayscale(100%);
+    
   }
   :host ::ng-deep .cardDetailAnnonce {
     width: 500px;
