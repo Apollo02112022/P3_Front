@@ -1,18 +1,32 @@
-import { Component } from '@angular/core';
+import { HashLocationStrategy } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'P3_Front';
 
-  // statique: boolean = false;
-  // accueil: boolean = true;
+  // Propriété qui va déterminer si le footer doit être masqué ou affiché
+  hiddenFooter: boolean = true;
 
+  constructor(private router: Router) {}
 
-  // switch() {
-  //   this.toggle = !this.toggle;
-  // }
+  ngOnInit() {
+  // écoute les évènements de navigation du 'Router'
+    this.router.events.subscribe((event) => {
+      // si l'évènement est de type 'NavigationEnd', la navigation sera terminée
+      if (event instanceof NavigationEnd) {
+        this.hiddenFooter = !this.hidden();
+      }
+      
+    });    
+  }
+
+  hidden() {
+    return this.router.url === '/' || this.router.url === '/accueil';
+  }
 }

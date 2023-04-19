@@ -2,34 +2,28 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    z-index: 5;
   }
-  
-  // body {
-  //   background-color: gray;
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  //   height: 100vh;
-  //   font-family: sans-serif;
-  // }
-  
+   
   .switch-button {
     background: RGB(0, 0, 0, 0.35);
     border-radius: 30px;
     overflow: hidden;
     width: 240px;
     text-align: center;
-    font-size: 18px;
+    font-size: 22px;
+    font-weight: 540;
     font-family: "Inter";
     letter-spacing: 1px;
     color: white;
     position: relative;
     padding-right: 120px;
-    position: relative;
 
     &:before {
         content: "Je récupère";
         font-family: "Inter";
+        font-size: 22px;
+        // font-weight: 540;
         position: absolute;
         top: 0;
         bottom: 0;
@@ -85,54 +79,14 @@
     }
 }
 
-// ajout css p3
-
 .switch {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   font-style: normal;
-  margin-top: 97px;
-  
+  margin-top: 97px;  
 }
-
-// .switch-button-checkbox {
-//   height: 50px;
-//   width: 240px;
-//   background-color: RGB(0, 0, 0, 0.35);
-//   border-radius: 30px;
-//   position: absolute;
-//   margin: auto 0;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   margin-top: 122px;
-  
-// }
-
-// .switch-button-label {
-//   height: 50px;
-//   width: 120px;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   background-color:#A6D1BD;
-//   color: white;
-//   font-family: 'Inter';
-//   font-style: normal;
-//   font-size: 20px;
-//   border-radius: 30px;
-//   font-weight: 700;
-//   line-height: 40px;
-//   position: relative;
-//   margin-right: 120px;
-// }
-
-// .up {
-//   left: 120px;
-// }
-
 
 img {
   height: 100%;
@@ -140,7 +94,7 @@ img {
   border-radius: 20px;
 }
 
-.ok {
+.example {
   display: flex;
   flex-direction: column;
   align-items: center; 
@@ -154,7 +108,7 @@ img {
   
 
   &__annonce {
-      width: 218px;
+      width: 200px;
       height: 90px;
       left: 85px;
       top: 203px;
@@ -162,7 +116,7 @@ img {
   }
 
   &__sms {
-      width: 218px;
+      width: 200px;
       height: 90px;
       left: 85px;
       top: 203px;
@@ -170,7 +124,7 @@ img {
   }
 
   &__deal {                    
-      width: 218px;
+      width: 200px;
       height: 90px;
       left: 85px;
       top: 203px;
@@ -179,16 +133,19 @@ img {
 }
 
 p {
-  height: 70px;
-  width: 290px;
+  height: 110px;
+  width: 300px;
   border-radius: 20px;
   background: rgba(49, 48, 48, 0.4);
   color:white;
   font-family: 'Inter';
+  font-size: 22px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 550;
+  letter-spacing: 2px;
   text-align: center;
   display: flex;
   align-items: center;
   margin-top: 15px;
+  margin-bottom: 15px;
 }
