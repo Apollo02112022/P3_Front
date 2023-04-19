@@ -23,6 +23,7 @@ import { SwitchComponent } from './switch/switch.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { PageStatiqueComponent } from './page-statique/page-statique.component';
+import { UserAnnoucementComponent } from './user-annoucement/user-annoucement.component';
 
 @NgModule({
 
@@ -44,7 +45,8 @@ import { PageStatiqueComponent } from './page-statique/page-statique.component';
     FormularMailChangeComponent,
     FormularDeleteAccountComponent,
     UserFormComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    UserAnnoucementComponent
    ],
   imports: [
     BrowserModule,
