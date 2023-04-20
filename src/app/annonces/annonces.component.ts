@@ -24,6 +24,8 @@ export class AnnoncesComponent implements OnInit {
   // ngOnInit recupère les annonces à partir du service
   ngOnInit(): void {
 
+    this.link();
+
     if(this.router.url === `/barters`){
 
       // inscription a l'observable de la methode listeAnnonce() qui fait appel a l api rest
@@ -61,6 +63,13 @@ export class AnnoncesComponent implements OnInit {
       console.log("Annonce sélectionnée :", annonce);
       this.router.navigate(['barters', id]);
     });
+  }
+
+  link(){
+    if(this.router.url === `/barters`){
+      return true;
+    }
+    return false;
   }
 
 

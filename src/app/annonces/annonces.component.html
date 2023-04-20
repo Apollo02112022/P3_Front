@@ -3,12 +3,10 @@
 
 <div class="annonce-container">
   <div class="textAnnDesktop">
-    <h2 class="titreAnn">Sur Trocoeurs,
+    <h2 *ngIf="link()" class="titreAnn">Sur Trocoeurs,
       consultez toutes nos offres de trocs, échangez
       ou postez !</h2>
-    <h2 class="titreAnn">Sur Trocoeurs,
-      consultez toutes nos offres de trocs, échangez
-      ou postez !</h2>
+    <h2 *ngIf="!link()" class="titreAnn">Voici vos proposition d'échange , vous pouvez les consulter ou les supprimer !</h2>
   </div>
   <div class="card-body">
     <div class="cardAnnonceList" *ngFor="let annonce of annonces" (click)="onSelectedAnnonce(annonce.id)">
