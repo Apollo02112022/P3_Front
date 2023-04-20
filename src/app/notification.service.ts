@@ -25,6 +25,7 @@ export class NotificationService {
 
   }
 }
+
 // export class NotificationService {
 
 //   constructor() { }
@@ -45,26 +46,3 @@ export class NotificationService {
 
 //   }
 // }
-// export class NotificationService {
-
-//   constructor() { }
-
-//   createNotification(content:any, sender:any): Observable<any> {
-//     return new Observable(observer => {
-//       fetch("http://localhost:8080/proposal_deal", {
-//         method:"POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//           // "Authorization": "Bearer " + localStorage.getItem("token")
-//         },
-//         body: JSON.stringify({message:content, user:sender})
-//       }).then(response => {
-//         observer.next(response);
-//         observer.complete();
-//       }).catch(error => {
-//         observer.error(error);
-//       });
-//     });
-//   }
-  
-//}

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ComponentHiddenService } from '../component-hidden.service';
+import { ComponentHiddenService } from '../../../services/component-hidden.service';
 
 @Component({
   selector: 'app-user-card-button',
