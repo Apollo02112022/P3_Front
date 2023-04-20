@@ -1,0 +1,35 @@
+  <body>
+    
+  
+<div class="container">
+  <div class="createTitre">
+    <h2>Créer une Annonce</h2>
+  </div>
+
+
+  <form (submit)="addAnnonce()">
+    <div class="createCards">
+      <img class="addImg" src="assets/bell-peppers.jpg" alt="">
+      <div class="createImage">
+        <h3 class="addTitre">Image:</h3>
+        <input class="addFile" type="file" [(ngModel)]="newAnnonce.announcement_picture" name="Image">
+
+      </div>
+
+      <div class="createDescription">
+        <h3 class="addTitre">Description Annonce</h3>
+        <textarea type="text" [(ngModel)]="newAnnonce.description" name="description"
+          class="descriptionAnnonce" placeholder="Saisissez votre annonce ici... minimum 10 à maximum 250 caractères" maxlength="250"
+          minlength="10"></textarea>
+      </div>
+    </div>
+
+    <div class="btnValid">
+      <button class="btnValidez" type="submit">Valider l'annonce</button>
+      <div>
+        <h3>{{message}}</h3>
+      </div>
+    </div>
+  </form>
+</div>
+</body>

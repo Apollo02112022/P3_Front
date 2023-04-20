@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { HashLocationStrategy } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'P3_Front';
+
+
 }

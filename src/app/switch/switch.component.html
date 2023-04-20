@@ -1,0 +1,49 @@
+<main class="switch">
+    <div class="switch-button">
+         <input (click)="switch()" class="switch-button-checkbox" type="checkbox">
+         <label class="switch-button-label" for=""><span class="switch-button-label-span">{{exchange}}</span></label>
+    </div>
+        <div *ngIf="!toggle" class="picture">
+            <section class="example">
+                <div class="picture__annonce">
+                    <img src="../assets/photo_annonce.jpg"/>
+                </div>
+                <p>{{takePicture}}</p>
+            </section>
+            <section class="example">
+                <div class="picture__sms">
+                    <img src="../assets/sms.jpg" />
+                </div>
+                <p>{{message}}</p>
+            </section>
+            <section class="example">
+                <div class="picture__deal">
+                    <img src="../assets/deal_ok.jpg" />
+                </div>
+                <p>{{deal}}</p>
+            </section>
+        </div>
+    <div *ngIf="toggle" class="picture">
+        <section class="example">
+            <div class="picture__annonce">
+                <img src="../assets/recherche.jpg" />
+            </div>
+            <p>{{search}}</p>
+        </section>
+        <section class="example">
+            <div class="picture__sms">
+                <img src="../assets/appel.jpg" />
+            </div>
+            <p>{{proposal}}</p>
+        </section>
+        <section class="example">
+            <div class="picture__deal">
+                <img src="../assets/panier.jpg" />
+            </div>
+            <p>{{retrieve}}</p>
+        </section>
+    </div>
+</main>
+      
+      
+      
