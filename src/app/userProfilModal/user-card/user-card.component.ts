@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ComponentHiddenService } from './component-hidden.service';
+import { ComponentHiddenService } from '../../services/component-hidden.service';
 
 @Component({
   selector: 'app-user-card',

@@ -23,9 +23,15 @@
    * Remove the margin in all browsers.
    */
   
+   //-------------------- Permet de débugger --------------
+  //  * {
+  //   box-shadow: 0 0 0 3px red;
+  //   inset: initial;
+  //  }
+
   body {
     margin: 0;
-    
+
   }
   
   /**
