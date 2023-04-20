@@ -46,7 +46,7 @@ export class NotificationService {
 
 //   }
 // }
-<<<<<<< HEAD
+
 // export class NotificationService {
 
 //   constructor() { }
@@ -70,5 +70,4 @@ export class NotificationService {
 //   }
   
 //}
-=======
->>>>>>> 46c9836f54391586a7cbffb21ae77b6d2e5cf0de
+
