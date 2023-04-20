@@ -17,4 +17,5 @@ export class AccueilComponent {
   select() {
     this.router.navigate(["/barters"])
   }
+
 }

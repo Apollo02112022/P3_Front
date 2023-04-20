@@ -8,7 +8,9 @@ import { UserCardFormularComponent } from './userProfilModal/user-card/user-card
 import { AddAnnonceComponent } from './add-annonce/add-annonce.component';
 import { DetailsAnnonceComponent } from './details-annonce/details-annonce.component';
 import { PropositionTrocComponent } from './proposition-troc/proposition-troc.component';
+import { LoginComponent } from './login/login.component';
 import { AccueilComponent } from './accueil/accueil.component';
+
 
 const routes: Routes = [
   {path:'', component: AccueilComponent},
@@ -20,6 +22,7 @@ const routes: Routes = [
   {path: 'users/:userid/profil', component: UserCardComponent },
   {path: 'users/:userid/profil/update', component: UserCardComponent },
   {path: 'users/:userid/barters', component: AnnoncesComponent },
+  {path: 'login', component: LoginComponent},
   {path: 'signup', component: UserFormComponent}
 ];
 
