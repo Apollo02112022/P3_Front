@@ -1,148 +1,39 @@
-.main {
-
-    background:center/ cover no-repeat url("/assets/opacity.jpg");
-    background-attachment: fixed;
-
-}
-.home {
-    height : 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &__welcome {
-        height: 250px;
-        width: 250px;
-        border-radius: 20px;
-        background: rgba(49, 48, 48, 0.4);
-        color:white;
-        font-size: 25px;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        line-height: 40px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-    }
-
-}
-
-.suite {
-        background-color: rgba(49, 48, 48, 0.4);
-
-    &__how {
-        width: 100vw;
-        height: 40px;
-        color:white;
-        font-size: 25px;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        text-align: center;
-        line-height: 1.5;
-    }
-
-    &__consult {
-        width: 100vw;
-        height: 40px;
-        color:white;
-        font-size: 25px;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        text-align: center;
-        line-height: 1.5;
-    }
-}
-
-// .btn-container {
-//     display: table-cell;
-//     vertical-align: middle;
-//     text-align: center;
-// }
-
-// .btn-container_bis {
-//     display: inline-block;
-//     position: relative;
-//     top: -9px;
-// }
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 250px;
-  height: 40px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-  border-radius: 34px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
 @media (max-width: 768px) {
     .main {
-        background:url("/assets/opacity.jpg") no-repeat center center fixed;
+        background: url("/assets/opacity.jpg") no-repeat center center fixed;
         background-size: cover;
-    } 
-    
+        position: relative;
+    }
+
     .head {
         display: none;
     }
-    
+
+    .circle {
+        background: url("/assets/icons/utilisateur-du-cercle.png");
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 32px;
+        height: 32px;
+        border: 7px solid white;
+        border-radius: 50%;
+        margin: 20px;
+    }
+
     .home {
-        height : 100vh;
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-    
+
         &__welcome {
             height: 250px;
             width: 250px;
             border-radius: 20px;
             background: rgba(49, 48, 48, 0.4);
-            color:white;
+            backdrop-filter: blur(2px);
+            color: white;
             font-size: 25px;
             font-family: 'Inter';
             font-style: normal;
@@ -152,17 +43,17 @@ input:checked + .slider:before {
             align-items: center;
             text-align: center;
         }
-    
     }
-    
+
     .suite {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-content: center;
         background-color: rgba(49, 48, 48, 0.4);
+        backdrop-filter: blur(2px);
         min-height: 70px;
-    
+
         &__how {
             width: 100vw;
             min-height: 50%;
@@ -174,11 +65,11 @@ input:checked + .slider:before {
             text-align: center;
             line-height: 1.2;
         }
-    
+
         &__consult {
             width: 100vw;
             min-height: 50%;
-            color:white;
+            color: white;
             font-size: 25px;
             font-family: 'Inter';
             font-style: normal;
@@ -187,90 +78,82 @@ input:checked + .slider:before {
             line-height: 1.2;
         }
     }
+}
+
+/*media query*/
+@media (min-width: 769px) {
+    .body {
+        background-color: #A6D1BD;
     }
-    
-    
-    // * {
-    //     box-sizing: border-box;
-    //     padding: 0;
-    //     margin: 0;
-        
-    // }
-    
-    
-    /*media query*/
-    
-    @media (min-width: 769px) {
-        .body {
-            background-color: #b8e0c7;
+
+    .head {
+        position: absolute;
+
+        &__citrouille {
+            width: 480px;
+            height: 210px;
+            left: 0px;
+            top: 0px;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            backdrop-filter: blur(2px);
+        }
+
+        &__fraise {
+            width: 480px;
+            height: 210px;
+            left: 480px;
+            top: 0px;
+            background-blend-mode: luminosity;
+            backdrop-filter: blur(2px);
+        }
+
+        &__pain {
+            width: 480px;
+            height: 210px;
+            left: 960px;
+            top: 0px;
+            backdrop-filter: blur(2px);
+        }
+
+        &__pdt {
+            width: 480px;
+            height: 210px;
+            left: 0px;
+            top: 210px;
+            background-blend-mode: luminosity;
+            backdrop-filter: blur(2px);
+        }
+
+        &__tomate {
+            width: 480px;
+            height: 210px;
+            left: 480px;
+            top: 210px;
+            backdrop-filter: blur(2px);
+        }
+
+        &__myrtille {
+            width: 480px;
+            height: 210px;
+            left: 960px;
+            top: 210px;
+            background-blend-mode: luminosity;
+            backdrop-filter: blur(2px);
+        }
     }
-    
-        // .main {
-        //     display: none;
-        // }
-        .head {
-            position: absolute;
-    
-            &__citrouille {
-                width: 480px;
-                height: 210px;
-                left: 0px;
-                top: 0px;
-                filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-                backdrop-filter: blur(2px);
-            }
-            &__fraise {
-                width: 480px;
-                height: 210px;
-                left: 480px;
-                top: 0px;
-                background-blend-mode: luminosity;
-                backdrop-filter: blur(2px);
-            }
-            &__pain {
-                width: 480px;
-                height: 210px;
-                left: 960px;
-                top: 0px;
-                backdrop-filter: blur(2px);
-            }
-            &__pdt {
-                width: 480px;
-                height: 210px;
-                left: 0px;
-                top: 210px;
-                background-blend-mode: luminosity;
-                backdrop-filter: blur(2px);
-            }
-            &__tomate {
-                width: 480px;
-                height: 210px;
-                left: 480px;
-                top: 210px;
-                backdrop-filter: blur(2px);
-            }
-            &__myrtille {
-                width: 480px;
-                height: 210px;
-                left: 960px;
-                top: 210px;
-                background-blend-mode: luminosity;
-                backdrop-filter: blur(2px);
-            }
-    }
-    
+
     .home {
-        height : 100vh;
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-    
+
         &__welcome {
             height: 190px;
             width: 750px;
             border-radius: 20px;
             background: rgba(49, 48, 48, 0.4);
-            color:white;
+            color: white;
             font-size: 25px;
             font-family: 'Inter';
             font-style: normal;
@@ -280,6 +163,5 @@ input:checked + .slider:before {
             align-items: center;
             text-align: center;
         }
-    
     }
-    }
+}
