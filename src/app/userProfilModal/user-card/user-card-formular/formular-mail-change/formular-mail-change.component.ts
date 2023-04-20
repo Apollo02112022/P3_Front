@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ChangeMailService } from './change-mail.service';
+import { ChangeMailService } from '../../../../services/change-mail.service';
 
 @Component({
   selector: 'app-formular-mail-change',

@@ -125,10 +125,23 @@ input:checked + .slider:before {
     .main {
         background:url("/assets/opacity.jpg") no-repeat center center fixed;
         background-size: cover;
+        position: relative;
     } 
     
     .head {
         display: none;
+    }
+    
+    .circle {
+        background:url("/assets/icons/utilisateur-du-cercle.png");
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 32px;
+        height: 32px;
+        border: 7px solid  white;
+        border-radius: 50%;
+        margin: 20px;      
     }
     
     .home {
