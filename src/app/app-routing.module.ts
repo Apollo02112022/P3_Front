@@ -19,6 +19,7 @@ const routes: Routes = [
   {path :"proposal_deal/:id", component :PropositionTrocComponent},
   {path: 'users/:userid/profil', component: UserCardComponent },
   {path: 'users/:userid/profil/update', component: UserCardComponent },
+  {path: 'users/:userid/barters', component: AnnoncesComponent },
   {path: 'signup', component: UserFormComponent}
 ];
 
