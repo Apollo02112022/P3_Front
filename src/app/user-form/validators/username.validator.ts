@@ -16,6 +16,7 @@ export function usernameValidator(control: AbstractControl): { [key: string]: bo
     
   } 
 
+  
 // Cette fonction importe la classe AbstractControl depuis le module @angular/forms, qui est une classe de base pour les contrôles 
 // de formulaire.
 

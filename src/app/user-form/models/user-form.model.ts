@@ -3,7 +3,7 @@
 export class User {
     lastname?: string;
     firstname?: string;
-    username?: string;
+    pseudo?: string;
     picture?: any;
     mail?: string;
     city?: string;
