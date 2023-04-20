@@ -17,10 +17,10 @@ export class PropositionTrocComponent implements OnInit {
   ngOnInit() {
   }
   sendProposition() {
-   this.notificationService.createNotification(this.content,this.sender).subscribe(prop =>{
-    console.log(prop);
-    this.router.navigate(['barters']);// retour a la page annonces après ajout d'une proposition
-   });
+  //  this.notificationService.createNotification(this.content,this.sender).subscribe(prop =>{
+  //   console.log(prop);
+  //   this.router.navigate(['barters']);// retour a la page annonces après ajout d'une proposition
+  //  });
     }
 }// addAnnonce() {
 //   if (!this.checkDescriptionLength()) {
