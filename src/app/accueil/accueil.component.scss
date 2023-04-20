@@ -3,43 +3,24 @@
         background: url("/assets/opacity.jpg") no-repeat center center fixed;
         background-size: cover;
         position: relative;
-<<<<<<< HEAD
     }
 
     .head {
         display: none;
     }
-
-    .circle {
-        background: url("/assets/icons/utilisateur-du-cercle.png");
-=======
-    } 
-    
-    .head {
-        display: none;
-    }
-    
+  
     .circle {
         background:url("/assets/icons/utilisateur-du-cercle.png");
->>>>>>> a037ddba132b894456919db80e1475b8f459178f
         position: absolute;
         top: 0;
         right: 0;
         width: 32px;
         height: 32px;
-<<<<<<< HEAD
         border: 7px solid white;
         border-radius: 50%;
         margin: 20px;
     }
 
-=======
-        border: 7px solid  white;
-        border-radius: 50%;
-        margin: 20px;      
-    }
-    
->>>>>>> a037ddba132b894456919db80e1475b8f459178f
     .home {
         height: 100vh;
         display: flex;

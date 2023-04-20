@@ -16,7 +16,7 @@ export class PropositionTrocComponent implements OnInit {
 
   ngOnInit() {
   }
-<<<<<<< HEAD
+
   sendProposition() {
   //  this.notificationService.createNotification(this.content,this.sender).subscribe(prop =>{
   //   console.log(prop);
@@ -24,41 +24,3 @@ export class PropositionTrocComponent implements OnInit {
   //  });
   }
 }
-
-// addAnnonce() {
-=======
-}
-//   sendProposition() {
-//    this.notificationService.createNotification(this.content,this.sender).subscribe(prop =>{
-//     console.log(prop);
-//     this.router.navigate(['barters']);// retour a la page annonces après ajout d'une proposition
-//    });
-//     }
-// }// addAnnonce() {
->>>>>>> a037ddba132b894456919db80e1475b8f459178f
-//   if (!this.checkDescriptionLength()) {
-//     return;
-//   }
-//   this.annonceService.addOneAnnonce(this.newAnnonce).subscribe(ann => {
-//     console.log(ann);
-//     this.router.navigate(['barters']);// retour a la page annonces après ajout d'une annonce
-//   });
-// }
-// newAnnonce = new Annonce();
-// id!: number;
-// annoucement_picture!: string;
-// description!: string;
-// message!: string;              // ajout d'attribut 
-
-
-
-// constructor(private annonceService: AnnonceService, private router: Router) { }
-
-// ngOnInit() {
-
-// }
-
-
-
-
-// private notificationService: NotificationService,
