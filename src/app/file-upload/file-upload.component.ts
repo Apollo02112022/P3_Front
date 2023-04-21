@@ -19,7 +19,10 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   ]
 
 })
+
 export class FileUploadComponent {
+
+  selected = false;
 
   // La ligne 27 définit une propriété onChange qui sera utilisée plus tard pour stocker une fonction de rappel qui 
   // sera appelée lorsque la valeur du champ changera.
@@ -40,6 +43,7 @@ export class FileUploadComponent {
     const file = event && event.item(0);
     this.onChange(file);
     this.file = file;
+    this.selected = true;
   }
 
   // La ligne 48 définit le constructeur de la classe. Le paramètre host 

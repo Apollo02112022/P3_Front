@@ -1,0 +1,54 @@
+.main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: url("../../assets/background_mains_modifs.jpg") center/100%;
+    justify-content: space-around;
+    align-items: center;
+    filter: grayscale(100%);  
+    font-size: 25px;
+
+    .connexion, .btn {
+        height: 7%;
+        width: 80%;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        font-weight: bold;
+    }
+
+
+    .login {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 30%;
+        width: 80%;
+        background: rgba($color: #424242, $alpha: 0.75);
+        
+    
+        &__pseudo, &__mdp {
+            height: 15%;
+            width: 80%;
+            padding: 0 10px;
+        }
+    }
+
+    .login, .login > * {
+        border-radius: 20px;
+        font-weight: bold;
+    }
+
+    .btn {
+        width: 35%;
+        font-size: 20px;
+    }
+
+    &__error {
+        color: red;
+    }
+}
+

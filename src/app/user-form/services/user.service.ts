@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 // import { User } from '../models/user-form.model';
 
 
-const baseUrl = 'http://localhost:8080/api/signup';
+const baseUrl = 'http://localhost:8080/signup';
 
 // const httpOptions = {headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 // };
