@@ -12,8 +12,7 @@
       <img class="addImg" src="assets/bell-peppers.jpg" alt="">
       <div class="createImage">
         <h3 class="addTitre">Image:</h3>
-        <input class="addFile" type="file" [(ngModel)]="newAnnonce.announcement_picture" name="Image">
-
+        <app-file-upload [(ngModel)]="newAnnonce.announcement_picture" name="Image"></app-file-upload>
       </div>
 
       <div class="createDescription">
