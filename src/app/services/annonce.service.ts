@@ -41,7 +41,7 @@ export class AnnonceService {
 
   getImage(imageURL: string): Observable<Blob> {
     return this.http.get(imageURL, { responseType: 'blob' });
-
+  }
   // retourne  tableau d'annonce de type observable 
   listeUserAnnonce(): Observable<Annonce[]> {
     return this.http.get<Annonce[]>(this.userAnnouncement);
