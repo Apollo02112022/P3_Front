@@ -2,8 +2,9 @@ import { Category } from "./category.model";
 
 export class Annonce {
     id!: number;
-    announcement_picture!: string;
+    announcement_picture!: any;
     description!: string;
     dateCreation!: Date;
-    category!: Category;
+    imageUrl?:string;
+    // category!: Category;
 }

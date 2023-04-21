@@ -21,31 +21,44 @@ export class AnnonceService {
   apiURLAdd: string = 'http://localhost:8080/offer-a-barter?userid=1&categoryid=2';
   apiURLdetails: string = 'http://localhost:8080/barters/';
   annonces!: Annonce[];//declaration de variable et tableau d'annonce'
+
+  
+
   // category : Category[];//declaration de variable et tableau de categorie
   userAnnouncement: string = "http://localhost:8080/users/"+this.userid+"/barters";
+
 
 
   // injection de dependance  variable :http de type HttpClient dans constructor
   constructor(private http: HttpClient) {
 
   }
-  // listeAnnonce() : Annonce[]{
-  //   return this.annonces}
-
-
+ 
   // retourne  tableau d'annonce de type observable 
   listeAnnonce(): Observable<Annonce[]> {
     return this.http.get<Annonce[]>(this.apiURL);
   }
+
+  getImage(imageURL: string): Observable<Blob> {
+    return this.http.get(imageURL, { responseType: 'blob' });
+
   // retourne  tableau d'annonce de type observable 
   listeUserAnnonce(): Observable<Annonce[]> {
     return this.http.get<Annonce[]>(this.userAnnouncement);
+
   }
  
   // methode variable ann retourne une annonce Observable ajouter dans la bdd par l'API REST
   addOneAnnonce(ann: Annonce): Observable<Annonce> {
-    return this.http.post<Annonce>(this.apiURLAdd, ann, httpOptions); //methode post transmet l'annonce "ann" sous format json "httpOptions" 
-  }
+    const formData = new FormData(); // instance pour stoker les données de l'annonce
+    formData.append('announcement_picture',ann.announcement_picture);// ajout des 2 propriétés "announcement_picture" et "description",
+    formData.append('description', ann.description);                 //ajoutées à l'objet FormData avec la méthode "append". 
+    
+    
+    return this.http.post<Annonce>(this.apiURLAdd, formData);
+  } //méthode "post" de l'objet "http" pour envoyer les données vers l'API. Le retour de la méthode est un objet "Observable" de type Annonce
+    // qui est utilisé pour suivre l'état de la requête HTTP et renvoyer la réponse de l'API sous forme d'objet Annonce.
+  
   deleteAnnonce(annonce: Annonce) {
     // supprime l'annonce du tableau annonces
     const index = this.annonces.indexOf(annonce, 0);
@@ -60,21 +73,9 @@ export class AnnonceService {
     return this.http.get<Annonce>(url, httpOptions);
     // get retourne un objet de type annonce par l'url + id construite au dessus
   }
-
-
-    // methode pour trier les annonce par id
-  trierAnnonces() {
-    this.annonces = this.annonces.sort((n1, n2) => {
-      if (n1.id > n2.id) {
-        return 1;
-      }
-      if (n1.id < n2.id) {
-        return -1;
-      }
-      return 0;
-    });
+  getAnouncementPictureById(id: number): Observable<any> {
+    return this.http.get(`http://localhost:8080/offer-a-barter/${id}/image`, { responseType: 'blob' });
   }
-
-
-
+// methode get retourne un oservable de type  responseType: 'blob',pour spécifier que la réponse doit être traitée 
+//comme des données binaires brutes.
 }
