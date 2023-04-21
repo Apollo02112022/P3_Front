@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { TokenService } from '../token.service';
 
 
 @Component({
@@ -12,7 +13,14 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(private token: TokenService, private pseudo: String, private activatedRoute: ActivatedRoute, private router: Router) {}
+
+  
+  testToken() {
+    const decodedToken = this.token.getDecodedToken();
+    this.pseudo = decodedToken ? decodedToken.pseudo : null;
+    console.log(this.pseudo);
+  }
 
     registerForm = new FormGroup({
       pseudo: new FormControl("", [Validators.required, Validators.maxLength(10)]),

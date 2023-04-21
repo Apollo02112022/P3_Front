@@ -16,6 +16,7 @@ import { FormularPasswordChangeComponent } from './userProfilModal/user-card/use
 import { FormularMailChangeComponent } from './userProfilModal/user-card/user-card-formular/formular-mail-change/formular-mail-change.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormularDeleteAccountComponent } from './userProfilModal/user-card/user-card-formular/formular-delete-account/formular-delete-account.component';
+import { FormularPictureChangeComponent } from './userProfilModal/user-card/user-card-formular/formular-picture-change/formular-picture-change.component';
 import { DetailsAnnonceComponent } from './details-annonce/details-annonce.component';
 import { PropositionTrocComponent } from './proposition-troc/proposition-troc.component';
 import { SwitchComponent } from './switch/switch.component';
@@ -47,7 +48,8 @@ import { LogoutComponent } from './logout/logout.component';
     FileUploadComponent,
     LogoutComponent,
     UserAnnoucementComponent,
-    HeaderComponent
+    HeaderComponent,
+    FormularPictureChangeComponent
    ],
   imports: [
     BrowserModule,
