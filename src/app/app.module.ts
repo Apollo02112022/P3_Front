@@ -45,9 +45,9 @@ import { LogoutComponent } from './logout/logout.component';
     FormularDeleteAccountComponent,
     UserFormComponent,
     FileUploadComponent,
-    LogoutComponent
+    LogoutComponent,
     UserAnnoucementComponent,
-    HeaderComponent
+    HeaderComponent,
    ],
   imports: [
     BrowserModule,
