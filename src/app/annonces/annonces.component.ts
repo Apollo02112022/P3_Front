@@ -84,7 +84,7 @@ export class AnnoncesComponent implements OnInit {
       this.router.navigate(['barters', id]);
     });
 
-
+  }
   link(){
     if(this.router.url === `/barters`){
       return true;
