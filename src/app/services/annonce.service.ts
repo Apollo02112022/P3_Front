@@ -14,14 +14,21 @@ const httpOptions = {
 export class AnnonceService {
   
 
-
+  userid:number = 2;
 
   // variable pour affecter Url de l'app back-end 
   apiURL: string = 'http://localhost:8080/barters';
   apiURLAdd: string = 'http://localhost:8080/offer-a-barter?userid=1&categoryid=2';
   apiURLdetails: string = 'http://localhost:8080/barters/';
   annonces!: Annonce[];//declaration de variable et tableau d'annonce'
+
   
+
+  // category : Category[];//declaration de variable et tableau de categorie
+  userAnnouncement: string = "http://localhost:8080/users/"+this.userid+"/barters";
+
+
+
   // injection de dependance  variable :http de type HttpClient dans constructor
   constructor(private http: HttpClient) {
 
@@ -31,8 +38,14 @@ export class AnnonceService {
   listeAnnonce(): Observable<Annonce[]> {
     return this.http.get<Annonce[]>(this.apiURL);
   }
+
   getImage(imageURL: string): Observable<Blob> {
     return this.http.get(imageURL, { responseType: 'blob' });
+
+  // retourne  tableau d'annonce de type observable 
+  listeUserAnnonce(): Observable<Annonce[]> {
+    return this.http.get<Annonce[]>(this.userAnnouncement);
+
   }
  
   // methode variable ann retourne une annonce Observable ajouter dans la bdd par l'API REST

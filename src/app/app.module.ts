@@ -20,7 +20,10 @@ import { DetailsAnnonceComponent } from './details-annonce/details-annonce.compo
 import { PropositionTrocComponent } from './proposition-troc/proposition-troc.component';
 import { SwitchComponent } from './switch/switch.component';
 import { FooterComponent } from './footer/footer.component';
+import { UserAnnoucementComponent } from './user-annoucement/user-annoucement.component';
 import { HeaderComponent } from './header/header.component';
+import { LogoutComponent } from './logout/logout.component';
+
 
 @NgModule({
 
@@ -42,7 +45,9 @@ import { HeaderComponent } from './header/header.component';
     FormularDeleteAccountComponent,
     UserFormComponent,
     FileUploadComponent,
-    HeaderComponent
+    LogoutComponent,
+    UserAnnoucementComponent,
+    HeaderComponent,
    ],
   imports: [
     BrowserModule,

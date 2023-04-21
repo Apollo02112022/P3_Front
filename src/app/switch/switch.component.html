@@ -6,19 +6,19 @@
         <div *ngIf="!toggle" class="picture">
             <section class="example">
                 <div class="picture__annonce">
-                    <img src="../assets/photo_annonce.jpg"/>
+                    <img src="../assets/photo_annonce.jpg" alt="indivudu qui prend une photo"/>
                 </div>
                 <p>{{takePicture}}</p>
             </section>
             <section class="example">
                 <div class="picture__sms">
-                    <img src="../assets/sms.jpg" />
+                    <img src="../assets/sms.jpg" alt="individu qui échange par message"/>
                 </div>
                 <p>{{message}}</p>
             </section>
             <section class="example">
                 <div class="picture__deal">
-                    <img src="../assets/deal_ok.jpg" />
+                    <img src="../assets/deal_ok.jpg" alt="échange effectué entre deux personnes qui se serrent les mains"/>
                 </div>
                 <p>{{deal}}</p>
             </section>
@@ -26,19 +26,19 @@
     <div *ngIf="toggle" class="picture">
         <section class="example">
             <div class="picture__annonce">
-                <img src="../assets/recherche.jpg" />
+                <img src="../assets/recherche.jpg" alt="individu qui consulte des annonces sur le téléphone"/>
             </div>
             <p>{{search}}</p>
         </section>
         <section class="example">
             <div class="picture__sms">
-                <img src="../assets/appel.jpg" />
+                <img src="../assets/appel.jpg" alt="individu qui passe un appel téléphonique"/>
             </div>
             <p>{{proposal}}</p>
         </section>
         <section class="example">
             <div class="picture__deal">
-                <img src="../assets/panier.jpg" />
+                <img src="../assets/panier.jpg" alt="échange d'un panier de légumes entre deux personnes"/>
             </div>
             <p>{{retrieve}}</p>
         </section>

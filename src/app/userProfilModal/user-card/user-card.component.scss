@@ -9,7 +9,8 @@
 
 .userCard{
     padding: 3rem;
-    background-color: rgba(25, 27, 23, 0.742);
+    background-color: rgba(49, 48, 48, 0.4);
+    // backdrop-filter: blur(2px);
     border-radius: 10px;
     height: 80vh;
     width: 70vw;
@@ -52,4 +53,12 @@ button{
     margin-top: 3rem;
     border-radius: 8px;
 }
-
+@media only screen and (min-width: 768px) {
+    .main{
+      background:url("/assets/background_grey.jpg");
+      width: 100%;
+      background-size: 100%;
+      position: relative;
+     
+    }
+}
