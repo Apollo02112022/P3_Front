@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Annonce } from '../models/annonce.model';
 import { Category } from '../models/category.model';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 // constante pour dire a Angular que les données retournées sont sous format Json
 const httpOptions = {
@@ -14,19 +15,20 @@ const httpOptions = {
 export class AnnonceService {
   
 
-  userid:number = 2;
+  userid:number = 1;
 
   // variable pour affecter Url de l'app back-end 
   apiURL: string = 'http://localhost:8080/barters';
   apiURLAdd: string = 'http://localhost:8080/offer-a-barter?userid=1&categoryid=2';
   apiURLdetails: string = 'http://localhost:8080/barters/';
+  apiURLDelete:string = "http://localhost:8080/users/"+this.userid+"/"
   annonces!: Annonce[];//declaration de variable et tableau d'annonce'
   // category : Category[];//declaration de variable et tableau de categorie
   userAnnouncement: string = "http://localhost:8080/users/"+this.userid+"/barters";
 
 
   // injection de dependance  variable :http de type HttpClient dans constructor
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
 
   }
   // listeAnnonce() : Annonce[]{
@@ -46,13 +48,21 @@ export class AnnonceService {
   addOneAnnonce(ann: Annonce): Observable<Annonce> {
     return this.http.post<Annonce>(this.apiURLAdd, ann, httpOptions); //methode post transmet l'annonce "ann" sous format json "httpOptions" 
   }
-  deleteAnnonce(annonce: Annonce) {
-    // supprime l'annonce du tableau annonces
-    const index = this.annonces.indexOf(annonce, 0);
-    if (index > -1) {
-      this.annonces.splice(index, 1);//sup 1 seule annonce
-    }
-  }
+
+  deleteAnnonce(annonceid: number) {
+    const url = this.apiURLDelete+"barters/"+annonceid;
+      fetch(url, {
+        method: 'DELETE'
+      })
+        .then(response => {
+          console.log(response)
+          location.reload();
+        })
+        .catch(err => {
+          console.log('test',err)
+        });
+      }
+
   consultAnnonce(id: number): Observable<Annonce> {
     //ajout du parametre concatener / id a l url pour consulter une annonce par id 
     const url = this.apiURLdetails +id;

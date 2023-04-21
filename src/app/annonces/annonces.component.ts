@@ -48,11 +48,14 @@ export class AnnoncesComponent implements OnInit {
     
 
   }
-  supprimerAnnonce(annonce: Annonce) {
-    // console.log(annonce);
+  supprimerAnnonce(annonceid: number) {
     let conf = confirm("Confimer la suppression de l'annonce");
-    if (conf)
-      this.annonceService.deleteAnnonce(annonce);
+    if (conf){
+      this.annonceService.deleteAnnonce(annonceid);
+      console.log(annonceid , "Deleted");
+    }else{
+      console.log(annonceid , "Not deleted");
+    }
   }
 
   //methode pour selectioner une annonce dans la liste
