@@ -21,6 +21,7 @@ import { PropositionTrocComponent } from './proposition-troc/proposition-troc.co
 import { SwitchComponent } from './switch/switch.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
 
@@ -42,7 +43,8 @@ import { HeaderComponent } from './header/header.component';
     FormularDeleteAccountComponent,
     UserFormComponent,
     FileUploadComponent,
-    HeaderComponent
+    HeaderComponent,
+    LogoutComponent
    ],
   imports: [
     BrowserModule,

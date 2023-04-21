@@ -10,6 +10,7 @@ import { DetailsAnnonceComponent } from './details-annonce/details-annonce.compo
 import { PropositionTrocComponent } from './proposition-troc/proposition-troc.component';
 import { LoginComponent } from './login/login.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'users/:userid/profil', component: UserCardComponent },
   {path: 'users/:userid/profil/update', component: UserCardComponent },
   {path: 'login', component: LoginComponent},
+  {path: 'logout', component: LogoutComponent},
   {path: 'signup', component: UserFormComponent}
 ];
 
