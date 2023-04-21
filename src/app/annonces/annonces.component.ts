@@ -39,7 +39,7 @@ export class AnnoncesComponent implements OnInit {
 // La méthode map() est également utilisée pour créer un nouveau tableau à partir du tableau d'annonces d'origine. Elle permet de parcourir chaque annonce du tableau d'annonces
 // et d'appliquer une fonction à chaque élément pour créer un nouvel élément dans le nouveau tableau.
     });
-
+  
 
     this.link();
 
@@ -83,7 +83,7 @@ export class AnnoncesComponent implements OnInit {
       //retour versla page annonces
       this.router.navigate(['barters', id]);
     });
-
+  }
 
   link(){
     if(this.router.url === `/barters`){
@@ -91,7 +91,6 @@ export class AnnoncesComponent implements OnInit {
     }
     return false;
   }
+  }
 
 
-
-}
