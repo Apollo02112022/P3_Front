@@ -1,165 +1,166 @@
 @media (max-width: 768px) {
-    
-.main {
-    background: url("/assets/opacity.jpg") no-repeat center center fixed;
-    background-size: cover;
-    position: relative;
-}
+    .main {
+        background: url("/assets/opacity.jpg") no-repeat center center fixed;
+        background-size: cover;
+        position: relative;
+    }
 
-.head {
-    display: none;
-}
+    .head {
+        display: none;
+    }
+  
+    .circle {
+        background:url("/assets/icons/utilisateur-du-cercle.png");
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 32px;
+        height: 32px;
+        border: 7px solid white;
+        border-radius: 50%;
+        margin: 20px;
+    }
 
-.circle {
-    background: url("/assets/icons/utilisateur-du-cercle.png");
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 32px;
-    height: 32px;
-    border: 7px solid white;
-    border-radius: 50%;
-    margin: 20px;
-}
-
-.home {
-    height : 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &__welcome {
-        height: 250px;
-        width: 250px;
-        border-radius: 20px;
-        background: rgba(49, 48, 48, 0.4);
-        backdrop-filter: blur(2px);
-        color:white;
-        font-size: 25px;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        line-height: 40px;
+    .home {
+        height: 100vh;
         display: flex;
+        justify-content: center;
         align-items: center;
-        text-align: center;
+
+        &__welcome {
+            height: 250px;
+            width: 250px;
+            border-radius: 20px;
+            background: rgba(49, 48, 48, 0.4);
+            backdrop-filter: blur(2px);
+            color: white;
+            font-size: 25px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            line-height: 40px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    .suite {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        background-color: rgba(49, 48, 48, 0.4);
+        backdrop-filter: blur(2px);
+        min-height: 70px;
+
+        &__how {
+            width: 100vw;
+            min-height: 50%;
+            color: white;
+            font-size: 25px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        &__consult {
+            width: 100vw;
+            min-height: 50%;
+            color: white;
+            font-size: 25px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.2;
+        }
     }
 }
 
-.suite {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    background-color: rgba(49, 48, 48, 0.4);
-    backdrop-filter: blur(2px);
-    min-height: 70px;
-
-    &__how {
-        width: 100vw;
-        min-height: 50%;
-        color:white;
-        font-size: 25px;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        text-align: center;
-        line-height: 1.2;
-    }
-
-    &__consult {
-        width: 100vw;
-        min-height: 50%;
-        color:white;
-        font-size: 25px;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        text-align: center;
-        line-height: 1.2;
-    }
-}
-}
-    
-    /*media query*/
-    
+/*media query*/
 @media (min-width: 769px) {
+    .body {
+        background-color: #A6D1BD;
+    }
 
-.body {
-    background-color: #A6D1BD;
-}
-    
-.head {
-    position: absolute;
-    
-    &__citrouille {
-        width: 480px;
-        height: 210px;
-        left: 0px;
-        top: 0px;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-        backdrop-filter: blur(2px);
+    .head {
+        position: absolute;
+
+        &__citrouille {
+            width: 480px;
+            height: 210px;
+            left: 0px;
+            top: 0px;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            backdrop-filter: blur(2px);
+        }
+
+        &__fraise {
+            width: 480px;
+            height: 210px;
+            left: 480px;
+            top: 0px;
+            background-blend-mode: luminosity;
+            backdrop-filter: blur(2px);
+        }
+
+        &__pain {
+            width: 480px;
+            height: 210px;
+            left: 960px;
+            top: 0px;
+            backdrop-filter: blur(2px);
+        }
+
+        &__pdt {
+            width: 480px;
+            height: 210px;
+            left: 0px;
+            top: 210px;
+            background-blend-mode: luminosity;
+            backdrop-filter: blur(2px);
+        }
+
+        &__tomate {
+            width: 480px;
+            height: 210px;
+            left: 480px;
+            top: 210px;
+            backdrop-filter: blur(2px);
+        }
+
+        &__myrtille {
+            width: 480px;
+            height: 210px;
+            left: 960px;
+            top: 210px;
+            background-blend-mode: luminosity;
+            backdrop-filter: blur(2px);
+        }
     }
-    &__fraise {
-        width: 480px;
-        height: 210px;
-        left: 480px;
-        top: 0px;
-        background-blend-mode: luminosity;
-        backdrop-filter: blur(2px);
-    }
-    &__pain {
-        width: 480px;
-        height: 210px;
-        left: 960px;
-        top: 0px;
-        backdrop-filter: blur(2px);
-    }
-    &__pdt {
-        width: 480px;
-        height: 210px;
-        left: 0px;
-        top: 210px;
-        background-blend-mode: luminosity;
-        backdrop-filter: blur(2px);
-    }
-    &__tomate {
-        width: 480px;
-        height: 210px;
-        left: 480px;
-        top: 210px;
-        backdrop-filter: blur(2px);
-    }
-    &__myrtille {
-        width: 480px;
-        height: 210px;
-        left: 960px;
-        top: 210px;
-        background-blend-mode: luminosity;
-        backdrop-filter: blur(2px);
-    }
-}
-    
-.home {
-    height : 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    &__welcome {
-        height: 190px;
-        width: 750px;
-        border-radius: 20px;
-        background: rgba(49, 48, 48, 0.4);
-        color:white;
-        font-size: 25px;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        line-height: 40px;
+
+    .home {
+        height: 100vh;
         display: flex;
         align-items: center;
-        text-align: center;
-    }    
-}
+
+        &__welcome {
+            height: 190px;
+            width: 750px;
+            border-radius: 20px;
+            background: rgba(49, 48, 48, 0.4);
+            color: white;
+            font-size: 25px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            line-height: 40px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+    }
 }
