@@ -1,8 +1,9 @@
-/* Validator utilisé pour le pseudo. L'utilisateur doit rentrer un pseudo ne comprenant pas de caractères spéciaux.*/
+/* Validator utilisé pour le pseudo. L'utilisateur doit rentrer un pseudo ne comprenant pas de caractères spéciaux ni d'espace.*/
 
 import { AbstractControl } from '@angular/forms';
 
 export function usernameValidator(control: AbstractControl): { [key: string]: boolean } | null {
+  
   const value = control.value;  
   const regex = /^[a-z0-9]+$/i;
     if (!regex.test(value)) {
@@ -14,7 +15,7 @@ export function usernameValidator(control: AbstractControl): { [key: string]: bo
       return null;
     }
     
-  } 
+} 
 
   
 // Cette fonction importe la classe AbstractControl depuis le module @angular/forms, qui est une classe de base pour les contrôles 

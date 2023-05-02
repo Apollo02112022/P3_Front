@@ -1,9 +1,12 @@
 <footer *ngIf="hiddenFooter">
     <div class="icons">
-        <img class="__back" src="assets/icons/fleche-cercle-gauche.png">
-        <img class="__home" src="assets/icons/maison.png">
-        <img class="__add" src="assets/icons/ajouter.png">
-        <img class="__notification" src="assets/icons/bell.png"> 
-        <img class="__user" src="assets/icons/utilisateur-du-cercle.png">     
+        <img src="assets/icons/fleche-cercle-gauche.png" alt="flêche pour retour page précédente">
+        <img src="assets/icons/maison.png" alt="retour accueil">
+        <img src="assets/icons/ajouter.png" alt="créer une annonce">
+            <div class="notification">
+                <div *ngIf="messages.length" class="number">{{messages.length}}</div>
+                <img src="assets/icons/bell.png" alt="consulter notification"> 
+            </div>
+        <img src="assets/icons/utilisateur-du-cercle.png" alt="consulter profil">     
     </div>
 </footer>

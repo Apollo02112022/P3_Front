@@ -1,5 +1,5 @@
 
-
+<body>
 <div class="annonce-container">
   <div class="textAnnDesktop">
     <h2 *ngIf="link()" class="titreAnn">Sur Trocoeurs,
@@ -18,10 +18,9 @@
       <div class="descriptionAnnonce" (click)="onSelectedAnnonce(annonce.id)">
         <h3>Description :</h3>
         <p>{{annonce.description}}</p>
-        
       </div>
       <div class="delete" (click)="supprimerAnnonce(annonce.id)">🗙</div>
     </div>
   </div>
-</div>
+</body>
 

@@ -1,7 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { Annonce } from '../models/annonce.model';
 import { AnnonceService } from '../services/annonce.service';
 import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+// constante pour dire a Angular que les données retournées sont sous format Json
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-add-annonce',
@@ -9,33 +18,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-annonce.component.scss']
 })
 export class AddAnnonceComponent implements OnInit {
+  
+  newAnnonce = new Annonce();  // création d'une nouvelle instance d'Annonce
+  message!: string;            // ajout d'un attribut de message
 
-  newAnnonce = new Annonce();
-  id!: number;
-  annoucement_picture!: string;
-  description!: string;
-  message!: string;              // ajout d'attribut 
-
-
-
-  constructor(private annonceService: AnnonceService, private router: Router) { }
+  constructor(private annonceService: AnnonceService, private router: Router, private http: HttpClient) { }
 
   ngOnInit() {
-
+    
   }
 
-
   addAnnonce() {
+    // méthode appelée lorsqu'un utilisateur ajoute une nouvelle annonce
+    console.log(this.newAnnonce);
     if (!this.checkDescriptionLength()) {
       return;
     }
+    // appel du service AnnonceService pour ajouter l'annonce dans la base de données
     this.annonceService.addOneAnnonce(this.newAnnonce).subscribe(ann => {
       console.log(ann);
-      this.router.navigate(['barters']);// retour a la page annonces après ajout d'une annonce
+      // rediriger l'utilisateur vers la page des annonces une fois que l'annonce a été ajoutée avec succès
+      this.router.navigate(['barters']);
     });
   }
 
-  //methode pour valider la longueur requis max min du champs description
+  // méthode pour valider la longueur requise min/max de la description de l'annonce
   checkDescriptionLength(): boolean {
     if (this.newAnnonce.description.length < 10) {
       this.message = "La description est trop courte (minimum 10 caractères)";
@@ -44,11 +51,8 @@ export class AddAnnonceComponent implements OnInit {
       this.message = "La description est trop longue (maximum 250 caractères)";
       return false;
     } else {
-      this.message = "";
+      alert(this.message = "Annonce ajoutée avec succès");
       return true;
     }
   }
-
-  // this.message = "Annonce " + this.newAnnonce.description +" ajoutée avec succes"
-
 }

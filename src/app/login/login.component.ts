@@ -34,7 +34,7 @@ export class LoginComponent {
         const { token } = response;
         localStorage.setItem("token", token);
         console.log(token, "Connecté avec Success !")
-        this.change();
+        // this.change();
       })
       .catch(err => console.log(err));
     }

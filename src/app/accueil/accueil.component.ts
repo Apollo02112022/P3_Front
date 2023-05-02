@@ -15,7 +15,7 @@ export class AccueilComponent {
   constructor (private router: Router) {}
 
   select() {
-    this.router.navigate(["/barters"])
+    this.router.navigate(["/barters"]);
   }
 
 }
