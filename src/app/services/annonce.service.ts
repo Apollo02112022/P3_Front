@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Annonce } from '../models/annonce.model';
 import { Category } from '../models/category.model';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 // constante pour dire a Angular que les données retournées sont sous format Json
 const httpOptions = {
@@ -13,13 +14,13 @@ const httpOptions = {
 })
 export class AnnonceService {
 
-
-  userid: number = 1;
+  userid:number = 1;
 
   // variable pour affecter Url de l'app back-end 
   apiURL: string = 'http://localhost:8080/barters';
   apiURLAdd: string = 'http://localhost:8080/offer-a-barter?userid=1&categoryid=2';
   apiURLdetails: string = 'http://localhost:8080/barters/';
+  apiURLDelete:string = "http://localhost:8080/users/"+this.userid+"/"
   annonces!: Annonce[];//declaration de variable et tableau d'annonce'
 
 
@@ -30,7 +31,7 @@ export class AnnonceService {
 
 
   // injection de dependance  variable :http de type HttpClient dans constructor
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
 
   }
 
@@ -50,6 +51,7 @@ export class AnnonceService {
 
   // methode variable ann retourne une annonce Observable ajouter dans la bdd par l'API REST
   addOneAnnonce(ann: Annonce): Observable<Annonce> {
+
     const formData = new FormData(); // instance pour stoker les données de l'annonce
     formData.append('announcement_picture', ann.announcement_picture);// ajout des 2 propriétés "announcement_picture" et "description",
     formData.append('description', ann.description);                 //ajoutées à l'objet FormData avec la méthode "append". 
@@ -59,13 +61,19 @@ export class AnnonceService {
   } //méthode "post" de l'objet "http" pour envoyer les données vers l'API. Le retour de la méthode est un objet "Observable" de type Annonce
   // qui est utilisé pour suivre l'état de la requête HTTP et renvoyer la réponse de l'API sous forme d'objet Annonce.
 
-  deleteAnnonce(annonce: Annonce) {
-    // supprime l'annonce du tableau annonces
-    const index = this.annonces.indexOf(annonce, 0);
-    if (index > -1) {
-      this.annonces.splice(index, 1);//sup 1 seule annonce
-    }
-  }
+  deleteAnnonce(annonceid: number) {
+    const url = this.apiURLDelete+"barters/"+annonceid;
+      fetch(url, {
+        method: 'DELETE'
+      })
+        .then(response => {
+          console.log(response)
+          location.reload();
+        })
+        .catch(err => {
+          console.log('test',err)
+        });
+      }
   consultAnnonce(id: number): Observable<Annonce> {
     //ajout du parametre concatener / id a l url pour consulter une annonce par id 
     const url = this.apiURLdetails + id;

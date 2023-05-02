@@ -42,7 +42,11 @@ body{
   padding: 10px;
 }
 
-
+.delete{
+  color: rgb(220, 25, 25);
+  font-weight: 900;
+  font-size: larger;
+}
  /* //////////MEDIA QUERIES//////////*/
  /* styles pour mode mobile */
  @media only screen and (max-width: 768px) {
