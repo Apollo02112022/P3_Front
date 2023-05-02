@@ -78,7 +78,9 @@ export class AnnoncesComponent implements OnInit {
       //retour versla page annonces
       this.router.navigate(['barters', id]);
     });
+
   }
+
 
   link(){
     if(this.router.url === `/barters`){
