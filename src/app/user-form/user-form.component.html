@@ -226,7 +226,7 @@
           </div>
 
           <div *ngIf="form.get('county')?.hasError('minlength')" class="error">
-            *Minimum 5 caractères.
+            *Minimum 3 caractères.
           </div>
 
           <div *ngIf="form.get('county')?.hasError('maxlength')" class="error">
@@ -374,7 +374,7 @@
 
   <p>Votre compte utilisateur a été créé avec succès! Vous faites désormais parti de la communauté des troqueurs!</p>
 
-  <button>Consulter les annonces</button>
+  <button [routerLink]="['/login']">Se connecter</button>
 
 </div>
 
@@ -393,3 +393,5 @@
     <button (click)="closeBtn()">Revenir au formulaire</button>
 
   </div>
+
+</div>
