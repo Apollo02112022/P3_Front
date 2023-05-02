@@ -43,12 +43,6 @@
   display: none;
 }
 
-body{
-  background:url("/assets/background_mains_grey.jpg");
-  width: 100%;
-  background-size: 100%;
-  background-repeat: repeat;
-}
 .propositon-Cards {
   display: flex;
   flex-direction: column;
@@ -123,13 +117,6 @@ input:valid+span:after {
 
 
 @media only screen and (min-width: 768px) {
-  body{
-    background:url("/assets/background_grey.jpg");
-    width: 100%;
-    background-size: 100%;
-    background-repeat: repeat;
-    
-  }
   :host ::ng-deep .cardDetailAnnonce {
     width: 500px;
   }
