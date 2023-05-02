@@ -18,7 +18,7 @@ export class AnnonceService {
 
   // variable pour affecter Url de l'app back-end 
   apiURL: string = 'http://localhost:8080/barters';
-  apiURLAdd: string = 'http://localhost:8080/offer-a-barter?userid=1&categoryid=2';
+  apiURLAdd: string = 'http://localhost:8080/offer-a-barter?userid='+this.userid;
   apiURLdetails: string = 'http://localhost:8080/barters/';
   apiURLDelete:string = "http://localhost:8080/users/"+this.userid+"/"
   annonces!: Annonce[];//declaration de variable et tableau d'annonce'
