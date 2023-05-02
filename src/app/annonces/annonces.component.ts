@@ -21,7 +21,14 @@ export class AnnoncesComponent implements OnInit {
   }
   // ngOnInit recupère les annonces à partir de annonceService
   ngOnInit(): void {
-    // inscription a l'observable de la methode listeAnnonce() qui fait appel a l api rest
+
+  
+
+    this.link();
+
+    if(this.router.url === `/barters`){
+
+         // inscription a l'observable de la methode listeAnnonce() qui fait appel a l api rest
     this.annonceService.listeAnnonce().subscribe(ann => {
       console.log(ann);
       // affecte le resultat de la methode listeAnnonce "ann" à la liste d'annonce
@@ -36,30 +43,21 @@ export class AnnoncesComponent implements OnInit {
 // La méthode map() est également utilisée pour créer un nouveau tableau à partir du tableau d'annonces d'origine. Elle permet de parcourir chaque annonce du tableau d'annonces
 // et d'appliquer une fonction à chaque élément pour créer un nouvel élément dans le nouveau tableau.
     });
-  
-
-    // this.link();
-
-    // if(this.router.url === `/barters`){
-
-    //   // inscription a l'observable de la methode listeAnnonce() qui fait appel a l api rest
-    //   this.annonceService.listeAnnonce().subscribe(ann => {
-    //     console.log(ann);
-    //     // affecte le resultat de la methode listeAnnonce ann à la liste d'annonce
-    //     this.annonces = ann;
-  
-    //   });
-    // }else{
-    //   // inscription a l'observable de la methode listeUserAnnonce() qui fait appel a l api rest
-    //   this.annonceService.listeUserAnnonce().subscribe(ann => {
-    //     console.log(ann);
-    //     // affecte le resultat de la methode listeUserAnnonce ann à la liste d'annonce
-    //     this.annonces = ann;
-  
-    //   });
+    }else{
+      // inscription a l'observable de la methode listeUserAnnonce() qui fait appel a l api rest
+      this.annonceService.listeUserAnnonce().subscribe(ann => {
+        console.log(ann);
+        // affecte le resultat de la methode listeUserAnnonce ann à la liste d'annonce
+        this.annonces = ann.map(annonceImg => {
+          return {
+            ...annonceImg,
+            imageUrl: `http://localhost:8080/offer-a-barter/${annonceImg.id}/image`// interpolation ${annonceImg.id} est = a la concatenation" /+ annonceImg.id +/ "
+          }
+        });  
+      });
 
 
-    // }
+    }
     
 
   }
@@ -82,12 +80,12 @@ export class AnnoncesComponent implements OnInit {
     });
   }
 
-  // link(){
-  //   if(this.router.url === `/barters`){
-  //     return true;
-  //   }
-  //   return false;
-  // }
+  link(){
+    if(this.router.url === `/barters`){
+      return true;
+    }
+    return false;
+  }
   }
 
 

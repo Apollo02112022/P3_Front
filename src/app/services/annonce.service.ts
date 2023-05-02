@@ -14,7 +14,7 @@ const httpOptions = {
 export class AnnonceService {
 
 
-  userid: number = 2;
+  userid: number = 1;
 
   // variable pour affecter Url de l'app back-end 
   apiURL: string = 'http://localhost:8080/barters';
