@@ -1,5 +1,5 @@
 body {
-  background: url("/assets/background_mains_grey.jpg");
+  background: url("/assets/background_mains_modifs.jpg");
   width: 100%;
   height: 100%;
   background-size: 100%;
@@ -43,7 +43,11 @@ body {
   margin: 15px;
   border: 2px solid black;
 }
-
+.imageDetailAnnonce img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
 .btnDeal {
   display: flex;
   justify-content: center;
