@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import jwtDecode, * as jwt_decode from 'jwt-decode';
+// import jwtDecode, * as jwt_decode from 'jwt-decode';
 
 
 @Component({
