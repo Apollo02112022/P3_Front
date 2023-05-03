@@ -1,30 +1,35 @@
+<!-- Formulaire en Reactive Form, vérifiant que tous les champs sont remplis de la manière qui convient -->
 <form [formGroup]="registerForm">
     <main class="main">
-    <button (click)="testToken()" >take Token pseudo</button>
+    <!-- <button (click)="testToken()" >take Token pseudo</button> -->
         <div class="connexion">Connexion</div>
         <div class="login">
-    
+          <!-- Input pseudo -->
             <input formControlName="pseudo" class="login__pseudo" type="text" placeholder=" Pseudo" >
             <div *ngIf="registerForm.get('pseudo')?.invalid && (registerForm.get('pseudo')?.dirty || registerForm.get('pseudo')?.touched)">
-                <div *ngIf="registerForm.get('pseudo')?.hasError('required')" class="main__error">
-                  *Ce champs est requis.
+                <div *ngIf="registerForm.get('pseudo')?.hasError('required')" class="login__error">
+                  <p>*Ce champs est requis.</p>
                 </div>
-                <div *ngIf="registerForm.get('pseudo')?.hasError('maxlength')" class="main__error">
-                  *Maximum 10 caractères.
+                <div *ngIf="registerForm.get('pseudo')?.hasError('maxlength')" class="login__error">
+                  <p>*Maximum 10 caractères.</p>
                 </div>
               </div>
-    
+              <!-- Input password -->
             <input formControlName="password" class="login__mdp" type="password" placeholder=" Mot de passe">
             <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
-                <div *ngIf="registerForm.get('password')?.hasError('required')" class="main__error">
-                  *Ce champs est requis.
+                <div *ngIf="registerForm.get('password')?.hasError('required')" class="login__error">
+                  <p>*Ce champs est requis.</p>
                 </div>
-                <div *ngIf="registerForm.get('password')?.hasError('minlength')" class="main__error">
-                  *Minimum 8 caractères.
+                <div *ngIf="registerForm.get('password')?.hasError('minlength')" class="login__error">
+                  <p>*Minimum 8 caractères.</p>
                 </div>
               </div>
-    
         </div>
+        <div *ngIf="fail" class="login__fail">
+          <p>Le pseudo et le mot de passe ne correspondent pas</p>
+        </div>
+         <!-- Bouton "Se connecter" activé que si le formulaire est correctement remplit -->
         <button [disabled]="registerForm.invalid" (click)="login()" class="btn">Se connecter</button>
+        <button (click)="token()">TOKEN</button>
     </main>
 </form>

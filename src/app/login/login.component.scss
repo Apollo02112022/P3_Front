@@ -29,6 +29,9 @@
         width: 80%;
         background: rgba($color: #424242, $alpha: 0.75);
         
+        &__error {
+            color: red; 
+        }
     
         &__pseudo, &__mdp {
             height: 15%;
@@ -47,8 +50,6 @@
         font-size: 20px;
     }
 
-    &__error {
-        color: red;
-    }
+   
 }
 

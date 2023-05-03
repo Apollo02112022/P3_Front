@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import jwtDecode, * as jwt_decode from 'jwt-decode';
+import jwt_decode from "jwt-decode";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
 
+  private token: string = '';
 
-  constructor(private token: String) {}
+  // constructor() {}
 
   setToken(token: string): void {
     this.token = token;
@@ -20,8 +22,9 @@ export class TokenService {
   getDecodedToken(): any {
     const token = this.getToken();
     if (token) {
-      return jwtDecode(token);
+      return jwt_decode(token);
     } else {
+      console.log("NNNNNNNNNOOOOOTTTTTTTTTT   TTOOOKKKEENNNN");
       return null;
     }
   }
