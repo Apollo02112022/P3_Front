@@ -28,10 +28,11 @@ export class FooterComponent implements OnInit {
   constructor( private http: HttpClient, private router: Router ) {}
 
   ngOnInit() {
-    const userId = '123';
+    const userId = 2
+    // localStorage.getItem("userId");
 
     // requête GET pour se connecter au serveur SSE
-    const eventSource = new EventSource(`http://localhost:8080/streamMessages?userId=${userId}`);
+    const eventSource = new EventSource(`http://localhost:8080/streamMessages?userId=`+userId);
 
     // écoute les évènements SSE et ajoute les messages reçus à la liste
     eventSource.addEventListener('message', (event: MessageEvent) => {
@@ -39,16 +40,21 @@ export class FooterComponent implements OnInit {
       this.messages.push(message);
       console.log(message);
     });
+
+      // écoute les évènements de navigation du 'Router'
+      this.router.events.subscribe((event) => {
+        // si l'évènement est de type 'NavigationEnd', la navigation sera terminée
+        if (event instanceof NavigationEnd) {
+          this.hiddenFooter = !this.hidden();
+        }
+      });
   }
   
-test() {
-  // écoute les évènements de navigation du 'Router'
-    this.router.events.subscribe((event) => {
-      // si l'évènement est de type 'NavigationEnd', la navigation sera terminée
-      if (event instanceof NavigationEnd) {
-        this.hiddenFooter = !this.hidden();
-      }
-    });
+
+
+  
+  hidden() {
+    return this.router.url === '/' || this.router.url === '/accueil';
   }
   // ng OnInit
 
@@ -69,9 +75,7 @@ test() {
   // }
   
 
-  hidden() {
-    return this.router.url === '/' || this.router.url === '/accueil';
-  }
+
 
 }
   
