@@ -3,7 +3,9 @@
     height: 100%;
     // color: rgb(228, 240, 240);
 }
-
+.wrap{
+    flex-wrap: wrap;
+}
 .userCard{
     background-color: rgba(49, 48, 48, 0.4);
     // backdrop-filter: blur(2px);
@@ -20,9 +22,12 @@ h1,h2{
     background-color: rgba(240, 248, 255, 0.616);
     border-radius: 20px;
 }
-
+.user{
+    width: 100%;
+}
 .user-picture{
-    padding: 20px 0 10px 0;
+    // padding: 15px;
+    border:solid rgb(200, 249, 200) 15px;
     border-radius: 50%;
 }
 

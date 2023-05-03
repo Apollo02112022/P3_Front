@@ -2,14 +2,14 @@
 
     <h1>Profil</h1>
     <div class=" flex column jc-center">
-        <div class="flex column  jc-space-around gap10 ">
-            <section class="flex row ai-center flex-1 jc-space-around ">
+        <div class="flex column ai-center gap10 ">
+            <section class="user flex row ai-center flex-1 jc-space-around wrap ">
                 <div class="user-picture h100px w100px">
                     <img [src]="image"
                         alt="Picture of {user.name}">
                 </div>
                 <h2 class="pseudo">
-                    "user.pseudo"
+                    {{user.pseudo}}
                 </h2>
             </section>
             <section class="userCard flex jc-center ai-center" >
