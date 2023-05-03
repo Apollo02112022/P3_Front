@@ -74,7 +74,7 @@ export class LoginComponent {
     this.tokenService.getDecodedToken();
     this.tokenService.getDecodedToken();
     console.log(this.tokenService.getDecodedToken());
-    const userId: number = this.tokenService.getDecodedToken().id;
+    const userId: number = this.tokenService.getDecodedToken().userId;
     const sub: string = this.tokenService.getDecodedToken().sub;
     console.log(userId);
     console.log(sub);
