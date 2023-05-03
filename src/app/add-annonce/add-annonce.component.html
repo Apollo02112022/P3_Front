@@ -1,19 +1,13 @@
-  <body>
-    
-  
 <div class="container">
   <div class="createTitre">
     <h2>Créer une Annonce</h2>
   </div>
-
-
   <form (submit)="addAnnonce()">
     <div class="createCards">
       <img class="addImg" src="assets/bell-peppers.jpg" alt="">
       <div class="createImage">
         <h3 class="addTitre">Image:</h3>
-        <input class="addFile" type="file" [(ngModel)]="newAnnonce.announcement_picture" name="Image">
-
+        <app-file-upload [(ngModel)]="newAnnonce.announcement_picture" name="Image"></app-file-upload>
       </div>
 
       <div class="createDescription">
@@ -32,4 +26,3 @@
     </div>
   </form>
 </div>
-</body>

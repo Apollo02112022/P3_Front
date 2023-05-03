@@ -48,7 +48,11 @@ import { TokenService } from './services/token.service';
     UserCardButtonComponent,
     UserCardComponent,
     UserCardFormularComponent,
-    UserFormComponent
+    UserFormComponent,
+    FileUploadComponent,
+    LogoutComponent,
+    UserAnnoucementComponent,
+    HeaderComponent,
    ],
   imports: [
     AppRoutingModule,

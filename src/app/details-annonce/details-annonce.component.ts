@@ -13,6 +13,7 @@ import { throwError } from 'rxjs';
 export class DetailsAnnonceComponent implements OnInit {
   // variable "annonceId" de type "Annonce" utilisée pour stocker les détails de l'annonce sélectionnée.
   annonceId!: Annonce;
+  image?: any;
 
   constructor(private route: ActivatedRoute, private annonceService: AnnonceService) { }
 
@@ -22,21 +23,36 @@ export class DetailsAnnonceComponent implements OnInit {
     console.log(id);
   }
 
-  // recuperer les details de l'annonce 
+  // méthode pour récupérer les détails de l'annonce sélectionnée à partir du service AnnonceService en utilisant la méthode "consultAnnonce(id)"
   getAnnouncementDetails(id: any) {
     this.annonceService.consultAnnonce(id).pipe(
-      map((data: any) => {  //opérateur "map" pour assigner les données reçues à la variable "annonceId".
+      map((data: any) => { // opérateur "map" pour assigner les données reçues à la variable "annonceId".
         this.annonceId = data;
         console.log(data);
       }),
       catchError((error: any) => {
         console.log(error);
-        return throwError(() => error);//intercepter les erreurs éventuelles et renvoyer une observable d'erreur
+        return throwError(() => error); // intercepter les erreurs éventuelles et renvoyer une observable d'erreur
       })
-    ).subscribe();
-    //la méthode "subscribe()" est appelée pour déclencher 
-    //la requête HTTP et récupérer les données de l'annonce sélectionnée.
+    ).subscribe(() => {
+      this.getAnnouncementPicture(); // appel de la méthode "getAnnouncementPicture()" pour récupérer l'image associée à l'annonce sélectionnée
+    });
   }
 
-
+  // méthode pour récupérer l'image associée à l'annonce sélectionnée à partir du service AnnonceService en utilisant 
+  // la méthode "getAnouncementPictureById(id)" declarée dans annonceService
+  getAnnouncementPicture() {
+    this.annonceService.getAnouncementPictureById(this.annonceId.id).subscribe(
+      (data: Blob) => {
+        const reader = new FileReader(); // création d'un objet FileReader pour lire l'image sous forme de blob
+        reader.readAsDataURL(data); // lit le blob sous forme d'URL
+        reader.onloadend = () => {
+          this.image = reader.result; // stock l'URL dans la variable "image"
+        };
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 }

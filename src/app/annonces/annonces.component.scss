@@ -1,12 +1,3 @@
-body{
-  background:url("/assets/background_mains_grey.jpg");
-  width: 100%;
-  height: 100%;
-  background-size: 100%;
-  position: relative;
-  background-repeat: repeat;
- 
-}
 .cardAnnonceList {
   display: flex;
   width: 300px;
@@ -27,6 +18,11 @@ body{
   border: 2px solid;
   overflow: hidden;
 }
+.imageAnnonce img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
 
 .descriptionAnnonce {
   width: 60%;
@@ -37,7 +33,11 @@ body{
   padding: 10px;
 }
 
-
+.delete{
+  color: rgb(220, 25, 25);
+  font-weight: 900;
+  font-size: larger;
+}
  /* //////////MEDIA QUERIES//////////*/
  /* styles pour mode mobile */
  @media only screen and (max-width: 768px) {
@@ -48,15 +48,6 @@ body{
 }
 /* styles pour mode desktop */
 @media only screen and (min-width: 768px) {
-  body{
-    background:url("/assets/background_grey.jpg");
-    width: 100%;
-    height: 100%;
-    background-size: 100%;
-    position: relative;
-    background-repeat: repeat;
-
-  }
   .card-body {
     display: grid;
     grid-template-rows: 1fr 1fr;
