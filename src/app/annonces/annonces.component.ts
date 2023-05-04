@@ -37,7 +37,7 @@ export class AnnoncesComponent implements OnInit {
         this.annonces = ann.map(annonceImg => {
           return {
             ...annonceImg,
-            imageUrl: `http://localhost:8080/offer-a-barter/${annonceImg.id}/image`// interpolation ${annonceImg.id} est = a la concatenation" /+ annonceImg.id +/ "
+            imageUrl: `http://localhost:8080/barters/${annonceImg.id}/image`// interpolation ${annonceImg.id} est = a la concatenation" /+ annonceImg.id +/ "
           }
         });
         //      le spread operator ...annonceImg utilisé pour créer une copie de chaque annonce du tableau d'annonces récupéré à partir du service.
@@ -53,7 +53,7 @@ export class AnnoncesComponent implements OnInit {
         this.annonces = ann.map(annonceImg => {
           return {
             ...annonceImg,
-            imageUrl: `http://localhost:8080/offer-a-barter/${annonceImg.id}/image`// interpolation ${annonceImg.id} est = a la concatenation" /+ annonceImg.id +/ "
+            imageUrl: `http://localhost:8080/barters/${annonceImg.id}/image`// interpolation ${annonceImg.id} est = a la concatenation" /+ annonceImg.id +/ "
           }
         });
       });
