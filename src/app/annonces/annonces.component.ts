@@ -14,7 +14,7 @@ export class AnnoncesComponent implements OnInit {
 
   annonce!: Annonce;
   annonces!: Annonce[];//tableau d'annonces
-  annonceSelectionnee!: Annonce;
+  annonceSelectionnee!: ArrayBuffer;
 
   constructor(private annonceService: AnnonceService, private router: Router) {
 
