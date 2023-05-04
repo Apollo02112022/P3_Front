@@ -13,6 +13,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 
 
 const routes: Routes = [
+  
   {path:'', component: AccueilComponent},
   {path:'accueil', component: AccueilComponent},
   {path :"barters", component : AnnoncesComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'users/:userid/profil/update', component: UserCardComponent },
   {path: 'users/:userid/barters', component: AnnoncesComponent },
   {path: 'login', component: LoginComponent},
-  {path: 'signup', component: UserFormComponent}
+  {path: 'signup', component: UserFormComponent},
+  {path:'**',redirectTo:'/accueil'}
 ];
 
 @NgModule({

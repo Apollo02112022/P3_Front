@@ -90,8 +90,9 @@ export class AnnonceService {
     // get retourne un objet de type annonce par l'url + id construite au dessus
   }
   getAnouncementPictureById(id: number): Observable<any> {
-    return this.http.get(`http://localhost:8080/offer-a-barter/${id}/image`, { responseType: 'blob' });
+    return this.http.get(`http://localhost:8080/barters/${id}/image`, { responseType: 'blob' });
   }
   // methode get retourne un oservable de type  responseType: 'blob',pour spécifier que la réponse doit être traitée 
   //comme des données binaires brutes.
+
 }
