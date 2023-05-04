@@ -28,4 +28,16 @@ export class TokenService {
       return null;
     }
   }
+
+  testWithToken = (url: string): any => {
+    const token = localStorage.getItem("token");
+    const header = new Headers({ 'Authorization': `Bearer ${token}`, "Content-Type": "application/json" });
+    const options = {
+      headers: header,
+    };
+    fetch(`http://localhost:8080/${url}`, options)
+      .then(res => res.json())
+      .then(response => console.log(response))
+      .catch(err => console.log(err))
+  }
 }
