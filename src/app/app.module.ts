@@ -50,7 +50,7 @@ import { TokenService } from './services/token.service';
     UserCardFormularComponent,
     UserFormComponent,
     FileUploadComponent,
-    LogoutComponent,
+
     UserAnnoucementComponent,
     HeaderComponent,
    ],
