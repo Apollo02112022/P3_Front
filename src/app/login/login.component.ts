@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { TokenService } from '../services/token.service';
 
 
 @Component({
@@ -11,8 +12,16 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
+  fail: boolean = false;
+  // pseudoToken: String = "";
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private tokenService: TokenService) {}
+
+  // testToken() {
+  //   const decodedToken = this.tokenService.getDecodedToken();
+  //   this.pseudoToken = decodedToken ? decodedToken : null;
+  //   console.log(this.pseudoToken);
+  // }
 
     registerForm = new FormGroup({
       pseudo: new FormControl("", [Validators.required, Validators.maxLength(10)]),
@@ -32,9 +41,15 @@ export class LoginComponent {
       .then(res => res.json())
       .then(response => {
         const { token } = response;
-        localStorage.setItem("token", token);
-        console.log(token, "Connecté avec Success !")
-        // this.change();
+        if (token != undefined) {
+          localStorage.setItem("token", token);
+          this.fail = false;
+          // this.router.navigate(["/users/1/profil"])
+          console.log(token, "Connecté avec Success !")
+          this.tokenService.setToken(token);
+        } else {
+          this.fail = true;
+        }
       })
       .catch(err => console.log(err));
     }
@@ -51,9 +66,17 @@ export class LoginComponent {
       .catch(err => console.log(err))
   }
 
-
-  change() {
-    this.router.navigate(["/"]);
+  loginFail() {
+    this.fail!
   }
 
+  token() {
+    this.tokenService.getDecodedToken();
+    this.tokenService.getDecodedToken();
+    console.log(this.tokenService.getDecodedToken());
+    const userId: number = this.tokenService.getDecodedToken().userId;
+    const sub: string = this.tokenService.getDecodedToken().sub;
+    console.log(userId);
+    console.log(sub);
+  }
 }

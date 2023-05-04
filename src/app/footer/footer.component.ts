@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+// import jwtDecode, * as jwt_decode from 'jwt-decode';
 import { AnnonceService } from '../services/annonce.service';
 import { Location } from '@angular/common';
 @Component({
@@ -21,12 +22,11 @@ export class FooterComponent implements OnInit {
   // public messages: string[] = [];
 
   messages: string[] = [];
-  router: any;
 
 
   // constructor(private router: Router) {}
-  constructor(private http: HttpClient,private annonceService: AnnonceService,private location: Location) {}
-
+  constructor(private http: HttpClient,private router: Router,private annonceService: AnnonceService,private location: Location) {}
+  
   ngOnInit() {
     const userId = '123';
 
@@ -43,13 +43,17 @@ export class FooterComponent implements OnInit {
   }
 
   
-  
+test() {
   // écoute les évènements de navigation du 'Router'
-    // this.router.events.subscribe((event) => {
+    this.router.events.subscribe((event) => {
       // si l'évènement est de type 'NavigationEnd', la navigation sera terminée
-  //     if (event instanceof NavigationEnd) {
-  //       this.hiddenFooter = !this.hidden();
-  //     }
+      if (event instanceof NavigationEnd) {
+        this.hiddenFooter = !this.hidden();
+      }
+    });
+  }
+  // ng OnInit
+
       
   //   }); 
   //   this.eventSource = new EventSource('http://localhost:8080/streamMessages');
