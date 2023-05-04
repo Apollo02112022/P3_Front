@@ -28,10 +28,9 @@ export class FooterComponent implements OnInit {
   constructor( private http: HttpClient, private router: Router ) {}
 
   ngOnInit() {
-    const userId = 1
-    // localStorage.getItem("userId");
+    const userId = localStorage.getItem("userId");
 
-    // requête GET pour se connecter au serveur SSE
+    // requête GET pour se connecter au serveur SSR
     const eventSource = new EventSource(`http://localhost:8080/streamMessages?userId=`+userId);
 
     // écoute les évènements SSE et ajoute les messages reçus à la liste
