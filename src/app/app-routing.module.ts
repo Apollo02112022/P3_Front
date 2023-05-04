@@ -14,6 +14,7 @@ import { LogoutComponent } from './logout/logout.component';
 
 
 const routes: Routes = [
+  
   {path:'', component: AccueilComponent},
   {path:'accueil', component: AccueilComponent},
   {path :"barters", component : AnnoncesComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: 'users/:userid/barters', component: AnnoncesComponent },
   {path: 'login', component: LoginComponent},
   {path: 'logout', component: LogoutComponent},
-  {path: 'signup', component: UserFormComponent}
+  {path: 'signup', component: UserFormComponent},
+  {path:'**',redirectTo:'/accueil'}
 ];
 
 @NgModule({

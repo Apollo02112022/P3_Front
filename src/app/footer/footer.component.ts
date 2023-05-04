@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-
+import { AnnonceService } from '../services/annonce.service';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -23,8 +23,9 @@ export class FooterComponent implements OnInit {
   messages: string[] = [];
   router: any;
 
+
   // constructor(private router: Router) {}
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private annonceService: AnnonceService,private location: Location) {}
 
   ngOnInit() {
     const userId = '123';
@@ -38,7 +39,9 @@ export class FooterComponent implements OnInit {
       this.messages.push(message);
       console.log(message);
     });
+    
   }
+
   
   
   // écoute les évènements de navigation du 'Router'
@@ -68,7 +71,7 @@ export class FooterComponent implements OnInit {
     return this.router.url === '/' || this.router.url === '/accueil';
   }
 
- 
+  
 
  
   
@@ -78,6 +81,11 @@ export class FooterComponent implements OnInit {
     // } else (this.router.url === '/barters' || this.router.url === '/offer-a-barter');
 
   
+  
+    //methode retour page precedente
+ backClick() {
+  this.location.back();
+}
 
   }
 

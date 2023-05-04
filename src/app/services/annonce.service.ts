@@ -78,4 +78,5 @@ export class AnnonceService {
   }
   // methode get retourne un oservable de type  responseType: 'blob',pour spécifier que la réponse doit être traitée 
   //comme des données binaires brutes.
+
 }
