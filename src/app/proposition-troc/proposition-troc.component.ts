@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Notification } from '../models/notification.model';
 import { Router } from '@angular/router';
-import { NotificationService } from '../notification.service';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-proposition-troc',
@@ -12,7 +12,7 @@ export class PropositionTrocComponent implements OnInit {
 
   content!: String;
   sender!: String;
-  userId:number=2;
+  userId:number=1;
 
   newNotification = new Notification();
 

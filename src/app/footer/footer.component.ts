@@ -28,7 +28,7 @@ export class FooterComponent implements OnInit {
   constructor( private http: HttpClient, private router: Router ) {}
 
   ngOnInit() {
-    const userId = 2
+    const userId = 1
     // localStorage.getItem("userId");
 
     // requête GET pour se connecter au serveur SSE
@@ -38,7 +38,7 @@ export class FooterComponent implements OnInit {
     eventSource.addEventListener('message', (event: MessageEvent) => {
       const message = event.data;
       this.messages.push(message);
-      console.log(message);
+      console.log("&&&&&&&&&&&&&&&&&&&&& messages", message);
     });
 
       // écoute les évènements de navigation du 'Router'
@@ -80,6 +80,4 @@ export class FooterComponent implements OnInit {
 }
   
     
-    // if (this.router.url === '/' || this.router.url === '/accueil') {
-    //   this.hidden = false;
-    // } else (this.router.url === '/barters' || this.router.url === '/offer-a-barter');
+  

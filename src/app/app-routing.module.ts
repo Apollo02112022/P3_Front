@@ -10,20 +10,22 @@ import { DetailsAnnonceComponent } from './details-annonce/details-annonce.compo
 import { PropositionTrocComponent } from './proposition-troc/proposition-troc.component';
 import { LoginComponent } from './login/login.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { UserNotificationComponent } from './user-notification/user-notification.component';
 
 
 const routes: Routes = [
   {path:'', component: AccueilComponent},
   {path:'accueil', component: AccueilComponent},
-  {path :"barters", component : AnnoncesComponent},
-  {path :"offer-a-barter", component : AddAnnonceComponent},
-  {path :"barters/:id", component : DetailsAnnonceComponent},
-  {path :"proposal_deal/:id", component :PropositionTrocComponent},
+  {path :'barters', component : AnnoncesComponent},
+  {path :'offer-a-barter', component : AddAnnonceComponent},
+  {path :'barters/:id', component : DetailsAnnonceComponent},
+  {path :'proposal_deal/:id', component :PropositionTrocComponent},
   {path: 'users/:userid/profil', component: UserCardComponent },
   {path: 'users/:userid/profil/update', component: UserCardComponent },
   {path: 'users/:userid/barters', component: AnnoncesComponent },
   {path: 'login', component: LoginComponent},
-  {path: 'signup', component: UserFormComponent}
+  {path: 'signup', component: UserFormComponent},
+  {path: 'users/notification', component: UserNotificationComponent}
 ];
 
 @NgModule({

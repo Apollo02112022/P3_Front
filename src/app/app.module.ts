@@ -24,6 +24,7 @@ import { UserCardComponent } from './userProfilModal/user-card/user-card.compone
 import { UserCardFormularComponent } from './userProfilModal/user-card/user-card-formular/user-card-formular.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { TokenService } from './services/token.service';
+import { UserNotificationComponent } from './user-notification/user-notification.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { TokenService } from './services/token.service';
     FileUploadComponent,
     UserAnnoucementComponent,
     HeaderComponent,
+    UserNotificationComponent,
    ],
   imports: [
     AppRoutingModule,
