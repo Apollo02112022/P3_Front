@@ -22,8 +22,13 @@ h1,h2{
     background-color: rgba(240, 248, 255, 0.616);
     border-radius: 20px;
 }
+
+h1{
+    background-color: rgba(240, 248, 255, 0.945);
+}
 .user{
     width: 100%;
+    margin: 10px;
 }
 .user-picture{
     // padding: 15px;
@@ -60,7 +65,7 @@ min-height: 200px;
 
 button{
     width: 10rem;
-    margin-top: 3rem;
+    margin: 2rem 0 1rem;
     border-radius: 8px;
 }
 
