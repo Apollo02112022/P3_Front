@@ -1,24 +1,24 @@
   <div class="proposition-container">
     <app-details-annonce></app-details-annonce>
 
-    <form>
+    <form (submit)="addNotif()">
       <div class="propositon-Cards">
         <h2 class="prop-Titre">Ma Proposition de Troc</h2>
-        <textarea type="text" name="description" class="description-Proposition"
+        <textarea [(ngModel)]="newNotification.message" type="text" name="message" class="description-Proposition"
           placeholder="Saisissez votre proposition ici... minimum 10 à maximum 250 caractères" maxlength="250"
           minlength="10"></textarea>
 
         <label for="phone">Téléphone:</label>
-        <input id="telNo" type="tel" required name="phone" minlength="10" maxlength="10"
+        <input [(ngModel)]="newNotification.tel" id="telNo" type="tel" required name="phone" minlength="10" maxlength="10"
           placeholder="format: 0602010201 ">
         <span class="validity"></span>
         <label for="email">Email:</label>
-        <input id="emailAddress" type="email" maxLength="50" required placeholder="monemail@jetroc.fr">
+        <input [(ngModel)]="newNotification.mail" id="emailAddress" type="email" maxLength="50" required placeholder="monemail@jetroc.fr">
         <span class="validity"></span>
       </div>
 
       <div class="btnValid">
-        <button class="btnPropose" type="submit">Proposer l'échange</button>
+        <button class="btnPropose"  type="submit">Proposer l'échange</button>
       </div>
     </form>
   </div>

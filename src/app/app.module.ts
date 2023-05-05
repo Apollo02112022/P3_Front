@@ -23,7 +23,7 @@ import { UserCardButtonComponent } from './userProfilModal/user-card/user-card-b
 import { UserCardComponent } from './userProfilModal/user-card/user-card.component';
 import { UserCardFormularComponent } from './userProfilModal/user-card/user-card-formular/user-card-formular.component';
 import { UserFormComponent } from './user-form/user-form.component';
-
+import { UserNotificationComponent } from './user-notification/user-notification.component';
 
 @NgModule({
 
@@ -33,24 +33,22 @@ import { UserFormComponent } from './user-form/user-form.component';
     AnnoncesComponent,
     AppComponent,
     DetailsAnnonceComponent,
-    FileUploadComponent,
     FooterComponent,
     FormularDeleteAccountComponent,
     FormularMailChangeComponent,
     FormularPasswordChangeComponent,
     FormularPictureChangeComponent,
-    HeaderComponent,
     LoginComponent,
     PropositionTrocComponent,
     SwitchComponent,
-    UserAnnoucementComponent,
     UserCardButtonComponent,
     UserCardComponent,
     UserCardFormularComponent,
     UserFormComponent,
     FileUploadComponent,
     UserAnnoucementComponent,
-    HeaderComponent
+    HeaderComponent,
+    UserNotificationComponent
    ],
   imports: [
     AppRoutingModule,

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { NotificationService } from './services/notification.service';
+import { Notification } from './models/notification.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -9,19 +12,29 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'P3_Front';
+  // title = 'P3_Front';
 
-  constructor(private http: HttpClient) {}    
+  content!: String;
+  sender!: String;
+  userId:number=2;
 
-  getData(): Observable<any> {
-    const url = 'http://localhost:8080/offer-a-barter';
-    const token = localStorage.getItem("token");
-    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}`, "Content-Type": "application/json" });
-    const options = {
-      headers: headers,
-    };
-  
-    return this.http.get<any>(url, options);
+  newNotification = new Notification();
+
+  constructor(private router: Router, private notificationService: NotificationService) { }
+  notif() {
+    this.newNotification.message = "test";
+    const apelApi = "http://localhost:8080/postMessage?userAnnounceId="+this.userId;
+    fetch(apelApi,{
+      method:'POST',
+      body: JSON.stringify(this.newNotification),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then(response => response.json())
+    .then(data => console.log("&&&&&&&&&&&&&&&&& data", data))
+    .catch(err => console.log(err))
+    
+    // this.router.navigate(['barters']);// retour a la page annonces après ajout d'une proposition
   }
-
 }

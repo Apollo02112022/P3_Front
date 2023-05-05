@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// import { NotificationService } from '../notification.service';
+import { Notification } from '../models/notification.model';
 import { Router } from '@angular/router';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-proposition-troc',
@@ -11,16 +12,32 @@ export class PropositionTrocComponent implements OnInit {
 
   content!: String;
   sender!: String;
+  userId:number=1;
 
-  constructor(private router: Router) { }
+  newNotification = new Notification();
+
+  constructor(private router: Router, private notificationService: NotificationService) { }
 
   ngOnInit() {
   }
 
-  sendProposition() {
-  //  this.notificationService.createNotification(this.content,this.sender).subscribe(prop =>{
-  //   console.log(prop);
-  //   this.router.navigate(['barters']);// retour a la page annonces après ajout d'une proposition
-  //  });
+
+  
+  addNotif() {
+    const apelApi = "http://localhost:8080/postMessage?userAnnounceId="+this.userId;
+    fetch(apelApi,{
+      method:'POST',
+      body: JSON.stringify(this.newNotification),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    
+    // this.router.navigate(['barters']);// retour a la page annonces après ajout d'une proposition
   }
+  
+  
+
 }

@@ -31,11 +31,13 @@
               </div>
             </div>
         </div>
-        <div *ngIf="loginTokenReceveidFail" class="login__fail">
+        <div *ngIf="tokenReceveidFail" class="login__fail">
           <p>Le pseudo et le mot de passe ne correspondent pas</p>
         </div>
          <!-- Bouton "Se connecter" activé que si le formulaire est correctement remplit -->
         <button [disabled]="registerForm.invalid" (click)="login()" class="btn">Se connecter</button>
-        <button (click)="decodeToken()">TOKEN</button>
+        <div class="main__redirection">
+          <p>Déjà un compte ? <span class="main__redirection__link" (click)="toLogin()">connectez-vous</span></p>
+        </div>
     </main>
 </form>

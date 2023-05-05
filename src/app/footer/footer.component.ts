@@ -28,29 +28,34 @@ export class FooterComponent implements OnInit {
   constructor(private http: HttpClient,private router: Router,private annonceService: AnnonceService,private location: Location) {}
   
   ngOnInit() {
-    const userId = '123';
+    const userId = localStorage.getItem("userId");
 
-    // requête GET pour se connecter au serveur SSE
-    const eventSource = new EventSource(`http://localhost:8080/streamMessages?userId=${userId}`);
+    // requête GET pour se connecter au serveur SSR
+    const eventSource = new EventSource(`http://localhost:8080/streamMessages?userId=`+userId);
 
     // écoute les évènements SSE et ajoute les messages reçus à la liste
     eventSource.addEventListener('message', (event: MessageEvent) => {
       const message = event.data;
       this.messages.push(message);
-      console.log(message);
+      console.log("&&&&&&&&&&&&&&&&&&&&& messages", message);
     });
+
+      // écoute les évènements de navigation du 'Router'
+      this.router.events.subscribe((event) => {
+        // si l'évènement est de type 'NavigationEnd', la navigation sera terminée
+        if (event instanceof NavigationEnd) {
+          this.hiddenFooter = !this.hidden();
+        }
+      });
     
   }
 
   
-test() {
-  // écoute les évènements de navigation du 'Router'
-    this.router.events.subscribe((event) => {
-      // si l'évènement est de type 'NavigationEnd', la navigation sera terminée
-      if (event instanceof NavigationEnd) {
-        this.hiddenFooter = !this.hidden();
-      }
-    });
+
+
+  
+  hidden() {
+    return this.router.url === '/' || this.router.url === '/accueil';
   }
   // ng OnInit
 
@@ -70,16 +75,6 @@ test() {
   //   this.eventSource?.close();
   // }
   
-
-  hidden() {
-    return this.router.url === '/' || this.router.url === '/accueil';
-  }
-
-  
-
- 
-  
-    
     // if (this.router.url === '/' || this.router.url === '/accueil') {
     //   this.hidden = false;
     // } else (this.router.url === '/barters' || this.router.url === '/offer-a-barter');
@@ -92,14 +87,3 @@ test() {
 }
 
   }
-
-
-  
-
-
-
-
-
-  
-  
-
