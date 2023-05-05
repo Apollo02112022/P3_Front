@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import jwt_decode from "jwt-decode";
 
 
@@ -9,7 +10,7 @@ export class TokenService {
 
   private token: string = '';
 
-  // constructor() {}
+  constructor(private router: Router) {}
 
   setToken(token: string): void {
     this.token = token;
@@ -40,4 +41,33 @@ export class TokenService {
       .then(response => console.log(response))
       .catch(err => console.log(err))
   }
+
+
+  //verification du token valide ou non valide
+  tokenValid(): boolean {
+    const token = localStorage.getItem("token"); // Récupérer le token du localStorage
+    if (!token) {
+      alert("Creez un compte ou connectez vous")
+      // Si le token n'est pas présent dans le localStorage
+      return false;
+    }
+    // Si le token est valide
+    return true;
+  }
+  canActivate(): boolean {
+    if (!this.tokenValid()) {
+      this.router.navigate(['login']); // Redirige l'utilisateur vers la page de connexion si le token est invalide
+      return false;
+    }
+    return true; // Autorise l'accès si le token est valide
+  }
 }
+
+
+
+
+
+
+
+
+
