@@ -98,10 +98,11 @@ export class UserFormComponent {
           if (e.error.includes('adresse e-mail')) {
             this.errorEmail = true;
             this.close = false;
-          } else if (e.error.includes('nom d\'utilisateur')) {
+          } else if (e.error.includes('pseudo')) {
             this.errorPseudo = true;
             this.close = false;
           } else {
+            console.log(e);
             this.notRegistered = true;
           }
         }
