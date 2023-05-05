@@ -60,11 +60,6 @@ export class UserCardComponent implements OnInit {
   } 
 
 
-  setHidden(): void {
-    this.componentHiddenService.setHidden();
-    console.log(this.componentHiddenService.getHidden())
-    }
-
   btnLogout() {
     this.logout.logout();
 
