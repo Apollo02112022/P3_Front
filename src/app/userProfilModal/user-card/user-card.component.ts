@@ -15,7 +15,10 @@ import { LogoutService } from '../../services/logout.service';
 export class UserCardComponent implements OnInit {
 
 
-  constructor(private componentHiddenService: ComponentHiddenService, @Inject(LogoutService) private logout: LogoutService, private http: HttpClient) {}
+  constructor(private componentHiddenService: ComponentHiddenService, 
+              @Inject(LogoutService) private logout: LogoutService, 
+              private http: HttpClient,
+              private router: Router) {}
 
   userid = 1;
   imageURL = "http://localhost:8080/users/" + this.userid + "/picture";
@@ -62,7 +65,7 @@ export class UserCardComponent implements OnInit {
 
   btnLogout() {
     this.logout.logout();
-
+    this.router.navigate(["/"])
   }
 
   getUserPicture(imageURL: string): Observable<any> {

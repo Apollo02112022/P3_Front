@@ -36,8 +36,5 @@
         </div>
          <!-- Bouton "Se connecter" activé que si le formulaire est correctement remplit -->
         <button [disabled]="registerForm.invalid" (click)="login()" class="btn">Se connecter</button>
-        <div class="main__redirection">
-          <p>Déjà un compte ? <span class="main__redirection__link" (click)="toLogin()">connectez-vous</span></p>
-        </div>
     </main>
 </form>

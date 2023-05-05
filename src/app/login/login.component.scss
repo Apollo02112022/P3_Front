@@ -7,14 +7,6 @@
     filter: grayscale(100%);  
     font-size: 25px;
 
-    &__redirection {
-
-        &__link {
-            text-decoration: underline;
-            cursor: pointer;
-        }
-    }
-
     .connexion, .btn {
         height: 7%;
         width: 80%;

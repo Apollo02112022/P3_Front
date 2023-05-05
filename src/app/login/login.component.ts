@@ -70,7 +70,4 @@ export class LoginComponent {
     console.log(sub);
   }
 
-  toLogin() {
-    this.router.navigate(["/signup"]);
-  }
 }
