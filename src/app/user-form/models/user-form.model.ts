@@ -8,5 +8,6 @@ export class User {
     mail?: string;
     city?: string;
     county?: number;
-    password?: string
+    password?: string;
+    id?:number
   } 
