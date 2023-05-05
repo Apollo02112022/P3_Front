@@ -14,6 +14,7 @@ import { UserNotificationComponent } from './user-notification/user-notification
 
 
 const routes: Routes = [
+  
   {path:'', component: AccueilComponent},
   {path:'accueil', component: AccueilComponent},
   {path :'barters', component : AnnoncesComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: 'users/:userid/barters', component: AnnoncesComponent },
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: UserFormComponent},
-  {path: 'users/notification', component: UserNotificationComponent}
+  {path: 'users/notification', component: UserNotificationComponent},
+  {path:'**',redirectTo:'/accueil'}
 ];
 
 @NgModule({

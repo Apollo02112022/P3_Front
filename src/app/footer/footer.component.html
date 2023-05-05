@@ -1,6 +1,6 @@
 <footer *ngIf="hiddenFooter">
     <div class="icons">
-        <img src="assets/icons/fleche-cercle-gauche.png" alt="flêche pour retour page précédente">
+        <img (click)="backClick()" src="assets/icons/fleche-cercle-gauche.png" alt="flêche pour retour page précédente">
         <img src="assets/icons/maison.png" alt="retour accueil">
         <img src="assets/icons/ajouter.png" alt="créer une annonce">
             <div class="notification">

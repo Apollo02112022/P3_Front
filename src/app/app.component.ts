@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationService } from './services/notification.service';
 import { Notification } from './models/notification.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -30,11 +32,9 @@ export class AppComponent {
       },
     })
     .then(response => response.json())
-    .then(data => console.log("&&&&& data", data))
+    .then(data => console.log("&&&&&&&&&&&&&&&&& data", data))
     .catch(err => console.log(err))
     
     // this.router.navigate(['barters']);// retour a la page annonces après ajout d'une proposition
   }
-  }
-
-
+}

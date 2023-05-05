@@ -12,8 +12,7 @@ import { TokenService } from '../services/token.service';
 })
 export class LoginComponent {
 
-  fail: boolean = false;
-  // pseudoToken: String = "";
+  tokenReceveidFail: boolean = false;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private tokenService: TokenService) {}
 
@@ -43,34 +42,25 @@ export class LoginComponent {
         const { token } = response;
         if (token != undefined) {
           localStorage.setItem("token", token);
-          this.fail = false;
-          // this.router.navigate(["/users/1/profil"])
+          this.tokenReceveidFail = false;
+          this.router.navigate(["/users/1/profil"])
           console.log(token, "Connecté avec Success !")
           this.tokenService.setToken(token);
         } else {
-          this.fail = true;
+          this.tokenReceveidFail = true;
         }
       })
       .catch(err => console.log(err));
     }
 
-   testWithToken = () => {
-    const token = localStorage.getItem("token");
-    const header = new Headers({ 'Authorization': `Bearer ${token}`, "Content-Type": "application/json" });
-    const options = {
-      headers: header,
-    };
-    fetch("http://localhost:8080/test", options)
-      .then(res => res.json())
-      .then(response => console.log(response))
-      .catch(err => console.log(err))
+
+  // switch la valeur de la variable tokenReceveidFail.
+  loginTokenReceveidFail() {
+    this.tokenReceveidFail!
   }
 
-  loginFail() {
-    this.fail!
-  }
-
-  token() {
+  // Décode le token via la librairie jwt_decode dans le tokenService, récupère l'Id et le pseudo de l'utilisateur
+  decodeToken() {
     this.tokenService.getDecodedToken();
     this.tokenService.getDecodedToken();
     console.log(this.tokenService.getDecodedToken());
@@ -78,5 +68,9 @@ export class LoginComponent {
     const sub: string = this.tokenService.getDecodedToken().sub;
     console.log(userId);
     console.log(sub);
+  }
+
+  toLogin() {
+    this.router.navigate(["/signup"]);
   }
 }

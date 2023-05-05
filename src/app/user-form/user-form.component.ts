@@ -8,8 +8,6 @@ import { passwordValidator } from './validators/password.validator'; /*J'importe
 import { UserService } from './services/user.service'; /*J'importe mon service.*/
 import { toFormData } from '../formData';
 
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-user-form',
@@ -27,10 +25,14 @@ export class UserFormComponent {
 
   notRegistered = false;
 
+  errorPseudo = false;
+
+  errorEmail = false;
+
   close = false;
 
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private userService: UserService) {
 
     // J'utilise la méthode group, en lui passant un objet :
 
@@ -93,9 +95,15 @@ export class UserFormComponent {
           this.registered = true;
         },
         error: (e) => {
-          console.error(e);
-          this.notRegistered = true;
-          this.close = false;
+          if (e.error.includes('adresse e-mail')) {
+            this.errorEmail = true;
+            this.close = false;
+          } else if (e.error.includes('nom d\'utilisateur')) {
+            this.errorPseudo = true;
+            this.close = false;
+          } else {
+            this.notRegistered = true;
+          }
         }
       }
 

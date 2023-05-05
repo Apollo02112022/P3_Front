@@ -7,6 +7,14 @@
     filter: grayscale(100%);  
     font-size: 25px;
 
+    &__redirection {
+
+        &__link {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+
     .connexion, .btn {
         height: 7%;
         width: 80%;
@@ -27,19 +35,30 @@
         height: 30%;
         width: 80%;
         background: rgba($color: #424242, $alpha: 0.75);
+
+        @media (min-width: 768px) { 
+            display: flex;
+            flex-direction: row;
+        }
         
         &__error {
             color: red; 
         }
     
         &__pseudo, &__mdp {
+            display: flex;
+            flex-direction: column;
             height: 15%;
             width: 80%;
             padding: 0 10px;
+
+            @media (min-width: 768px) { 
+                width: 40%;
+            }
         }
     }
 
-    .login, .login > * {
+    .login, .login > * > * {
         border-radius: 20px;
         font-weight: bold;
     }

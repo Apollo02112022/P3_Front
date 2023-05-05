@@ -4,8 +4,8 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 // import jwtDecode, * as jwt_decode from 'jwt-decode';
-
-
+import { AnnonceService } from '../services/annonce.service';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -24,9 +24,9 @@ export class FooterComponent implements OnInit {
   messages: string[] = [];
 
 
-  // constructor() {}
-  constructor( private http: HttpClient, private router: Router ) {}
-
+  // constructor(private router: Router) {}
+  constructor(private http: HttpClient,private router: Router,private annonceService: AnnonceService,private location: Location) {}
+  
   ngOnInit() {
     const userId = localStorage.getItem("userId");
 
@@ -47,7 +47,9 @@ export class FooterComponent implements OnInit {
           this.hiddenFooter = !this.hidden();
         }
       });
+    
   }
+
   
 
 
@@ -73,10 +75,15 @@ export class FooterComponent implements OnInit {
   //   this.eventSource?.close();
   // }
   
+    // if (this.router.url === '/' || this.router.url === '/accueil') {
+    //   this.hidden = false;
+    // } else (this.router.url === '/barters' || this.router.url === '/offer-a-barter');
 
-
-
+  
+  
+    //methode retour page precedente
+ backClick() {
+  this.location.back();
 }
-  
-    
-  
+
+  }
