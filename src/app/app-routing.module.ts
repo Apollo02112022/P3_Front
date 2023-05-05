@@ -20,13 +20,6 @@ const routes: Routes = [
   {path:'', component: AccueilComponent},
   {path:'accueil', component: AccueilComponent},
   {path :'barters', component : AnnoncesComponent},
-  {path :'offer-a-barter', component : AddAnnonceComponent},
-  {path :'barters/:id', component : DetailsAnnonceComponent},
-  {path :'proposal_deal/:id', component :PropositionTrocComponent},
-  {path: 'users/:userid/profil', component: UserCardComponent },
-  {path: 'users/:userid/profil/update', component: UserCardComponent },
-  {path: 'users/:userid/barters', component: AnnoncesComponent },
-  {path :"barters", component : AnnoncesComponent},
   //canActivate:[TokenService] donne l'acces à la page uniquement si token valid
   {path :"offer-a-barter", component : AddAnnonceComponent,canActivate:[TokenService]},
   {path :"barters/:id", component : DetailsAnnonceComponent,canActivate:[TokenService]},
@@ -36,7 +29,7 @@ const routes: Routes = [
   {path: 'users/:userid/barters', component: AnnoncesComponent,canActivate:[TokenService]},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: UserFormComponent},
-  {path: 'users/notification', component: UserNotificationComponent},
+  {path: 'users/notification', component: UserNotificationComponent ,canActivate:[TokenService]},
   {path:'**',redirectTo:'/accueil'}
 ];
 
