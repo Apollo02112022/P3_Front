@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ComponentHiddenService } from '../../../services/component-hidden.service';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-card-button',
@@ -9,5 +11,14 @@ import { ComponentHiddenService } from '../../../services/component-hidden.servi
 export class UserCardButtonComponent {
 userid = 1;
 
+constructor(private router : Router){}
 
+userNotification(){
+this.router.navigate(["/users",this.userid,"notifications"])
+}
+
+userAnnouncement(){
+  this.router.navigate(["/users",this.userid,"barters"])
+
+}
 }

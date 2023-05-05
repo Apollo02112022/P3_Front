@@ -60,7 +60,7 @@ export class AnnonceService {
     formData.append('description', ann.description); //ajoutées à l'objet FormData avec la méthode "append".
     const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}`});
     const options = {
-      headers: headers,
+      headers: headers
     };
     console.log(options);
     return this.http.post<any>(this.apiURLAdd, formData, options);
@@ -82,11 +82,17 @@ export class AnnonceService {
           console.log('test',err)
         });
       }
-  consultAnnonce(id: number): Observable<Annonce> {
+  consultAnnonce(id: number): Observable<ArrayBuffer> {
     //ajout du parametre concatener / id a l url pour consulter une annonce par id 
     const url = this.apiURLdetails + id;
-    console.log(url)
-    return this.http.get<Annonce>(url, httpOptions);
+    const token = localStorage.getItem("token");
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}`});
+    const options = {
+      headers: headers
+    };
+    console.log("options : " + options);
+    console.log("token pour details annonce " + token)
+    return this.http.get<any>(url,options);
     // get retourne un objet de type annonce par l'url + id construite au dessus
   }
   getAnouncementPictureById(id: number): Observable<any> {
