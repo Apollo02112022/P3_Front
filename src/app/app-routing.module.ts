@@ -10,10 +10,10 @@ import { DetailsAnnonceComponent } from './details-annonce/details-annonce.compo
 import { PropositionTrocComponent } from './proposition-troc/proposition-troc.component';
 import { LoginComponent } from './login/login.component';
 import { AccueilComponent } from './accueil/accueil.component';
-import { LogoutComponent } from './logout/logout.component';
 
 
 const routes: Routes = [
+  
   {path:'', component: AccueilComponent},
   {path:'accueil', component: AccueilComponent},
   {path :"barters", component : AnnoncesComponent},
@@ -24,8 +24,8 @@ const routes: Routes = [
   {path: 'users/:userid/profil/update', component: UserCardComponent },
   {path: 'users/:userid/barters', component: AnnoncesComponent },
   {path: 'login', component: LoginComponent},
-  {path: 'logout', component: LogoutComponent},
-  {path: 'signup', component: UserFormComponent}
+  {path: 'signup', component: UserFormComponent},
+  {path:'**',redirectTo:'/accueil'}
 ];
 
 @NgModule({

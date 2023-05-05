@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { TokenService } from '../services/token.service';
 
 
 @Component({
@@ -11,8 +12,15 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
+  tokenReceveidFail: boolean = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private tokenService: TokenService) {}
+
+  // testToken() {
+  //   const decodedToken = this.tokenService.getDecodedToken();
+  //   this.pseudoToken = decodedToken ? decodedToken : null;
+  //   console.log(this.pseudoToken);
+  // }
 
     registerForm = new FormGroup({
       pseudo: new FormControl("", [Validators.required, Validators.maxLength(10)]),
@@ -32,28 +40,33 @@ export class LoginComponent {
       .then(res => res.json())
       .then(response => {
         const { token } = response;
-        localStorage.setItem("token", token);
-        console.log(token, "Connecté avec Success !")
-        // this.change();
+        if (token != undefined) {
+          localStorage.setItem("token", token);
+          this.tokenReceveidFail = false;
+          this.router.navigate(["/users/1/profil"])
+          console.log(token, "Connecté avec Success !")
+          this.tokenService.setToken(token);
+        } else {
+          this.tokenReceveidFail = true;
+        }
       })
       .catch(err => console.log(err));
     }
 
-   testWithToken = () => {
-    const token = localStorage.getItem("token");
-    const header = new Headers({ 'Authorization': `Bearer ${token}`, "Content-Type": "application/json" });
-    const options = {
-      headers: header,
-    };
-    fetch("http://localhost:8080/test", options)
-      .then(res => res.json())
-      .then(response => console.log(response))
-      .catch(err => console.log(err))
+
+  // switch la valeur de la variable tokenReceveidFail.
+  loginTokenReceveidFail() {
+    this.tokenReceveidFail!
   }
 
-
-  change() {
-    this.router.navigate(["/"]);
+  // Décode le token via la librairie jwt_decode dans le tokenService, récupère l'Id et le pseudo de l'utilisateur
+  decodeToken() {
+    this.tokenService.getDecodedToken();
+    this.tokenService.getDecodedToken();
+    console.log(this.tokenService.getDecodedToken());
+    const userId: number = this.tokenService.getDecodedToken().userId;
+    const sub: string = this.tokenService.getDecodedToken().sub;
+    console.log(userId);
+    console.log(sub);
   }
-
 }

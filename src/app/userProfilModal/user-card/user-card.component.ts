@@ -1,10 +1,11 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ComponentHiddenService } from '../../services/component-hidden.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/user-form/models/user-form.model';
+import { LogoutService } from '../../services/logout.service';
 
 @Component({
   selector: 'app-user-card',
@@ -13,7 +14,8 @@ import { User } from 'src/app/user-form/models/user-form.model';
 })
 export class UserCardComponent implements OnInit {
 
-  constructor(private componentHiddenService: ComponentHiddenService, private http: HttpClient) { }
+
+  constructor(private componentHiddenService: ComponentHiddenService, @Inject(LogoutService) private logout: LogoutService, private http: HttpClient) {}
 
   userid = 1;
   imageURL = "http://localhost:8080/users/" + this.userid + "/picture";
@@ -50,11 +52,22 @@ export class UserCardComponent implements OnInit {
   getHidden(): boolean {
     return this.componentHiddenService.getHidden();
 
-  }
+  } 
+
+  setHidden(){
+    this.componentHiddenService.setHidden();
+    console.log(this.componentHiddenService.getHidden())
+  } 
+
 
   setHidden(): void {
     this.componentHiddenService.setHidden();
     console.log(this.componentHiddenService.getHidden())
+    }
+
+  btnLogout() {
+    this.logout.logout();
+
   }
 
   getUserPicture(imageURL: string): Observable<any> {

@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-@Component({
-  selector: 'app-logout',
-  templateUrl: './logout.component.html',
-  styleUrls: ['./logout.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class LogoutComponent {
+export class LogoutService {
 
+  constructor() { }
+  
   logout() {
     console.log('llloooogggooouuuuttttttt 1');
     const token = localStorage.getItem("token");

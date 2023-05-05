@@ -16,10 +16,11 @@
 
                 <div class="btn-user flex column ai-center ">
                     <app-user-card-button *ngIf="getHidden()"></app-user-card-button>
-                    <button class="button flex" (click)="setHidden()" *ngIf="getHidden()">Modifier / Supprimer le
-                        profil</button>
-                    <app-user-card-formular *ngIf="!getHidden()"></app-user-card-formular>
+                    <button class="button flex" (click)="setHidden()" *ngIf="getHidden()">Modifier / Supprimer le profil</button>
+                    <app-user-card-formular  *ngIf="!getHidden()"></app-user-card-formular>
+                    <button class="button" (click)="btnLogout()" >Se déconnecter</button>
                 </div>
+                
             </section>
         </div>
         <button class="back" (click)="setHidden()" *ngIf="!getHidden()">Retour</button>

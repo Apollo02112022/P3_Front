@@ -381,14 +381,30 @@
 
 <div [ngClass]="{'disappear': close}">
 
-  <div class="wrong" *ngIf="notRegistered">
+  <div class="wrong" *ngIf="errorEmail">
 
     <h2>Formulaire non valide!</h2>
 
     <img src="assets/icons/bad.png" alt="smiley">
 
-    <p>Votre adresse e-mail est déjà utilisée par un autre utilisateur et/ou votre pseudo est déjà utilisé par un autre
-      utilisateur.</p>
+    <p>Votre adresse e-mail est déjà utilisée par un autre utilisateur.</p>
+
+    <button (click)="closeBtn()">Revenir au formulaire</button>
+
+  </div>
+
+</div>
+
+
+<div [ngClass]="{'disappear': close}">
+
+  <div class="wrong" *ngIf="errorPseudo">
+
+    <h2>Formulaire non valide!</h2>
+
+    <img src="assets/icons/bad.png" alt="smiley">
+
+    <p>Votre pseudo est déjà utilisé par un autre utilisateur.</p>
 
     <button (click)="closeBtn()">Revenir au formulaire</button>
 

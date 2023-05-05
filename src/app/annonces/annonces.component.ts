@@ -14,7 +14,7 @@ export class AnnoncesComponent implements OnInit {
 
   annonce!: Annonce;
   annonces!: Annonce[];//tableau d'annonces
-  annonceSelectionnee!: Annonce;
+  annonceSelectionnee!: ArrayBuffer;
 
   constructor(private annonceService: AnnonceService, private router: Router) {
 
@@ -22,28 +22,30 @@ export class AnnoncesComponent implements OnInit {
   // ngOnInit recupère les annonces à partir de annonceService
   ngOnInit(): void {
 
-  
+
 
     this.link();
 
-    if(this.router.url === `/barters`){
+    if (this.router.url === `/barters`) {
 
-         // inscription a l'observable de la methode listeAnnonce() qui fait appel a l api rest
-    this.annonceService.listeAnnonce().subscribe(ann => {
-      console.log(ann);
-      // affecte le resultat de la methode listeAnnonce "ann" à la liste d'annonce
-      this.annonces = ann.map(annonceImg => {
-        return {
-          ...annonceImg,
-          imageUrl: `http://localhost:8080/offer-a-barter/${annonceImg.id}/image`// interpolation ${annonceImg.id} est = a la concatenation" /+ annonceImg.id +/ "
-        }
+      // inscription a l'observable de la methode listeAnnonce() qui fait appel a l api rest
+      this.annonceService.listeAnnonce().subscribe(ann => {
+        console.log(ann);
+        // affecte le resultat de la methode listeAnnonce "ann" à la liste d'annonce
+        // Pour chaque objet "annonceImg" de la liste "ann", on ajoute une propriété "imageUrl" à l'objet en utilisant une interpolation de chaîne.
+        // La propriété "imageUrl" contient une URL qui pointe vers l'image de l'annonce.
+        this.annonces = ann.map(annonceImg => {
+          return {
+            ...annonceImg,
+            imageUrl: `http://localhost:8080/barters/${annonceImg.id}/image`// interpolation ${annonceImg.id} est = a la concatenation" /+ annonceImg.id +/ "
+          }
+        });
+        //      le spread operator ...annonceImg utilisé pour créer une copie de chaque annonce du tableau d'annonces récupéré à partir du service.
+        // Cette copie inclut toutes les propriétés de l'annonce, ainsi que la propriété imageUrl qui est ajoutée et qui est calculée à partir de l'identifiant de l'annonce.
+        // La méthode map() est également utilisée pour créer un nouveau tableau à partir du tableau d'annonces d'origine. Elle permet de parcourir chaque annonce du tableau d'annonces
+        // et d'appliquer une fonction à chaque élément pour créer un nouvel élément dans le nouveau tableau.
       });
-//      le spread operator ...annonceImg utilisé pour créer une copie de chaque annonce du tableau d'annonces récupéré à partir du service.
-// Cette copie inclut toutes les propriétés de l'annonce, ainsi que la propriété imageUrl qui est ajoutée et qui est calculée à partir de l'identifiant de l'annonce.
-// La méthode map() est également utilisée pour créer un nouveau tableau à partir du tableau d'annonces d'origine. Elle permet de parcourir chaque annonce du tableau d'annonces
-// et d'appliquer une fonction à chaque élément pour créer un nouvel élément dans le nouveau tableau.
-    });
-    }else{
+    } else {
       // inscription a l'observable de la methode listeUserAnnonce() qui fait appel a l api rest
       this.annonceService.listeUserAnnonce().subscribe(ann => {
         console.log(ann);
@@ -51,14 +53,14 @@ export class AnnoncesComponent implements OnInit {
         this.annonces = ann.map(annonceImg => {
           return {
             ...annonceImg,
-            imageUrl: `http://localhost:8080/offer-a-barter/${annonceImg.id}/image`// interpolation ${annonceImg.id} est = a la concatenation" /+ annonceImg.id +/ "
+            imageUrl: `http://localhost:8080/barters/${annonceImg.id}/image`// interpolation ${annonceImg.id} est = a la concatenation" /+ annonceImg.id +/ "
           }
-        });  
+        });
       });
 
 
     }
-    
+
 
   }
   supprimerAnnonce(annonceid: number) {
@@ -87,12 +89,12 @@ export class AnnoncesComponent implements OnInit {
   }
 
 
-  link(){
-    if(this.router.url === `/barters`){
+  link() {
+    if (this.router.url === `/barters`) {
       return true;
     }
     return false;
   }
-  }
+}
 
 
