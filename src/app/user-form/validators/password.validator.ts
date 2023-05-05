@@ -8,7 +8,7 @@ export function passwordValidator(control: AbstractControl): ValidationErrors | 
   const password = control.value;
   const number = /\d/.test(password);
   const uppercase = /[A-Z]/.test(password);
-  const specialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password);
+  const specialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?¤£€]/.test(password);
   const space = /\s/.test(password);
   const valid = number && uppercase && specialChar && !space;
 
