@@ -4,8 +4,10 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    filter: grayscale(100%);  
-    font-size: 25px;
+    // filter: grayscale(100%);  
+    font-size: 20px;
+     
+    
 
     &__redirection {
 
@@ -15,10 +17,18 @@
         }
     }
 
+    .login__fail {
+        color: rgb(255, 0, 0);
+        font-weight: 900;
+       
+    }
+
     .connexion, .btn {
         height: 7%;
-        width: 80%;
+        width: 40%;
         background: white;
+        color: rgb(81, 81, 81);
+        border: 5px solid #A6D1BD;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -34,7 +44,13 @@
         align-items: center;
         height: 30%;
         width: 80%;
-        background: rgba($color: #424242, $alpha: 0.75);
+        color: white;
+        background-color: rgba(49, 48, 48, 0.4);
+        backdrop-filter: blur(2px);
+        
+            &__mdp {
+                margin-bottom: 40px;
+            }
 
         @media (min-width: 768px) { 
             display: flex;
@@ -42,7 +58,7 @@
         }
         
         &__error {
-            color: red; 
+            color: rgb(255, 0, 0); 
         }
     
         &__pseudo, &__mdp {
@@ -61,6 +77,7 @@
     .login, .login > * > * {
         border-radius: 20px;
         font-weight: bold;
+        
     }
 
     .btn {
