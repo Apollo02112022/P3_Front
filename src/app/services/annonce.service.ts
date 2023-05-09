@@ -23,15 +23,15 @@ export class AnnonceService {
 
   // variable pour affecter Url de l'app back-end 
   apiURL: string = 'http://localhost:8080/barters';
-  apiURLAdd: string = 'http://localhost:8080/offer-a-barter?userid='+parseInt(this.token.userIdOnToken());
+  apiURLAdd: string = 'http://localhost:8080/offer-a-barter?userid='+this.token.userIdOnToken();
   apiURLdetails: string = 'http://localhost:8080/barters/';
-  apiURLDelete:string = "http://localhost:8080/users/"+parseInt(this.token.userIdOnToken())+"/"
+  apiURLDelete:string = "http://localhost:8080/users/"+this.token.userIdOnToken()+"/"
   annonces!: Annonce[];//declaration de variable et tableau d'annonce'
 
 
 
   // category : Category[];//declaration de variable et tableau de categorie
-  userAnnouncement: string = "http://localhost:8080/users/" + parseInt(this.token.userIdOnToken()) + "/barters";
+  userAnnouncement: string = "http://localhost:8080/users/" +this.token.userIdOnToken() + "/barters";
 
 
   // retourne  tableau d'annonce de type observable 
