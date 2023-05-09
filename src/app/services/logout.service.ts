@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LogoutService {
 
-  constructor() { }
-  
+  constructor(private router: Router) { }
+
   logout() {
     console.log('llloooogggooouuuuttttttt 1');
     const token = localStorage.getItem("token");
@@ -19,6 +20,8 @@ export class LogoutService {
       .then(res => res.json())
       .then(response => {
         console.log(response);
+        alert("Vous êtes deconnecté");
+        this.router.navigate(['/accueil']);
         localStorage.removeItem("token");
         console.log(localStorage.getItem("token"), "pas de token parce qu'on a vidé le localStorage");
       })
