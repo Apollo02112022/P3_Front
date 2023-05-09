@@ -1,9 +1,9 @@
 <div class="annonce-container">
   <div class="textAnnDesktop">
-    <h2 *ngIf="link()" class="titreAnn">Sur Trocoeurs,
+    <h2 *ngIf="link()" class="titreAnn">Sur Trocoeurs,<br>
       consultez toutes nos offres de trocs, échangez
       ou postez !</h2>
-    <h2 *ngIf="!link()" class="titreAnn">Voici vos proposition d'échange , vous pouvez les consulter ou les supprimer
+    <h2 *ngIf="!link()" class="titreAnn">Voici vos propositions d'échange , vous pouvez les consulter ou les supprimer
       !</h2>
   </div>
   <div class="card-body">
@@ -15,7 +15,7 @@
       <div class="imageAnnonce" (click)="onSelectedAnnonce(annonce.id)"><img [src]="annonce.imageUrl" alt="Image de l'annonce">
       </div>
       <div class="descriptionAnnonce" (click)="onSelectedAnnonce(annonce.id)">
-        <h3>Description :</h3>
+        <h3 class="__title">Description :</h3>
         <p>{{annonce.description}}</p>
       </div>
       <div *ngIf="!link()" class="delete" (click)="supprimerAnnonce(annonce.id)">🗙</div>

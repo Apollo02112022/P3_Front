@@ -1,50 +1,57 @@
 .main{
     width: 100%;
     height: 100%;
-    // color: rgb(228, 240, 240);
 }
+
 .wrap{
     flex-wrap: wrap;
 }
+
 .userCard{
     background-color: rgba(49, 48, 48, 0.4);
-    // backdrop-filter: blur(2px);
-    border-radius: 10px;
+    backdrop-filter: blur(2px);
+    border-radius: 20px;
     height: 60vh;
-    width: 70vw;
+    width: 60vw;
     overflow: auto;
+    margin-bottom: 40px;
 }
 
 h1,h2{
     text-align: center;
     min-width: 150px;
     padding: 15px;
-    background-color: rgba(240, 248, 255, 0.616);
+    background-color: rgb(251, 251, 251);
     border-radius: 20px;
+    font-size: 20px;
+    color: rgb(81, 81, 81);
+    border: 4px solid #A6D1BD;
+    // backdrop-filter: blur(2px);
 }
 
 h1{
-    background-color: rgba(240, 248, 255, 0.945);
+    // background-color: rgba(251, 251, 251, 0.673);
+    padding: 8px;
 }
 .user{
     width: 100%;
-    margin: 10px;
+    margin: 15px;
 }
 .user-picture{
     // padding: 15px;
-    border:solid rgb(200, 249, 200) 15px;
+    // border:solid #A6D1BD 10px;
     border-radius: 50%;
 }
 
 .pseudo{
-    // color: rgb(227, 237, 217);
+    color: rgb(81, 81, 81);
     font-size: 1.4rem;
     font-weight: 600;
 }
 
 img{
-    height: 100%;
-    width: 100%;
+    height: 70%;
+    width: 70%;
     border-radius: 50%;
     object-fit: cover; 
 }
@@ -59,14 +66,16 @@ img{
 
 
 .btn-user{
-width: 100%;
-min-height: 200px;
+    width: 100%;
+    min-height: 100px;
+    font-size: 18px;
 }
 
 button{
     width: 10rem;
     margin: 2rem 0 1rem;
-    border-radius: 8px;
+    border-radius: 10px;
+    color : rgb(81, 81, 81);
 }
 
 @media only screen and (min-width: 768px) {

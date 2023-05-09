@@ -14,7 +14,7 @@ userid = 1;
 constructor(private router : Router){}
 
 userNotification(){
-this.router.navigate(["/users",this.userid,"notifications"])
+this.router.navigate(["users/notification",this.userid,"notifications"])
 }
 
 userAnnouncement(){
