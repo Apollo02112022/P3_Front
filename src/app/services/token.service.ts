@@ -62,6 +62,12 @@ export class TokenService {
     }
     return true; // Autorise l'accès si le token est valide
   }
+  userIdOnToken():any {
+    const token=this.getDecodedToken()
+    const userid = token.userId;
+    console.log(userid)
+    return userid
+  }
 }
 
 

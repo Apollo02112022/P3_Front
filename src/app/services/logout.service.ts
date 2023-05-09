@@ -21,6 +21,8 @@ export class LogoutService {
         console.log(response);
         localStorage.removeItem("token");
         console.log(localStorage.getItem("token"), "pas de token parce qu'on a vidé le localStorage");
+        
+        location.reload()
       })
       .catch(err => console.log(err))
   }
