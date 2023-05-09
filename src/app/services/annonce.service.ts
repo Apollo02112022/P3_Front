@@ -31,7 +31,7 @@ export class AnnonceService {
 
 
   // category : Category[];//declaration de variable et tableau de categorie
-  userAnnouncement: string = "http://localhost:8080/users/" +this.token.userIdOnToken() + "/barters";
+  userAnnouncement: string = "http://localhost:8080/users/" +this.token.userIdOnToken()+ "/barters";
 
 
   // retourne  tableau d'annonce de type observable 
