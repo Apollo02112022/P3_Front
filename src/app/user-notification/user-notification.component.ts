@@ -8,22 +8,22 @@ import { Router } from '@angular/router';
 })
 export class UserNotificationComponent {
 
-  // content!: String;
-  // sender!: String;
-  // userId:number=1;
+  content!: String;
+  sender!: String;
+  userId:number=1;
 
-  // newNotification = new Notification();
+  newNotification = new Notification("hello");
 
-  // constructor(private router: Router) {
+  constructor(private router: Router) {
 
        
-  //   const apelApi = "http://localhost:8080/postMessage?userAnnounceId="+this.userId;
-  //   fetch(apelApi,{
-  //     method:'POST',
-  //     body: JSON.stringify(this.newNotification),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   })
-  // }
+    const apelApi = "http://localhost:8080/postMessage?userAnnounceId="+this.userId;
+    fetch(apelApi,{
+      method:'POST',
+      body: JSON.stringify(this.newNotification),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+  }
 }

@@ -24,7 +24,8 @@ export class PropositionTrocComponent implements OnInit {
 
   
   addNotif() {
-    const apelApi = "http://localhost:8080/postMessage?userAnnounceId="+this.userId;
+    console.log('NOTIF 1');
+    const apelApi = "http://localhost:8080/postMessage";
     fetch(apelApi,{
       method:'POST',
       body: JSON.stringify(this.newNotification),

@@ -8,6 +8,10 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+ @font-face {
+  font-family: 'main';
+  src: url("/src/assets/fonts/Foldit-Black.ttf") format('truetype');
+}
 
  html {
     line-height: 1.15; /* 1 */
@@ -15,7 +19,6 @@
     box-sizing: border-box;
 
   }
-  
   /* Sections
      ========================================================================== */
   
@@ -408,7 +411,6 @@ body{
   background-size: 100%;
   position: relative;
   background-repeat: repeat;
- 
 }
 
 @media only screen and (min-width: 768px) {
