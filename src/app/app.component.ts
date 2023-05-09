@@ -18,6 +18,8 @@ export class AppComponent {
   sender!: String;
   userId:number=2;
 
+  isHomePage: boolean = true;
+
   newNotification = new Notification();
 
   constructor(private router: Router, private notificationService: NotificationService) { }
@@ -38,3 +40,23 @@ export class AppComponent {
     // this.router.navigate(['barters']);// retour a la page annonces après ajout d'une proposition
   }
 }
+  
+//   ngOnInit() {
+//     this.appComponent.isHomePage = false;
+//   }
+// }
+
+//   ngOnInit (){
+//     // écoute les évènements de navigation du 'Router'
+//     this.router.events.subscribe((event) => {
+//      // si l'évènement est de type 'NavigationEnd', la navigation sera terminée
+//      if (event instanceof NavigationEnd) {
+//        this.hiddenBod = !this.hidden();
+//      }
+//  })
+// } 
+
+// hidden() {
+//   return this.router.url === '/' || this.router.url === '/accueil';
+// }
+// }

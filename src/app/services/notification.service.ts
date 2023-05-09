@@ -10,7 +10,7 @@ export class NotificationService {
   constructor() { }
   // Quand je clique sur le bouton proposer un echange, je lance la méthode qui créer une notification
   createNotification(notification : Notification) {
-    // méthode fetch pour communiquezr avec le back, ici c'est pour lancer la méthode createNotification 
+    // méthode fetch pour communiquer avec le back, ici c'est pour lancer la méthode createNotification 
     // du controller notification
     fetch("http://localhost:8080/postMessage?userAnnounceId=2",{
       // méthode post car j'envoie des données

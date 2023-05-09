@@ -25,6 +25,7 @@ import { UserCardFormularComponent } from './userProfilModal/user-card/user-card
 import { UserFormComponent } from './user-form/user-form.component';
 import { UserNotificationComponent } from './user-notification/user-notification.component';
 
+
 @NgModule({
 
   declarations: [						
@@ -48,8 +49,9 @@ import { UserNotificationComponent } from './user-notification/user-notification
     FileUploadComponent,
     UserAnnoucementComponent,
     HeaderComponent,
-    UserNotificationComponent
+    UserNotificationComponent,
    ],
+   
   imports: [
     AppRoutingModule,
     BrowserModule,

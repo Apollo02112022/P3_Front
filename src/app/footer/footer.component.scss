@@ -1,16 +1,17 @@
 footer {
-    // position: relative;
     height: 70px;
-    // width: 100%;
     background: white;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .icons {
     
     display: flex;
     align-items: center;
+    justify-content: center;
+   
     
     .notification {
         position: relative;
@@ -31,21 +32,10 @@ footer {
         }
     }
 
-    // position: absolute;
-    // margin: 20px;
-    // bottom: 0;
-    // right: 0;
-
-    // &__bell {
-    //     width: 10px;
-    //     height: 10px;
-    //     border-radius: 50%;
-    // }
-
 }
 
 .icons img {
-    margin-right: 34px;
+    margin-right: 35px;
 }
    
 
