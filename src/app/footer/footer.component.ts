@@ -50,10 +50,6 @@ export class FooterComponent implements OnInit {
     
   }
 
-  
-
-
-  
   hidden() {
     return this.router.url === '/' || this.router.url === '/accueil';
   }

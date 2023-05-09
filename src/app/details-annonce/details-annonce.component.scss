@@ -10,7 +10,7 @@
   margin: 50px auto;
   background-color: white;
   box-shadow: 0px 5px 20px #555;
-  border-radius: 25px;
+  border-radius: 20px;
   overflow: hidden;
 
 }
@@ -32,7 +32,7 @@
   position: relative;
   overflow: hidden;
   margin: 15px;
-  border: 2px solid black;
+  border: 5px solid #A6D1BD;
 }
 .imageDetailAnnonce img{
   width: 100%;
@@ -61,9 +61,10 @@
   text-align: center;
   justify-content: center;
   color: white;
-  border-radius: 25px;
-  background: rgba(33, 23, 23, 0.4);
-  margin: 25px 200px 25px 200px;
+  border-radius: 20px;
+  background-color: rgba(49, 48, 48, 0.4);
+  backdrop-filter: blur(2px);
+  margin: 20px 350px 20px 350px;
 }
 
 /* //////////MEDIA QUERIES//////////*/
@@ -73,7 +74,6 @@
     display: none;
 
   }
-
 
 }
 
