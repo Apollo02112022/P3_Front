@@ -11,7 +11,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormularDeleteAccountComponent } from './userProfilModal/user-card/user-card-formular/formular-delete-account/formular-delete-account.component';
 import { FormularMailChangeComponent } from './userProfilModal/user-card/user-card-formular/formular-mail-change/formular-mail-change.component';
 import { FormularPasswordChangeComponent } from './userProfilModal/user-card/user-card-formular/formular-password-change/formular-password-change.component';
-import { FormularPictureChangeComponent } from './userProfilModal/user-card/user-card-formular/formular-picture-change/formular-picture-change.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
@@ -38,7 +37,6 @@ import { UserNotificationComponent } from './user-notification/user-notification
     FormularDeleteAccountComponent,
     FormularMailChangeComponent,
     FormularPasswordChangeComponent,
-    FormularPictureChangeComponent,
     LoginComponent,
     PropositionTrocComponent,
     SwitchComponent,

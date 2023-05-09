@@ -7,14 +7,17 @@
     flex-wrap: wrap;
 }
 
+.block{
+    width: 100%;
+}
+
 .userCard{
     background-color: rgba(49, 48, 48, 0.4);
-    backdrop-filter: blur(2px);
-    border-radius: 20px;
-    height: 60vh;
-    width: 60vw;
-    overflow: auto;
-    margin-bottom: 40px;
+    border-radius: 10px;
+    min-width: 320px;
+    max-width: 60vw;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 h1,h2{
@@ -76,6 +79,9 @@ button{
     margin: 2rem 0 1rem;
     border-radius: 10px;
     color : rgb(81, 81, 81);
+}
+.back{
+margin-left: 20px ;
 }
 
 @media only screen and (min-width: 768px) {
