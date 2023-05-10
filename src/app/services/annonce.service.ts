@@ -44,7 +44,13 @@ export class AnnonceService {
   }
   // retourne  tableau d'annonce de type observable 
   listeUserAnnonce(): Observable<Annonce[]> {
-    return this.http.get<Annonce[]>(this.userAnnouncement);
+    const token = localStorage.getItem("token");
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}`});
+    const options = {
+      headers: headers
+    };
+
+    return this.http.get<Annonce[]>(this.userAnnouncement,options);
 
   }
 
@@ -68,9 +74,14 @@ export class AnnonceService {
 
   deleteAnnonce(annonceid: number) {
     const url = this.apiURLDelete+"barters/"+annonceid;
-      fetch(url, {
-        method: 'DELETE'
-      })
+    const token = localStorage.getItem("token");
+    const options = {
+      method: 'DELETE',
+      headers: new Headers({
+        'Authorization': `Bearer ${token}`
+      }),
+    }
+      fetch(url, options)
         .then(response => {
           console.log(response)
           location.reload();
