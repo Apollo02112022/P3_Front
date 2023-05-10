@@ -7,6 +7,7 @@ import { numberValidator } from './validators/number.validator'; /*J'importe mon
 import { passwordValidator } from './validators/password.validator'; /*J'importe mon validator personnel pour le mot de passe.*/
 import { UserService } from './services/user.service'; /*J'importe mon service.*/
 import { toFormData } from '../formData';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -32,7 +33,7 @@ export class UserFormComponent {
   close = false;
 
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
 
     // J'utilise la méthode group, en lui passant un objet :
 
@@ -116,6 +117,10 @@ export class UserFormComponent {
   closeBtn() {
     this.close = true;
     this.notRegistered = false;
+  }
+
+  toLogin() {
+    this.router.navigate(["/login"]);
   }
   
 }

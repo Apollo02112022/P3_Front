@@ -6,7 +6,7 @@ footer {
     justify-content: center;
 }
 
-.icons {
+.icons_mobile {
     
     display: flex;
     align-items: center;
@@ -18,7 +18,7 @@ footer {
        
         .number {
             color: white;
-            background-color: red;
+            background-color:rgb(255, 0, 0);
             border-radius: 50%;
             width: 15px;
             height: 15px;
@@ -38,4 +38,10 @@ footer {
     margin-right: 35px;
 }
    
+
+/*media query*/
+@media (min-width: 769px) {
+
+
+}
 

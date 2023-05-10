@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Annonce } from '../models/annonce.model';
 import { Category } from '../models/category.model';
 import { Observable } from 'rxjs';
@@ -16,26 +16,23 @@ const httpOptions = {
 })
 export class AnnonceService {
 
-  userid:number = 1;
+  // injection de dependance  variable :http de type HttpClient dans constructor
+  constructor(private http: HttpClient, private router: Router, private token: TokenService) {
+  
+  }
 
   // variable pour affecter Url de l'app back-end 
   apiURL: string = 'http://localhost:8080/barters';
-  apiURLAdd: string = 'http://localhost:8080/offer-a-barter?userid='+this.userid;
+  apiURLAdd: string = 'http://localhost:8080/offer-a-barter?userid='+this.token.userIdOnToken();
   apiURLdetails: string = 'http://localhost:8080/barters/';
-  apiURLDelete:string = "http://localhost:8080/users/"+this.userid+"/"
+  apiURLDelete:string = "http://localhost:8080/users/"+this.token.userIdOnToken()+"/"
   annonces!: Annonce[];//declaration de variable et tableau d'annonce'
 
 
 
   // category : Category[];//declaration de variable et tableau de categorie
-  userAnnouncement: string = "http://localhost:8080/users/" + this.userid + "/barters";
+  userAnnouncement: string = "http://localhost:8080/users/" +this.token.userIdOnToken()+ "/barters";
 
-
-
-  // injection de dependance  variable :http de type HttpClient dans constructor
-  constructor(private http: HttpClient, private router: Router, private token: TokenService) {
-
-  }
 
   // retourne  tableau d'annonce de type observable 
   listeAnnonce(): Observable<Annonce[]> {
