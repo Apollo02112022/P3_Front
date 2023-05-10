@@ -45,7 +45,6 @@ export class LoginComponent {
           this.tokenReceveidFail = false;
           this.router.navigate(["/barters"])
           alert(" Vous êtes connecté")
-          console.log(pseudo,token, "Connecté avec Success !")
           this.tokenService.setToken(token);
         } else {
           this.tokenReceveidFail = true;
@@ -71,7 +70,4 @@ export class LoginComponent {
     console.log(sub);
   }
 
-  toLogin() {
-    this.router.navigate(["/signup"]);
-  }
 }

@@ -16,7 +16,11 @@ import { TokenService } from 'src/app/services/token.service';
 export class UserCardComponent implements OnInit {
 
 
-  constructor(private componentHiddenService: ComponentHiddenService, @Inject(LogoutService) private logout: LogoutService, private http: HttpClient, private tokenService: TokenService) {}
+  constructor(private componentHiddenService: ComponentHiddenService, 
+    @Inject(LogoutService) private logout: LogoutService, 
+    private http: HttpClient, 
+    private tokenService: TokenService,
+    private router: Router) {}
   
   user= new User();
 
@@ -61,7 +65,7 @@ export class UserCardComponent implements OnInit {
 
   btnLogout() {
     this.logout.logout();
-
+    this.router.navigate(["/"])
   }
 
   getUserPicture(imageURL: string): Observable<Blob> {

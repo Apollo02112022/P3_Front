@@ -28,7 +28,7 @@ export class DetailsAnnonceComponent implements OnInit {
     this.annonceService.consultAnnonce(id).pipe(
       map((data: any) => { // opérateur "map" pour assigner les données reçues à la variable "annonceId".
         this.annonceId = data;
-        console.log(data);
+        console.log("DATA RECU : " + this.annonceId);
       }),
       catchError((error: any) => {
         console.log(error);
