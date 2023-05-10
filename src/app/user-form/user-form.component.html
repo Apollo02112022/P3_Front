@@ -355,6 +355,12 @@
 
     </div>
 
+    <div class="form__redirection">
+
+      <p>Déjà un compte ? <span class="form__redirection__link" (click)="toLogin()">connectez-vous</span></p>
+
+    </div>
+
   </form>
 
   <button class="form-btn" type="submit" (click)="onSubmitForm()" [disabled]="form.invalid">Créer mon
