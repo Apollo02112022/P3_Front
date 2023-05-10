@@ -8,9 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./accueil.component.scss']
 })
 export class AccueilComponent {
-  welcome : string = "Bienvenue sur le site Trocoeurs. Ici vous allez pouvoir faire des échanges alimentaires entre particuliers.";
-  how: string = "Comment ça marche ?";
-  consult : string = "Consultez nos offres";
+  
   appComponent: any;
 
   constructor (private router: Router) {}

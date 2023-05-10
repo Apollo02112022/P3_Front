@@ -43,8 +43,8 @@ export class LoginComponent {
         if (token != undefined) {
           localStorage.setItem("token", token);
           this.tokenReceveidFail = false;
-          this.router.navigate(["/barter"])
-          console.log(token, "Connecté avec Success !")
+          this.router.navigate(["/barters"])
+          alert(" Vous êtes connecté")
           this.tokenService.setToken(token);
         } else {
           this.tokenReceveidFail = true;

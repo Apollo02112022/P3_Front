@@ -48,7 +48,7 @@ export class TokenService {
   tokenValid(): boolean {
     const token = localStorage.getItem("token"); // Récupérer le token du localStorage
     if (!token) {
-      alert("Creez un compte ou connectez vous")
+      alert("Pour accèder, connectez-vous ou créez un compte.")
       // Si le token n'est pas présent dans le localStorage
       return false;
     }
@@ -61,6 +61,16 @@ export class TokenService {
       return false;
     }
     return true; // Autorise l'accès si le token est valide
+  }
+  userIdOnToken():any {
+    if(localStorage.getItem("token")){
+      const token=this.getDecodedToken()
+      const userid = token.userId;
+      console.log(userid)
+      return userid
+      }else{
+        return null
+      }
   }
 }
 

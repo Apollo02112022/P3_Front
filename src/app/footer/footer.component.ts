@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 // import jwtDecode, * as jwt_decode from 'jwt-decode';
 import { AnnonceService } from '../services/annonce.service';
 import { Location } from '@angular/common';
+import { TokenService } from '../services/token.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -25,13 +26,12 @@ export class FooterComponent implements OnInit {
 
 
   // constructor(private router: Router) {}
-  constructor(private http: HttpClient,private router: Router,private annonceService: AnnonceService,private location: Location) {}
+  constructor(private http: HttpClient,private router: Router,private annonceService: AnnonceService,private location: Location, private token :TokenService) {}
   
   ngOnInit() {
-    const userId = localStorage.getItem("userId");
 
     // requête GET pour se connecter au serveur SSR
-    const eventSource = new EventSource(`http://localhost:8080/streamMessages?userId=`+userId);
+    const eventSource = new EventSource(`http://localhost:8080/streamMessages?userId=`+this.token.userIdOnToken());
 
     // écoute les évènements SSE et ajoute les messages reçus à la liste
     eventSource.addEventListener('message', (event: MessageEvent) => {
