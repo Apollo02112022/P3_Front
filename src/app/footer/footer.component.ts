@@ -23,13 +23,38 @@ export class FooterComponent implements OnInit {
   // public messages: string[] = [];
 
   messages: string[] = [];
-
+  isStreamOn:boolean = false;
 
   // constructor(private router: Router) {}
   constructor(private http: HttpClient,private router: Router,private annonceService: AnnonceService,private location: Location, private token :TokenService) {}
   
   ngOnInit() {
 
+  
+      // écoute les évènements de navigation du 'Router'
+      this.router.events.subscribe((event) => {
+        console.log("event",event);
+        if(event instanceof NavigationEnd ){
+
+          if(!this.isStreamOn && event.url == "/barters" &&  localStorage.getItem('token')){
+            this.isStreamOn = true;
+            this.startStream();
+          }
+        }
+        // si l'évènement est de type 'NavigationEnd', la navigation sera terminée
+        if (event instanceof NavigationEnd) {
+          this.hiddenFooter = !this.hidden();
+        }
+      });
+
+    
+  }
+
+  hidden() {
+    return this.router.url === '/' || this.router.url === '/accueil';
+  }
+
+  startStream(){
     // requête GET pour se connecter au serveur SSR
     const eventSource = new EventSource(`http://localhost:8080/streamMessages?userId=`+this.token.userIdOnToken());
 
@@ -40,18 +65,7 @@ export class FooterComponent implements OnInit {
       console.log("&&&&&&&&&&&&&&&&&&&&& messages", message);
     });
 
-      // écoute les évènements de navigation du 'Router'
-      this.router.events.subscribe((event) => {
-        // si l'évènement est de type 'NavigationEnd', la navigation sera terminée
-        if (event instanceof NavigationEnd) {
-          this.hiddenFooter = !this.hidden();
-        }
-      });
-    
-  }
 
-  hidden() {
-    return this.router.url === '/' || this.router.url === '/accueil';
   }
   // ng OnInit
 

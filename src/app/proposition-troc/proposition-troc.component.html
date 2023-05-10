@@ -7,16 +7,14 @@
         <textarea [(ngModel)]="newNotification.message" type="text" name="message" class="description-Proposition"
           placeholder="Saisissez votre proposition ici... minimum 10 à maximum 250 caractères" maxlength="250"
           minlength="10"></textarea>
-
         <label for="phone">Téléphone:</label>
-        <input [(ngModel)]="newNotification.tel" id="telNo" type="tel" required name="phone" minlength="10" maxlength="10"
+        <input [(ngModel)]="newNotification.tel" id="telNo" type="tel" required name="tel" minlength="10" maxlength="10"
           placeholder="format: 0602010201 ">
         <span class="validity"></span>
         <label for="email">Email:</label>
-        <input [(ngModel)]="newNotification.mail" id="emailAddress" type="email" maxLength="50" required placeholder="monemail@jetroc.fr">
+        <input [(ngModel)]="newNotification.mail" id="emailAddress" type="email" name="mail" maxLength="50" required placeholder="monemail@jetroc.fr">
         <span class="validity"></span>
       </div>
-
       <div class="btnValid">
         <button class="btnPropose"  type="submit">Proposer l'échange</button>
       </div>

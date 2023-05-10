@@ -28,7 +28,7 @@ export class AnnonceService {
   apiURLDelete:string = "http://localhost:8080/users/"+this.token.userIdOnToken()+"/"
   annonces!: Annonce[];//declaration de variable et tableau d'annonce'
 
-
+  announcementId:number | null= null;
 
   // category : Category[];//declaration de variable et tableau de categorie
   userAnnouncement: string = "http://localhost:8080/users/" +this.token.userIdOnToken()+ "/barters";
@@ -92,6 +92,7 @@ export class AnnonceService {
     if (token == null) {
       alert("Pour accèder, connectez-vous ou créez un compte.");
       }
+      this.announcementId = id
     return this.http.get<any>(url,options);
     // get retourne un objet de type annonce par l'url + id construite au dessus
   }
