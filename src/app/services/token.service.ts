@@ -8,7 +8,7 @@ import jwt_decode from "jwt-decode";
 })
 export class TokenService {
 
-  private token: string = '';
+  private token: string | null = '';
 
   constructor(private router: Router) {}
 
@@ -17,6 +17,7 @@ export class TokenService {
   }
 
   getToken(): any {
+    this.token = localStorage.getItem('token');
     return this.token;
   }
 

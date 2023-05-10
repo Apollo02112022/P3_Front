@@ -1,32 +1,55 @@
+@import "../settings/color-variables";
+@import "../settings/mixins";
+
 .main {
     height: 100vh;
-    display: flex;
-    flex-direction: column;
+    @include display-flex-col;
     justify-content: space-around;
     align-items: center;
-    filter: grayscale(100%);  
-    font-size: 25px;
+    font-size: 1.25em;
+     
+    
+    &__redirection {
+
+        &__link {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+
+    .login__fail {
+        color: $color-error;
+        font-weight: 900;
+       
+    }
 
     .connexion, .btn {
         height: 7%;
-        width: 80%;
-        background: white;
+        width: 40%;
+        background: $color-bc;
+        color: $color-font;
+        border: 0.313em solid $color-border;
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 20px;
+        @include border-radius(1.25em);
         font-weight: bold;
     }
 
 
     .login {
-        display: flex;
-        flex-direction: column;
+        @include display-flex-col;
         justify-content: space-evenly;
         align-items: center;
         height: 30%;
         width: 80%;
-        background: rgba($color: #424242, $alpha: 0.75);
+        color: $color-label-login;
+        background-color: $color-bc-login;
+        backdrop-filter: blur(0.125em);
+        
+            &__mdp {
+                margin-bottom: 2.5em;
+            }
 
         @media (min-width: 768px) { 
             display: flex;
@@ -34,15 +57,14 @@
         }
         
         &__error {
-            color: red; 
+            color: $color-error; 
         }
     
         &__pseudo, &__mdp {
-            display: flex;
-            flex-direction: column;
+            @include display-flex-col;
             height: 15%;
             width: 80%;
-            padding: 0 10px;
+            padding: 0 0.625em;
 
             @media (min-width: 768px) { 
                 width: 40%;
@@ -51,15 +73,15 @@
     }
 
     .login, .login > * > * {
-        border-radius: 20px;
+        @include border-radius(1.25em);
         font-weight: bold;
+        
     }
 
     .btn {
         width: 35%;
-        font-size: 20px;
+        font-size: 1.25em;
     }
 
    
 }
-

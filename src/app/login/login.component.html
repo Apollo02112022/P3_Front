@@ -19,7 +19,7 @@
             </div>
             <div class="login__mdp">
               <!-- Input password -->
-              <label for="password">Password</label>
+              <label for="password">Mot de passe</label>
               <input formControlName="password" class="login__mdp__input" type="password" placeholder=" Mot de passe">
               <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
                   <div *ngIf="registerForm.get('password')?.hasError('required')" class="login__error">
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div *ngIf="tokenReceveidFail" class="login__fail">
-          <p>Le pseudo et le mot de passe ne correspondent pas</p>
+          <p>*Le pseudo et le mot de passe<br>ne correspondent pas !</p>
         </div>
          <!-- Bouton "Se connecter" activé que si le formulaire est correctement remplit -->
         <button [disabled]="registerForm.invalid" (click)="login()" class="btn">Se connecter</button>
