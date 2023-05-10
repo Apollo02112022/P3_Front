@@ -20,13 +20,12 @@
 h1,h2{
     text-align: center;
     min-width: 150px;
-    padding: 15px;
+    padding: 10px;
     background-color: rgb(251, 251, 251);
     border-radius: 20px;
     font-size: 20px;
     color: rgb(81, 81, 81);
     border: 4px solid #A6D1BD;
-    // backdrop-filter: blur(2px);
 }
 
 h1{
@@ -76,6 +75,7 @@ button{
     margin: 2rem 0 1rem;
     border-radius: 10px;
     color : rgb(81, 81, 81);
+    border: 5px solid #A6D1BD;
 }
 
 @media only screen and (min-width: 768px) {

@@ -11,11 +11,14 @@
 <main class="main">
     <div class="circle" routerLink="/login"></div>
         <section class="home">
-            <div class="home__welcome">{{welcome}}</div>
+            <div class="home__welcome">          
+                <p>Bienvenue sur le site Trocoeurs<img class="logo" src="assets/icons/sers_mains.png" alt="logo où deux mains se serrent">
+                <br>Ici vous allez pouvoir faire des échanges alimentaires entre particuliers.</p>
+            </div>
         </section>
         <section class="suite">
-            <h1 class="suite__consult" (click)="select()">{{consult}}</h1>
-            <h1 class="suite__how">{{how}}</h1>
+            <h1 class="suite__consult" (click)="select()">Consultez nos offres ici</h1>
+            <h1 class="suite__how">Comment ça marche ?</h1>
         </section>
         <app-switch></app-switch>
 </main>
