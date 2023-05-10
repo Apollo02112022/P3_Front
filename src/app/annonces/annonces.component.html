@@ -15,7 +15,7 @@
       <div class="imageAnnonce" (click)="onSelectedAnnonce(annonce.id)"><img [src]="annonce.imageUrl" alt="Image de l'annonce">
       </div>
       <div class="descriptionAnnonce" (click)="onSelectedAnnonce(annonce.id)">
-        <h3 class="__title">Description :</h3>
+        <h3>Description :</h3>
         <p>{{annonce.description}}</p>
       </div>
       <div *ngIf="!link()" class="delete" (click)="supprimerAnnonce(annonce.id)">🗙</div>
