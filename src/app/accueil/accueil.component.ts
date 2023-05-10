@@ -9,12 +9,10 @@ import { Router } from '@angular/router';
 })
 export class AccueilComponent {
   
-  appComponent: any;
 
   constructor (private router: Router) {}
 
   ngOnInit() {
-    this.appComponent.isHomePage = true;
   }
 
 select() {

@@ -62,6 +62,7 @@ export class TokenService {
     }
     return true; // Autorise l'accès si le token est valide
   }
+  
   userIdOnToken():any {
     if(localStorage.getItem("token")){
       const token=this.getDecodedToken()
