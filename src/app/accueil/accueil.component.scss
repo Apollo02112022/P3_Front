@@ -86,8 +86,22 @@
             font-weight: 700;
             text-align: center;
             line-height: 1.2;
+            animation: clignoter 2s infinite;
+        }
+        
+        @keyframes clignoter {
+          0% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
         }
     }
+        
 
 
 /*media query*/
