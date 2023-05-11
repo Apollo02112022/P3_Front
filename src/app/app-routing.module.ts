@@ -10,6 +10,10 @@ import { LoginComponent } from './login/login.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { UserNotificationComponent } from './user-notification/user-notification.component';
 import { TokenService } from './services/token.service';
+import { MentionsComponent } from './mentions/mentions.component';
+import { PolitiqueComponent } from './politique/politique.component';
+import { CharteComponent } from './charte/charte.component';
+import { CguComponent } from './cgu/cgu.component';
 
 
 
@@ -28,6 +32,10 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: UserFormComponent},
   {path: 'users/:userid/notifications', component: UserNotificationComponent ,canActivate:[TokenService]},
+  {path: 'mentions', component: MentionsComponent},
+  {path: 'politique', component: PolitiqueComponent},
+  {path: 'charte', component: CharteComponent},
+  {path: 'cgu', component: CguComponent},
   {path:'**',redirectTo:'/accueil'}
 ];
 

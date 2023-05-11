@@ -23,6 +23,10 @@ import { UserCardComponent } from './userProfilModal/user-card/user-card.compone
 import { UserCardFormularComponent } from './userProfilModal/user-card/user-card-formular/user-card-formular.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { UserNotificationComponent } from './user-notification/user-notification.component';
+import { CguComponent } from './cgu/cgu.component';
+import { CharteComponent } from './charte/charte.component';
+import { MentionsComponent } from './mentions/mentions.component';
+import { PolitiqueComponent } from './politique/politique.component';
 
 
 @NgModule({
@@ -48,6 +52,10 @@ import { UserNotificationComponent } from './user-notification/user-notification
     UserAnnoucementComponent,
     HeaderComponent,
     UserNotificationComponent,
+    CguComponent,
+    CharteComponent,
+    MentionsComponent,
+    PolitiqueComponent,
    ],
    
   imports: [
