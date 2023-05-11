@@ -75,7 +75,9 @@ export class AnnoncesComponent implements OnInit {
   }
 
   // méthode pour sélectionner une annonce dans la liste
-  onSelectedAnnonce(id: number): void {
+  onSelectedAnnonce(annonce: any): void {
+    const id=annonce.id
+    this.annonceService.userAnnouncementId  = annonce.user.id
     console.log("Annonce sélectionnée :", id);
     // récupère l'annonce correspondant à l'ID spécifié
     this.annonceService.consultAnnonce(id).subscribe((annonce) => {
