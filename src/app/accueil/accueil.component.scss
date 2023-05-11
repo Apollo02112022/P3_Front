@@ -144,6 +144,7 @@
         background-color: rgb(201, 228, 216);
     }
 
+
     // .head {
         // display: flex;
         // width: 100%;
@@ -217,4 +218,15 @@
         // }
 //     }
 // }
-        }
+    } 
+
+    .rgpd {
+        display: flex;
+        justify-content:space-around;
+        text-align: center;
+       
+    } 
+    
+    .rgpd a {
+        color: white;
+    } 
