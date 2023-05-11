@@ -107,6 +107,21 @@ img {
     display: none; 
 }
 
+.cgu {
+    display: inline;
+    margin-top: 15px;
+    color: white;
+}
+
+span {
+     padding-left: 5px;
+}
+
+a {
+    color: white;
+}
+
+
 // Media queries 
 
 @media (min-width: 768px) {
@@ -155,5 +170,9 @@ img {
         justify-content: space-around;
         align-items: center;
     } 
+
+    .cgu, a {
+        color: black;
+    }
 
 } 

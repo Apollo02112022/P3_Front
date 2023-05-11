@@ -30,7 +30,9 @@ export class UserFormComponent {
 
   errorEmail = false;
 
-  close = false;
+  close = false; 
+
+  isChecked = false;
 
 
   constructor(private userService: UserService, private router: Router) {
@@ -117,10 +119,6 @@ export class UserFormComponent {
   closeBtn() {
     this.close = true;
     this.notRegistered = false;
-  }
-
-  toLogin() {
-    this.router.navigate(["/login"]);
   }
   
 }
