@@ -86,7 +86,8 @@
             font-weight: 700;
             text-align: center;
             line-height: 1.2;
-            animation: clignoter 1s infinite;
+
+            animation: clignoter 2s infinite;
         }
         
         @keyframes clignoter {
@@ -101,6 +102,7 @@
           }
         }
     }
+        
 
 
 /*media query*/
