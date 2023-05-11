@@ -1,13 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { TokenService } from './token.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ChangeMailService {
 
-    constructor(private http:HttpClient){}
+    constructor(private http:HttpClient,private token : TokenService){}
 
   // constante pour dire a Angular que les données retournées sont sous format Json
   httpOptions = {
@@ -15,8 +16,7 @@ export class ChangeMailService {
   };
 
     // ----------------constante pour l'exécution des appels api--------------//
-    userid: number = 1;
-    url: string = "http://localhost:8080/users/" + this.userid + "/profil";
+    url: string = "http://localhost:8080/users/" + this.token.userIdOnToken() + "/profil";
     //------------------------- section à modifier --------------------------// 
 
 // Méthode pour vérifier si le mail existe déjà dans la base de données

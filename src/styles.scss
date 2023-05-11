@@ -8,6 +8,10 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+ @font-face {
+  font-family: 'main';
+  src: url("/src/assets/fonts/Foldit-Black.ttf") format('truetype');
+}
 
  html {
     line-height: 1.15; /* 1 */
@@ -15,7 +19,6 @@
     box-sizing: border-box;
 
   }
-  
   /* Sections
      ========================================================================== */
   
@@ -31,7 +34,6 @@
 
   body {
     margin: 0;
-
   }
   
   /**
@@ -51,20 +53,7 @@
     font-size: 2em;
     margin: 0.67em 0;
   }
-  
-  /* Grouping content
-     ========================================================================== */
-  
-  /**
-   * 1. Add the correct box sizing in Firefox.
-   * 2. Show the overflow in Edge and IE.
-   */
-  
-  hr {
-    box-sizing: content-box; /* 1 */
-    height: 0; /* 1 */
-    overflow: visible; /* 2 */
-  }
+
   
   /**
    * 1. Correct the inheritance and scaling of font size in all browsers.
@@ -379,6 +368,10 @@
 .ai-center{
     align-items: center;
 }
+
+.ac-center {
+  align-content: center;
+}
 .ac-space-aound{
     align-content: space-around;
 }
@@ -393,3 +386,24 @@
     gap: 10px;
 }
 
+body {
+
+      background:url("/assets/background_mains_modifs.jpg");
+      width: 100%;
+      height: 100%;
+      background-size: 100%;
+      position: relative;
+      background-repeat: repeat;
+     
+    }
+    
+    @media only screen and (min-width: 768px) {
+  
+      body {
+        background: url("/assets/background_grey.jpg");
+        width: 100%;
+        background-size: 100%;
+        position: relative;
+    
+      }
+}

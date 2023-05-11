@@ -1,0 +1,11 @@
+<div class="notif_list">
+    <h1>liste de notifications</h1>
+
+    <div *ngFor="let notif of notifications">
+        <h2>Vous avez reçu un message</h2>
+        <p>{{notif.message}}</p>
+        <p>{{notif.mail}}</p>
+        <p>{{notif.tel}}</p>
+    </div>
+
+</div>

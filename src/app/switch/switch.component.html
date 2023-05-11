@@ -6,41 +6,41 @@
         <div *ngIf="!toggle" class="picture">
             <section class="example">
                 <div class="picture__annonce">
-                    <img src="../assets/photo_annonce.jpg"/>
+                    <img src="../assets/photo_annonce.jpg" alt="individu qui prend une photo"/>
                 </div>
-                <p>{{takePicture}}</p>
+                <p>Je mets en ligne mon<br>annonce en prenant en photo les aliments que je souhaite échanger.</p>
             </section>
             <section class="example">
                 <div class="picture__sms">
-                    <img src="../assets/sms.jpg" />
+                    <img src="../assets/sms.jpg" alt="individu qui échange par message"/>
                 </div>
-                <p>{{message}}</p>
+                <p>Je discute avec des particuliers qui sont intéréssés et nous convenons d'un rendez-vous.</p>
             </section>
             <section class="example">
                 <div class="picture__deal">
-                    <img src="../assets/deal_ok.jpg" />
+                    <img src="../assets/deal_ok.jpg" alt="échange effectué entre deux personnes qui se serrent les mains"/>
                 </div>
-                <p>{{deal}}</p>
+                <p>L’échange a été effectué, je fais un heureux ou une heureuse et moi aussi j'en profite !</p>
             </section>
         </div>
     <div *ngIf="toggle" class="picture">
         <section class="example">
             <div class="picture__annonce">
-                <img src="../assets/recherche.jpg" />
+                <img src="../assets/recherche.jpg" alt="individu qui consulte des annonces sur le téléphone"/>
             </div>
-            <p>{{search}}</p>
+            <p>Je trouve mon bonheur<br>parmi une multitude d’annonces.</p>
         </section>
         <section class="example">
             <div class="picture__sms">
-                <img src="../assets/appel.jpg" />
+                <img src="../assets/appel.jpg" alt="individu qui passe un appel téléphonique"/>
             </div>
-            <p>{{proposal}}</p>
+            <p>Je propose un échange, si il est accepté, nous convenons d'un rendez-vous.</p>
         </section>
         <section class="example">
             <div class="picture__deal">
-                <img src="../assets/panier.jpg" />
+                <img src="../assets/panier.jpg" alt="échange d'un panier de légumes entre deux personnes"/>
             </div>
-            <p>{{retrieve}}</p>
+            <p>Je récupère mes aliments et je fais un heureux ou une heureuse par la même occasion !</p>
         </section>
     </div>
 </main>

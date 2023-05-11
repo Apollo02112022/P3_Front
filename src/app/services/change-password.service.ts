@@ -1,11 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChangePasswordService {
+ 
+  constructor(private http: HttpClient,private token: TokenService) { }
 
   // constante pour dire a Angular que les données retournées sont sous format Json
   httpOptions = {
@@ -13,11 +16,8 @@ export class ChangePasswordService {
   };
 
   // ----------------constante pour l'exécution des appels api--------------//
-  userid: number = 1;
-  url: string = "http://localhost:8080/users/" + this.userid + "/profil";
+  url: string = "http://localhost:8080/users/" + this.token.userIdOnToken() + "/profil";
   //------------------------- section à modifier --------------------------// 
-
-  constructor(private http: HttpClient) { }
 
 
   // Méthode pour vérifier le mot de passe actuel dans la base de données

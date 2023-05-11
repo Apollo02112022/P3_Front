@@ -24,17 +24,17 @@ export class FileUploadComponent {
 
   selected = false;
 
-  // La ligne 27 définit une propriété onChange qui sera utilisée plus tard pour stocker une fonction de rappel qui 
+  // La ligne 30 définit une propriété onChange qui sera utilisée plus tard pour stocker une fonction de rappel qui 
   // sera appelée lorsque la valeur du champ changera.
 
-  onChange: any;
+  onChange!: Function;
   
-  // La ligne 32 définit une propriété file qui stockera le fichier sélectionné par 
+  // La ligne 35 définit une propriété file qui stockera le fichier sélectionné par 
   // l'utilisateur. Elle est initialisée à null pour indiquer qu'aucun fichier n'a été sélectionné.
 
   public file: File | null = null;
 
-  // La ligne 39 utilise le décorateur @HostListener pour écouter l'événement change sur le champ de fichier 
+  // La ligne 42 utilise le décorateur @HostListener pour écouter l'événement change sur le champ de fichier 
   // d'entrée. Lorsque l'événement se produit, la fonction emitFiles() est appelée. Cette fonction obtient le fichier sélectionné 
   // par l'utilisateur à partir de la liste de fichiers (FileList) de l'événement et appelle la fonction onChange() avec ce fichier. 
   // Elle stocke également le fichier dans la propriété file.
@@ -46,7 +46,7 @@ export class FileUploadComponent {
     this.selected = true;
   }
 
-  // La ligne 48 définit le constructeur de la classe. Le paramètre host 
+  // La ligne 52 définit le constructeur de la classe. Le paramètre host 
   // est un objet ElementRef qui contient une référence à l'élément DOM qui héberge le composant. Ce paramètre est injecté par Angular.
 
   constructor( private host: ElementRef<HTMLInputElement>) {

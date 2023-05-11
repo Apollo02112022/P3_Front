@@ -1,8 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Annonce } from '../models/annonce.model';
 import { Category } from '../models/category.model';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { TokenService } from "./token.service";
+import { switchMap } from 'rxjs/operators';
 
 // constante pour dire a Angular que les données retournées sont sous format Json
 const httpOptions = {
@@ -12,64 +15,105 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AnnonceService {
+
+  // injection de dependance  variable :http de type HttpClient dans constructor
+  constructor(private http: HttpClient, private router: Router, private token: TokenService) {
   
-
-
+  }
 
   // variable pour affecter Url de l'app back-end 
   apiURL: string = 'http://localhost:8080/barters';
-  apiURLAdd: string = 'http://localhost:8080/offer-a-barter?userid=1&categoryid=2';
+  apiURLAdd: string = 'http://localhost:8080/offer-a-barter?userid='+this.token.userIdOnToken();
   apiURLdetails: string = 'http://localhost:8080/barters/';
+  apiURLDelete:string = "http://localhost:8080/users/"+this.token.userIdOnToken()+"/"
   annonces!: Annonce[];//declaration de variable et tableau d'annonce'
+
+  announcementId:number | null= null;
+
   // category : Category[];//declaration de variable et tableau de categorie
-
-
-  // injection de dependance  variable :http de type HttpClient dans constructor
-  constructor(private http: HttpClient) {
-
-  }
-  // listeAnnonce() : Annonce[]{
-  //   return this.annonces}
+  userAnnouncement: string = "http://localhost:8080/users/" +this.token.userIdOnToken()+ "/barters";
 
 
   // retourne  tableau d'annonce de type observable 
   listeAnnonce(): Observable<Annonce[]> {
     return this.http.get<Annonce[]>(this.apiURL);
   }
- 
+
+  getImage(imageURL: string): Observable<Blob> {
+    return this.http.get(imageURL, { responseType: 'blob' });
+  }
+  // retourne  tableau d'annonce de type observable 
+  listeUserAnnonce(): Observable<Annonce[]> {
+
+    const token =  localStorage.getItem('token');
+
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}`});
+    const options = {
+      headers: headers
+    };
+
+    return this.http.get<Annonce[]>(this.userAnnouncement,options);
+
+  }
+
   // methode variable ann retourne une annonce Observable ajouter dans la bdd par l'API REST
-  addOneAnnonce(ann: Annonce): Observable<Annonce> {
-    return this.http.post<Annonce>(this.apiURLAdd, ann, httpOptions); //methode post transmet l'annonce "ann" sous format json "httpOptions" 
-  }
-  deleteAnnonce(annonce: Annonce) {
-    // supprime l'annonce du tableau annonces
-    const index = this.annonces.indexOf(annonce, 0);
-    if (index > -1) {
-      this.annonces.splice(index, 1);//sup 1 seule annonce
+  addOneAnnonce(ann: Annonce): Observable<ArrayBuffer> {
+    console.log("annonce :   " + ann.announcement_picture);
+    const token = localStorage.getItem("token");
+    const formData = new FormData(); // instance pour stoker les données de l'annonce
+    formData.append('announcement_picture', ann.announcement_picture);// ajout des 2 propriétés "announcement_picture" et "description",
+    formData.append('description', ann.description); //ajoutées à l'objet FormData avec la méthode "append".
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}`});
+    const options = {
+      headers: headers
+    };
+    console.log(options);
+    return this.http.post<any>(this.apiURLAdd, formData, options);
+  } 
+  
+  //méthode "post" de l'objet "http" pour envoyer les données vers l'API. Le retour de la méthode est un objet "Observable" de type Annonce
+  // qui est utilisé pour suivre l'état de la requête HTTP et renvoyer la réponse de l'API sous forme d'objet Annonce.
+
+  deleteAnnonce(annonceid: number) {
+    const url = this.apiURLDelete+"barters/"+annonceid;
+    const token = localStorage.getItem("token");
+    const options = {
+      method: 'DELETE',
+      headers: new Headers({
+        'Authorization': `Bearer ${token}`
+      }),
     }
-  }
-  consultAnnonce(id: number): Observable<Annonce> {
+
+      fetch(url, options)
+        .then(response => {
+          console.log(response)
+          location.reload();
+        })
+        .catch(err => {
+          console.log('test',err)
+        });
+      }
+  consultAnnonce(id: number): Observable<ArrayBuffer> {
     //ajout du parametre concatener / id a l url pour consulter une annonce par id 
-    const url = this.apiURLdetails +id;
-    console.log(url)
-    return this.http.get<Annonce>(url, httpOptions);
+    const url = this.apiURLdetails + id;
+    const token = localStorage.getItem("token");
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}`});
+    const options = {
+      headers: headers
+    };
+    console.log("options : " + options);
+    console.log("token pour details annonce " + token)
+    if (token == null) {
+      alert("Pour accèder, connectez-vous ou créez un compte.");
+      }
+      this.announcementId = id
+    return this.http.get<any>(url,options);
     // get retourne un objet de type annonce par l'url + id construite au dessus
   }
-
-
-    // methode pour trier les annonce par id
-  trierAnnonces() {
-    this.annonces = this.annonces.sort((n1, n2) => {
-      if (n1.id > n2.id) {
-        return 1;
-      }
-      if (n1.id < n2.id) {
-        return -1;
-      }
-      return 0;
-    });
+  getAnouncementPictureById(id: number): Observable<any> {
+    return this.http.get(`http://localhost:8080/barters/${id}/image`, { responseType: 'blob' });
   }
-
-
+  // methode get retourne un oservable de type  responseType: 'blob',pour spécifier que la réponse doit être traitée 
+  //comme des données binaires brutes.
 
 }

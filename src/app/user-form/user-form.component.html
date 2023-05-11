@@ -226,7 +226,7 @@
           </div>
 
           <div *ngIf="form.get('county')?.hasError('minlength')" class="error">
-            *Minimum 5 caractères.
+            *Minimum 3 caractères.
           </div>
 
           <div *ngIf="form.get('county')?.hasError('maxlength')" class="error">
@@ -355,6 +355,12 @@
 
     </div>
 
+    <div class="form__redirection">
+
+      <p>Déjà un compte ? <span class="form__redirection__link" (click)="toLogin()">connectez-vous</span></p>
+
+    </div>
+
   </form>
 
   <button class="form-btn" type="submit" (click)="onSubmitForm()" [disabled]="form.invalid">Créer mon
@@ -368,28 +374,46 @@
 
 <div class="window" *ngIf="registered">
 
-  <h2>Félicitations!</h2>
+  <h2>Félicitations !</h2>
 
   <img src="assets/icons/good.png" alt="smiley">
 
-  <p>Votre compte utilisateur a été créé avec succès! Vous faites désormais parti de la communauté des troqueurs!</p>
+  <p>Votre compte utilisateur a été créé avec succès ! Vous faites désormais parti de la communauté des trocoeurs !</p>
 
-  <button>Consulter les annonces</button>
+  <button [routerLink]="['/login']">Se connecter</button>
 
 </div>
 
 
 <div [ngClass]="{'disappear': close}">
 
-  <div class="wrong" *ngIf="notRegistered">
+  <div class="wrong" *ngIf="errorEmail">
 
-    <h2>Formulaire non valide!</h2>
+    <h2>Formulaire non valide !</h2>
 
     <img src="assets/icons/bad.png" alt="smiley">
 
-    <p>Votre adresse e-mail est déjà utilisée par un autre utilisateur et/ou votre pseudo est déjà utilisé par un autre
-      utilisateur.</p>
+    <p>Votre adresse e-mail est déjà utilisée par un autre utilisateur.</p>
 
     <button (click)="closeBtn()">Revenir au formulaire</button>
 
   </div>
+
+</div>
+
+
+<div [ngClass]="{'disappear': close}">
+
+  <div class="wrong" *ngIf="errorPseudo">
+
+    <h2>Formulaire non valide !</h2>
+
+    <img src="assets/icons/bad.png" alt="smiley">
+
+    <p>Votre pseudo est déjà utilisé par un autre utilisateur.</p>
+
+    <button (click)="closeBtn()">Revenir au formulaire</button>
+
+  </div>
+
+</div>

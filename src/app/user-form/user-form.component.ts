@@ -1,20 +1,13 @@
 import { Component } from '@angular/core';
-
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
-
 import { userValidator } from './validators/user.validator';  /*J'importe mon validator personnel pour le nom et le prénom.*/
-
 import { usernameValidator } from './validators/username.validator'; /*J'importe mon validator personnel pour le pseudo.*/
-
-import { pictureValidator } from './validators/picture.validator'; /*J'importe mon validator personnel pour la photo (format jpg uniquement).*/
-
+import { pictureValidator } from './validators/picture.validator'; /*J'importe mon validator personnel pour la photo (format png uniquement).*/
 import { numberValidator } from './validators/number.validator'; /*J'importe mon validator personnel pour le département.*/
-
 import { passwordValidator } from './validators/password.validator'; /*J'importe mon validator personnel pour le mot de passe.*/
-
 import { UserService } from './services/user.service'; /*J'importe mon service.*/
-
 import { toFormData } from '../formData';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -33,10 +26,14 @@ export class UserFormComponent {
 
   notRegistered = false;
 
+  errorPseudo = false;
+
+  errorEmail = false;
+
   close = false;
 
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
 
     // J'utilise la méthode group, en lui passant un objet :
 
@@ -52,7 +49,7 @@ export class UserFormComponent {
       picture: new FormControl("", [Validators.required, pictureValidator]),
       mail: new FormControl("", [Validators.required, Validators.email]),
       city: new FormControl("", [Validators.required, userValidator()]),
-      county: new FormControl("", [Validators.required, Validators.minLength(5), Validators.maxLength(5), numberValidator()]),
+      county: new FormControl("", [Validators.required, Validators.minLength(3), Validators.maxLength(5), numberValidator()]),
       password: new FormControl("", [Validators.required, Validators.minLength(8), passwordValidator]),
       confirmation: new FormControl("", [Validators.required, Validators.minLength(8), passwordValidator])
     },
@@ -99,9 +96,16 @@ export class UserFormComponent {
           this.registered = true;
         },
         error: (e) => {
-          console.error(e);
-          this.notRegistered = true;
-          this.close = false;
+          if (e.error.includes('adresse e-mail')) {
+            this.errorEmail = true;
+            this.close = false;
+          } else if (e.error.includes('pseudo')) {
+            this.errorPseudo = true;
+            this.close = false;
+          } else {
+            console.log(e);
+            this.notRegistered = true;
+          }
         }
       }
 
@@ -113,6 +117,10 @@ export class UserFormComponent {
   closeBtn() {
     this.close = true;
     this.notRegistered = false;
+  }
+
+  toLogin() {
+    this.router.navigate(["/login"]);
   }
   
 }

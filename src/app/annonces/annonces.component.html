@@ -1,25 +1,24 @@
-
-<body>
-  <div class="annonce-container">
-    <div class="textAnnDesktop">
-      <h2 class="titreAnn">Sur Trocoeurs,
-        consultez toutes nos offres de trocs, échangez
-        ou postez !</h2>
-    </div>
-    <div class="card-body">
-      <div class="cardAnnonceList" *ngFor="let annonce of annonces" (click)="onSelectedAnnonce(annonce.id)">
-        <div hidden class="id">
-          <h3>Id</h3>
-          <p>{{annonce.id}}</p>
-        </div>
-        <div class="imageAnnonce"><img src="assets/bell-peppers.jpg" alt="image annonce">
-        </div>
-        <div class="descriptionAnnonce">
-          <h3>Description :</h3>
-          <p>{{annonce.description}}</p>
-        </div>
+<div class="annonce-container">
+  <div class="textAnnDesktop">
+    <h2 *ngIf="link()" class="titreAnn">Sur Trocoeurs,<br>
+      consultez toutes nos offres de trocs, échangez
+      ou postez !</h2>
+    <h2 *ngIf="!link()" class="titreAnn">Voici vos propositions d'échange , vous pouvez les consulter ou les supprimer
+      !</h2>
+  </div>
+  <div class="card-body">
+    <div class="cardAnnonceList" *ngFor="let annonce of annonces">
+      <div hidden class="id" (click)="onSelectedAnnonce(annonce.id)">
+        <h3>Id</h3>
+        <p>{{annonce.id}}</p>
       </div>
+      <div class="imageAnnonce" (click)="onSelectedAnnonce(annonce.id)"><img [src]="annonce.imageUrl" alt="Image de l'annonce">
+      </div>
+      <div class="descriptionAnnonce" (click)="onSelectedAnnonce(annonce.id)">
+        <h3>Description :</h3>
+        <p>{{annonce.description}}</p>
+      </div>
+      <div *ngIf="!link()" class="delete" (click)="supprimerAnnonce(annonce.id)">🗙</div>
     </div>
   </div>
-</body>
-
+</div>

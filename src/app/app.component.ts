@@ -1,6 +1,10 @@
-import { HashLocationStrategy } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { NotificationService } from './services/notification.service';
+import { Notification } from './models/notification.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -8,7 +12,7 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'P3_Front';
 
 
 }
+  
