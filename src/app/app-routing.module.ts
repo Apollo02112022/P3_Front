@@ -27,7 +27,7 @@ const routes: Routes = [
   {path: 'users/:userid/barters', component: AnnoncesComponent,canActivate:[TokenService]},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: UserFormComponent},
-  {path: 'users/notification', component: UserNotificationComponent ,canActivate:[TokenService]},
+  {path: 'users/:userid/notifications', component: UserNotificationComponent ,canActivate:[TokenService]},
   {path:'**',redirectTo:'/accueil'}
 ];
 
