@@ -1,12 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-// import jwtDecode, * as jwt_decode from 'jwt-decode';
 import { AnnonceService } from '../services/annonce.service';
 import { Location } from '@angular/common';
 import { TokenService } from '../services/token.service';
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -53,6 +51,8 @@ export class FooterComponent implements OnInit {
   hidden() {
     return this.router.url === '/' || this.router.url === '/accueil';
   }
+
+
 
   startStream(){
     // requête GET pour se connecter au serveur SSR

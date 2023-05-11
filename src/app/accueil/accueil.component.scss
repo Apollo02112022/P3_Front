@@ -1,6 +1,7 @@
     .main {
         background: url("/assets/opacity.jpg") no-repeat center center fixed;
         background-size: cover;
+        
         position: relative;
     }
 
@@ -63,31 +64,32 @@
         background-color: rgba(49, 48, 48, 0.4);
         backdrop-filter: blur(2px);
         min-height: 70px;
-
-        &__how {
-            width: 100vw;
-            min-height: 50%;
-            color: white;
-            font-size: 20px;
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 700;
-            text-align: center;
-            line-height: 1.2;
-        }
-
-        &__consult {
-            width: 100vw;
-            min-height: 50%;
-            color: white;
-            font-size: 20px;
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 700;
-            text-align: center;
-            line-height: 1.2;
-        }
     }
+
+        .how {
+            width: 100vw;
+            min-height: 50%;
+            color: white;
+            font-size: 20px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .consult {
+            width: 100vw;
+            min-height: 50%;
+            color: white;
+            font-size: 20px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.2;
+        }
+    
 
 
 /*media query*/
@@ -97,10 +99,12 @@
 //     display: none;
 //     // background: none;
 // }
-    .accueil, * {
+    .accueil {
         width: 100%;
         height: 100%;
-        background-color: rgb(201, 228, 216);
+        // background-color: rgb(201, 228, 216);
+        position: relative;
+        z-index: 2;
         // background: url("/assets/background_mains.jpg") no-repeat fixed;
 
     }
@@ -125,9 +129,16 @@
     }   
 
     .suite {
-        margin: 0;
-        background-color: rgb(201, 228, 216);
+        // background-color: transparent;
+        // backdrop-filter: none
+
     }
+      
+    .how {
+            // height: 100px;
+            // width: 100px;
+        }
+    
 
     // .head {
         // display: flex;
