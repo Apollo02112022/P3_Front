@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NotificationService } from '../services/notification.service';
 import { Notification } from '../models/notification.model';
 import { TokenService } from '../services/token.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-user-notification',
@@ -22,7 +23,7 @@ export class UserNotificationComponent implements OnInit{
   ngOnInit(): void {
 
        
-    const apelApi = "http://localhost:8080/notifications/"+this.token.userIdOnToken();
+    const apelApi = environment.apiUrlNotification+this.token.userIdOnToken();
 
     const token = localStorage.getItem("token");
     const header = new Headers({ 'Authorization': `Bearer ${token}` });

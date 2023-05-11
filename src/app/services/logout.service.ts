@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class LogoutService {
       headers: header,
       method: 'POST',
     };
-    fetch("http://localhost:8080/custumLogout", options)
+    fetch(environment.apiUrlLogout, options)
       .then(res => res.json())
       .then(response => {
         console.log(response);
