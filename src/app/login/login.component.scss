@@ -25,7 +25,6 @@
 
     .connexion, .btn {
         height: 7%;
-        width: 40%;
         background: $color-bc;
         color: $color-font;
         border: 0.313em solid $color-border;
@@ -34,6 +33,9 @@
         align-items: center;
         @include border-radius(1.25em);
         font-weight: bold;
+    }
+    .connexion{
+        padding: 0 10px 0 10px
     }
 
 
@@ -47,9 +49,9 @@
         background-color: $color-bc-login;
         backdrop-filter: blur(0.125em);
         
-            &__mdp {
-                margin-bottom: 2.5em;
-            }
+            // &__mdp {
+            //     margin-bottom: 2.5em;
+            // }
 
         @media (min-width: 768px) { 
             display: flex;
@@ -79,7 +81,7 @@
     }
 
     .btn {
-        width: 35%;
+        // width: 35%;
         font-size: 1.25em;
     }
 

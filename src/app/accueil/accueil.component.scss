@@ -88,6 +88,19 @@
             font-weight: 700;
             text-align: center;
             line-height: 1.2;
+            animation: clignoter 2s infinite;
+        }
+        
+        @keyframes clignoter {
+          0% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
         }
     
 
@@ -139,6 +152,7 @@
             // width: 100px;
         }
     
+
 
     // .head {
         // display: flex;
@@ -213,4 +227,15 @@
         // }
 //     }
 // }
-        }
+    } 
+
+    .rgpd {
+        display: flex;
+        justify-content:space-around;
+        text-align: center;
+       
+    } 
+    
+    .rgpd a {
+        color: white;
+    } 

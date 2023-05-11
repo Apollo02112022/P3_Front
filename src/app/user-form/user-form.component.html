@@ -355,15 +355,14 @@
 
     </div>
 
-    <div class="form__redirection">
+  </form> 
 
-      <p>Déjà un compte ? <span class="form__redirection__link" (click)="toLogin()">connectez-vous</span></p>
+  <div class="cgu">
+    <input type="checkbox" [(ngModel)]="isChecked" [disabled]="form.invalid">
+    <span>J'accepte les <a href='/cgu'>CGU</a>.</span>
+  </div>
 
-    </div>
-
-  </form>
-
-  <button class="form-btn" type="submit" (click)="onSubmitForm()" [disabled]="form.invalid">Créer mon
+  <button class="form-btn" type="submit" (click)="onSubmitForm()" [disabled]="!isChecked">Créer mon
     compte</button>
   <!-- Pour empêcher l'utilisateur d'envoyer le formulaire s'il n'est pas valable, je lie l'attribut  disabled  
     du bouton Créer mon compte à l'attribut  invalid  du FormGroup. Si le formulaire n'est pas valable, le bouton 

@@ -1,0 +1,21 @@
+h1 {
+    text-align: center;
+} 
+
+.box1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__box2 {
+        height:auto;
+        width: 1000px;
+        text-align: justify;
+        margin-bottom: 40px;
+        background: rgba(49, 48, 48, 0.4);
+        backdrop-filter: blur(2px);
+        border-radius: 20px;
+        color: white;
+        padding: 10px;
+    }
+} 
