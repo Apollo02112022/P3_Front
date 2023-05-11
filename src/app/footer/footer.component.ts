@@ -50,6 +50,14 @@ export class FooterComponent implements OnInit {
     
   }
 
+  userNotificationNav(){
+    this.router.navigate(['users',this.token.userIdOnToken(),'notifications'])
+  }
+
+  userProfilNav(){
+    this.router.navigate(['users',this.token.userIdOnToken(),'profil'])
+  }
+
   hidden() {
     return this.router.url === '/' || this.router.url === '/accueil';
   }
@@ -67,27 +75,6 @@ export class FooterComponent implements OnInit {
 
 
   }
-  // ng OnInit
-
-      
-  //   }); 
-  //   this.eventSource = new EventSource('http://localhost:8080/streamMessages');
-  //   this.eventSource.addEventListener('message', (event: MessageEvent) => {
-  //     console.log(event.data);
-  //     this.messages.push(event.data);
-  //   }, false);
-  //   this.eventSource.addEventListener('error', (event: Event) => {
-  //     console.error('Error connecting to SSE stream', event);
-  //   }, false);   
-  // }
-
-  // ngOnDestroy(): void {
-  //   this.eventSource?.close();
-  // }
-  
-    // if (this.router.url === '/' || this.router.url === '/accueil') {
-    //   this.hidden = false;
-    // } else (this.router.url === '/barters' || this.router.url === '/offer-a-barter');
 
   
   
@@ -96,4 +83,4 @@ export class FooterComponent implements OnInit {
   this.location.back();
 }
 
-  }
+}

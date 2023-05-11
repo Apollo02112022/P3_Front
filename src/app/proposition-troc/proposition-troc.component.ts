@@ -20,12 +20,13 @@ export class PropositionTrocComponent implements OnInit {
   constructor(private router: Router, private notificationService: NotificationService,private token : TokenService, private annonceService : AnnonceService) { }
 
   ngOnInit() {
+
   }
 
 
   
   addNotif() {
-    const apiUrl = `http://localhost:8080/postMessage?userAnnounceId=${this.annonceService.announcementId}`;
+    const apiUrl = `http://localhost:8080/postMessage?userAnnounceId=${this.annonceService.userAnnouncementId}`;
     const token = localStorage.getItem('token');
     const message = this.newNotification.message;
     const tel = this.newNotification.tel;
