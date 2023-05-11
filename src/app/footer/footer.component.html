@@ -1,5 +1,5 @@
-<footer *ngIf="hiddenFooter">
-    <div class="icons">
+
+    <div *ngIf="hiddenFooter" class="icons footer" >
         <img (click)="backClick()" src="assets/icons/fleche-cercle-gauche.png" alt="flêche pour retour page précédente">
         <img routerLink="/accueil" src="assets/icons/maison.png" alt="retour accueil">
         <img routerLink="/offer-a-barter" src="assets/icons/ajouter.png" alt="créer une annonce">
@@ -7,14 +7,17 @@
                 <div *ngIf="messages.length" class="number">
                     {{messages.length}}
                 </div>
-                <img  routerLink='users/:userid/notifications' src="assets/icons/bell.png" alt="consulter notification"> 
+                <img  (click)="userNotificationNav()" src="assets/icons/bell.png" alt="consulter notification"> 
             </div>
-        <img routerLink="/users/:userid/profil" src="assets/icons/utilisateur-du-cercle.png" alt="consulter profil">     
+        <img (click)="userProfilNav()" src="assets/icons/utilisateur-du-cercle.png" alt="consulter profil">     
     </div>
-    <!-- <div class="icons_desktop">
+    <div class="icons_desktop">
+        <p>
+            Je rejoins la communauté Trocoeurs
+        </p>
         <img src="assets/icons/facebook.png" alt="logo facebook">
         <img src="assets/icons/twitter.png" alt="logo twitter">
         <img src="assets/icons/pinterest.png" alt="logo pinterest">
         <img src="assets/icons/instagramm.png" alt="logo instagram">
-    </div> -->
-</footer>
+    </div>
+

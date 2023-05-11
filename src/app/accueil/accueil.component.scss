@@ -1,6 +1,7 @@
     .main {
         background: url("/assets/opacity.jpg") no-repeat center center fixed;
         background-size: cover;
+        
         position: relative;
     }
 
@@ -63,8 +64,9 @@
         background-color: rgba(49, 48, 48, 0.4);
         backdrop-filter: blur(2px);
         min-height: 70px;
+    }
 
-        &__how {
+        .how {
             width: 100vw;
             min-height: 50%;
             color: white;
@@ -76,7 +78,7 @@
             line-height: 1.2;
         }
 
-        &__consult {
+        .consult {
             width: 100vw;
             min-height: 50%;
             color: white;
@@ -86,7 +88,6 @@
             font-weight: 700;
             text-align: center;
             line-height: 1.2;
-
             animation: clignoter 2s infinite;
         }
         
@@ -101,8 +102,7 @@
             opacity: 1;
           }
         }
-    }
-        
+    
 
 
 /*media query*/
@@ -112,10 +112,12 @@
 //     display: none;
 //     // background: none;
 // }
-    .accueil, * {
+    .accueil {
         width: 100%;
         height: 100%;
-        background-color: rgb(201, 228, 216);
+        // background-color: rgb(201, 228, 216);
+        position: relative;
+        z-index: 2;
         // background: url("/assets/background_mains.jpg") no-repeat fixed;
 
     }
@@ -139,82 +141,29 @@
 
     }   
 
-    .suite {
-        margin: 0;
-        background-color: rgb(201, 228, 216);
-    }
+    // .suite {
+        // background-color: transparent;
+        // backdrop-filter: none
 
-    // .head {
-        // display: flex;
-        // width: 100%;
-        // height: 30vh;
-        // background: url("/assets/background_mains.jpg") no-repeat center fixed;
-        // position: relative;
+    // }
+      
+    // .how {
+            // height: 100px;
+            // width: 100px;
+        // }
+    
+
+
+   
+    } 
+
+    .rgpd {
+        display: flex;
+        justify-content:space-around;
+        text-align: center;
        
-        // background-color: #A6D1BD;
-        // height: 60vh;
-        // background-color: yellow;
-        // flex-wrap: wrap;
-        // flex-direction: row;
-        // justify-content: center;
-        // position: absolute;
-
-        // &__citrouille {
-        //     width: 480px;
-        //     height: 210px;
-        //     left: 0px;
-        //     top: 0px;
-        //     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-        //     backdrop-filter: blur(2px);
-        // }
-
-        // &__fraise {
-        //     width: 480px;
-        //     height: 210px;
-        //     left: 480px;
-        //     top: 0px;
-        //     background-blend-mode: luminosity;
-        //     backdrop-filter: blur(2px);
-        // }
-
-        // &__pain {
-        //     width: 480px;
-        //     height: 210px;
-        //     left: 960px;
-        //     top: 0px;
-        //     backdrop-filter: blur(2px);
-        // }
-
-        // &__pdt {
-        //     width: 480px;
-        //     height: 210px;
-        //     left: 0px;
-        //     top: 210px;
-        //     background-blend-mode: luminosity;
-        //     backdrop-filter: blur(2px);
-        // }
-
-        // &__tomate {
-        //     width: 480px;
-        //     height: 210px;
-        //     left: 480px;
-        //     top: 210px;
-        //     backdrop-filter: blur(2px);
-        // }
-
-        // &__myrtille {
-        //     width: 480px;
-        //     height: 210px;
-        //     left: 960px;
-        //     top: 210px;
-        //     background-blend-mode: luminosity;
-        //     backdrop-filter: blur(2px);
-        // }
-
-        // .head img {
-        //     width: 100%;
-        //     background-color: #A6D1BD;
-        // }
-//     }
-// }
-        }
+    } 
+    
+    .rgpd a {
+        color: white;
+    } 
