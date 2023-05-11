@@ -44,7 +44,9 @@ export class AnnonceService {
   }
   // retourne  tableau d'annonce de type observable 
   listeUserAnnonce(): Observable<Annonce[]> {
-    const token = localStorage.getItem("token");
+
+    const token =  localStorage.getItem('token');
+
     const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}`});
     const options = {
       headers: headers
@@ -81,6 +83,7 @@ export class AnnonceService {
         'Authorization': `Bearer ${token}`
       }),
     }
+
       fetch(url, options)
         .then(response => {
           console.log(response)
