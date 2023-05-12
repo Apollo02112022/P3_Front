@@ -69,7 +69,15 @@ export class LoginComponent {
     console.log(userId);
     console.log(sub);
   }
+<<<<<<< HEAD
 toSignup(){
   this.router.navigate(["/signup"])
 }
+=======
+  toSignup() {
+    this.router.navigate(["/signup"]);
+  }
+
+
+>>>>>>> 8e3c2c920ff67128ca8089d7ab4abdeca59264ad
 }
