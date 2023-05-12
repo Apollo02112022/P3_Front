@@ -4,7 +4,7 @@
 
 @media (min-width: 769px) {
     .icons_desktop {
-        height: 50px;
+        height: 55px;
         background: white;
         display: flex;
         align-items: center;
@@ -40,12 +40,24 @@
     }
     
     .logo {
-        width: 30px;
+        width: 32px;
+        display: flex;
+        margin-right: auto;
+        margin-left: 10px;
+
     }
-    .icons img {
-        width: 15px;
-        height: 15px;
-        // margin-right: 35px;
+    
+    img {
+       height: 29px; 
+       display: flex;
+       align-items: center;
+    margin-right: 10rem;
+    margin-left: 8rem;
     }
-       
+
+    .title {
+        text-align: left;
+        font-size: 18px;
+        color: rgb(81, 81, 81)
+    }
 }
