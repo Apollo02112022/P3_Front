@@ -37,7 +37,8 @@ const routes: Routes = [
   {path: 'politique', component: PolitiqueComponent},
   {path: 'charte', component: CharteComponent},
   {path: 'cgu', component: CguComponent},
-  {path: 'users', component: ProfilAdminComponent},
+  {path: 'admin/users', component: ProfilAdminComponent},
+  {path: 'admin/users/:userid/barters', component: AnnoncesComponent},
   {path:'**',redirectTo:'/accueil'}
 ];
 

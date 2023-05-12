@@ -13,7 +13,7 @@
       <li>E-mail : {{ user.mail }}</li>
     </ul>
   
-    <button class="btn">Annonces de l'utilisateur</button> <br>
+    <button class="btn" (click)="findUserBarters(user?.id)">Annonces de l'utilisateur</button> <br>
 
     <button class="btn" (click)="eraseUser(user.id)">Supprimer l'utilisateur</button>
 
