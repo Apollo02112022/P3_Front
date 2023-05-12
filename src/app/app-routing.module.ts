@@ -14,6 +14,7 @@ import { MentionsComponent } from './mentions/mentions.component';
 import { PolitiqueComponent } from './politique/politique.component';
 import { CharteComponent } from './charte/charte.component';
 import { CguComponent } from './cgu/cgu.component';
+import { ProfilAdminComponent } from './profil-admin/profil-admin.component';
 
 
 
@@ -36,6 +37,7 @@ const routes: Routes = [
   {path: 'politique', component: PolitiqueComponent},
   {path: 'charte', component: CharteComponent},
   {path: 'cgu', component: CguComponent},
+  {path: 'users', component: ProfilAdminComponent},
   {path:'**',redirectTo:'/accueil'}
 ];
 
