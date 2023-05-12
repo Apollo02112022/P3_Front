@@ -26,6 +26,6 @@ export class ProfilAdminComponent implements OnInit{
     location.reload();
   } 
 
-
+  
 
 }
