@@ -47,7 +47,7 @@
         display:flex;
         align-items: center;
         justify-content: space-evenly;
-        height: 40px;
+        height: 55px;
         background: white;
 
         
@@ -58,15 +58,20 @@
     }
 
     img {
-        height: 25px;
+        height: 35px;
         margin-right: 35px;
+    }
+
+    .facebook, .twitter {
+        height: 42px;
     }
 
     p {
         display: flex;
         align-items: center;
-        margin-left: 15px;
-        margin-right: 20px;
+        margin-left: 0;
+        margin-right: 40px;
+        font-size: 18px;
         color: rgb(81, 81, 81)
     }
 
