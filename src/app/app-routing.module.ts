@@ -13,8 +13,8 @@ import { MentionsComponent } from './mentions/mentions.component';
 import { PolitiqueComponent } from './politique/politique.component';
 import { CharteComponent } from './charte/charte.component';
 import { CguComponent } from './cgu/cgu.component';
-import { RoutesGuard } from './routes.guard';
 import { LoginGuard } from './login.guard';
+import { RoutesGuard } from './routes.guard';
 
 
 
