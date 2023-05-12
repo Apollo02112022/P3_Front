@@ -4,6 +4,7 @@ import { AnnonceService } from '../services/annonce.service';
 import { Category } from '../models/category.model';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
+import { TokenService } from '../services/token.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class AnnoncesComponent implements OnInit {
   annonces!: Annonce[];//tableau d'annonces
   annonceSelectionnee!: ArrayBuffer;
 
-  constructor(private annonceService: AnnonceService, private router: Router) {
+  constructor(private annonceService: AnnonceService, private router: Router,private token : TokenService) {
 
   }
   // ngOnInit recupère les annonces à partir de annonceService
@@ -26,6 +27,8 @@ export class AnnoncesComponent implements OnInit {
 
 
     this.link();
+
+    this.token.userIdOnToken()
 
     if (this.router.url === `/barters`) {
 
