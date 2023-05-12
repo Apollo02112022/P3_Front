@@ -2,10 +2,15 @@
     <h1>liste de notifications</h1>
 
     <div *ngFor="let notif of notifications">
-        <h2>Vous avez reçu un message</h2>
-        <p>{{notif.message}}</p>
-        <p>{{notif.mail}}</p>
-        <p>{{notif.tel}}</p>
+        
+        <div class="card">
+            <h2>Vous avez reçu un message</h2>
+            <ul>
+                <li>{{notif.message}}</li>
+                <li>{{notif.mail}}</li>
+                <li>{{notif.tel}}</li>
+            </ul>
+        </div>
     </div>
 
 </div>

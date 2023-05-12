@@ -105,6 +105,7 @@ export class AnnonceService {
     console.log("token pour details annonce " + token)
     if (token == null) {
       alert("Pour accèder, connectez-vous ou créez un compte.");
+      this.router.navigate(['login'])
       }
     return this.http.get<any>(url,options);
     // get retourne un objet de type annonce par l'url + id construite au dessus
