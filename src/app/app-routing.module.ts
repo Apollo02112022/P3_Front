@@ -9,12 +9,14 @@ import { PropositionTrocComponent } from './proposition-troc/proposition-troc.co
 import { LoginComponent } from './login/login.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { UserNotificationComponent } from './user-notification/user-notification.component';
-import { TokenService } from './services/token.service';
 import { MentionsComponent } from './mentions/mentions.component';
 import { PolitiqueComponent } from './politique/politique.component';
 import { CharteComponent } from './charte/charte.component';
 import { CguComponent } from './cgu/cgu.component';
 import { ProfilAdminComponent } from './profil-admin/profil-admin.component';
+import { LoginGuard } from './login.guard';
+import { RoutesGuard } from './routes.guard';
+
 
 
 
@@ -24,15 +26,15 @@ const routes: Routes = [
   {path:'accueil', component: AccueilComponent},
   {path :'barters', component : AnnoncesComponent},
   //canActivate:[TokenService] donne l'acces à la page uniquement si token valid
-  {path :"offer-a-barter", component : AddAnnonceComponent,canActivate:[TokenService]},
-  {path :"barters/:id", component : DetailsAnnonceComponent,canActivate:[TokenService]},
-  {path :"proposal_deal/:id", component :PropositionTrocComponent,canActivate:[TokenService]},
-  {path: 'users/:userid/profil', component: UserCardComponent,canActivate:[TokenService]},
-  {path: 'users/:userid/profil/update', component: UserCardComponent,canActivate:[TokenService]},
-  {path: 'users/:userid/barters', component: AnnoncesComponent,canActivate:[TokenService]},
-  {path: 'login', component: LoginComponent},
-  {path: 'signup', component: UserFormComponent},
-  {path: 'users/:userid/notifications', component: UserNotificationComponent ,canActivate:[TokenService]},
+  {path :"offer-a-barter", component : AddAnnonceComponent,canActivate:[RoutesGuard]},
+  {path :"barters/:id", component : DetailsAnnonceComponent,canActivate:[RoutesGuard]},
+  {path :"proposal_deal/:id", component :PropositionTrocComponent,canActivate:[RoutesGuard]},
+  {path: 'users/:userid/profil', component: UserCardComponent,canActivate:[RoutesGuard]},
+  {path: 'users/:userid/profil/update', component: UserCardComponent,canActivate:[RoutesGuard]},
+  {path: 'users/:userid/barters', component: AnnoncesComponent,canActivate:[RoutesGuard]},
+  {path: 'login', component: LoginComponent,canActivate:[LoginGuard]},
+  {path: 'signup', component: UserFormComponent,canActivate:[LoginGuard]},
+  {path: 'users/:userid/notifications', component: UserNotificationComponent ,canActivate:[RoutesGuard]},
   {path: 'mentions', component: MentionsComponent},
   {path: 'politique', component: PolitiqueComponent},
   {path: 'charte', component: CharteComponent},

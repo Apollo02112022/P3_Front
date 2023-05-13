@@ -1,6 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Annonce } from '../models/annonce.model';
-import { Category } from '../models/category.model';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -31,7 +30,6 @@ export class AnnonceService {
 
   userAnnouncementId:number | null= null;
 
-  // category : Category[];//declaration de variable et tableau de categorie
   userAnnouncement: string = "http://localhost:8080/users/" +this.token.userIdOnToken()+ "/barters";
 
 
@@ -117,6 +115,7 @@ export class AnnonceService {
     console.log("token pour details annonce " + token)
     if (token == null) {
       alert("Pour accèder, connectez-vous ou créez un compte.");
+      this.router.navigate(['login'])
       }
     return this.http.get<any>(url,options);
     // get retourne un objet de type annonce par l'url + id construite au dessus

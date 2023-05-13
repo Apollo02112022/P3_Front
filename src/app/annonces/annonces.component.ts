@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Annonce } from '../models/annonce.model';
 import { AnnonceService } from '../services/annonce.service';
-import { Category } from '../models/category.model';
 import { Router } from '@angular/router';
 
 
@@ -95,6 +94,7 @@ export class AnnoncesComponent implements OnInit {
       // stocke l'annonce sélectionnée dans une variable annonce
       this.annonceSelectionnee = annonce;
       console.log("Annonce sélectionnée :", annonce);
+      
       //retour versla page annonces
       this.router.navigate(['barters', id]);
     });

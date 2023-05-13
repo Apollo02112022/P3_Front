@@ -7,6 +7,7 @@
     justify-content: space-around;
     align-items: center;
     font-size: 1.25em;
+    color: $color-font;
      
     
     &__redirection {
@@ -37,7 +38,6 @@
     .connexion{
         padding: 0 10px 0 10px
     }
-
 
     .login {
         @include display-flex-col;

@@ -1,2 +1,36 @@
-<p *ngIf="hidden">header works!</p>
+<div *ngIf="hiddenHeader" class="icons_desktop">
+    <div class="flex row jc-center ai-center">
+        <div>
 
+            <img class="logo" src="assets/icons/sers_mains.png">
+        </div>
+        <div>
+
+            <p class="title">Trocoeurs</p>
+        </div>
+    </div>
+    <div>
+        <img (click)="backClick()" src="assets/icons/fleche-cercle-gauche.png" alt="flêche pour retour page précédente">
+    </div>
+    <div>
+
+        <img routerLink="/accueil" src="assets/icons/maison.png" alt="retour accueil">
+    </div>
+    <div>
+
+        <img routerLink="/offer-a-barter" src="assets/icons/ajouter.png" alt="créer une annonce">
+    </div>
+    <div class="notification">
+        <div *ngIf="messages.length" class="number">
+            {{messages.length}}
+        </div>
+        <div>
+            <img (click)="userNotificationNav()" src="assets/icons/bell.png" alt="consulter notification">
+        </div>
+    </div>
+    <div>
+
+        <img (click)="userProfilNav()" src="assets/icons/utilisateur-du-cercle.png" alt="consulter profil">
+    </div>
+
+</div>

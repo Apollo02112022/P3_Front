@@ -1,3 +1,11 @@
+.annonce-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .cardAnnonceList {
   display: flex;
   width: 300px;
@@ -56,8 +64,8 @@
 @media only screen and (min-width: 768px) {
   .card-body {
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-columns:  1fr;
     row-gap: 40px;
     column-gap: 10px;
 
@@ -72,14 +80,29 @@
 
   .textAnnDesktop {
     display: flex;
+    min-width: 400px;
     text-align: center;
     justify-content: center;
     color: white;
     border-radius: 20px;
     background-color: rgba(49, 48, 48, 0.4);
     backdrop-filter: blur(2px);
-    margin: 20px 350px 20px 350px;
+    padding: 10px;
+    max-width: 70%;
+    margin-bottom: 20px;
   }
 
- 
+  
+  
+}
+@media only screen and (min-width: 1024px) {
+  .card-body {
+    margin-top: 100px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px;
+    column-gap: 5vw;
+
+  }
 }
