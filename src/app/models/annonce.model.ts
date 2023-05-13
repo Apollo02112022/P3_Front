@@ -1,4 +1,4 @@
-import { Category } from "./category.model";
+
 
 export class Annonce {
     id!: number;
@@ -6,5 +6,4 @@ export class Annonce {
     description!: string;
     dateCreation!: Date;
     imageUrl?:string;
-    // category!: Category;
-}
+  }
