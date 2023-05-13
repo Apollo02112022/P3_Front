@@ -13,7 +13,7 @@ export class LoginGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     
       if (localStorage.getItem("token")) {
-        this.router.navigate(['users/{userid}/profil']); // Redirige l'utilisateur vers la page de connexion si le token est invalide
+        this.router.navigate(['users',this.tokenService.userIdOnToken(),'profil']); // Redirige l'utilisateur vers la page de connexion si le token est invalide
         return false;
       }
       return true; // Autorise l'accès si le token est valide
