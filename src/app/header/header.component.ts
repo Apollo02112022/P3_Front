@@ -4,6 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { AnnonceService } from '../services/annonce.service';
 import { TokenService } from '../services/token.service';
 import { Location } from '@angular/common';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-header',
@@ -25,7 +26,7 @@ export class HeaderComponent implements OnInit {
   isStreamOn:boolean = false;
 
   // constructor(private router: Router) {}
-  constructor(private http: HttpClient,private router: Router,private annonceService: AnnonceService,private location: Location, private token :TokenService) {}
+  constructor(private http: HttpClient,private router: Router,private annonceService: AnnonceService,private location: Location, private token :TokenService,private notifService : NotificationService) {}
   
   ngOnInit() {
 
@@ -64,20 +65,10 @@ export class HeaderComponent implements OnInit {
 
 
   startStreamMessage(){
-    // requête GET pour se connecter au serveur SSR
-    const eventSource = new EventSource(`http://localhost:8080/streamMessages?userId=`+this.token.userIdOnToken());
 
-    // écoute les évènements SSE et ajoute les messages reçus à la liste
-    eventSource.addEventListener('message', (event: MessageEvent) => {
-      const message = event.data;
-      this.messages.push(message);
-      console.log("&&&&&&&&&&&&&&&&&&&&& messages", message);
-    });
-
+   this.messages = this.notifService.messages
 
   }
-
-  
   
     //methode retour page precedente
  backClick() {

@@ -11,11 +11,11 @@
         justify-content: space-around;
     }
 
-    .icons {
+    // .icons {
     
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
        
         
         .notification {
@@ -37,7 +37,8 @@
             }
         }
     
-    }
+    // }
+
     
     .logo {
         width: 32px;
@@ -47,13 +48,13 @@
 
     }
     
-    img {
-       height: 29px; 
-       display: flex;
-       align-items: center;
-    // margin-right: 10rem;
-    // margin-left: 8rem;
-    }
+    // img {
+    //    height: 29px; 
+    //    display: flex;
+    //    align-items: center;
+    // // margin-right: 10rem;
+    // // margin-left: 8rem;
+    // }
 
     .title {
         text-align: left;

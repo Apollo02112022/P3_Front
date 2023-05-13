@@ -1,50 +1,48 @@
+<div *ngIf="hiddenFooter" class="icons footer">
+    <div class="icon">
 
-    <div *ngIf="hiddenFooter" class="icons footer" >
-        <div class="icon">
-
-            <img (click)="backClick()" src="assets/icons/fleche-cercle-gauche.png" alt="flêche pour retour page précédente">
-        </div>
-        <div class="icon">
-
-            <img routerLink="/accueil" src="assets/icons/maison.png" alt="retour accueil">
-        </div>
-        <div class="icon">
-
-            <img routerLink="/offer-a-barter" src="assets/icons/ajouter.png" alt="créer une annonce">
-        </div>
-            <div class="notification">
-                <div *ngIf="messages.length" class="number">
-                    {{messages.length}}
-                </div>
-                <div class="icon">
-                    <img  (click)="userNotificationNav()" src="assets/icons/bell.png" alt="consulter notification"> 
-                </div>
-                
-            </div>
-            <div class="icon">
-
-                <img (click)="userProfilNav()" src="assets/icons/utilisateur-du-cercle.png" alt="consulter profil">     
-            </div>
+        <img (click)="backClick()" src="assets/icons/fleche-cercle-gauche.png" alt="flêche pour retour page précédente">
     </div>
-    <div class="icons_desktop">
-        <p>
-            Je rejoins la communauté Trocoeurs
-        </p>
-        <div>
+    <div class="icon">
 
-            <img class="facebook" src="assets/icons/facebook.png" alt="logo facebook">
-        </div>
-        <div>
-
-            <img class="twitter" src="assets/icons/twitter.png" alt="logo twitter">
-        </div>
-        <div>
-
-            <img src="assets/icons/pinterest.png" alt="logo pinterest">
-        </div>
-        <div>
-
-            <img src="assets/icons/instagramm.png" alt="logo instagram">
-        </div>
+        <img routerLink="/accueil" src="assets/icons/maison.png" alt="retour accueil">
     </div>
+    <div class="icon">
 
+        <img routerLink="/offer-a-barter" src="assets/icons/ajouter.png" alt="créer une annonce">
+    </div>
+    <div class="notification">
+        <div *ngIf="messages.length" class="number">
+            {{messages.length}}
+        </div>
+        <div class="icon">
+            <img (click)="userNotificationNav()" src="assets/icons/bell.png" alt="consulter notification">
+        </div>
+
+    </div>
+    <div class="icon">
+
+        <img (click)="userProfilNav()" src="assets/icons/utilisateur-du-cercle.png" alt="consulter profil">
+    </div>
+</div>
+<div class="icons_desktop">
+    <p>
+        Je rejoins la communauté Trocoeurs
+    </p>
+    <div>
+
+        <img class="facebook" src="assets/icons/facebook.png" alt="logo facebook">
+    </div>
+    <div>
+
+        <img class="twitter" src="assets/icons/twitter.png" alt="logo twitter">
+    </div>
+    <div>
+
+        <img src="assets/icons/pinterest.png" alt="logo pinterest">
+    </div>
+    <div>
+
+        <img src="assets/icons/instagramm.png" alt="logo instagram">
+    </div>
+</div>
