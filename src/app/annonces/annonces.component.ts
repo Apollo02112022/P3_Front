@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Annonce } from '../models/annonce.model';
 import { AnnonceService } from '../services/annonce.service';
-import { Category } from '../models/category.model';
 import { Router } from '@angular/router';
 
 
