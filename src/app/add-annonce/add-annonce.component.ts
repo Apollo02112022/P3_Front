@@ -51,7 +51,6 @@ export class AddAnnonceComponent implements OnInit {
       this.message = "La description est trop longue (maximum 250 caractères)";
       return false;
     } else {
-      alert(this.message = "Annonce ajoutée avec succès");
       return true;
     }
   }
