@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { TokenService } from "./token.service";
 import { switchMap } from 'rxjs/operators';
+import { AdminService } from './admin.service';
 
 // constante pour dire a Angular que les données retournées sont sous format Json
 const httpOptions = {
@@ -16,7 +17,7 @@ const httpOptions = {
 export class AnnonceService {
 
   // injection de dependance  variable :http de type HttpClient dans constructor
-  constructor(private http: HttpClient, private router: Router, private token: TokenService) {
+  constructor(private http: HttpClient, private router: Router, private token: TokenService, private adminService : AdminService) {
   
   }
 
@@ -52,6 +53,17 @@ export class AnnonceService {
 
     return this.http.get<Annonce[]>(this.userAnnouncement,options);
 
+  }
+
+  adminUserAnnonce(): Observable<Annonce[]>{
+    const token =  localStorage.getItem('token');
+
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}`});
+    const options = {
+      headers: headers
+    };
+
+    return this.http.get<Annonce[]>("http://localhost:8080/users/" +this.adminService.getUserId()+ "/barters",options)
   }
 
   // methode variable ann retourne une annonce Observable ajouter dans la bdd par l'API REST

@@ -13,8 +13,10 @@ import { MentionsComponent } from './mentions/mentions.component';
 import { PolitiqueComponent } from './politique/politique.component';
 import { CharteComponent } from './charte/charte.component';
 import { CguComponent } from './cgu/cgu.component';
+import { ProfilAdminComponent } from './profil-admin/profil-admin.component';
 import { LoginGuard } from './login.guard';
 import { RoutesGuard } from './routes.guard';
+
 
 
 
@@ -37,6 +39,8 @@ const routes: Routes = [
   {path: 'politique', component: PolitiqueComponent},
   {path: 'charte', component: CharteComponent},
   {path: 'cgu', component: CguComponent},
+  {path: 'admin/users', component: ProfilAdminComponent},
+  {path: 'admin/users/:userid/barters', component: AnnoncesComponent},
   {path:'**',redirectTo:'/accueil'}
 ];
 
