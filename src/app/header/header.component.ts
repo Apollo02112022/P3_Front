@@ -12,6 +12,7 @@ import { Location } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
 
+  // , OnDestroy
   receiveMessage: boolean = true;
 
   // Propriété qui va déterminer si le footer doit être masqué ou affiché
@@ -36,7 +37,7 @@ export class HeaderComponent implements OnInit {
 
           if(!this.isStreamOn && event.url == "/barters" &&  localStorage.getItem('token')){
             this.isStreamOn = true;
-            this.startStream();
+            this.startStreamMessage();
           }
         }
         // si l'évènement est de type 'NavigationEnd', la navigation sera terminée
@@ -62,7 +63,7 @@ export class HeaderComponent implements OnInit {
 
 
 
-  startStream(){
+  startStreamMessage(){
     // requête GET pour se connecter au serveur SSR
     const eventSource = new EventSource(`http://localhost:8080/streamMessages?userId=`+this.token.userIdOnToken());
 
@@ -75,12 +76,15 @@ export class HeaderComponent implements OnInit {
 
 
   }
+
   
+  
+    //methode retour page precedente
  backClick() {
   this.location.back();
 }
 
-  }
+}
 
 
  

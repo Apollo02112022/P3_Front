@@ -4,6 +4,9 @@
     margin: 0;
     z-index: 5;
   }
+  main{
+    margin-bottom: 80px;
+  }
    
   .switch-button {
     background: RGB(0, 0, 0, 0.35);
@@ -19,6 +22,7 @@
     color: white;
     position: relative;
     padding-right: 120px;
+    margin-bottom: 40px;
 
     &:before {
         content: "Je récupère";
@@ -106,39 +110,33 @@ img {
 
 .picture {
   display: flex;
-  // flex-direction: column;
+  flex-direction: column;
   justify-content: center;
   
   
 
   &__annonce {
-      width: 200px;
-      height: 90px;
-      left: 85px;
-      top: 203px;
+      width: 240px;
+      height: 140px;
       align-items: center;
   }
 
   &__sms {
-      width: 200px;
-      height: 90px;
-      left: 85px;
-      top: 203px;
-      align-items: center;
+    width: 240px;
+    height: 140px;
+    align-items: center;
   }
 
   &__deal {                    
-      width: 200px;
-      height: 90px;
-      left: 85px;
-      top: 203px;
-      align-items: center;
+    width: 240px;
+    height: 140px;
+    align-items: center;
   }   
 }
 
 p {
   height: 110px;
-  width: 300px;
+  width: 250px;
   border-radius: 20px;
   backdrop-filter: blur(2px);
   background: rgba(49, 48, 48, 0.4);
@@ -147,11 +145,12 @@ p {
   font-size: 19px;
   font-style: normal;
   font-weight: 550;
-  letter-spacing: 2px;
+  // letter-spacing: 2px;
   text-align: center;
   display: flex;
   align-items: center;
   margin: 15px;
+  
   // margin-top: 15px;
   // margin-bottom: 15px;
 }
@@ -162,6 +161,7 @@ p {
   .picture {
     display: flex;
     justify-content: center;
+    flex-direction: row;
   }
   
 
