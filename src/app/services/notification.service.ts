@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 
 export class NotificationService {
 
+  messages: string[] = [];
+
   constructor() { }
   // Quand je clique sur le bouton proposer un echange, je lance la méthode qui créer une notification
   createNotification(notification : Notification) {

@@ -4,6 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { AnnonceService } from '../services/annonce.service';
 import { TokenService } from '../services/token.service';
 import { Location } from '@angular/common';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,7 @@ import { Location } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
 
+  // , OnDestroy
   receiveMessage: boolean = true;
 
   // Propriété qui va déterminer si le footer doit être masqué ou affiché
@@ -24,7 +26,7 @@ export class HeaderComponent implements OnInit {
   isStreamOn:boolean = false;
 
   // constructor(private router: Router) {}
-  constructor(private http: HttpClient,private router: Router,private annonceService: AnnonceService,private location: Location, private token :TokenService) {}
+  constructor(private http: HttpClient,private router: Router,private annonceService: AnnonceService,private location: Location, private token :TokenService,private notifService : NotificationService) {}
   
   ngOnInit() {
 
@@ -36,7 +38,7 @@ export class HeaderComponent implements OnInit {
 
           if(!this.isStreamOn && event.url == "/barters" &&  localStorage.getItem('token')){
             this.isStreamOn = true;
-            this.startStream();
+            this.startStreamMessage();
           }
         }
         // si l'évènement est de type 'NavigationEnd', la navigation sera terminée
@@ -62,25 +64,18 @@ export class HeaderComponent implements OnInit {
 
 
 
-  startStream(){
-    // requête GET pour se connecter au serveur SSR
-    const eventSource = new EventSource(`http://localhost:8080/streamMessages?userId=`+this.token.userIdOnToken());
+  startStreamMessage(){
 
-    // écoute les évènements SSE et ajoute les messages reçus à la liste
-    eventSource.addEventListener('message', (event: MessageEvent) => {
-      const message = event.data;
-      this.messages.push(message);
-      console.log("&&&&&&&&&&&&&&&&&&&&& messages", message);
-    });
-
+   this.messages = this.notifService.messages
 
   }
   
+    //methode retour page precedente
  backClick() {
   this.location.back();
 }
 
-  }
+}
 
 
  
