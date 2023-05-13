@@ -74,8 +74,8 @@
 
   .cardAnnonceList {
     display: flex;
-    width: 500px;
-    height: 300px;
+    width: 350px;
+    height: 230px;
 
   }
 
@@ -103,7 +103,7 @@
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
     row-gap: 40px;
-    column-gap: 4vw;
+    column-gap: 8vw;
 
   }
 }

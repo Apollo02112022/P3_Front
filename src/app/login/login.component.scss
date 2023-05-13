@@ -28,7 +28,7 @@
         height: 7%;
         background: $color-bc;
         color: $color-font;
-        border: 0.313em solid $color-border;
+        border: 5px solid $color-border;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -36,7 +36,8 @@
         font-weight: bold;
     }
     .connexion{
-        padding: 0 10px 0 10px
+        width: 200px;
+        font-size: 1.5rem;
     }
 
     .login {
@@ -82,7 +83,8 @@
 
     .btn {
         // width: 35%;
-        font-size: 1.25em;
+        font-size: 1em;
+        padding: 12px;
     }
 
     

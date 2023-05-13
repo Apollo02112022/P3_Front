@@ -14,13 +14,19 @@ export class DetailsAnnonceComponent implements OnInit {
   // variable "annonceId" de type "Annonce" utilisée pour stocker les détails de l'annonce sélectionnée.
   annonceId!: Annonce;
   image?: any;
+  visible!:boolean
 
-  constructor(private route: ActivatedRoute, private annonceService: AnnonceService) { }
+  constructor(private route: ActivatedRoute, private annonceService: AnnonceService, private router : Router) { }
 
   ngOnInit() {//récupére l'annonce sélectionnée à partir du service AnnonceService en utilisant la méthode getAnnonceDetails(id)
     const id = this.route.snapshot.paramMap.get('id');//permet de récupérer la valeur de l'identifiant (id) passé en paramètre dans l'URL de la page.
     this.getAnnouncementDetails(id);
     console.log(id);
+    if(this.router.url.includes("proposal_deal")){
+      this.visible = false
+    }else if(this.router.url.includes("barters")){
+      this.visible = true
+    }
   }
 
   // méthode pour récupérer les détails de l'annonce sélectionnée à partir du service AnnonceService en utilisant la méthode "consultAnnonce(id)"
