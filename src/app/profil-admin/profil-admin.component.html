@@ -1,0 +1,22 @@
+<h1>Listes des utilisateurs inscrits</h1>
+
+<section class="bigbox" *ngFor="let user of users">
+
+  <div class="bigbox__littlebox">
+
+    <ul >
+      <li>Nom : {{ user.lastname }}</li>
+      <li>Prénom : {{ user.firstname }}</li>
+      <li>Pseudo : {{ user.pseudo }}</li>
+      <li>Ville : {{ user.city }}</li>
+      <li>Département : {{ user.county }}</li>
+      <li>E-mail : {{ user.mail }}</li>
+    </ul>
+  
+    <button class="btn" (click)="findUserBarters(user?.id)">Annonces de l'utilisateur</button> <br>
+
+    <button class="btn" (click)="eraseUser(user.id)">Supprimer l'utilisateur</button>
+
+  </div>
+
+</section> 

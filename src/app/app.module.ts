@@ -27,6 +27,7 @@ import { CguComponent } from './cgu/cgu.component';
 import { CharteComponent } from './charte/charte.component';
 import { MentionsComponent } from './mentions/mentions.component';
 import { PolitiqueComponent } from './politique/politique.component';
+import { ProfilAdminComponent } from './profil-admin/profil-admin.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { PolitiqueComponent } from './politique/politique.component';
     CharteComponent,
     MentionsComponent,
     PolitiqueComponent,
+    ProfilAdminComponent,
    ],
    
   imports: [
