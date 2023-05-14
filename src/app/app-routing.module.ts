@@ -41,6 +41,7 @@ const routes: Routes = [
   {path: 'cgu', component: CguComponent},
   {path: 'admin/users', component: ProfilAdminComponent},
   {path: 'admin/users/:userid/barters', component: AnnoncesComponent},
+  {path :"admin/barters/:id", component : DetailsAnnonceComponent},
   {path:'**',redirectTo:'/accueil'}
 ];
 

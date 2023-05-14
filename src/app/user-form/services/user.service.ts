@@ -27,11 +27,16 @@ export class UserService {
     } 
 
     getAllUsers(): Observable<User[]> {
-        return this.http.get<User[]>(baseUrl2);
-    }
+        const token = localStorage.getItem('token');
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      
+        return this.http.get<User[]>(baseUrl2, { headers });
+      }
 
     deleteUser(id:number): Observable<User> {
-        return this.http.delete<User>(baseUrl3+id+"/profil");
+        const token = localStorage.getItem('token');
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+        return this.http.delete<User>(baseUrl3+id+"/profil",{ headers });
     }
 
 } 
