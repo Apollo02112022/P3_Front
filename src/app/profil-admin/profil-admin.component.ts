@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 
 export class ProfilAdminComponent implements OnInit{
 
-  users: User[] | undefined;
+  users: any | undefined;
 
     constructor(private userService: UserService,private adminService : AdminService,private router : Router) {} 
 
@@ -25,8 +25,8 @@ export class ProfilAdminComponent implements OnInit{
   }
 
   findUserBarters(userid:undefined|number){
-    this.adminService.setUserId(userid) 
     this.router.navigate(['admin','users',userid,'barters'])
+    this.adminService.setUserId(userid) 
   }
 
   eraseUser(userid:any) {

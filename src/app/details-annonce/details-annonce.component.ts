@@ -22,7 +22,7 @@ export class DetailsAnnonceComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');//permet de récupérer la valeur de l'identifiant (id) passé en paramètre dans l'URL de la page.
     this.getAnnouncementDetails(id);
     console.log(id);
-    if(this.router.url.includes("proposal_deal")){
+    if(this.router.url.includes("proposal_deal")|| this.router.url.includes("admin")){
       this.visible = false
     }else if(this.router.url.includes("barters")){
       this.visible = true
