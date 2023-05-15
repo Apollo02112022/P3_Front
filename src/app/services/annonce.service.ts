@@ -93,7 +93,6 @@ export class AnnonceService {
         'Authorization': `Bearer ${token}`
       }),
     }
-
       fetch(url, options)
         .then(response => {
           console.log(response)
@@ -103,6 +102,7 @@ export class AnnonceService {
           console.log('test',err)
         });
       }
+      
   consultAnnonce(id: number): Observable<ArrayBuffer> {
     //ajout du parametre concatener / id a l url pour consulter une annonce par id 
     const url = this.apiURLdetails + id;

@@ -67,6 +67,16 @@ export class TokenService {
         return null
       }
   }
+  adminToken():any {
+    if(localStorage.getItem("token")){
+      const token=this.getDecodedToken()
+      const role = token.role;
+      console.log(role)
+      return role
+      }else{
+        return null
+      }
+  }
 }
 
 
