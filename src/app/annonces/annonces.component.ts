@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Annonce } from '../models/annonce.model';
 import { AnnonceService } from '../services/annonce.service';
 import { Router } from '@angular/router';
+import { AdminService } from '../services/admin.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class AnnoncesComponent implements OnInit {
   annonces!: Annonce[];//tableau d'annonces
   annonceSelectionnee!: ArrayBuffer;
 
-  constructor(private annonceService: AnnonceService, private router: Router) {
+  constructor(private annonceService: AnnonceService, private router: Router,private adminService:AdminService) {
 
   }
   // ngOnInit recupère les annonces à partir de annonceService
@@ -75,10 +76,14 @@ export class AnnoncesComponent implements OnInit {
   }
   supprimerAnnonce(annonceid: number) {
     let conf = confirm("Confimer la suppression de l'annonce");
-    if (conf){
+    if (conf && !this.router.url.includes("admin")){
       this.annonceService.deleteAnnonce(annonceid);
       console.log(annonceid , "Deleted");
+    }else if(conf && this.router.url.includes("admin") ){
+      this.adminService.deleteAnnonce(annonceid);
+      console.log(annonceid , "Deleted");
     }else{
+
       console.log(annonceid , "Not deleted");
     }
 
@@ -95,8 +100,14 @@ export class AnnoncesComponent implements OnInit {
       this.annonceSelectionnee = annonce;
       console.log("Annonce sélectionnée :", annonce);
       
-      //direction vers la page details annonces
-      this.router.navigate(['barters', id]);
+      //retour versla page annonces
+      if(this.router.url.includes('admin')){
+
+        this.router.navigate(['admin','barters', id]);
+      }else{
+
+        this.router.navigate(['barters', id]);
+      }
     });
 
   }

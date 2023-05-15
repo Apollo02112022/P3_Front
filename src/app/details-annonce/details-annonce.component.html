@@ -19,7 +19,7 @@
           <p class=" descriptionDetailAnnonce__des">{{annonceId.description}}</p>
         </div>
       </div>
-      <div class="btnDeal">
+      <div class="btnDeal" *ngIf="visible">
         <button class="btnTroc" [routerLink]="['/proposal_deal', annonceId.id]">Je troc!</button>
       </div>
     </div>

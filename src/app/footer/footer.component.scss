@@ -2,25 +2,23 @@
     height: 50px;
     background: white;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
-.icons_desktop{
-    display:none;
+
+.icons_desktop {
+    display: none;
 }
+
 .icons {
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   
-    
+
     .notification {
         position: relative;
-       
+
         .number {
             color: white;
-            background-color:rgb(255, 0, 0);
+            background-color: rgb(255, 0, 0);
             border-radius: 50%;
             width: 15px;
             height: 15px;
@@ -36,34 +34,38 @@
 
 }
 
-.icons img {
-    margin-right: 35px;
+.icon {
+    width: 32px;
+    height: 32px;
 }
-   
+
 
 /*media query*/
 @media (min-width: 769px) {
-    .icons_desktop{
-        display:flex;
+    .icons_desktop {
+        display: flex;
         align-items: center;
         justify-content: space-evenly;
         height: 55px;
         background: white;
 
-        
+
     }
-    .footer{
+
+    .footer {
         display: none;
-     
+
     }
 
     img {
-        height: 35px;
-        margin-right: 35px;
+        width: 100%;
+        object-fit: cover; 
     }
 
-    .facebook, .twitter {
-        height: 42px;
+    .facebook,
+    .twitter {
+        height: 44px;
+        width: 44px;
     }
 
     p {
@@ -76,4 +78,3 @@
     }
 
 }
-

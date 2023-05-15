@@ -23,14 +23,14 @@ export class AnnonceService {
 
   // variable pour affecter Url de l'app back-end 
   apiURL: string = 'http://localhost:8080/barters';
-  apiURLAdd: string = 'http://localhost:8080/offer-a-barter?userid='+this.token.userIdOnToken();
+  apiURLAdd: string = 'http://localhost:8080/offer-a-barter?userid=';
   apiURLdetails: string = 'http://localhost:8080/barters/';
   apiURLDelete:string = "http://localhost:8080/users/"+this.token.userIdOnToken()+"/"
   annonces!: Annonce[];//declaration de variable et tableau d'annonce'
 
   userAnnouncementId:number | null= null;
 
-  userAnnouncement: string = "http://localhost:8080/users/" +this.token.userIdOnToken()+ "/barters";
+  userAnnouncement: string = "http://localhost:8080/users/" ;
 
 
   // retourne  tableau d'annonce de type observable 
@@ -51,7 +51,7 @@ export class AnnonceService {
       headers: headers
     };
 
-    return this.http.get<Annonce[]>(this.userAnnouncement,options);
+    return this.http.get<Annonce[]>(this.userAnnouncement+this.token.userIdOnToken()+ "/barters",options);
 
   }
 
@@ -78,7 +78,7 @@ export class AnnonceService {
       headers: headers
     };
     console.log(options);
-    return this.http.post<any>(this.apiURLAdd, formData, options);
+    return this.http.post<any>(this.apiURLAdd+this.token.userIdOnToken(), formData, options);
   } 
   
   //méthode "post" de l'objet "http" pour envoyer les données vers l'API. Le retour de la méthode est un objet "Observable" de type Annonce
@@ -93,7 +93,6 @@ export class AnnonceService {
         'Authorization': `Bearer ${token}`
       }),
     }
-
       fetch(url, options)
         .then(response => {
           console.log(response)
@@ -103,6 +102,7 @@ export class AnnonceService {
           console.log('test',err)
         });
       }
+      
   consultAnnonce(id: number): Observable<ArrayBuffer> {
     //ajout du parametre concatener / id a l url pour consulter une annonce par id 
     const url = this.apiURLdetails + id;

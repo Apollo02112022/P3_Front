@@ -37,4 +37,22 @@ export class UserNotificationComponent implements OnInit{
       console.log(data)
       this.notifications = data})
   }
+
+  deleteNotif(notificationId:null|number){
+
+    const apelApi = "http://localhost:8080/notifications/"+notificationId;
+
+    const token = localStorage.getItem("token");
+    const header = new Headers({ 'Authorization': `Bearer ${token}` });
+    const options = {
+      headers: header,
+      method: 'DELETE',
+    };
+
+    fetch(apelApi,options)
+    .then(data=>data.json())
+    .then(data=>
+      location.reload()
+      )
+  }
 }

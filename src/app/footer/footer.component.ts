@@ -4,6 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { AnnonceService } from '../services/annonce.service';
 import { Location } from '@angular/common';
 import { TokenService } from '../services/token.service';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-footer',
@@ -24,7 +25,7 @@ export class FooterComponent implements OnInit {
   isStreamOn:boolean = false;
 
   // constructor(private router: Router) {}
-  constructor(private http: HttpClient,private router: Router,private annonceService: AnnonceService,private location: Location, private token :TokenService) {}
+  constructor(private http: HttpClient,private router: Router,private annonceService: AnnonceService,private location: Location, private token :TokenService, private notifService : NotificationService) {}
   
   ngOnInit() {
 
@@ -69,7 +70,9 @@ export class FooterComponent implements OnInit {
     // écoute les évènements SSE et ajoute les messages reçus à la liste
     eventSource.addEventListener('message', (event: MessageEvent) => {
       const message = event.data;
-      this.messages.push(message);
+      // this.messages.push(message);
+      this.notifService.messages.push(message)
+      this.messages=this.notifService.messages
       console.log("&&&&&&&&&&&&&&&&&&&&& messages", message);
     });
 

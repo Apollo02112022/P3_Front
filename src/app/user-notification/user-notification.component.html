@@ -4,7 +4,11 @@
     <div *ngFor="let notif of notifications">
         
         <div class="card">
-            <h2>Proposition de Troc {{notif.id}}</h2>
+            <div class="flex row jc-space-around ">
+                <h2>Vous avez reçu un message</h2>
+                <div class="delete" (click)="deleteNotif(notif.id)">🗙</div>
+
+            </div>
             <ul>
                 <li><strong>Proposition:</strong><br>{{notif.message}}</li>
                 <li><strong>Email: </strong>{{notif.mail}}</li>
