@@ -44,4 +44,5 @@ export class FormularDeleteAccountComponent {
     this.logout.logout()
   } 
 
+  
 }
