@@ -1,3 +1,24 @@
+
+.notif_list {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.notif_title {
+  width: 200px;
+  background-color: rgb(251, 251, 251);
+  border-radius: 20px;
+  padding: 5px;
+  font-size: 20px;
+  color: rgb(81, 81, 81);
+  border: 4px solid #A6D1BD;
+  text-align: center;
+}
+
+
 .card {
     display: flex;
     flex-direction: column;
@@ -27,3 +48,5 @@
   h2{
     font-size: larger;
   }
+
+ 
