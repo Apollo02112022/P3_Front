@@ -1,11 +1,11 @@
 <div class="notif_list">
-    <h1>liste de notifications</h1>
+    <h1 class="notif_title">Mes notifications</h1>
 
     <div *ngFor="let notif of notifications">
         
         <div class="card">
             <div class="flex row jc-space-around ">
-                <h2>Vous avez reçu un message</h2>
+                <h2>Nouveau message</h2>
                 <div class="delete" (click)="deleteNotif(notif.id)">🗙</div>
 
             </div>
