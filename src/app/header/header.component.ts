@@ -51,12 +51,12 @@ export class HeaderComponent implements OnInit {
   }
 
   userNotificationNav(){
-    this.router.navigate(['users',this.token.userIdOnToken(),'notifications'])
-  }
+    return "/users/"+this.token.userIdOnToken()+"/notifications"    
+}
 
-  userProfilNav(){
-    this.router.navigate(['users',this.token.userIdOnToken(),'profil'])
-  }
+userProfilNav(){
+  return "/users/"+this.token.userIdOnToken()+"/profil"    
+}
 
   hidden() {
     return this.router.url === '/' || this.router.url === '/accueil';

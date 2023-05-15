@@ -25,12 +25,12 @@
             {{messages.length}}
         </div>
         <div>
-            <img (click)="userNotificationNav()" src="assets/icons/bell.png" alt="consulter notification">
+            <img [routerLink]="userNotificationNav()" src="assets/icons/bell.png" alt="consulter notification">
         </div>
     </div>
     <div>
 
-        <img (click)="userProfilNav()" src="assets/icons/utilisateur-du-cercle.png" alt="consulter profil">
+        <img [routerLink]="userProfilNav()" src="assets/icons/utilisateur-du-cercle.png" alt="consulter profil">
     </div>
 
 </div>
