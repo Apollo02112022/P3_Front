@@ -22,7 +22,7 @@ export class AnnoncesComponent implements OnInit {
   ngOnInit(): void {
 
 
-
+    // ngOninit appel automatiquement la methode qui verifie si l'url est /barters
     this.link();
 
     if (this.router.url === `/barters`) {
@@ -95,7 +95,7 @@ export class AnnoncesComponent implements OnInit {
       this.annonceSelectionnee = annonce;
       console.log("Annonce sélectionnée :", annonce);
       
-      //retour versla page annonces
+      //direction vers la page details annonces
       this.router.navigate(['barters', id]);
     });
 
