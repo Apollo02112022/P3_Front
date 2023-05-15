@@ -3,6 +3,7 @@ import { Annonce } from '../models/annonce.model';
 import { AnnonceService } from '../services/annonce.service';
 import { Router } from '@angular/router';
 import { AdminService } from '../services/admin.service';
+import { TokenService } from '../services/token.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class AnnoncesComponent implements OnInit {
   annonces!: Annonce[];//tableau d'annonces
   annonceSelectionnee!: ArrayBuffer;
 
-  constructor(private annonceService: AnnonceService, private router: Router,private adminService:AdminService) {
+  constructor(private annonceService: AnnonceService, private router: Router, private adminService: AdminService, private token: TokenService) {
 
   }
   // ngOnInit recupère les annonces à partir de annonceService
@@ -25,6 +26,15 @@ export class AnnoncesComponent implements OnInit {
 
     // ngOninit appel automatiquement la methode qui verifie si l'url est /barters
     this.link();
+
+    // On test si on est admin
+    if (localStorage.getItem('token')) {
+      if (this.token.adminToken().includes('ADMIN') && !this.router.url.includes("admin")) {
+        // si oui on est redirigé
+        this.router.navigate(['admin', 'users'])
+
+      }
+    }
 
     if (this.router.url === `/barters`) {
 
@@ -45,7 +55,7 @@ export class AnnoncesComponent implements OnInit {
         // La méthode map() est également utilisée pour créer un nouveau tableau à partir du tableau d'annonces d'origine. Elle permet de parcourir chaque annonce du tableau d'annonces
         // et d'appliquer une fonction à chaque élément pour créer un nouvel élément dans le nouveau tableau.
       });
-    }else if (this.router.url.includes("admin") ) {
+    } else if (this.router.url.includes("admin")) {
       this.annonceService.adminUserAnnonce().subscribe(ann => {
         console.log("oui ça passe !!!!! &&&&&&&");
         // affecte le resultat de la methode listeUserAnnonce ann à la liste d'annonce
@@ -56,7 +66,7 @@ export class AnnoncesComponent implements OnInit {
           }
         });
       });
-    }else {
+    } else {
       // inscription a l'observable de la methode listeUserAnnonce() qui fait appel a l api rest
       this.annonceService.listeUserAnnonce().subscribe(ann => {
         console.log(ann);
@@ -76,35 +86,35 @@ export class AnnoncesComponent implements OnInit {
   }
   supprimerAnnonce(annonceid: number) {
     let conf = confirm("Confimer la suppression de l'annonce");
-    if (conf && !this.router.url.includes("admin")){
+    if (conf && !this.router.url.includes("admin")) {
       this.annonceService.deleteAnnonce(annonceid);
-      console.log(annonceid , "Deleted");
-    }else if(conf && this.router.url.includes("admin") ){
+      console.log(annonceid, "Deleted");
+    } else if (conf && this.router.url.includes("admin")) {
       this.adminService.deleteAnnonce(annonceid);
-      console.log(annonceid , "Deleted");
-    }else{
+      console.log(annonceid, "Deleted");
+    } else {
 
-      console.log(annonceid , "Not deleted");
+      console.log(annonceid, "Not deleted");
     }
 
   }
 
   // méthode pour sélectionner une annonce dans la liste
   onSelectedAnnonce(annonce: any): void {
-    const id=annonce.id
-    this.annonceService.userAnnouncementId  = annonce.user.id
+    const id = annonce.id
+    this.annonceService.userAnnouncementId = annonce.user.id
     console.log("Annonce sélectionnée :", id);
     // récupère l'annonce correspondant à l'ID spécifié
     this.annonceService.consultAnnonce(id).subscribe((annonce) => {
       // stocke l'annonce sélectionnée dans une variable annonce
       this.annonceSelectionnee = annonce;
       console.log("Annonce sélectionnée :", annonce);
-      
-      //retour versla page annonces
-      if(this.router.url.includes('admin')){
 
-        this.router.navigate(['admin','barters', id]);
-      }else{
+      //retour versla page annonces
+      if (this.router.url.includes('admin')) {
+
+        this.router.navigate(['admin', 'barters', id]);
+      } else {
 
         this.router.navigate(['barters', id]);
       }
