@@ -16,6 +16,8 @@ import { CguComponent } from './cgu/cgu.component';
 import { ProfilAdminComponent } from './profil-admin/profil-admin.component';
 import { LoginGuard } from './login.guard';
 import { RoutesGuard } from './routes.guard';
+import { AdminGuard } from './admin.guard';
+
 
 
 
@@ -39,9 +41,9 @@ const routes: Routes = [
   {path: 'politique', component: PolitiqueComponent},
   {path: 'charte', component: CharteComponent},
   {path: 'cgu', component: CguComponent},
-  {path: 'admin/users', component: ProfilAdminComponent},
-  {path: 'admin/users/:userid/barters', component: AnnoncesComponent},
-  {path :"admin/barters/:id", component : DetailsAnnonceComponent},
+  {path: 'admin/users', component: ProfilAdminComponent,canActivate:[AdminGuard]},
+  {path: 'admin/users/:userid/barters', component: AnnoncesComponent,canActivate:[AdminGuard]},
+  {path :"admin/barters/:id", component : DetailsAnnonceComponent,canActivate:[AdminGuard]},
   {path:'**',redirectTo:'/accueil'}
 ];
 

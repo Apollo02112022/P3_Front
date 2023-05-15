@@ -6,17 +6,27 @@ import { TokenService } from './services/token.service';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginGuard implements CanActivate {
-  constructor(private tokenService : TokenService, private router : Router){}
+export class AdminGuard implements CanActivate {
+
+  constructor(private token: TokenService,private router : Router) { }
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
-      if (localStorage.getItem("token")) {
-        this.router.navigate(['users',this.tokenService.userIdOnToken(),'profil']); // Redirige l'utilisateur vers la page de profil si le token est valide
-        return false;
+    if (localStorage.getItem('token')) {
+      
+
+      if (this.token.adminToken().includes("ADMIN")) {
+
+        return true;
       }
-      return true;
+      console.log("admintestfalse")
+      this.router.navigate(['/'])
+      return false;
     }
+    
+    this.router.navigate(['/'])
+    return false
+
   }
-  
+}
