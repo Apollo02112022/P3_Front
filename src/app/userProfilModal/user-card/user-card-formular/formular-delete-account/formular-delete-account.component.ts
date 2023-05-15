@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ChangePasswordService } from 'src/app/services/change-password.service';
+import { LogoutService } from 'src/app/services/logout.service';
+import { TokenService } from 'src/app/services/token.service';
+import { UserService } from 'src/app/user-form/services/user.service';
+import { passwordValidator } from 'src/app/user-form/validators/password.validator';
 
 @Component({
   selector: 'app-formular-delete-account',
@@ -9,32 +15,13 @@ import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from
 export class FormularDeleteAccountComponent {
   deleteAccount: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,private checkPasswordService : ChangePasswordService,private userService :UserService,private token : TokenService,private logout : LogoutService) {
     this.deleteAccount = this.formBuilder.group({
-      actualPassword: ['', [Validators.required, this.passwordValidator()]]
+      actualPassword: ['', [Validators.required,passwordValidator]]
     });
   }
 
-  passwordValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } | null => {
-      // passwordRegex est utilisé pour valider la force d'un mot de passe. 
-      // Il assure qu'un mot de passe satisfait les critères suivants :
-      //1: doit contenir au moins une lettre majuscule (A-Z)
-      //2: doit contenir au moins un chiffre (0-9)
-      //3: doit contenir au moins un caractère spécial (@$!%*?&)
-      //4: doit contenir uniquement des lettres (majuscules et minuscules), 
-      //   des chiffres et les caractères spéciaux mentionnés ci-dessus
-      //5: doit comporter au moins 8 caractères
-      const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-      // La méthode .test() vérifie si la valeur du champ de saisie de mot de passe correspond
-      // à la regex. 
-      // Si c'est le cas, elle retourne true, sinon elle retourne false
-      const valid = passwordRegex.test(control.value);
-      console.log(control.value)
-      //On verifie si le mot de passe respecte le regex si oui on renvoie null si non { passwordRequirements: true }
-      return valid ? null : { passwordRequirements: true };
-    };
-  }
+
 
   onSubmit() {
     if (this.deleteAccount.invalid) {
@@ -42,8 +29,19 @@ export class FormularDeleteAccountComponent {
       return;
     }
 
-
     // Traitement de la soumission du formulaire ici
-    console.log(this.deleteAccount.value);
+    const currentPassword = this.deleteAccount.get('actualPassword')?.value;
+  
+    this.checkPasswordService.checkCurrentPassword(currentPassword).subscribe(check => {
+      if (check) {
+        this.eraseUser(this.token.userIdOnToken())
+      }
+    })
   }
+
+  eraseUser(userid:any) {
+    this.userService.deleteUser(userid).subscribe(() => {});
+    this.logout.logout()
+  } 
+
 }

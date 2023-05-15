@@ -4,6 +4,7 @@ import { User } from '../user-form/models/user-form.model';
 import { AdminService } from '../services/admin.service';
 import { AnnonceService } from '../services/annonce.service';
 import { Router } from '@angular/router';
+import { TokenService } from '../services/token.service';
 
 
 @Component({
@@ -16,9 +17,13 @@ export class ProfilAdminComponent implements OnInit{
 
   users: any | undefined;
 
-    constructor(private userService: UserService,private adminService : AdminService,private router : Router) {} 
+    constructor(private userService: UserService,private adminService : AdminService,private router : Router,private token : TokenService) {} 
 
   ngOnInit() {
+    if(this.router.url.includes("admin")){
+
+      console.log(this.token.adminToken())
+    }
     this.userService.getAllUsers().subscribe(users => {
     this.users = users;
     });

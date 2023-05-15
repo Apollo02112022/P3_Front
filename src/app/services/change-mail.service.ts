@@ -10,10 +10,6 @@ export class ChangeMailService {
 
     constructor(private http:HttpClient,private token : TokenService){}
 
-  // constante pour dire a Angular que les données retournées sont sous format Json
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
 
     // ----------------constante pour l'exécution des appels api--------------//
     url: string = "http://localhost:8080/users/" + this.token.userIdOnToken() + "/profil";
@@ -21,11 +17,26 @@ export class ChangeMailService {
 
 // Méthode pour vérifier si le mail existe déjà dans la base de données
     checkMailIfExist(mail: string): Observable<boolean> {
-        return this.http.post<boolean>(`${this.url}/check-mail`, { 'mail': mail }, this.httpOptions);
+      const token = localStorage.getItem("token");
+      const options = {
+        headers: new HttpHeaders({
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        })
+      };
+        return this.http.post<boolean>(`${this.url}/check-mail`, { 'mail': mail }, options);
     }
       // Méthode pour changer le mot de passe dans la base de données
   updateMail(mail: string): Observable<boolean> {  
-    return this.http.put<boolean>(`${this.url}/update-mail`, { 'mail': mail }, this.httpOptions);
+    const token = localStorage.getItem("token");
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      })
+    };
+    
+    return this.http.put<boolean>(`${this.url}/update-mail`, { 'mail': mail }, options);
   }
 
 }
