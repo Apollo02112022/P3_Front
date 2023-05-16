@@ -1,11 +1,11 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Annonce } from '../models/annonce.model';
-import { Category } from '../models/category.model';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { TokenService } from "./token.service";
 import { switchMap } from 'rxjs/operators';
+import { AdminService } from './admin.service';
 
 // constante pour dire a Angular que les données retournées sont sous format Json
 const httpOptions = {
@@ -17,21 +17,20 @@ const httpOptions = {
 export class AnnonceService {
 
   // injection de dependance  variable :http de type HttpClient dans constructor
-  constructor(private http: HttpClient, private router: Router, private token: TokenService) {
+  constructor(private http: HttpClient, private router: Router, private token: TokenService, private adminService : AdminService) {
   
   }
 
   // variable pour affecter Url de l'app back-end 
   apiURL: string = 'http://localhost:8080/barters';
-  apiURLAdd: string = 'http://localhost:8080/offer-a-barter?userid='+this.token.userIdOnToken();
+  apiURLAdd: string = 'http://localhost:8080/offer-a-barter?userid=';
   apiURLdetails: string = 'http://localhost:8080/barters/';
   apiURLDelete:string = "http://localhost:8080/users/"+this.token.userIdOnToken()+"/"
   annonces!: Annonce[];//declaration de variable et tableau d'annonce'
 
   userAnnouncementId:number | null= null;
 
-  // category : Category[];//declaration de variable et tableau de categorie
-  userAnnouncement: string = "http://localhost:8080/users/" +this.token.userIdOnToken()+ "/barters";
+  userAnnouncement: string = "http://localhost:8080/users/" ;
 
 
   // retourne  tableau d'annonce de type observable 
@@ -52,8 +51,19 @@ export class AnnonceService {
       headers: headers
     };
 
-    return this.http.get<Annonce[]>(this.userAnnouncement,options);
+    return this.http.get<Annonce[]>(this.userAnnouncement+this.token.userIdOnToken()+ "/barters",options);
 
+  }
+
+  adminUserAnnonce(): Observable<Annonce[]>{
+    const token =  localStorage.getItem('token');
+
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}`});
+    const options = {
+      headers: headers
+    };
+
+    return this.http.get<Annonce[]>("http://localhost:8080/users/" +this.adminService.getUserId()+ "/barters",options)
   }
 
   // methode variable ann retourne une annonce Observable ajouter dans la bdd par l'API REST
@@ -68,7 +78,7 @@ export class AnnonceService {
       headers: headers
     };
     console.log(options);
-    return this.http.post<any>(this.apiURLAdd, formData, options);
+    return this.http.post<any>(this.apiURLAdd+this.token.userIdOnToken(), formData, options);
   } 
   
   //méthode "post" de l'objet "http" pour envoyer les données vers l'API. Le retour de la méthode est un objet "Observable" de type Annonce
@@ -83,7 +93,6 @@ export class AnnonceService {
         'Authorization': `Bearer ${token}`
       }),
     }
-
       fetch(url, options)
         .then(response => {
           console.log(response)
@@ -93,6 +102,7 @@ export class AnnonceService {
           console.log('test',err)
         });
       }
+      
   consultAnnonce(id: number): Observable<ArrayBuffer> {
     //ajout du parametre concatener / id a l url pour consulter une annonce par id 
     const url = this.apiURLdetails + id;
@@ -105,6 +115,7 @@ export class AnnonceService {
     console.log("token pour details annonce " + token)
     if (token == null) {
       alert("Pour accèder, connectez-vous ou créez un compte.");
+      this.router.navigate(['login'])
       }
     return this.http.get<any>(url,options);
     // get retourne un objet de type annonce par l'url + id construite au dessus

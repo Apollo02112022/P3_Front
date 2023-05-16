@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Annonce } from '../models/annonce.model';
 import { AnnonceService } from '../services/annonce.service';
-import { Category } from '../models/category.model';
 import { Router } from '@angular/router';
+import { AdminService } from '../services/admin.service';
+import { TokenService } from '../services/token.service';
 
 
 @Component({
@@ -16,15 +17,24 @@ export class AnnoncesComponent implements OnInit {
   annonces!: Annonce[];//tableau d'annonces
   annonceSelectionnee!: ArrayBuffer;
 
-  constructor(private annonceService: AnnonceService, private router: Router) {
+  constructor(private annonceService: AnnonceService, private router: Router, private adminService: AdminService, private token: TokenService) {
 
   }
   // ngOnInit recupère les annonces à partir de annonceService
   ngOnInit(): void {
 
 
-
+    // ngOninit appel automatiquement la methode qui verifie si l'url est /barters
     this.link();
+
+    // On test si on est admin
+    if (localStorage.getItem('token')) {
+      if (this.token.adminToken().includes('ADMIN') && !this.router.url.includes("admin")) {
+        // si oui on est redirigé
+        this.router.navigate(['admin', 'users'])
+
+      }
+    }
 
     if (this.router.url === `/barters`) {
 
@@ -44,6 +54,17 @@ export class AnnoncesComponent implements OnInit {
         // Cette copie inclut toutes les propriétés de l'annonce, ainsi que la propriété imageUrl qui est ajoutée et qui est calculée à partir de l'identifiant de l'annonce.
         // La méthode map() est également utilisée pour créer un nouveau tableau à partir du tableau d'annonces d'origine. Elle permet de parcourir chaque annonce du tableau d'annonces
         // et d'appliquer une fonction à chaque élément pour créer un nouvel élément dans le nouveau tableau.
+      });
+    } else if (this.router.url.includes("admin")) {
+      this.annonceService.adminUserAnnonce().subscribe(ann => {
+        console.log("oui ça passe !!!!! &&&&&&&");
+        // affecte le resultat de la methode listeUserAnnonce ann à la liste d'annonce
+        this.annonces = ann.map(annonceImg => {
+          return {
+            ...annonceImg,
+            imageUrl: `http://localhost:8080/barters/${annonceImg.id}/image`// interpolation ${annonceImg.id} est = a la concatenation" /+ annonceImg.id +/ "
+          }
+        });
       });
     } else {
       // inscription a l'observable de la methode listeUserAnnonce() qui fait appel a l api rest
@@ -65,27 +86,38 @@ export class AnnoncesComponent implements OnInit {
   }
   supprimerAnnonce(annonceid: number) {
     let conf = confirm("Confimer la suppression de l'annonce");
-    if (conf){
+    if (conf && !this.router.url.includes("admin")) {
       this.annonceService.deleteAnnonce(annonceid);
-      console.log(annonceid , "Deleted");
-    }else{
-      console.log(annonceid , "Not deleted");
+      console.log(annonceid, "Deleted");
+    } else if (conf && this.router.url.includes("admin")) {
+      this.adminService.deleteAnnonce(annonceid);
+      console.log(annonceid, "Deleted");
+    } else {
+
+      console.log(annonceid, "Not deleted");
     }
 
   }
 
   // méthode pour sélectionner une annonce dans la liste
   onSelectedAnnonce(annonce: any): void {
-    const id=annonce.id
-    this.annonceService.userAnnouncementId  = annonce.user.id
+    const id = annonce.id
+    this.annonceService.userAnnouncementId = annonce.user.id
     console.log("Annonce sélectionnée :", id);
     // récupère l'annonce correspondant à l'ID spécifié
     this.annonceService.consultAnnonce(id).subscribe((annonce) => {
       // stocke l'annonce sélectionnée dans une variable annonce
       this.annonceSelectionnee = annonce;
       console.log("Annonce sélectionnée :", annonce);
+
       //retour versla page annonces
-      this.router.navigate(['barters', id]);
+      if (this.router.url.includes('admin')) {
+
+        this.router.navigate(['admin', 'barters', id]);
+      } else {
+
+        this.router.navigate(['barters', id]);
+      }
     });
 
   }

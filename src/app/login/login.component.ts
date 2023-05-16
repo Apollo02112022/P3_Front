@@ -69,7 +69,18 @@ export class LoginComponent {
     console.log(userId);
     console.log(sub);
   }
-toSignup(){
-  this.router.navigate(["/signup"])
-}
+  toSignup() {
+    this.router.navigate(["/signup"]);
+  }
+  adminToken():any {
+    if(localStorage.getItem("token")){
+      const token=this.tokenService.getDecodedToken()
+      const role = token.role;
+      console.log(role)
+      return role
+      }else{
+        return null
+      }
+  }
+
 }

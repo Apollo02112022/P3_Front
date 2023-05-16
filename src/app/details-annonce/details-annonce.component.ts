@@ -4,6 +4,7 @@ import { AnnonceService } from '../services/annonce.service';
 import { Annonce } from '../models/annonce.model';
 import { catchError, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { TokenService } from '../services/token.service';
 @Component({
   selector: 'app-details-annonce',
   templateUrl: './details-annonce.component.html',
@@ -14,13 +15,21 @@ export class DetailsAnnonceComponent implements OnInit {
   // variable "annonceId" de type "Annonce" utilisée pour stocker les détails de l'annonce sélectionnée.
   annonceId!: Annonce;
   image?: any;
+  visible!:boolean
+  userId:any;
+  
 
-  constructor(private route: ActivatedRoute, private annonceService: AnnonceService) { }
+  constructor(private route: ActivatedRoute, private annonceService: AnnonceService, private router : Router, private tokenService: TokenService) { }
 
   ngOnInit() {//récupére l'annonce sélectionnée à partir du service AnnonceService en utilisant la méthode getAnnonceDetails(id)
     const id = this.route.snapshot.paramMap.get('id');//permet de récupérer la valeur de l'identifiant (id) passé en paramètre dans l'URL de la page.
     this.getAnnouncementDetails(id);
     console.log(id);
+    if(this.router.url.includes("proposal_deal")|| this.router.url.includes("admin")){
+      this.visible = false
+    }else if(this.router.url.includes("barters")){
+      this.visible = true
+    }
   }
 
   // méthode pour récupérer les détails de l'annonce sélectionnée à partir du service AnnonceService en utilisant la méthode "consultAnnonce(id)"
@@ -54,5 +63,18 @@ export class DetailsAnnonceComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+  compareId(){
+      const userId = this.tokenService.userIdOnToken();
+      const annonceUserId = this.annonceService.userAnnouncementId;
+
+
+      if (userId === annonceUserId) {
+        alert("Vous ne pouvez pas répondre à votre propre annonce.");
+        this.router.navigate(['barters']);
+      }else{
+      this.router.navigate(['proposal_deal',this.annonceId.id]);
+    }
+    
   }
 }

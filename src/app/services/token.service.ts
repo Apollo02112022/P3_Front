@@ -55,13 +55,7 @@ export class TokenService {
     // Si le token est valide
     return true;
   }
-  canActivate(): boolean {
-    if (!this.tokenValid()) {
-      this.router.navigate(['login']); // Redirige l'utilisateur vers la page de connexion si le token est invalide
-      return false;
-    }
-    return true; // Autorise l'accès si le token est valide
-  }
+  
   
   userIdOnToken():any {
     if(localStorage.getItem("token")){
@@ -69,6 +63,16 @@ export class TokenService {
       const userid = token.userId;
       console.log(userid)
       return userid
+      }else{
+        return null
+      }
+  }
+  adminToken():any {
+    if(localStorage.getItem("token")){
+      const token=this.getDecodedToken()
+      const role = token.role;
+      console.log(role)
+      return role
       }else{
         return null
       }

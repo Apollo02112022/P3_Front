@@ -1,3 +1,13 @@
+.annonce-container{
+  min-height: calc(100vh - 150px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+
 .cardAnnonceList {
   display: flex;
   width: 300px;
@@ -9,8 +19,8 @@
   color: rgb(81, 81, 81);
   // box-shadow: 0px 5px 20px #555;
   border-radius: 20px;
-  box-sizing: border-box; // demander à quoi ça correspond
-  overflow: hidden; // idem
+  box-sizing: border-box;
+  overflow: hidden; 
 }
 
 .imageAnnonce {
@@ -56,8 +66,8 @@
 @media only screen and (min-width: 768px) {
   .card-body {
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-columns:  1fr;
     row-gap: 40px;
     column-gap: 10px;
 
@@ -65,21 +75,36 @@
 
   .cardAnnonceList {
     display: flex;
-    width: 500px;
-    height: 300px;
+    width: 350px;
+    height: 230px;
 
   }
 
   .textAnnDesktop {
     display: flex;
+    min-width: 400px;
     text-align: center;
     justify-content: center;
     color: white;
     border-radius: 20px;
     background-color: rgba(49, 48, 48, 0.4);
     backdrop-filter: blur(2px);
-    margin: 20px 350px 20px 350px;
+    padding: 10px;
+    max-width: 70%;
+    margin-bottom: 20px;
   }
 
- 
+  
+  
+}
+@media only screen and (min-width: 1024px) {
+  .card-body {
+    margin-top: 100px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px;
+    column-gap: 8vw;
+
+  }
 }

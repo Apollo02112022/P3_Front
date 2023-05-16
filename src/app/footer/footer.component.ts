@@ -1,12 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-// import jwtDecode, * as jwt_decode from 'jwt-decode';
 import { AnnonceService } from '../services/annonce.service';
 import { Location } from '@angular/common';
 import { TokenService } from '../services/token.service';
+import { NotificationService } from '../services/notification.service';
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -26,7 +25,7 @@ export class FooterComponent implements OnInit {
   isStreamOn:boolean = false;
 
   // constructor(private router: Router) {}
-  constructor(private http: HttpClient,private router: Router,private annonceService: AnnonceService,private location: Location, private token :TokenService) {}
+  constructor(private http: HttpClient,private router: Router,private annonceService: AnnonceService,private location: Location, private token :TokenService, private notifService : NotificationService) {}
   
   ngOnInit() {
 
@@ -51,16 +50,18 @@ export class FooterComponent implements OnInit {
   }
 
   userNotificationNav(){
-    this.router.navigate(['users',this.token.userIdOnToken(),'notifications'])
+      return "/users/"+this.token.userIdOnToken()+"/notifications"    
   }
 
   userProfilNav(){
-    this.router.navigate(['users',this.token.userIdOnToken(),'profil'])
+    return "/users/"+this.token.userIdOnToken()+"/profil"    
   }
 
   hidden() {
     return this.router.url === '/' || this.router.url === '/accueil';
   }
+
+
 
   startStream(){
     // requête GET pour se connecter au serveur SSR
@@ -69,7 +70,9 @@ export class FooterComponent implements OnInit {
     // écoute les évènements SSE et ajoute les messages reçus à la liste
     eventSource.addEventListener('message', (event: MessageEvent) => {
       const message = event.data;
-      this.messages.push(message);
+      // this.messages.push(message);
+      this.notifService.messages.push(message)
+      this.messages=this.notifService.messages
       console.log("&&&&&&&&&&&&&&&&&&&&& messages", message);
     });
 

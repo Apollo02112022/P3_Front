@@ -1,20 +1,52 @@
-<footer *ngIf="hiddenFooter">
-    <div class="icons">
+<div *ngIf="hiddenFooter" class="icons footer">
+    <div class="icon">
+
         <img (click)="backClick()" src="assets/icons/fleche-cercle-gauche.png" alt="flêche pour retour page précédente">
-        <img routerLink="/accueil" src="assets/icons/maison.png" alt="retour accueil">
-        <img routerLink="/offer-a-barter" src="assets/icons/ajouter.png" alt="créer une annonce">
-            <div class="notification">
-                <div *ngIf="messages.length" class="number">
-                    {{messages.length}}
-                </div>
-                <img  (click)="userNotificationNav()" src="assets/icons/bell.png" alt="consulter notification"> 
-            </div>
-        <img (click)="userProfilNav()" src="assets/icons/utilisateur-du-cercle.png" alt="consulter profil">     
     </div>
-    <!-- <div class="icons_desktop">
-        <img src="assets/icons/facebook.png" alt="logo facebook">
-        <img src="assets/icons/twitter.png" alt="logo twitter">
-        <img src="assets/icons/pinterest.png" alt="logo pinterest">
-        <img src="assets/icons/instagramm.png" alt="logo instagram">
-    </div> -->
-</footer>
+    <div class="icon">
+
+        <img routerLink="/accueil" src="assets/icons/maison.png" alt="retour accueil">
+    </div>
+    <div class="icon">
+
+        <img routerLink="/offer-a-barter" src="assets/icons/ajouter.png" alt="créer une annonce">
+    </div>
+    <div class="notification">
+        <div *ngIf="messages.length" class="number">
+            {{messages.length}}
+        </div>
+        <div class="icon">
+            <img [routerLink]="userNotificationNav()" src="assets/icons/bell.png" alt="consulter notification">
+        </div>
+
+    </div>
+    <div class="icon">
+
+        <img  [routerLink]="userProfilNav()" src="assets/icons/utilisateur-du-cercle.png" alt="consulter profil">
+    </div>
+</div>
+<div class="icons_desktop">
+    <p>
+        Je rejoins la communauté Trocoeurs
+    </p>
+    <div>
+        <a href="https://www.facebook.com/profile.php?id=100092441242486">
+            <img class="facebook" src="assets/icons/facebook.png" alt="logo facebook">
+        </a>
+    </div>
+    <div>
+        <a href="https://twitter.com/trocoeurs">
+            <img class="twitter" src="assets/icons/twitter.png" alt="logo twitter">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.pinterest.fr/trocoeurs/">
+            <img src="assets/icons/pinterest.png" alt="logo pinterest">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.instagram.com/trocoeurs/">
+            <img src="assets/icons/instagramm.png" alt="logo instagram">
+        </a>
+    </div>
+</div>

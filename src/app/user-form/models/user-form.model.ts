@@ -1,5 +1,3 @@
-// import { Picture } from "./picture.model";
-
 export class User {
     lastname?: string;
     firstname?: string;

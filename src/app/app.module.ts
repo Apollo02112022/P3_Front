@@ -17,7 +17,6 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { PropositionTrocComponent } from './proposition-troc/proposition-troc.component';
 import { SwitchComponent } from './switch/switch.component';
-import { UserAnnoucementComponent } from './user-annoucement/user-annoucement.component';
 import { UserCardButtonComponent } from './userProfilModal/user-card/user-card-button/user-card-button.component';
 import { UserCardComponent } from './userProfilModal/user-card/user-card.component';
 import { UserCardFormularComponent } from './userProfilModal/user-card/user-card-formular/user-card-formular.component';
@@ -27,6 +26,7 @@ import { CguComponent } from './cgu/cgu.component';
 import { CharteComponent } from './charte/charte.component';
 import { MentionsComponent } from './mentions/mentions.component';
 import { PolitiqueComponent } from './politique/politique.component';
+import { ProfilAdminComponent } from './profil-admin/profil-admin.component';
 
 
 @NgModule({
@@ -49,13 +49,13 @@ import { PolitiqueComponent } from './politique/politique.component';
     UserCardFormularComponent,
     UserFormComponent,
     FileUploadComponent,
-    UserAnnoucementComponent,
     HeaderComponent,
     UserNotificationComponent,
     CguComponent,
     CharteComponent,
     MentionsComponent,
     PolitiqueComponent,
+    ProfilAdminComponent
    ],
    
   imports: [
