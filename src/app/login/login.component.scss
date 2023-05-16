@@ -10,10 +10,11 @@
     color: $color-font;     
     
     &__redirection {
-
+        color:white;
         &__link {
             text-decoration: underline;
             cursor: pointer;
+            
         }
     }
 
@@ -36,7 +37,7 @@
         justify-content: space-evenly;
         align-items: center;
         height: 35%;
-        width: 80%;
+        width: 50%;
         color: $color-label-login;
         background-color: $color-bc-login;
         backdrop-filter: blur(0.125em);
