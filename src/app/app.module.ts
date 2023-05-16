@@ -55,7 +55,7 @@ import { ProfilAdminComponent } from './profil-admin/profil-admin.component';
     CharteComponent,
     MentionsComponent,
     PolitiqueComponent,
-    ProfilAdminComponent,
+    ProfilAdminComponent
    ],
    
   imports: [
