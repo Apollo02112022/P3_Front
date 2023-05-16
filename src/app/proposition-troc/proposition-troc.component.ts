@@ -48,6 +48,4 @@ export class PropositionTrocComponent implements OnInit {
       .catch(error => console.error('Error:', error));
     this.router.navigate(['barters']); // retour a la page annonces après ajout d'une proposition
   }
-  
-
 }
