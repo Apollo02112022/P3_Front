@@ -9,15 +9,15 @@
               <!-- Input pseudo -->
               <label for="pseudo">Pseudo</label>
               <input formControlName="pseudo" class="login__pseudo__input" type="text" placeholder=" Pseudo" >
-                    <p class="login__error__text" *ngIf="registerForm.get('pseudo')?.hasError('required')">*Ce champs est requis.</p>
-                    <p class="login__error__text" *ngIf="registerForm.get('pseudo')?.hasError('maxlength')">*Maximum 10 caractères.</p>
+                    <p class="login__error__text" *ngIf="registerForm.get('pseudo')?.hasError('required') && registerForm.get('pseudo')?.dirty">*Ce champs est requis.</p>
+                    <p class="login__error__text" *ngIf="registerForm.get('pseudo')?.hasError('maxlength') && registerForm.get('pseudo')?.dirty">*Maximum 10 caractères.</p>
             </div>
             <div class="login__mdp">
               <!-- Input password -->
               <label for="password">Mot de passe</label>
               <input formControlName="password" class="login__mdp__input" type="password" placeholder=" Mot de passe">
-                  <p class="login__error__text" *ngIf="registerForm.get('password')?.hasError('required')">*Ce champs est requis.</p>
-                  <p class="login__error__text" *ngIf="registerForm.get('password')?.hasError('minlength')">*Minimum 8 caractères.</p>
+                  <p class="login__error__text" *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.dirty">*Ce champs est requis.</p>
+                  <p class="login__error__text" *ngIf="registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.dirty">*Minimum 8 caractères.</p>
             </div>
           <!-- </div> -->
         </div>
