@@ -1,3 +1,4 @@
+import { User } from "../user-form/models/user-form.model";
 
 
 export class Annonce {
@@ -6,4 +7,5 @@ export class Annonce {
     description!: string;
     dateCreation!: Date;
     imageUrl?:string;
+    user?:User;
   }

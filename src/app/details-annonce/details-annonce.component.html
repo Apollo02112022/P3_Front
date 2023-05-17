@@ -15,8 +15,9 @@
         <div class="imageDetailAnnonce"><img [src]="image" alt="Image de l'annonce">
         </div>
         <div class="descriptionDetailAnnonce">
-          <h3 class="title">Description :</h3>
-          <p class=" descriptionDetailAnnonce__des">{{annonceId.description}}</p>
+          <h3 class="title">Description de {{annonceId.user?.pseudo}} :</h3>
+          <p class=" descriptionDetailAnnonce__des gap10">{{annonceId.description}}</p>
+          <p class=" descriptionDetailAnnonce__des ">Lieu : {{annonceId.user?.city}}</p>
         </div>
       </div>
       <div class="btnDeal" *ngIf="visible">
