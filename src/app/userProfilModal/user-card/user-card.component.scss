@@ -2,6 +2,7 @@
     min-height: calc(100vh - 110px);
     margin-top: 40px;
     margin-bottom: 20px;
+    backdrop-filter: blur(2px);
 }
 
 .wrap {
@@ -59,6 +60,7 @@ img {
     width: 100%;
     border-radius: 50%;
     object-fit: cover;
+    cursor: default;
 }
 
 .h100px {

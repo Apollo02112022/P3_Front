@@ -400,6 +400,14 @@ body {
     input{
       color: rgb(81, 81, 81);
   }
+
+  img{
+    cursor: pointer;
+  }
+
+  button{
+    cursor: pointer;
+  }
     
     @media only screen and (min-width: 768px) {
       body {
