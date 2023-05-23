@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
-import { userValidator } from './validators/user.validator';  /*J'importe mon validator personnel pour le nom et le prénom.*/
-import { usernameValidator } from './validators/username.validator'; /*J'importe mon validator personnel pour le pseudo.*/
-import { pictureValidator } from './validators/picture.validator'; /*J'importe mon validator personnel pour la photo (format png uniquement).*/
-import { numberValidator } from './validators/number.validator'; /*J'importe mon validator personnel pour le département.*/
-import { passwordValidator } from './validators/password.validator'; /*J'importe mon validator personnel pour le mot de passe.*/
-import { UserService } from './services/user.service'; /*J'importe mon service.*/
+import { userValidator } from './validators/user.validator';  
+import { usernameValidator } from './validators/username.validator'; 
+import { pictureValidator } from './validators/picture.validator'; 
+import { numberValidator } from './validators/number.validator'; 
+import { passwordValidator } from './validators/password.validator'; 
+import { UserService } from '../services/user.service'; 
 import { toFormData } from '../formData';
 import { Router } from '@angular/router';
 
@@ -19,7 +19,7 @@ import { Router } from '@angular/router';
 
 export class UserFormComponent {
 
-  form: FormGroup; /*Déclaration de la variable qui contiendra l'objet du formulaire (son type est FormGroup).*/
+  form: FormGroup; 
 
 
   registered = false;
@@ -36,12 +36,6 @@ export class UserFormComponent {
 
 
   constructor(private userService: UserService, private router: Router) {
-
-    // J'utilise la méthode group, en lui passant un objet :
-
-    //   - les clés de l'objet correspondent aux noms des champs;
-
-    //   - les valeurs de l'objet correspondent à la configuration de chaque champ.
 
     this.form = new FormGroup({
 
@@ -85,7 +79,7 @@ export class UserFormComponent {
 
   }
 
-  // Méthode qui envoie envoie une requête POST pour créer le profil d'un utilisateur.
+  // Méthode qui envoie une requête POST pour créer le profil d'un utilisateur.
 
   onSubmitForm() {
   console.log(this.form.value);
