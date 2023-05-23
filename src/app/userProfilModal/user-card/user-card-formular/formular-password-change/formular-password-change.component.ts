@@ -27,7 +27,6 @@ export class FormularPasswordChangeComponent implements OnInit {
       {
         validators: this.matchingPasswordsValidator()
       });
-    console.log("@@@@OnInit@@@@", this.passwordForm, "123!A@azer")
   }
 
 

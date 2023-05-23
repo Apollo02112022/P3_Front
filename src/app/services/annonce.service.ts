@@ -68,7 +68,6 @@ export class AnnonceService {
 
   // methode variable ann retourne une annonce Observable ajouter dans la bdd par l'API REST
   addOneAnnonce(ann: Annonce): Observable<ArrayBuffer> {
-    console.log("annonce :   " + ann.announcement_picture);
     const token = localStorage.getItem("token");
     const formData = new FormData(); // instance pour stoker les données de l'annonce
     formData.append('announcement_picture', ann.announcement_picture);// ajout des 2 propriétés "announcement_picture" et "description",
@@ -77,7 +76,6 @@ export class AnnonceService {
     const options = {
       headers: headers
     };
-    console.log(options);
     return this.http.post<any>(this.apiURLAdd+this.token.userIdOnToken(), formData, options);
   } 
   
@@ -95,7 +93,7 @@ export class AnnonceService {
     }
       fetch(url, options)
         .then(response => {
-          console.log(response)
+          response
           location.reload();
         })
         .catch(err => {
@@ -111,8 +109,6 @@ export class AnnonceService {
     const options = {
       headers: headers
     };
-    console.log("options : " + options);
-    console.log("token pour details annonce " + token)
     if (token == null) {
       alert("Pour accèder, connectez-vous ou créez un compte.");
       this.router.navigate(['login'])

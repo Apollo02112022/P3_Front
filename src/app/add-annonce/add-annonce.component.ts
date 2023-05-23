@@ -30,13 +30,13 @@ export class AddAnnonceComponent implements OnInit {
 
   addAnnonce() {
     // méthode appelée lorsqu'un utilisateur ajoute une nouvelle annonce
-    console.log(this.newAnnonce);
+
     if (!this.checkDescriptionLength()) {
       return;
     }
     // appel du service AnnonceService pour ajouter l'annonce dans la base de données
     this.annonceService.addOneAnnonce(this.newAnnonce).subscribe(ann => {
-      console.log(ann);
+
       // rediriger l'utilisateur vers la page des annonces une fois que l'annonce a été ajoutée avec succès
       this.router.navigate(['barters']);
     });

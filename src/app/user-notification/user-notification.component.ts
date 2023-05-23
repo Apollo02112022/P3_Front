@@ -34,7 +34,6 @@ export class UserNotificationComponent implements OnInit{
     fetch(apelApi,options)
     .then(data=>data.json())
     .then(data=>{
-      console.log(data)
       this.notifications = data})
   }
 

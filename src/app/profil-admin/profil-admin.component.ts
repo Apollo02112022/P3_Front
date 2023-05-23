@@ -22,7 +22,6 @@ export class ProfilAdminComponent implements OnInit{
   ngOnInit() {
     if(this.router.url.includes("admin")){
 
-      console.log(this.token.adminToken())
     }
     this.userService.getAllUsers().subscribe(users => {
     this.users = users;

@@ -41,10 +41,9 @@ export class PropositionTrocComponent implements OnInit {
         'Content-Type': 'application/json' 
       }),
     }
-    console.log(data);
     fetch(apiUrl, options)
       .then(response => response.json())
-      .then(data => console.log('Data:', data))
+      .then(data =>  data)
       .catch(error => console.error('Error:', error));
     this.router.navigate(['barters']); // retour a la page annonces après ajout d'une proposition
   }

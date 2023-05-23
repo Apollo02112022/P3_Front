@@ -32,7 +32,6 @@ export class FooterComponent implements OnInit {
   
       // écoute les évènements de navigation du 'Router'
       this.router.events.subscribe((event) => {
-        console.log("event",event);
         if(event instanceof NavigationEnd ){
 
           if(!this.isStreamOn && event.url == "/barters" &&  localStorage.getItem('token')){
@@ -73,7 +72,6 @@ export class FooterComponent implements OnInit {
       // this.messages.push(message);
       this.notifService.messages.push(message)
       this.messages=this.notifService.messages
-      console.log("&&&&&&&&&&&&&&&&&&&&& messages", message);
     });
 
 

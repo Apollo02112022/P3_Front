@@ -7,11 +7,9 @@ export function usernameValidator(control: AbstractControl): { [key: string]: bo
   const value = control.value;  
   const regex = /^[a-z0-9]+$/i;
     if (!regex.test(value)) {
-      console.log('Pseudo non valide.');
       return { username: true };
     }
     else {
-      console.log('Pseudo valide.');
       return null;
     }
     

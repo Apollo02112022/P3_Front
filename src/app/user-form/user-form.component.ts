@@ -88,13 +88,12 @@ export class UserFormComponent {
   // Méthode qui envoie envoie une requête POST pour créer le profil d'un utilisateur.
 
   onSubmitForm() {
-  console.log(this.form.value);
 
     this.userService.createUser(toFormData(this.form.value)).subscribe(
 
       {
         next: (res) => {
-          console.log(res);
+          res;
           this.registered = true;
         },
         error: (e) => {
@@ -105,7 +104,6 @@ export class UserFormComponent {
             this.errorPseudo = true;
             this.close = false;
           } else {
-            console.log(e);
             this.notRegistered = true;
           }
         }

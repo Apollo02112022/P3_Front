@@ -16,11 +16,6 @@ export class LoginComponent {
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private tokenService: TokenService) {}
 
-  // testToken() {
-  //   const decodedToken = this.tokenService.getDecodedToken();
-  //   this.pseudoToken = decodedToken ? decodedToken : null;
-  //   console.log(this.pseudoToken);
-  // }
 
     registerForm = new FormGroup({
       pseudo: new FormControl("", [Validators.required, Validators.maxLength(10)]),
@@ -63,11 +58,9 @@ export class LoginComponent {
   decodeToken() {
     this.tokenService.getDecodedToken();
     this.tokenService.getDecodedToken();
-    console.log(this.tokenService.getDecodedToken());
     const userId: number = this.tokenService.getDecodedToken().userId;
     const sub: string = this.tokenService.getDecodedToken().sub;
-    console.log(userId);
-    console.log(sub);
+
   }
   toSignup() {
     this.router.navigate(["/signup"]);
@@ -76,7 +69,6 @@ export class LoginComponent {
     if(localStorage.getItem("token")){
       const token=this.tokenService.getDecodedToken()
       const role = token.role;
-      console.log(role)
       return role
       }else{
         return null

@@ -59,7 +59,6 @@ export class UserCardComponent implements OnInit {
 
   setHidden(){
     this.componentHiddenService.setHidden();
-    console.log(this.componentHiddenService.getHidden())
   } 
 
 

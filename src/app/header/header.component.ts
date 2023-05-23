@@ -33,7 +33,6 @@ export class HeaderComponent implements OnInit {
   
       // écoute les évènements de navigation du 'Router'
       this.router.events.subscribe((event) => {
-        console.log("event",event);
         if(event instanceof NavigationEnd ){
 
           if(!this.isStreamOn && event.url == "/barters" &&  localStorage.getItem('token')){
