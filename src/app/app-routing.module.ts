@@ -14,9 +14,10 @@ import { PolitiqueComponent } from './politique/politique.component';
 import { CharteComponent } from './charte/charte.component';
 import { CguComponent } from './cgu/cgu.component';
 import { ProfilAdminComponent } from './profil-admin/profil-admin.component';
-import { LoginGuard } from './login.guard';
-import { RoutesGuard } from './routes.guard';
-import { AdminGuard } from './admin.guard';
+import { LoginGuard } from './guards/login.guard';
+import { RoutesGuard } from './guards/routes.guard';
+import { AdminGuard } from './guards/admin.guard';
+
 
 
 
