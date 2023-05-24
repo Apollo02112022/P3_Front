@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { TokenService } from "./token.service";
 import { switchMap } from 'rxjs/operators';
 import { AdminService } from './admin.service';
+import { environment } from 'src/environments/environment.prod';
 
 // constante pour dire a Angular que les données retournées sont sous format Json
 const httpOptions = {
@@ -22,15 +23,16 @@ export class AnnonceService {
   }
 
   // variable pour affecter Url de l'app back-end 
-  apiURL: string = 'http://localhost:8080/barters';
-  apiURLAdd: string = 'http://localhost:8080/offer-a-barter?userid=';
-  apiURLdetails: string = 'http://localhost:8080/barters/';
-  apiURLDelete:string = "http://localhost:8080/users/"+this.token.userIdOnToken()+"/"
+  apiURL: string = environment.apiUrlBarters;
+  apiURLAdd: string = environment.apiUrlAddOffer;
+  apiURLdetails: string = environment.apiUrlBarters+"/";
+  apiURLDelete:string = environment.apiUrlUser;
   annonces!: Annonce[];//declaration de variable et tableau d'annonce'
 
   userAnnouncementId:number | null= null;
 
-  userAnnouncement: string = "http://localhost:8080/users/" ;
+
+  userAnnouncement: string = environment.apiUrlUser;
 
 
   // retourne  tableau d'annonce de type observable 
@@ -51,7 +53,7 @@ export class AnnonceService {
       headers: headers
     };
 
-    return this.http.get<Annonce[]>(this.userAnnouncement+this.token.userIdOnToken()+ "/barters",options);
+    return this.http.get<Annonce[]>(this.userAnnouncement+this.token.userIdOnToken()+ environment.userBarters,options);
 
   }
 
@@ -63,12 +65,11 @@ export class AnnonceService {
       headers: headers
     };
 
-    return this.http.get<Annonce[]>("http://localhost:8080/users/" +this.adminService.getUserId()+ "/barters",options)
+    return this.http.get<Annonce[]>(this.userAnnouncement +this.adminService.getUserId()+ environment.userBarters,options)
   }
 
   // methode variable ann retourne une annonce Observable ajouter dans la bdd par l'API REST
   addOneAnnonce(ann: Annonce): Observable<ArrayBuffer> {
-    console.log("annonce :   " + ann.announcement_picture);
     const token = localStorage.getItem("token");
     const formData = new FormData(); // instance pour stoker les données de l'annonce
     formData.append('announcement_picture', ann.announcement_picture);// ajout des 2 propriétés "announcement_picture" et "description",
@@ -77,7 +78,6 @@ export class AnnonceService {
     const options = {
       headers: headers
     };
-    console.log(options);
     return this.http.post<any>(this.apiURLAdd+this.token.userIdOnToken(), formData, options);
   } 
   
@@ -85,7 +85,7 @@ export class AnnonceService {
   // qui est utilisé pour suivre l'état de la requête HTTP et renvoyer la réponse de l'API sous forme d'objet Annonce.
 
   deleteAnnonce(annonceid: number) {
-    const url = this.apiURLDelete+"barters/"+annonceid;
+    const url = this.apiURLDelete+this.token.userIdOnToken()+"/barters/"+annonceid;
     const token = localStorage.getItem("token");
     const options = {
       method: 'DELETE',
@@ -95,7 +95,7 @@ export class AnnonceService {
     }
       fetch(url, options)
         .then(response => {
-          console.log(response)
+          response
           location.reload();
         })
         .catch(err => {
@@ -111,8 +111,6 @@ export class AnnonceService {
     const options = {
       headers: headers
     };
-    console.log("options : " + options);
-    console.log("token pour details annonce " + token)
     if (token == null) {
       alert("Pour accèder, connectez-vous ou créez un compte.");
       this.router.navigate(['login'])
@@ -121,7 +119,7 @@ export class AnnonceService {
     // get retourne un objet de type annonce par l'url + id construite au dessus
   }
   getAnouncementPictureById(id: number): Observable<any> {
-    return this.http.get(`http://localhost:8080/barters/${id}/image`, { responseType: 'blob' });
+    return this.http.get(environment.apiUrlBartersImage(id), { responseType: 'blob' });
   }
   // methode get retourne un oservable de type  responseType: 'blob',pour spécifier que la réponse doit être traitée 
   //comme des données binaires brutes.

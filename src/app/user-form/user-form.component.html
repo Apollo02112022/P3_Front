@@ -2,9 +2,6 @@
 
   <h1>Création de compte</h1>
 
-  <!-- Le fait d'avoir importé ReactiveFormsModule dans le app.module.ts me permet de lier un objet de type FormGroup à 
-  un  <form>  avec l'attribut  formGroup  . -->
-
   <form [formGroup]="form">
 
     <div class="form-group">
@@ -139,7 +136,7 @@
             <div class="form-control">
 
               <app-file-upload formControlName="picture"></app-file-upload>
-              <!-- Injection de mon composant file-upload permettant de télécharger des images pour les envoyer dans la BDD.  -->
+              <!-- Mise en place du composant file-upload permettant de télécharger des photos.  -->
 
             </div>
 
@@ -362,11 +359,7 @@
     <span>J'accepte les <a class="a" href='/cgu'>CGU</a>.</span>
   </div>
 
-  <button class="form-btn" type="submit" (click)="onSubmitForm()" [disabled]="!isChecked">Créer mon
-    compte</button>
-  <!-- Pour empêcher l'utilisateur d'envoyer le formulaire s'il n'est pas valable, je lie l'attribut  disabled  
-    du bouton Créer mon compte à l'attribut  invalid  du FormGroup. Si le formulaire n'est pas valable, le bouton 
-    sera désactivé. -->
+  <button class="form-btn" type="submit" (click)="onSubmitForm()" [disabled]="!isChecked">Créer mon compte</button>
 
 </div>
 

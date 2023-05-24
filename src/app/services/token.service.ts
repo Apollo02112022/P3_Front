@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import jwt_decode from "jwt-decode";
+import { environment } from 'src/environments/environment.prod';
 
 
 @Injectable({
@@ -26,7 +27,6 @@ export class TokenService {
     if (token) {
       return jwt_decode(token);
     } else {
-      console.log("NNNNNNNNNOOOOOTTTTTTTTTT   TTOOOKKKEENNNN");
       return null;
     }
   }
@@ -37,9 +37,9 @@ export class TokenService {
     const options = {
       headers: header,
     };
-    fetch(`http://localhost:8080/${url}`, options)
+    fetch(environment.apiUrl+url, options)
       .then(res => res.json())
-      .then(response => console.log(response))
+      .then(response => response)
       .catch(err => console.log(err))
   }
 
@@ -61,7 +61,6 @@ export class TokenService {
     if(localStorage.getItem("token")){
       const token=this.getDecodedToken()
       const userid = token.userId;
-      console.log(userid)
       return userid
       }else{
         return null
@@ -71,7 +70,6 @@ export class TokenService {
     if(localStorage.getItem("token")){
       const token=this.getDecodedToken()
       const role = token.role;
-      console.log(role)
       return role
       }else{
         return null

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Annonce } from '../models/annonce.model';
 import { AnnonceService } from '../services/annonce.service';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
 import { AdminService } from '../services/admin.service';
 import { TokenService } from '../services/token.service';
 
@@ -40,14 +41,14 @@ export class AnnoncesComponent implements OnInit {
 
       // inscription a l'observable de la methode listeAnnonce() qui fait appel a l api rest
       this.annonceService.listeAnnonce().subscribe(ann => {
-        console.log(ann);
+
         // affecte le resultat de la methode listeAnnonce "ann" à la liste d'annonce
         // Pour chaque objet "annonceImg" de la liste "ann", on ajoute une propriété "imageUrl" à l'objet en utilisant une interpolation de chaîne.
         // La propriété "imageUrl" contient une URL qui pointe vers l'image de l'annonce.
         this.annonces = ann.map(annonceImg => {
           return {
             ...annonceImg,
-            imageUrl: `http://localhost:8080/barters/${annonceImg.id}/image`// interpolation ${annonceImg.id} est = a la concatenation" /+ annonceImg.id +/ "
+            imageUrl: environment.apiUrlBartersImage(annonceImg.id)// interpolation ${annonceImg.id} est = a la concatenation" /+ annonceImg.id +/ "
           }
         });
         //      le spread operator ...annonceImg utilisé pour créer une copie de chaque annonce du tableau d'annonces récupéré à partir du service.
@@ -57,24 +58,22 @@ export class AnnoncesComponent implements OnInit {
       });
     } else if (this.router.url.includes("admin")) {
       this.annonceService.adminUserAnnonce().subscribe(ann => {
-        console.log("oui ça passe !!!!! &&&&&&&");
         // affecte le resultat de la methode listeUserAnnonce ann à la liste d'annonce
         this.annonces = ann.map(annonceImg => {
           return {
             ...annonceImg,
-            imageUrl: `http://localhost:8080/barters/${annonceImg.id}/image`// interpolation ${annonceImg.id} est = a la concatenation" /+ annonceImg.id +/ "
+            imageUrl: environment.apiUrlBartersImage(annonceImg.id)// interpolation ${annonceImg.id} est = a la concatenation" /+ annonceImg.id +/ "
           }
         });
       });
     } else {
       // inscription a l'observable de la methode listeUserAnnonce() qui fait appel a l api rest
       this.annonceService.listeUserAnnonce().subscribe(ann => {
-        console.log(ann);
         // affecte le resultat de la methode listeUserAnnonce ann à la liste d'annonce
         this.annonces = ann.map(annonceImg => {
           return {
             ...annonceImg,
-            imageUrl: `http://localhost:8080/barters/${annonceImg.id}/image`// interpolation ${annonceImg.id} est = a la concatenation" /+ annonceImg.id +/ "
+            imageUrl: environment.apiUrlBartersImage(annonceImg.id)// interpolation ${annonceImg.id} est = a la concatenation" /+ annonceImg.id +/ "
           }
         });
       });
@@ -88,13 +87,8 @@ export class AnnoncesComponent implements OnInit {
     let conf = confirm("Confimer la suppression de l'annonce");
     if (conf && !this.router.url.includes("admin")) {
       this.annonceService.deleteAnnonce(annonceid);
-      console.log(annonceid, "Deleted");
     } else if (conf && this.router.url.includes("admin")) {
       this.adminService.deleteAnnonce(annonceid);
-      console.log(annonceid, "Deleted");
-    } else {
-
-      console.log(annonceid, "Not deleted");
     }
 
   }
@@ -102,13 +96,11 @@ export class AnnoncesComponent implements OnInit {
   // méthode pour sélectionner une annonce dans la liste
   onSelectedAnnonce(annonce: any): void {
     const id = annonce.id
-    this.annonceService.userAnnouncementId = annonce.user.id
-    console.log("Annonce sélectionnée :", id);
+    this.annonceService.userAnnouncementId = annonce.user.id;
     // récupère l'annonce correspondant à l'ID spécifié
     this.annonceService.consultAnnonce(id).subscribe((annonce) => {
       // stocke l'annonce sélectionnée dans une variable annonce
       this.annonceSelectionnee = annonce;
-      console.log("Annonce sélectionnée :", annonce);
 
       //retour versla page annonces
       if (this.router.url.includes('admin')) {

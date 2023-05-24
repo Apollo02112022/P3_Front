@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TokenService } from './token.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +13,7 @@ export class ChangeMailService {
 
 
     // ----------------constante pour l'exécution des appels api--------------//
-    url: string = "http://localhost:8080/users/" + this.token.userIdOnToken() + "/profil";
+    url: string = environment.apiUrlUser + this.token.userIdOnToken() + environment.userProfil;
     //------------------------- section à modifier --------------------------// 
 
 // Méthode pour vérifier si le mail existe déjà dans la base de données

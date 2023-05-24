@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ChangePasswordService } from '../../../../services/change-password.service';
-import { passwordValidator } from 'src/app/user-form/validators/password.validator';
+import { passwordValidator } from 'src/app/validators/password.validator';
 
 @Component({
   selector: 'app-formular-password-change',
@@ -27,7 +27,6 @@ export class FormularPasswordChangeComponent implements OnInit {
       {
         validators: this.matchingPasswordsValidator()
       });
-    console.log("@@@@OnInit@@@@", this.passwordForm, "123!A@azer")
   }
 
 

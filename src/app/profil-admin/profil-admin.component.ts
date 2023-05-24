@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user-form/services/user.service';
-import { User } from '../user-form/models/user-form.model';
+import { UserService } from '../services/user.service';
+import { User } from '../models/user-form.model';
 import { AdminService } from '../services/admin.service';
 import { AnnonceService } from '../services/annonce.service';
 import { Router } from '@angular/router';
@@ -22,7 +22,6 @@ export class ProfilAdminComponent implements OnInit{
   ngOnInit() {
     if(this.router.url.includes("admin")){
 
-      console.log(this.token.adminToken())
     }
     this.userService.getAllUsers().subscribe(users => {
     this.users = users;

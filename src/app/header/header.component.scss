@@ -1,5 +1,19 @@
 .icons_desktop {
     display: none;
+    z-index: 10;
+}
+
+.usericon{
+    border-radius: 50%;
+    img {
+    
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+    }
+}
+h3 {
+    padding-left: 10px;
 }
 
 @media (min-width: 769px) {
@@ -10,20 +24,15 @@
         align-items: center;
         justify-content: space-around;
     }
-
-    // .icons {
     
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: center;
-       
+    
+    
+    .notification {
+        position: relative;
         
-        .notification {
-            position: relative;
-           
-            .number {
-                color: white;
-                background-color:rgb(255, 0, 0);
+        .number {
+            color: white;
+            background-color:rgb(255, 0, 0);
                 border-radius: 50%;
                 width: 15px;
                 height: 15px;
@@ -32,34 +41,18 @@
                 justify-content: center;
                 position: absolute;
                 left: 0;
-                top: -5px;
-    
+                top: -5px;   
             }
         }
-    
-    // }
-
-    
-    .logo {
-        width: 32px;
-        display: flex;
-        // margin-right: auto;
-        // margin-left: 10px;
-
+        
+        .logo {
+            width: 32px;
+            display: flex;
+        }
+        
+        .title {
+            text-align: left;
+            font-size: 18px;
+            color: rgb(81, 81, 81)
+        }
     }
-    
-    // img {
-    //    height: 29px; 
-    //    display: flex;
-    //    align-items: center;
-    // // margin-right: 10rem;
-    // // margin-left: 8rem;
-    // }
-
-    .title {
-        text-align: left;
-        font-size: 18px;
-        color: rgb(81, 81, 81)
-    }
-      
-}

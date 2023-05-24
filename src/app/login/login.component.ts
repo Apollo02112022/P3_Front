@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { TokenService } from '../services/token.service';
+import { environment } from 'src/environments/environment.prod';
+import { UserlogoService } from '../services/userlogo.service';
 
 
 @Component({
@@ -14,13 +16,8 @@ export class LoginComponent {
 
   tokenReceveidFail: boolean = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private tokenService: TokenService) {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private tokenService: TokenService,private userLogoService : UserlogoService) {}
 
-  // testToken() {
-  //   const decodedToken = this.tokenService.getDecodedToken();
-  //   this.pseudoToken = decodedToken ? decodedToken : null;
-  //   console.log(this.pseudoToken);
-  // }
 
     registerForm = new FormGroup({
       pseudo: new FormControl("", [Validators.required, Validators.maxLength(10)]),
@@ -30,7 +27,7 @@ export class LoginComponent {
    login() {
     const { pseudo, password } = this.registerForm.value;
     const data = { pseudo, password };
-    fetch("http://localhost:8080/login", {
+    fetch(environment.apiUrlLogin, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
@@ -46,6 +43,7 @@ export class LoginComponent {
           this.router.navigate(["/barters"])
           alert(" Vous êtes connecté")
           this.tokenService.setToken(token);
+          this.getUserPseudoAndPictureForHederandFooter()
         } else {
           this.tokenReceveidFail = true;
         }
@@ -63,11 +61,9 @@ export class LoginComponent {
   decodeToken() {
     this.tokenService.getDecodedToken();
     this.tokenService.getDecodedToken();
-    console.log(this.tokenService.getDecodedToken());
     const userId: number = this.tokenService.getDecodedToken().userId;
     const sub: string = this.tokenService.getDecodedToken().sub;
-    console.log(userId);
-    console.log(sub);
+
   }
   toSignup() {
     this.router.navigate(["/signup"]);
@@ -76,11 +72,34 @@ export class LoginComponent {
     if(localStorage.getItem("token")){
       const token=this.tokenService.getDecodedToken()
       const role = token.role;
-      console.log(role)
       return role
       }else{
         return null
       }
+  }
+
+  getUserPseudoAndPictureForHederandFooter(){
+
+    if(this.tokenService.getDecodedToken().pseudo == null){
+      
+        this.userLogoService.pseudo = ""
+        this.userLogoService.image = "assets/icons/utilisateur-du-cercle.png"
+      }
+  
+      this.userLogoService.pseudo = this.tokenService.getDecodedToken().pseudo;
+  
+      this.userLogoService.getUserPicture(this.userLogoService.imageURL + this.tokenService.userIdOnToken() + "/picture").subscribe(
+        (data: Blob) => {
+          const reader = new FileReader(); // création d'un objet FileReader pour lire l'image sous forme de blob
+          reader.readAsDataURL(data); // lit le blob sous forme d'URL
+          reader.onloadend = () => {
+            this.userLogoService.image = reader.result; // stock l'URL dans la variable "image"
+          };
+        },
+        error => {
+          console.log(error);
+        }
+      );
   }
 
 }

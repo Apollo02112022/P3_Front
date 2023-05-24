@@ -1,5 +1,5 @@
 /* Validator utilisé pour le nom le prénom et la ville. L'utilisateur doit rentrer un nom, un prénom ou une ville commençant 
-obligatoirement par une lettre majuscule et ne comprenant pas de chiffres, de caractères spéciaux. Les espaces sont autorisés*/
+obligatoirement par une lettre majuscule et ne comprenant pas de chiffres et de caractères spéciaux. Les espaces sont autorisés*/
 
 import { AbstractControl, ValidatorFn } from '@angular/forms';
 

@@ -1,18 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 import { User } from '../models/user-form.model';
 
 
-const baseUrl = 'http://localhost:8080/signup';
+const baseUrl = environment.apiUrlSignup;
 
-const baseUrl2 = 'http://localhost:8080/users';
+const baseUrl2 = environment.apiUrlUser;
 
-const baseUrl3 = 'http://localhost:8080/users/';
+const baseUrl3 = environment.apiUrlUser;
 
-
-// const httpOptions = {headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-// };
 
 @Injectable({
     providedIn: 'root'

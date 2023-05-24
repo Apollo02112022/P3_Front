@@ -24,7 +24,6 @@ export class DetailsAnnonceComponent implements OnInit {
   ngOnInit() {//récupére l'annonce sélectionnée à partir du service AnnonceService en utilisant la méthode getAnnonceDetails(id)
     const id = this.route.snapshot.paramMap.get('id');//permet de récupérer la valeur de l'identifiant (id) passé en paramètre dans l'URL de la page.
     this.getAnnouncementDetails(id);
-    console.log(id);
     if(this.router.url.includes("proposal_deal")|| this.router.url.includes("admin")){
       this.visible = false
     }else if(this.router.url.includes("barters")){
@@ -37,10 +36,8 @@ export class DetailsAnnonceComponent implements OnInit {
     this.annonceService.consultAnnonce(id).pipe(
       map((data: any) => { // opérateur "map" pour assigner les données reçues à la variable "annonceId".
         this.annonceId = data;
-        console.log("DATA RECU : " + this.annonceId);
       }),
       catchError((error: any) => {
-        console.log(error);
         return throwError(() => error); // intercepter les erreurs éventuelles et renvoyer une observable d'erreur
       })
     ).subscribe(() => {
@@ -60,7 +57,7 @@ export class DetailsAnnonceComponent implements OnInit {
         };
       },
       error => {
-        console.log(error);
+        return error;
       }
     );
   }

@@ -20,29 +20,37 @@
         </div>
 
     </div>
-    <div class="icon">
-
-        <img  [routerLink]="userProfilNav()" src="assets/icons/utilisateur-du-cercle.png" alt="consulter profil">
+    <div class="flex row jc-center ai-center">
+        <div class="icon usericon">
+    
+            <img [routerLink]="userProfilNav()" [src]="image" alt="consulter profil">
+        </div>
+        <h3>{{pseudo}}</h3>
     </div>
+    
 </div>
 <div class="icons_desktop">
     <p>
         Je rejoins la communauté Trocoeurs
     </p>
     <div>
-
-        <img class="facebook" src="assets/icons/facebook.png" alt="logo facebook">
+        <a target="_blank" href="https://www.facebook.com/profile.php?id=100092441242486">
+            <img class="facebook" src="assets/icons/facebook.png" alt="logo facebook">
+        </a>
     </div>
     <div>
-
-        <img class="twitter" src="assets/icons/twitter.png" alt="logo twitter">
+        <a target="_blank" href="https://twitter.com/trocoeurs">
+            <img class="twitter" src="assets/icons/twitter.png" alt="logo twitter">
+        </a>
     </div>
     <div>
-
-        <img src="assets/icons/pinterest.png" alt="logo pinterest">
+        <a target="_blank" href="https://www.pinterest.fr/trocoeurs/">
+            <img src="assets/icons/pinterest.png" alt="logo pinterest">
+        </a>
     </div>
     <div>
-
-        <img src="assets/icons/instagramm.png" alt="logo instagram">
+        <a target="_blank" href="https://www.instagram.com/trocoeurs/">
+            <img src="assets/icons/instagramm.png" alt="logo instagram">
+        </a>
     </div>
 </div>

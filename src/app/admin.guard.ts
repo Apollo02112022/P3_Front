@@ -20,7 +20,6 @@ export class AdminGuard implements CanActivate {
 
         return true;
       }
-      console.log("admintestfalse")
       this.router.navigate(['/'])
       return false;
     }

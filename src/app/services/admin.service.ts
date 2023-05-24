@@ -29,7 +29,6 @@ export class AdminService {
     }      
     fetch(url, options)
     .then(response => {
-      console.log(response)
       this.router.navigate(['admin','users'])
     })
     .catch(err => {

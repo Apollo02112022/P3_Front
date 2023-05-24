@@ -2,7 +2,7 @@
     <div class="flex row jc-center ai-center">
         <div>
 
-            <img class="logo" routerLink="/barters" src="assets/icons/sers_mains.png" alt="retour vers annonces" title="retour annonces">
+            <img class="logo" src="assets/icons/sers_mains.png">
         </div>
         <div>
 
@@ -14,7 +14,7 @@
     </div>
     <div>
 
-        <img routerLink="/accueil" src="assets/icons/maison.png" alt="retour accueil" title="retour accueil">
+        <img routerLink="/accueil" src="assets/icons/maison.png" alt="retour accueil">
     </div>
     <div>
 
@@ -28,9 +28,13 @@
             <img [routerLink]="userNotificationNav()" src="assets/icons/bell.png" alt="consulter notification" title="notifications">
         </div>
     </div>
-    <div>
-
-        <img [routerLink]="userProfilNav()" src="assets/icons/utilisateur-du-cercle.png" alt="consulter profil" title="Mon profil Connexion Deconnexion">
+    <div class="flex row jc-center ai-center">
+        <div class="usericon">
+    
+            <img  [routerLink]="userProfilNav()" [src]="image" alt="consulter profil" title="Mon profil Connexion Deconnexion">
+        </div>
+        <h3>{{pseudo}}</h3>
     </div>
+    
 
 </div>
