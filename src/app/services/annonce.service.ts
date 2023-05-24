@@ -24,15 +24,15 @@ export class AnnonceService {
 
   // variable pour affecter Url de l'app back-end 
   apiURL: string = environment.apiUrlBarters;
-  apiURLAdd: string = environment.apiUrlAddOffer+this.token.userIdOnToken();
+  apiURLAdd: string = environment.apiUrlAddOffer;
   apiURLdetails: string = environment.apiUrlBarters+"/";
-  apiURLDelete:string = environment.apiUrlUser+this.token.userIdOnToken()+"/"
+  apiURLDelete:string = environment.apiUrlUser;
   annonces!: Annonce[];//declaration de variable et tableau d'annonce'
 
   userAnnouncementId:number | null= null;
 
 
-  userAnnouncement: string = environment.apiUrlUser + this.token.userIdOnToken()+ environment.userBarters;
+  userAnnouncement: string = environment.apiUrlUser;
 
 
   // retourne  tableau d'annonce de type observable 
@@ -53,7 +53,7 @@ export class AnnonceService {
       headers: headers
     };
 
-    return this.http.get<Annonce[]>(this.userAnnouncement+this.token.userIdOnToken()+ "/barters",options);
+    return this.http.get<Annonce[]>(this.userAnnouncement+this.token.userIdOnToken()+ environment.userBarters,options);
 
   }
 
@@ -65,7 +65,7 @@ export class AnnonceService {
       headers: headers
     };
 
-    return this.http.get<Annonce[]>("http://localhost:8080/users/" +this.adminService.getUserId()+ "/barters",options)
+    return this.http.get<Annonce[]>(this.userAnnouncement +this.adminService.getUserId()+ environment.userBarters,options)
   }
 
   // methode variable ann retourne une annonce Observable ajouter dans la bdd par l'API REST
@@ -85,7 +85,7 @@ export class AnnonceService {
   // qui est utilisé pour suivre l'état de la requête HTTP et renvoyer la réponse de l'API sous forme d'objet Annonce.
 
   deleteAnnonce(annonceid: number) {
-    const url = this.apiURLDelete+"barters/"+annonceid;
+    const url = this.apiURLDelete+this.token.userIdOnToken()+"/barters/"+annonceid;
     const token = localStorage.getItem("token");
     const options = {
       method: 'DELETE',

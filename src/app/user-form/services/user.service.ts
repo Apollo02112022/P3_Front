@@ -7,9 +7,9 @@ import { User } from '../models/user-form.model';
 
 const baseUrl = environment.apiUrlSignup;
 
-const baseUrl2 = 'http://localhost:8080/users';
+const baseUrl2 = environment.apiUrlUser;
 
-const baseUrl3 = 'http://localhost:8080/users/';
+const baseUrl3 = environment.apiUrlUser;
 
 
 // const httpOptions = {headers: new HttpHeaders({ 'Content-Type': 'application/json' })
