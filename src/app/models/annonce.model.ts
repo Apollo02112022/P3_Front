@@ -1,4 +1,4 @@
-import { User } from "../user-form/models/user-form.model";
+import { User } from "./user-form.model";
 
 
 export class Annonce {

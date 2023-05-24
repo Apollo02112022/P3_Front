@@ -11,9 +11,6 @@ const baseUrl2 = 'http://localhost:8080/users';
 const baseUrl3 = 'http://localhost:8080/users/';
 
 
-// const httpOptions = {headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-// };
-
 @Injectable({
     providedIn: 'root'
 })
