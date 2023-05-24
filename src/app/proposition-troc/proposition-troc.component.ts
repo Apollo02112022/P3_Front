@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NotificationService } from '../services/notification.service';
 import { TokenService } from '../services/token.service';
 import { AnnonceService } from '../services/annonce.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-proposition-troc',
@@ -26,7 +27,7 @@ export class PropositionTrocComponent implements OnInit {
 
   
   addNotif() {
-    const apiUrl = `http://localhost:8080/postMessage?userAnnounceId=${this.annonceService.userAnnouncementId}`;
+    const apiUrl = environment.apiUrlAddMessage+this.annonceService.userAnnouncementId;
     const token = localStorage.getItem('token');
     const message = this.newNotification.message;
     const tel = this.newNotification.tel;

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { TokenService } from "./token.service";
 import { switchMap } from 'rxjs/operators';
 import { AdminService } from './admin.service';
+import { environment } from 'src/environments/environment.prod';
 
 // constante pour dire a Angular que les données retournées sont sous format Json
 const httpOptions = {
@@ -22,15 +23,16 @@ export class AnnonceService {
   }
 
   // variable pour affecter Url de l'app back-end 
-  apiURL: string = 'http://localhost:8080/barters';
-  apiURLAdd: string = 'http://localhost:8080/offer-a-barter?userid=';
-  apiURLdetails: string = 'http://localhost:8080/barters/';
-  apiURLDelete:string = "http://localhost:8080/users/"+this.token.userIdOnToken()+"/"
+  apiURL: string = environment.apiUrlBarters;
+  apiURLAdd: string = environment.apiUrlAddOffer+this.token.userIdOnToken();
+  apiURLdetails: string = environment.apiUrlBarters+"/";
+  apiURLDelete:string = environment.apiUrlUser+this.token.userIdOnToken()+"/"
   annonces!: Annonce[];//declaration de variable et tableau d'annonce'
 
   userAnnouncementId:number | null= null;
 
-  userAnnouncement: string = "http://localhost:8080/users/" ;
+
+  userAnnouncement: string = environment.apiUrlUser + this.token.userIdOnToken()+ environment.userBarters;
 
 
   // retourne  tableau d'annonce de type observable 
@@ -117,7 +119,7 @@ export class AnnonceService {
     // get retourne un objet de type annonce par l'url + id construite au dessus
   }
   getAnouncementPictureById(id: number): Observable<any> {
-    return this.http.get(`http://localhost:8080/barters/${id}/image`, { responseType: 'blob' });
+    return this.http.get(environment.apiUrlBartersImage(id), { responseType: 'blob' });
   }
   // methode get retourne un oservable de type  responseType: 'blob',pour spécifier que la réponse doit être traitée 
   //comme des données binaires brutes.

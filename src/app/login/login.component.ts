@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { TokenService } from '../services/token.service';
+import { environment } from 'src/environments/environment.prod';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class LoginComponent {
    login() {
     const { pseudo, password } = this.registerForm.value;
     const data = { pseudo, password };
-    fetch("http://localhost:8080/login", {
+    fetch(environment.apiUrlLogin, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

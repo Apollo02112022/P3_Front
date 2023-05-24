@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import jwt_decode from "jwt-decode";
+import { environment } from 'src/environments/environment.prod';
 
 
 @Injectable({
@@ -36,7 +37,7 @@ export class TokenService {
     const options = {
       headers: header,
     };
-    fetch(`http://localhost:8080/${url}`, options)
+    fetch(environment.apiUrl+url, options)
       .then(res => res.json())
       .then(response => response)
       .catch(err => console.log(err))

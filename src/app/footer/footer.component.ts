@@ -4,6 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { AnnonceService } from '../services/annonce.service';
 import { Location } from '@angular/common';
 import { TokenService } from '../services/token.service';
+import { environment } from 'src/environments/environment.prod';
 import { NotificationService } from '../services/notification.service';
 
 @Component({
@@ -64,7 +65,7 @@ export class FooterComponent implements OnInit {
 
   startStream(){
     // requête GET pour se connecter au serveur SSR
-    const eventSource = new EventSource(`http://localhost:8080/streamMessages?userId=`+this.token.userIdOnToken());
+    const eventSource = new EventSource(environment.apiUrlNotificationMessage+this.token.userIdOnToken());
 
     // écoute les évènements SSE et ajoute les messages reçus à la liste
     eventSource.addEventListener('message', (event: MessageEvent) => {
