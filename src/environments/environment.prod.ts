@@ -17,7 +17,7 @@ export const environment = {
 
 
     userBarters:"/barters",
-    userProfil:"/profile",
+    userProfil:"/profil",
 
     apiUrlBartersImage(id:number) : string{
         return `${this.apiUrl}barters/${id}/image`;
