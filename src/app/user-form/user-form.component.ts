@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
-import { userValidator } from './validators/user.validator';  
-import { usernameValidator } from './validators/username.validator'; 
-import { pictureValidator } from './validators/picture.validator'; 
-import { numberValidator } from './validators/number.validator'; 
-import { passwordValidator } from './validators/password.validator'; 
-import { UserService } from '../services/user.service'; 
+import { userValidator } from '../validators/user.validator';
+import { usernameValidator } from '../validators/username.validator';
+import { pictureValidator } from '../validators/picture.validator';
+import { numberValidator } from '../validators/number.validator';
+import { passwordValidator } from '../validators/password.validator';
+import { UserService } from '../services/user.service';
 import { toFormData } from '../formData';
 import { Router } from '@angular/router';
 
@@ -19,7 +19,7 @@ import { Router } from '@angular/router';
 
 export class UserFormComponent {
 
-  form: FormGroup; 
+  form: FormGroup;
 
 
   registered = false;
@@ -30,7 +30,7 @@ export class UserFormComponent {
 
   errorEmail = false;
 
-  close = false; 
+  close = false;
 
   isChecked = false;
 
@@ -82,7 +82,6 @@ export class UserFormComponent {
   // Méthode qui envoie une requête POST pour créer le profil d'un utilisateur.
 
   onSubmitForm() {
-  console.log(this.form.value);
 
     this.userService.createUser(toFormData(this.form.value)).subscribe(
 
@@ -114,5 +113,5 @@ export class UserFormComponent {
     this.close = true;
     this.notRegistered = false;
   }
-  
+
 }

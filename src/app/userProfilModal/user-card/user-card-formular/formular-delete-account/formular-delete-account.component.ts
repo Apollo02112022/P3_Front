@@ -5,7 +5,7 @@ import { ChangePasswordService } from 'src/app/services/change-password.service'
 import { LogoutService } from 'src/app/services/logout.service';
 import { TokenService } from 'src/app/services/token.service';
 import { UserService } from 'src/app/services/user.service';
-import { passwordValidator } from 'src/app/user-form/validators/password.validator';
+import { passwordValidator } from 'src/app/validators/password.validator';
 
 @Component({
   selector: 'app-formular-delete-account',
