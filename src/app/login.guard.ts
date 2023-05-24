@@ -6,6 +6,7 @@ import { TokenService } from './services/token.service';
 @Injectable({
   providedIn: 'root'
 })
+// TODO : mettre les guards dans un dossier guards
 export class LoginGuard implements CanActivate {
   constructor(private tokenService : TokenService, private router : Router){}
   canActivate(

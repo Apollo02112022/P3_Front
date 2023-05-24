@@ -8,4 +8,5 @@ export class User {
     county?: number;
     password?: string;
     id?:number
+    //TODO : tout est optionnel ? vraiment ?
   } 

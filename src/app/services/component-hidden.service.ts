@@ -5,6 +5,7 @@ import { Injectable } from "@angular/core";
 })
 export class ComponentHiddenService {
 
+    // TODO : un service pour gerer uniquement un booléen ? On pourrait gerer ça directement dans UserCardComponent
     private hidden = true;
 
     getHidden():boolean{

@@ -57,6 +57,10 @@ export class AnnoncesComponent implements OnInit {
       });
     } else if (this.router.url.includes("admin")) {
       this.annonceService.adminUserAnnonce().subscribe(ann => {
+        // TODO : voir bonne façon d'écrire les observables .subscribe({
+        //    next: this.handleUpdateResponse.bind(this),
+        //    error: this.handleError.bind(this)
+        // });
         console.log("oui ça passe !!!!! &&&&&&&");
         // affecte le resultat de la methode listeUserAnnonce ann à la liste d'annonce
         this.annonces = ann.map(annonceImg => {
@@ -101,6 +105,7 @@ export class AnnoncesComponent implements OnInit {
 
   // méthode pour sélectionner une annonce dans la liste
   onSelectedAnnonce(annonce: any): void {
+    // TODO : attention aux commentaires de code de manière générale, pas besoin d'en mettre trop, autant clarifier les noms des méthodes et des variables
     const id = annonce.id
     this.annonceService.userAnnouncementId = annonce.user.id
     console.log("Annonce sélectionnée :", id);

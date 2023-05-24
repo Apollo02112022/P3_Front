@@ -20,6 +20,7 @@ export class LogoutService {
       .then(res => res.json())
       .then(response => {
         console.log(response);
+        // TODO : preferer des popups/modals à des alert(...)
         alert("Vous êtes deconnecté");
         // this.router.navigate(['/accueil']);
         localStorage.removeItem("token");

@@ -29,6 +29,9 @@ import { PolitiqueComponent } from './politique/politique.component';
 import { ProfilAdminComponent } from './profil-admin/profil-admin.component';
 
 
+// TODO : ça pourrait être bien de créer un module par folder, par exemple /profil-admin etc...
+//  pour éviter de tout mettre dans le module root
+
 @NgModule({
 
   declarations: [						

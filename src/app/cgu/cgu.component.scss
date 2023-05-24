@@ -2,6 +2,9 @@ h1 {
     text-align: center;
 }
 
+// TODO : attention, pas mal de doublons au niveau des classes,
+//  créer un fichier global.scss que vous importez dans vos autres css
+// se renseigner sur les imports, fonctionnalité cool sur scss
 .box1 {
     display: flex;
     justify-content: center;

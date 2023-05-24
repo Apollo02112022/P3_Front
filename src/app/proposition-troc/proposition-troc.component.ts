@@ -20,6 +20,8 @@ export class PropositionTrocComponent implements OnInit {
   constructor(private router: Router, private notificationService: NotificationService,private token : TokenService, private annonceService : AnnonceService) { }
 
   ngOnInit() {
+    // TODO document why this method 'ngOnInit' is empty
+
 
   }
 

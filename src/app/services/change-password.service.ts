@@ -12,6 +12,8 @@ export class ChangePasswordService {
 
 
   // ----------------constante pour l'exécution des appels api--------------//
+
+  // TODO : stocker les variables (base url) dans un fichier de conf / i.e /environments
   url: string = "http://localhost:8080/users/" + this.token.userIdOnToken() + "/profil";
   //------------------------- section à modifier --------------------------// 
 
