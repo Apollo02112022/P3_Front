@@ -2,7 +2,7 @@
     <div class="flex row jc-center ai-center">
         <div>
 
-            <img class="logo" src="assets/icons/sers_mains.png">
+            <img class="logo" src="assets/icons/sers_mains.png" title="Accueil">
         </div>
         <div>
 
@@ -10,28 +10,28 @@
         </div>
     </div>
     <div>
-        <img (click)="backClick()" src="assets/icons/fleche-cercle-gauche.png" alt="flêche pour retour page précédente"title="retour page précédente">
+        <img (click)="backClick()" src="assets/icons/fleche-cercle-gauche.png" alt="flêche pour retour page précédente"title=" Page Précédente">
     </div>
     <div>
 
-        <img routerLink="/accueil" src="assets/icons/maison.png" alt="retour accueil">
+        <img routerLink="/accueil" src="assets/icons/maison.png" alt="Annonces" title="Annonces">
     </div>
     <div>
 
-        <img routerLink="/offer-a-barter" src="assets/icons/ajouter.png" alt="créer une annonce" title="Créer une annonce">
+        <img routerLink="/offer-a-barter" src="assets/icons/ajouter.png" alt="créer une annonce" title="Créer une Annonce">
     </div>
     <div class="notification">
         <div *ngIf="messages.length" class="number">
             {{messages.length}}
         </div>
         <div>
-            <img [routerLink]="userNotificationNav()" src="assets/icons/bell.png" alt="consulter notification" title="notifications">
+            <img [routerLink]="userNotificationNav()" src="assets/icons/bell.png" alt="consulter notification" title="Notifications">
         </div>
     </div>
     <div class="flex row jc-center ai-center">
         <div class="usericon">
     
-            <img  [routerLink]="userProfilNav()" [src]="image" alt="consulter profil" title="Mon profil Connexion Deconnexion">
+            <img  [routerLink]="userProfilNav()" [src]="image" alt="consulter profil" title="Mon Profil Connexion Deconnexion">
         </div>
         <h3>{{pseudo}}</h3>
     </div>
