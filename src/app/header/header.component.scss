@@ -3,6 +3,19 @@
     z-index: 10;
 }
 
+.usericon{
+    border-radius: 50%;
+    img {
+    
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+    }
+}
+h3 {
+    padding-left: 10px;
+}
+
 @media (min-width: 769px) {
     .icons_desktop {
         height: 55px;
@@ -11,20 +24,15 @@
         align-items: center;
         justify-content: space-around;
     }
-
-    // .icons {
     
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: center;
-       
+    
+    
+    .notification {
+        position: relative;
         
-        .notification {
-            position: relative;
-           
-            .number {
-                color: white;
-                background-color:rgb(255, 0, 0);
+        .number {
+            color: white;
+            background-color:rgb(255, 0, 0);
                 border-radius: 50%;
                 width: 15px;
                 height: 15px;
@@ -36,15 +44,15 @@
                 top: -5px;   
             }
         }
-    
-    .logo {
-        width: 32px;
-        display: flex;
+        
+        .logo {
+            width: 32px;
+            display: flex;
+        }
+        
+        .title {
+            text-align: left;
+            font-size: 18px;
+            color: rgb(81, 81, 81)
+        }
     }
-    
-    .title {
-        text-align: left;
-        font-size: 18px;
-        color: rgb(81, 81, 81)
-    }
-}

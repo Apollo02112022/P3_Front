@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { TokenService } from '../services/token.service';
 import { environment } from 'src/environments/environment.prod';
+import { UserlogoService } from '../services/userlogo.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class LoginComponent {
 
   tokenReceveidFail: boolean = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private tokenService: TokenService) {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private tokenService: TokenService,private userLogoService : UserlogoService) {}
 
 
     registerForm = new FormGroup({
@@ -42,6 +43,7 @@ export class LoginComponent {
           this.router.navigate(["/barters"])
           alert(" Vous êtes connecté")
           this.tokenService.setToken(token);
+          this.getUserPseudoAndPictureForHederandFooter()
         } else {
           this.tokenReceveidFail = true;
         }
@@ -74,6 +76,30 @@ export class LoginComponent {
       }else{
         return null
       }
+  }
+
+  getUserPseudoAndPictureForHederandFooter(){
+
+    if(this.tokenService.getDecodedToken().pseudo == null){
+      
+        this.userLogoService.pseudo = ""
+        this.userLogoService.image = "assets/icons/utilisateur-du-cercle.png"
+      }
+  
+      this.userLogoService.pseudo = this.tokenService.getDecodedToken().pseudo;
+  
+      this.userLogoService.getUserPicture(this.userLogoService.imageURL + this.tokenService.userIdOnToken() + "/picture").subscribe(
+        (data: Blob) => {
+          const reader = new FileReader(); // création d'un objet FileReader pour lire l'image sous forme de blob
+          reader.readAsDataURL(data); // lit le blob sous forme d'URL
+          reader.onloadend = () => {
+            this.userLogoService.image = reader.result; // stock l'URL dans la variable "image"
+          };
+        },
+        error => {
+          console.log(error);
+        }
+      );
   }
 
 }

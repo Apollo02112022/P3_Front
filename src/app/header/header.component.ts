@@ -1,10 +1,13 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { AnnonceService } from '../services/annonce.service';
 import { TokenService } from '../services/token.service';
 import { Location } from '@angular/common';
 import { NotificationService } from '../services/notification.service';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
+import { UserlogoService } from '../services/userlogo.service';
 
 @Component({
   selector: 'app-header',
@@ -25,16 +28,34 @@ export class HeaderComponent implements OnInit {
   messages: string[] = [];
   isStreamOn:boolean = false;
 
+  pseudo:string = "";
+  image:null | string | ArrayBuffer=this.userLogoService.getImage();
+  
+
   // constructor(private router: Router) {}
-  constructor(private http: HttpClient,private router: Router,private annonceService: AnnonceService,private location: Location, private token :TokenService,private notifService : NotificationService) {}
+  constructor(private router: Router,private userLogoService: UserlogoService,private location: Location, private token :TokenService, private notifService : NotificationService) {}
   
   ngOnInit() {
+
+    if(localStorage.getItem('token')){
+
+      this.getUserPseudoAndPictureForHederandFooter(),
+      this.pseudo =this.token.getDecodedToken().pseudo;
+      this.image = this.userLogoService.getImage();
+    }
 
   
       // écoute les évènements de navigation du 'Router'
       this.router.events.subscribe((event) => {
         if(event instanceof NavigationEnd ){
 
+          if(localStorage.getItem('token')){
+
+            this.getUserPseudoAndPictureForHederandFooter(),
+            this.pseudo =this.token.getDecodedToken().pseudo;
+            this.image = this.userLogoService.getImage();
+          }
+          
           if(!this.isStreamOn && event.url == "/barters" &&  localStorage.getItem('token')){
             this.isStreamOn = true;
             this.startStreamMessage();
@@ -72,6 +93,30 @@ userProfilNav(){
     //methode retour page precedente
  backClick() {
   this.location.back();
+}
+
+getUserPseudoAndPictureForHederandFooter(){
+
+  if(this.token.getDecodedToken().pseudo == null){
+    
+      this.pseudo = ""
+      this.image = "assets/icons/utilisateur-du-cercle.png"
+    }
+
+    this.pseudo = this.token.getDecodedToken().pseudo;
+
+    this.userLogoService.getUserPicture(this.userLogoService.imageURL + this.token.userIdOnToken() + "/picture").subscribe(
+      (data: Blob) => {
+        const reader = new FileReader(); // création d'un objet FileReader pour lire l'image sous forme de blob
+        reader.readAsDataURL(data); // lit le blob sous forme d'URL
+        reader.onloadend = () => {
+          this.image = reader.result; // stock l'URL dans la variable "image"
+        };
+      },
+      error => {
+        console.log(error);
+      }
+    );
 }
 
 }

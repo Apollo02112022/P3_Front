@@ -20,10 +20,14 @@
         </div>
 
     </div>
-    <div class="icon">
-
-        <img  [routerLink]="userProfilNav()" src="assets/icons/utilisateur-du-cercle.png" alt="consulter profil">
+    <div class="flex row jc-center ai-center">
+        <div class="icon usericon">
+    
+            <img [routerLink]="userProfilNav()" [src]="image" alt="consulter profil">
+        </div>
+        <h3>{{pseudo}}</h3>
     </div>
+    
 </div>
 <div class="icons_desktop">
     <p>
