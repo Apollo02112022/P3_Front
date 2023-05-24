@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ComponentHiddenService } from '../../services/component-hidden.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from 'src/app/user-form/models/user-form.model';
+import { User } from 'src/app/models/user-form.model';
 import { LogoutService } from '../../services/logout.service';
 import { TokenService } from 'src/app/services/token.service';
 import { environment } from 'src/environments/environment.prod';

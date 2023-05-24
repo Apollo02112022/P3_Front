@@ -12,9 +12,6 @@ const baseUrl2 = environment.apiUrlUser;
 const baseUrl3 = environment.apiUrlUser;
 
 
-// const httpOptions = {headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-// };
-
 @Injectable({
     providedIn: 'root'
 })
