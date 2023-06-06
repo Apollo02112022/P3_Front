@@ -1,10 +1,11 @@
 
 .notif_list {
-  min-height: calc(100vh - 110px);
+  min-height: calc(100vh - 55px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  margin-top: 40px;
 }
 
 .notif_title {

@@ -39,6 +39,10 @@ h1 {
     } 
 }
 
+li{
+    color: #d0f5e4;
+}
+
 .btn {
     border-radius: 20px;
     width: 200px;
@@ -48,3 +52,10 @@ h1 {
     display: none; 
 }
 
+@media (min-width: 768px){
+
+    li{
+        color: black;
+    }
+
+}
