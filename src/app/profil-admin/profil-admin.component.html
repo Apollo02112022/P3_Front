@@ -1,10 +1,10 @@
 <div class="main">
 
-  <h1>Listes des utilisateurs inscrits</h1>
+    <h1>Listes des utilisateurs:</h1>
   
-  <section class="bigbox" *ngFor="let user of users">
+  <section class="bigbox" >
     
-    <div class="bigbox__littlebox">
+    <div class="bigbox__littlebox" *ngFor="let user of users">
       
       <ul >
         <li>Nom : {{ user.lastname }}</li>
