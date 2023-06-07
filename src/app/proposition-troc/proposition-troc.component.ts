@@ -15,7 +15,7 @@ export class PropositionTrocComponent implements OnInit {
 
   content!: String;
   sender!: String;
-
+  messageErr!: string;
   newNotification = new Notification();
 
   constructor(private router: Router, private notificationService: NotificationService,private token : TokenService, private annonceService : AnnonceService) { }
@@ -27,6 +27,9 @@ export class PropositionTrocComponent implements OnInit {
 
   
   addNotif() {
+    if (!this.checkDescriptionLength()) {
+      return;
+    }
     const apiUrl = environment.apiUrlAddMessage+this.annonceService.userAnnouncementId;
     const token = localStorage.getItem('token');
     const message = this.newNotification.message;
@@ -48,4 +51,19 @@ export class PropositionTrocComponent implements OnInit {
       .catch(error => console.error('Error:', error));
     this.router.navigate(['barters']); // retour a la page annonces après ajout d'une proposition
   }
+
+
+
+// méthode pour valider la longueur requise min/max de la description de l'annonce
+checkDescriptionLength(): boolean {
+  if (this.newNotification.message.length < 10) {
+    this.messageErr = "La description est trop courte (minimum 10 caractères)";
+    return false;
+  } else if (this.newNotification.message.length > 250) {
+    this.messageErr = "La description est trop longue (maximum 250 caractères)";
+    return false;
+  } else {
+    return true;
+  }
+}
 }

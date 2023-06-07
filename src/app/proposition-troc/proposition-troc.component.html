@@ -1,24 +1,27 @@
-  <div class="proposition-container">
-    <app-details-annonce></app-details-annonce>
+<div class="proposition-container">
+  <app-details-annonce></app-details-annonce>
 
-    <form (submit)="addNotif()">
-      <div class="propositon-Cards">
-        <h2 class="prop-Titre">Ma Proposition de Troc</h2>
-        <textarea [(ngModel)]="newNotification.message" type="text" name="message" class="description-Proposition"
-          placeholder="Saisissez votre proposition ici... minimum 10 à maximum 250 caractères" maxlength="250"
-          minlength="10"></textarea>
-        <label for="phone">Téléphone:</label>
-        <input [(ngModel)]="newNotification.tel" id="telNo" type="tel" required name="tel" minlength="10" maxlength="10"
-          placeholder="format: 0602010201 ">
-        <span class="validity"></span>
-        <label for="email">Email:</label>
-        <input [(ngModel)]="newNotification.mail" id="emailAddress" type="email" name="mail" maxLength="50" required placeholder="monemail@jetroc.fr">
-        <span class="validity"></span>
-      </div>
-      <div class="btnValid">
-        <button class="btnPropose"  type="submit">Proposer l'échange</button>
-      </div>
-    </form>
-  </div>
-
-<!-- (submit)="sendProposition()" -->
+  <form (submit)="addNotif()">
+    <div class="propositon-Cards">
+      <h2 class="prop-Titre">Ma Proposition de Troc</h2>
+      <textarea [(ngModel)]="newNotification.message" type="text" name="message" class="description-Proposition"
+        placeholder="Saisissez votre proposition ici... minimum 10 à maximum 250 caractères" maxlength="250"
+        minlength="10"></textarea>
+      <label for="phone">Téléphone:</label>
+      <input [(ngModel)]="newNotification.tel" id="telNo" type="tel" required name="tel" minlength="10" maxlength="10"
+        placeholder="format: 0602010201 " pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}">
+      <span class="validity"></span>
+      <label for="email">Email:</label>
+      <input [(ngModel)]="newNotification.mail" id="emailAddress" type="email" name="mail" maxLength="50" required
+        placeholder="monemail@jetroc.fr">
+      <span class="validity"></span>
+    </div>
+    <div class="btnValid">
+      <button class="btnPropose" type="submit">Proposer l'échange</button>
+    </div>
+    <div>
+      <h3 class="erreur"><span class="backG">{{messageErr}}</span></h3>
+    </div>
+  
+  </form>
+</div>

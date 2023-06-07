@@ -6,7 +6,7 @@
 
 .cardDetailAnnonce {
   display: flex;
-  width: 300px;
+  width: px;
   height: 200px;
   margin: 15px auto 15px auto;
   padding: 20px;
@@ -118,7 +118,18 @@ input:valid+span:after {
   padding-left: 5px;
   color: #A6D1BD;
 }
-
+.erreur
+{
+  display: flex;
+  color: red;
+  justify-content: center;
+  margin-top: -44px;
+  width: auto;
+  text-align: center;
+}
+.backG{
+  background-color:white ;
+}
 /* //////////MEDIA QUERIES//////////*/
 
 
