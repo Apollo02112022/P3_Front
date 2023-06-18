@@ -26,21 +26,21 @@
 
         </div>
 
-        <div *ngIf="form.get('lastname')?.invalid && (form.get('lastname')?.dirty || form.get('lastname')?.touched)">
+        <div *ngIf="form.get('lastname')?.touched">
 
           <p *ngIf="form.get('lastname')?.hasError('required')" class="error">
             *Ce champs est requis.
           </p>
 
-          <p *ngIf="form.get('lastname')?.hasError('invalidFormat')" class="error">
-            *Première lettre en majuscule, <br> pas de caractères spéciaux <br> ni de chiffres.
-          </p>
-
-          <p *ngIf="form.get('lastname')?.hasError('maxlength')" class="error">
-            *Maximum 20 caractères.
-          </p>
-
         </div>
+
+        <p *ngIf="form.get('lastname')?.hasError('invalidFormat')" class="error">
+          *Première lettre en majuscule, <br> pas de caractères spéciaux <br> ni de chiffres.
+        </p>
+
+        <p *ngIf="form.get('lastname')?.hasError('maxlength')" class="error">
+          *Maximum 20 caractères.
+        </p>
 
       </section>
 
@@ -65,21 +65,21 @@
 
         </div>
 
-        <div *ngIf="form.get('firstname')?.invalid && (form.get('firstname')?.dirty || form.get('firstname')?.touched)">
+        <div *ngIf="form.get('firstname')?.touched">
 
           <p *ngIf="form.get('firstname')?.hasError('required')" class="error">
             *Ce champs est requis.
           </p>
 
-          <p *ngIf="form.get('firstname')?.hasError('invalidFormat')" class="error">
-            *Première lettre en majuscule, <br> pas de caractères spéciaux <br> ni de chiffres.
-          </p>
+        </div> 
 
-          <p *ngIf="form.get('firstname')?.hasError('maxlength')" class="error">
-            *Maximum 20 caractères.
-          </p>
+        <p *ngIf="form.get('firstname')?.hasError('invalidFormat')" class="error">
+          *Première lettre en majuscule, <br> pas de caractères spéciaux <br> ni de chiffres.
+        </p>
 
-        </div>
+        <p *ngIf="form.get('firstname')?.hasError('maxlength')" class="error">
+          *Maximum 20 caractères.
+        </p>
 
       </section>
 
@@ -103,7 +103,7 @@
 
         </div>
 
-        <div *ngIf="form.get('pseudo')?.invalid && (form.get('pseudo')?.dirty || form.get('pseudo')?.touched)">
+        <div *ngIf="form.get('pseudo')?.touched">
 
           <p *ngIf="form.get('pseudo')?.hasError('required')" class="error">
             *Ce champs est requis.
@@ -113,11 +113,11 @@
             *Pas de caractères spéciaux, pas d'espace.
           </p>
 
-          <p *ngIf="form.get('pseudo')?.hasError('maxlength')" class="error">
-            *Maximum 10 caractères.
-          </p>
+        </div> 
 
-        </div>
+        <p *ngIf="form.get('pseudo')?.hasError('maxlength')" class="error">
+          *Maximum 10 caractères.
+        </p>
 
       </section>
 
@@ -144,7 +144,7 @@
 
         </div>
 
-        <div *ngIf="form.get('picture')?.invalid && (form.get('picture')?.dirty || form.get('picture')?.touched)">
+        <div *ngIf="form.get('picture')?.dirty">
 
           <p *ngIf="form.get('picture')?.hasError('invalidFileType')" class="error">
               *Formats JPEG et PNG seulement acceptés.
@@ -174,17 +174,17 @@
 
         </div>
 
-        <div *ngIf="form.get('city')?.invalid && (form.get('city')?.dirty || form.get('city')?.touched)">
+        <div *ngIf="form.get('city')?.touched">
 
           <p *ngIf="form.get('city')?.hasError('required')" class="error">
             *Ce champs est requis.
           </p>
 
-          <p *ngIf="form.get('city')?.hasError('invalidFormat')" class="error">
-            *Première lettre en majuscule, <br> pas de caractères spéciaux <br> ni de chiffres.
-          </p>
+        </div> 
 
-        </div>
+        <p *ngIf="form.get('city')?.hasError('invalidFormat')" class="error">
+          *Première lettre en majuscule, <br> pas de caractères spéciaux <br> ni de chiffres.
+        </p>
 
       </section>
 
@@ -208,7 +208,7 @@
 
         </div>
 
-        <div *ngIf="form.get('county')?.invalid && (form.get('county')?.dirty || form.get('county')?.touched)">
+        <div *ngIf="form.get('county')?.touched">
 
           <p *ngIf="form.get('county')?.hasError('required')" class="error">
             *Ce champs est requis.
@@ -218,15 +218,15 @@
             *Uniquement des chiffres.
           </p>
 
-          <p *ngIf="form.get('county')?.hasError('minlength')" class="error">
-            *Minimum 3 caractères.
-          </p>
-
-          <p *ngIf="form.get('county')?.hasError('maxlength')" class="error">
-            *Maximum 5 caractères.
-          </p>
-
         </div>
+
+        <p *ngIf="form.get('county')?.hasError('minlength')" class="error">
+          *Minimum 3 caractères.
+        </p>
+
+        <p *ngIf="form.get('county')?.hasError('maxlength')" class="error">
+          *Maximum 5 caractères.
+        </p> 
 
       </section>
 
@@ -250,17 +250,17 @@
 
         </div>
 
-        <div *ngIf="form.get('mail')?.invalid && (form.get('mail')?.dirty || form.get('mail')?.touched)">
+        <div *ngIf="form.get('mail')?.touched">
 
           <p *ngIf="form.get('mail')?.hasError('required')" class="error">
             *Ce champs est requis.
           </p>
 
-          <p *ngIf="form.get('mail')?.hasError('email')" class="error">
-            *Renseigner une adresse mail valide.
-          </p>
-
         </div>
+
+        <p *ngIf="form.get('mail')?.hasError('email')" class="error">
+          *Renseigner une adresse mail valide.
+        </p>
 
       </section>
 
@@ -284,7 +284,7 @@
 
         </div>
 
-        <div *ngIf="form.get('password')?.invalid && (form.get('password')?.dirty || form.get('password')?.touched)">
+        <div *ngIf="form.get('password')?.touched">
 
           <p *ngIf="form.get('password')?.hasError('required')" class="error">
             *Ce champs est requis.
@@ -294,11 +294,11 @@
             *Au moins une majuscule, <br> un caractère spécial et un chiffre.
           </p>
 
-          <p *ngIf="form.get('password')?.hasError('minlength')" class="error">
-            *Minimum 8 caractères.
-          </p>
+        </div> 
 
-        </div>
+        <p *ngIf="form.get('password')?.hasError('minlength')" class="error">
+          *Minimum 8 caractères.
+        </p>
 
       </section>
 
@@ -324,7 +324,7 @@
         </div>
 
         <div
-          *ngIf="form.get('confirmation')?.invalid && (form.get('confirmation')?.dirty || form.get('confirmation')?.touched)">
+          *ngIf="form.get('confirmation')?.touched">
 
           <p *ngIf="form.get('confirmation')?.hasError('required')" class="error">
             *Ce champs est requis.
@@ -334,15 +334,15 @@
             *Au moins une majuscule, <br> un caractère spécial et un chiffre.
           </p>
 
-          <p *ngIf="form.get('confirmation')?.hasError('minlength')" class="error">
-            *Minimum 8 caractères.
-          </p>
+        </div> 
 
-          <p *ngIf="form.get('confirmation')?.hasError('passwordMismatch')" class="error">
-            *Les mots de passe <br> ne correspondent pas.
-          </p>
+        <p *ngIf="form.get('confirmation')?.hasError('minlength')" class="error">
+          *Minimum 8 caractères.
+        </p>
 
-        </div>
+        <p *ngIf="form.get('confirmation')?.hasError('passwordMismatch')" class="error">
+          *Les mots de passe <br> ne correspondent pas.
+        </p>
 
       </section>
 
