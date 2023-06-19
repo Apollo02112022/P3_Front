@@ -32,7 +32,8 @@ export class UserCardComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.user.pseudo = this.tokenService.getDecodedToken().pseudo;
+    this.user.pseudo = this.tokenService.getDecodedToken().sub;
+    // this.user.pseudo = this.tokenService.getDecodedToken().pseudo;
     this.user.id = this.tokenService.getDecodedToken().userId;
     
 
