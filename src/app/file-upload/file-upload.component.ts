@@ -1,5 +1,5 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 
 @Component({
@@ -17,7 +17,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 })
 
-export class FileUploadComponent {
+export class FileUploadComponent implements ControlValueAccessor {
 
   selected = false;
 
